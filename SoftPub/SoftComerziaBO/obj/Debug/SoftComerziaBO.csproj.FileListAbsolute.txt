@@ -1,0 +1,21 @@
+C:\Users\camilo\Desktop\Ciclo 2024-2\LP2\TA Lab07\SoftPub\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll.config
+C:\Users\camilo\Desktop\Ciclo 2024-2\LP2\TA Lab07\SoftPub\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll
+C:\Users\camilo\Desktop\Ciclo 2024-2\LP2\TA Lab07\SoftPub\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.pdb
+C:\Users\camilo\Desktop\Ciclo 2024-2\LP2\TA Lab07\SoftPub\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.AssemblyReference.cache
+C:\Users\camilo\Desktop\Ciclo 2024-2\LP2\TA Lab07\SoftPub\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.CoreCompileInputs.cache
+C:\Users\camilo\Desktop\Ciclo 2024-2\LP2\TA Lab07\SoftPub\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.dll
+C:\Users\camilo\Desktop\Ciclo 2024-2\LP2\TA Lab07\SoftPub\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.pdb
+C:\Users\hunkj\Downloads\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll.config
+C:\Users\hunkj\Downloads\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll
+C:\Users\hunkj\Downloads\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.pdb
+C:\Users\hunkj\Downloads\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.AssemblyReference.cache
+C:\Users\hunkj\Downloads\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.CoreCompileInputs.cache
+C:\Users\hunkj\Downloads\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.dll
+C:\Users\hunkj\Downloads\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.pdb
+C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll.config
+C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll
+C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.pdb
+C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.AssemblyReference.cache
+C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.CoreCompileInputs.cache
+C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.dll
+C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.pdb

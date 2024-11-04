@@ -1,0 +1,7 @@
+{
+	"base_de_datos": "soft_pub_test",
+	"nombre_de_host": "localhost",
+	"puerto": "3306",
+	"usuario": "amelgar",
+	"contraseña": "Programacion3"
+}

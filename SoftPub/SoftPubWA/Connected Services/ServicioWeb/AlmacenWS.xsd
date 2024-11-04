@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.comerziasoft.pucp.edu.pe" targetNamespace="http://services.comerziasoft.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="buscarPorNombre" type="tns:buscarPorNombre" />
+  <xs:element name="buscarPorNombreResponse" type="tns:buscarPorNombreResponse" />
+  <xs:element name="buscarProductoPorId" type="tns:buscarProductoPorId" />
+  <xs:element name="buscarProductoPorIdResponse" type="tns:buscarProductoPorIdResponse" />
+  <xs:element name="insertarProductoAlmacenado" type="tns:insertarProductoAlmacenado" />
+  <xs:element name="insertarProductoAlmacenadoResponse" type="tns:insertarProductoAlmacenadoResponse" />
+  <xs:element name="listarAlmacenes" type="tns:listarAlmacenes" />
+  <xs:element name="listarAlmacenesResponse" type="tns:listarAlmacenesResponse" />
+  <xs:element name="listarPorAlmacen" type="tns:listarPorAlmacen" />
+  <xs:element name="listarPorAlmacenResponse" type="tns:listarPorAlmacenResponse" />
+  <xs:element name="obtenerPorId" type="tns:obtenerPorId" />
+  <xs:element name="obtenerPorIdResponse" type="tns:obtenerPorIdResponse" />
+  <xs:complexType name="listarAlmacenes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarAlmacenesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:almacen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="almacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:almacen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProductoAlmacenado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaAlmacenado" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="stock" type="xs:int" />
+      <xs:element minOccurs="0" name="idProd" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProductoAlmacenadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:productoAlmacenado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productoAlmacenado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fechaAlmacenado" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+      <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="idProductoAlmacenado" type="xs:int" />
+      <xs:element minOccurs="0" name="stockActual" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPorNombre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreProd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPorNombreResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="producto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="stockMinimo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProductoPorId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idProd" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProductoPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
