@@ -7,40 +7,64 @@ import pe.edu.pucp.comerzia.GestionDeAlmacen.daoImpl.ProductoAlmacenadoDAOImpl;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.ProductoAlmacenado;
 
 public class ProductoAlmacenadoBO {
-    private ProductoAlmacenadoDAO productoAlmacenadoDAO;
 
-    public ProductoAlmacenadoBO() {
-        this.productoAlmacenadoDAO = new ProductoAlmacenadoDAOImpl();
-    }
+  private ProductoAlmacenadoDAO productoAlmacenadoDAO;
 
-    public Integer insertar(Integer idAlmacen, Date fechaAlmacenado, Integer stockActual, Integer idProducto) {
-//        ProductoBO productoBO = new ProductoBO();
-//        AlmacenBO almacenBO = new AlmacenBO();
-//        if(productoBO.obtenerPorId(idProducto)==null || almacenBO.obtenerPorId(idAlmacen)==null)return null;
-        ProductoAlmacenado productoAlmacenado = new ProductoAlmacenado(null, idAlmacen, fechaAlmacenado, stockActual, idProducto);
-        return productoAlmacenadoDAO.insertar(productoAlmacenado);
-    }
+  public ProductoAlmacenadoBO() {
+    this.productoAlmacenadoDAO = new ProductoAlmacenadoDAOImpl();
+  }
 
-    public Integer modificar(Integer idProductoAlmacenado, Integer idAlmacen, Date fechaAlmacenado, Integer stockActual, Integer idProducto) {
-        ProductoAlmacenado productoAlmacenado = new ProductoAlmacenado(idProductoAlmacenado, idAlmacen, fechaAlmacenado, stockActual, idProducto);
-        return productoAlmacenadoDAO.modificar(productoAlmacenado);
-    }
+  public Integer insertar(
+    Integer idAlmacen,
+    Date fechaAlmacenado,
+    Integer stockActual,
+    Integer idProducto
+  ) {
+    //        ProductoBO productoBO = new ProductoBO();
+    //        AlmacenBO almacenBO = new AlmacenBO();
+    //        if(productoBO.obtenerPorId(idProducto)==null || almacenBO.obtenerPorId(idAlmacen)==null)return null;
+    ProductoAlmacenado productoAlmacenado = new ProductoAlmacenado(
+      null,
+      idAlmacen,
+      fechaAlmacenado,
+      stockActual,
+      idProducto
+    );
+    return productoAlmacenadoDAO.insertar(productoAlmacenado);
+  }
 
-    public Integer eliminar(Integer idProductoAlmacenado) {
-        ProductoAlmacenado productoAlmacenado = new ProductoAlmacenado();
-        productoAlmacenado.setIdProductoAlmacenado(idProductoAlmacenado);
-        return productoAlmacenadoDAO.eliminar(productoAlmacenado);
-    }
+  public Integer modificar(
+    Integer idProductoAlmacenado,
+    Integer idAlmacen,
+    Date fechaAlmacenado,
+    Integer stockActual,
+    Integer idProducto
+  ) {
+    ProductoAlmacenado productoAlmacenado = new ProductoAlmacenado(
+      idProductoAlmacenado,
+      idAlmacen,
+      fechaAlmacenado,
+      stockActual,
+      idProducto
+    );
+    return productoAlmacenadoDAO.modificar(productoAlmacenado);
+  }
 
-    public ArrayList<ProductoAlmacenado> listarTodos() {
-        return this.productoAlmacenadoDAO.listarTodos();
-    }
-    
-    public ArrayList<ProductoAlmacenado> listarPorAlmacen(Integer idAlmacen) {
-        return this.productoAlmacenadoDAO.listarPorAlmacen(idAlmacen);
-    }
+  public Integer eliminar(Integer idProductoAlmacenado) {
+    ProductoAlmacenado productoAlmacenado = new ProductoAlmacenado();
+    productoAlmacenado.setIdProductoAlmacenado(idProductoAlmacenado);
+    return productoAlmacenadoDAO.eliminar(productoAlmacenado);
+  }
 
-    public ProductoAlmacenado obtenerPorId(Integer idProductoAlmacenado) {
-        return this.productoAlmacenadoDAO.obtenerPorId(idProductoAlmacenado);
-    }
+  public ArrayList<ProductoAlmacenado> listarTodos() {
+    return this.productoAlmacenadoDAO.listarTodos();
+  }
+
+  public ArrayList<ProductoAlmacenado> listarPorAlmacen(Integer idAlmacen) {
+    return this.productoAlmacenadoDAO.listarPorAlmacen(idAlmacen);
+  }
+
+  public ProductoAlmacenado obtenerPorId(Integer idProductoAlmacenado) {
+    return this.productoAlmacenadoDAO.obtenerPorId(idProductoAlmacenado);
+  }
 }

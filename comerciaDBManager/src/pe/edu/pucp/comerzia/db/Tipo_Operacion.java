@@ -9,5 +9,7 @@ package pe.edu.pucp.comerzia.db;
  * @author user
  */
 public enum Tipo_Operacion {
-    INSERTAR, MODIFICAR, ELIMINAR
+  INSERTAR,
+  MODIFICAR,
+  ELIMINAR,
 }

@@ -2,101 +2,119 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 
 import java.util.Date;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona {
 
-    private Integer idEmpleado;
-    private static Integer idCorrelativo = 1;
+  private Integer idEmpleado;
+  private static Integer idCorrelativo = 1;
 
-    private EstadoEmpleado estado;
-    private String nombreUsuario;
-    private String contrasenha;
-    private Double salario;
-    private Date fechaContratacion;
+  private EstadoEmpleado estado;
+  private String nombreUsuario;
+  private String contrasenha;
+  private Double salario;
+  private Date fechaContratacion;
 
-    public Empleado(Integer idEmpleado, Integer idPersona, EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
-        this.idEmpleado = idEmpleado;
-        this.estado = estado;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenha = contrasenha;
-        this.salario = salario;
-        this.fechaContratacion = fechaContratacion;
-    }
+  public Empleado(
+    Integer idEmpleado,
+    Integer idPersona,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion
+  ) {
+    this.idEmpleado = idEmpleado;
+    this.estado = estado;
+    this.nombreUsuario = nombreUsuario;
+    this.contrasenha = contrasenha;
+    this.salario = salario;
+    this.fechaContratacion = fechaContratacion;
+  }
 
-//    public Empleado(EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
-//        this.idEmpleado = idCorrelativo++;
-//        this.estado = estado;
-//        this.nombreUsuario = nombreUsuario;
-//        this.contrasenha = contrasenha;
-//        this.salario = salario;
-//        this.fechaContratacion = fechaContratacion;
-//    }
-    
-    public Empleado(String dni, String nombreCompleto, String telefono, String correo, String direccion,
-            EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion){
-        super( dni,  nombreCompleto,  telefono,  correo,  direccion);
-        this.idEmpleado = idCorrelativo++;
-        this.estado = estado;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenha = contrasenha;
-        this.salario = salario;
-        this.fechaContratacion = fechaContratacion;
-    }
+  //    public Empleado(EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
+  //        this.idEmpleado = idCorrelativo++;
+  //        this.estado = estado;
+  //        this.nombreUsuario = nombreUsuario;
+  //        this.contrasenha = contrasenha;
+  //        this.salario = salario;
+  //        this.fechaContratacion = fechaContratacion;
+  //    }
 
-    // nulls
-    public Empleado() {
-        this.idEmpleado = null;
-        this.estado = null;
-        this.nombreUsuario = null;
-        this.contrasenha = null;
-        this.salario = null;
-        this.fechaContratacion = null;
-    }
+  public Empleado(
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion
+  ) {
+    super(dni, nombreCompleto, telefono, correo, direccion);
+    this.idEmpleado = idCorrelativo++;
+    this.estado = estado;
+    this.nombreUsuario = nombreUsuario;
+    this.contrasenha = contrasenha;
+    this.salario = salario;
+    this.fechaContratacion = fechaContratacion;
+  }
 
-    public Integer getIdEmpleado() {
-        return idEmpleado;
-    }
+  // nulls
+  public Empleado() {
+    this.idEmpleado = null;
+    this.estado = null;
+    this.nombreUsuario = null;
+    this.contrasenha = null;
+    this.salario = null;
+    this.fechaContratacion = null;
+  }
 
-    public void setIdEmpleado(Integer idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
+  public Integer getIdEmpleado() {
+    return idEmpleado;
+  }
 
-    public EstadoEmpleado getEstado() {
-        return estado;
-    }
+  public void setIdEmpleado(Integer idEmpleado) {
+    this.idEmpleado = idEmpleado;
+  }
 
-    public void setEstado(EstadoEmpleado estado) {
-        this.estado = estado;
-    }
+  public EstadoEmpleado getEstado() {
+    return estado;
+  }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
+  public void setEstado(EstadoEmpleado estado) {
+    this.estado = estado;
+  }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
+  public String getNombreUsuario() {
+    return nombreUsuario;
+  }
 
-    public String getContrasenha() {
-        return contrasenha;
-    }
+  public void setNombreUsuario(String nombreUsuario) {
+    this.nombreUsuario = nombreUsuario;
+  }
 
-    public void setContrasenha(String contrasenha) {
-        this.contrasenha = contrasenha;
-    }
+  public String getContrasenha() {
+    return contrasenha;
+  }
 
-    public Double getSalario() {
-        return salario;
-    }
+  public void setContrasenha(String contrasenha) {
+    this.contrasenha = contrasenha;
+  }
 
-    public void setSalario(Double salario) {
-        this.salario = salario;
-    }
+  public Double getSalario() {
+    return salario;
+  }
 
-    public Date getFechaContratacion() {
-        return fechaContratacion;
-    }
+  public void setSalario(Double salario) {
+    this.salario = salario;
+  }
 
-    public void setFechaContratacion(Date fechaContratacion) {
-        this.fechaContratacion = fechaContratacion;
-    }
+  public Date getFechaContratacion() {
+    return fechaContratacion;
+  }
+
+  public void setFechaContratacion(Date fechaContratacion) {
+    this.fechaContratacion = fechaContratacion;
+  }
 }

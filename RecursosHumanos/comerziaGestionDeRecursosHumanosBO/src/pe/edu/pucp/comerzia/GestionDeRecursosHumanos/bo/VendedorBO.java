@@ -30,123 +30,143 @@ public class Vendedor {
  */
 public class VendedorBO {
 
-    private VendedorDAO vendedorDAO;
+  private VendedorDAO vendedorDAO;
 
-    public VendedorBO() {
-        this.vendedorDAO = new VendedorDAOImpl();
-    }
+  public VendedorBO() {
+    this.vendedorDAO = new VendedorDAOImpl();
+  }
 
-    // public Integer insertar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
-    //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-    //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-    //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
-    //         TipoVendedor tipoP, EstadoEmpleado estadoE) {
+  // public Integer insertar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
+  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
+  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
+  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
+  //         TipoVendedor tipoP, EstadoEmpleado estadoE) {
 
-    //     Vendedor vendedor = new Vendedor();
-    //     vendedor.setIdVendedor(idVendedor);
-    //     vendedor.setDni(dni);
-    //     vendedor.setNombreCompleto(nombreCompleto);
-    //     vendedor.setTelefono(telefono);
-    //     vendedor.setCorreo(correo);
-    //     vendedor.setDireccion(direccion);
-    //     vendedor.setIngresosVentas(ingresosVentas);
-    //     vendedor.setPorcentajeComision(porcentajeComision);
-    //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
-    //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
-    //     vendedor.setExperiencia(experiencia);
-    //     vendedor.setAlmacenAdministrador(almacenAdministrador);
-    //     vendedor.setEmpresa(empresa);
-    //     vendedor.setTipoP(tipoP);
-    //     vendedor.setEstadoE(estadoE);
+  //     Vendedor vendedor = new Vendedor();
+  //     vendedor.setIdVendedor(idVendedor);
+  //     vendedor.setDni(dni);
+  //     vendedor.setNombreCompleto(nombreCompleto);
+  //     vendedor.setTelefono(telefono);
+  //     vendedor.setCorreo(correo);
+  //     vendedor.setDireccion(direccion);
+  //     vendedor.setIngresosVentas(ingresosVentas);
+  //     vendedor.setPorcentajeComision(porcentajeComision);
+  //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
+  //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
+  //     vendedor.setExperiencia(experiencia);
+  //     vendedor.setAlmacenAdministrador(almacenAdministrador);
+  //     vendedor.setEmpresa(empresa);
+  //     vendedor.setTipoP(tipoP);
+  //     vendedor.setEstadoE(estadoE);
 
-    //     return vendedorDAO.insertar(vendedor);
-    // }
-    public Integer insertar(String dni, String nombreCompleto, String telefono, String correo, String direccion,
-            EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion,
-            Double ingresosVentas, Double porcentajeComision) {
+  //     return vendedorDAO.insertar(vendedor);
+  // }
+  public Integer insertar(
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion,
+    Double ingresosVentas,
+    Double porcentajeComision
+  ) {
+    Vendedor vendedor = new Vendedor();
 
-        Vendedor vendedor = new Vendedor();
+    vendedor.setDni(dni);
+    vendedor.setNombreCompleto(nombreCompleto);
+    vendedor.setTelefono(telefono);
+    vendedor.setCorreo(correo);
+    vendedor.setDireccion(direccion);
 
-        vendedor.setDni(dni);
-        vendedor.setNombreCompleto(nombreCompleto);
-        vendedor.setTelefono(telefono);
-        vendedor.setCorreo(correo);
-        vendedor.setDireccion(direccion);
+    vendedor.setEstado(estado);
+    vendedor.setNombreUsuario(nombreUsuario);
+    vendedor.setContrasenha(contrasenha);
+    vendedor.setSalario(salario);
+    vendedor.setFechaContratacion(fechaContratacion);
 
-        vendedor.setEstado(estado);
-        vendedor.setNombreUsuario(nombreUsuario);
-        vendedor.setContrasenha(contrasenha);
-        vendedor.setSalario(salario);
-        vendedor.setFechaContratacion(fechaContratacion);
-        
-        vendedor.setIngresosVentas(ingresosVentas);
-        vendedor.setPorcentajeComision(porcentajeComision);
+    vendedor.setIngresosVentas(ingresosVentas);
+    vendedor.setPorcentajeComision(porcentajeComision);
 
-        return vendedorDAO.insertar(vendedor);
-    }
+    return vendedorDAO.insertar(vendedor);
+  }
 
-    // public Integer modificar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
-    //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-    //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-    //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
+  // public Integer modificar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
+  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
+  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
+  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
 
-    //     Vendedor vendedor = new Vendedor();
-    //     vendedor.setIdVendedor(idVendedor);
-    //     vendedor.setDni(dni);
-    //     vendedor.setNombreCompleto(nombreCompleto);
-    //     vendedor.setTelefono(telefono);
-    //     vendedor.setCorreo(correo);
-    //     vendedor.setDireccion(direccion);
-    //     vendedor.setIngresosVentas(ingresosVentas);
-    //     vendedor.setPorcentajeComision(porcentajeComision);
-    //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
-    //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
-    //     vendedor.setExperiencia(experiencia);
-    //     vendedor.setAlmacenAdministrador(almacenAdministrador);
-    //     vendedor.setEmpresa(empresa);
-    //     vendedor.setTipoP(tipoP);
-    //     vendedor.setEstadoE(estadoE);
+  //     Vendedor vendedor = new Vendedor();
+  //     vendedor.setIdVendedor(idVendedor);
+  //     vendedor.setDni(dni);
+  //     vendedor.setNombreCompleto(nombreCompleto);
+  //     vendedor.setTelefono(telefono);
+  //     vendedor.setCorreo(correo);
+  //     vendedor.setDireccion(direccion);
+  //     vendedor.setIngresosVentas(ingresosVentas);
+  //     vendedor.setPorcentajeComision(porcentajeComision);
+  //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
+  //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
+  //     vendedor.setExperiencia(experiencia);
+  //     vendedor.setAlmacenAdministrador(almacenAdministrador);
+  //     vendedor.setEmpresa(empresa);
+  //     vendedor.setTipoP(tipoP);
+  //     vendedor.setEstadoE(estadoE);
 
-    //     return vendedorDAO.modificar(vendedor);
-    // }
-    public Integer modificar(Integer idEmpleado, String dni, String nombreCompleto, String telefono, String correo, String direccion,
-            /*Integer idEmpleado,*/EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion,
-            Double ingresosVentas, Double porcentajeComision) {
+  //     return vendedorDAO.modificar(vendedor);
+  // }
+  public Integer modificar(
+    Integer idEmpleado,
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    /*Integer idEmpleado,*/EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion,
+    Double ingresosVentas,
+    Double porcentajeComision
+  ) {
+    Vendedor vendedor = new Vendedor();
 
-        Vendedor vendedor = new Vendedor();
+    vendedor.setIdEmpleado(idEmpleado);
+    vendedor.setDni(dni);
+    vendedor.setNombreCompleto(nombreCompleto);
+    vendedor.setTelefono(telefono);
+    vendedor.setCorreo(correo);
+    vendedor.setDireccion(direccion);
 
-        vendedor.setIdEmpleado(idEmpleado);
-        vendedor.setDni(dni);
-         vendedor.setNombreCompleto(nombreCompleto);
-         vendedor.setTelefono(telefono);
-         vendedor.setCorreo(correo);
-         vendedor.setDireccion(direccion);
-         
-         //vendedor.setIdEmpleado(idEmpleado);
-         vendedor.setEstado(estado);
-         vendedor.setNombreUsuario(nombreUsuario);
-         vendedor.setContrasenha(contrasenha);
-         vendedor.setSalario(salario);
-         vendedor.setFechaContratacion(fechaContratacion);
-        
-        vendedor.setIngresosVentas(ingresosVentas);
-        vendedor.setPorcentajeComision(porcentajeComision);
+    //vendedor.setIdEmpleado(idEmpleado);
+    vendedor.setEstado(estado);
+    vendedor.setNombreUsuario(nombreUsuario);
+    vendedor.setContrasenha(contrasenha);
+    vendedor.setSalario(salario);
+    vendedor.setFechaContratacion(fechaContratacion);
 
-        return vendedorDAO.modificar(vendedor);
-    }
+    vendedor.setIngresosVentas(ingresosVentas);
+    vendedor.setPorcentajeComision(porcentajeComision);
 
-    public Integer eliminar(Integer idVendedor) {
-        Vendedor vendedor = new Vendedor();
-        vendedor.setIdVendedor(idVendedor);
-        return vendedorDAO.eliminar(vendedor);
-    }
+    return vendedorDAO.modificar(vendedor);
+  }
 
-    public ArrayList<Vendedor> listarTodos() {
-        return vendedorDAO.listarTodos();
-    }
+  public Integer eliminar(Integer idVendedor) {
+    Vendedor vendedor = new Vendedor();
+    vendedor.setIdVendedor(idVendedor);
+    return vendedorDAO.eliminar(vendedor);
+  }
 
-    public Vendedor obtenerPorId(Integer id) {
-        return vendedorDAO.obtenerPorId(id);
-    }
+  public ArrayList<Vendedor> listarTodos() {
+    return vendedorDAO.listarTodos();
+  }
 
+  public Vendedor obtenerPorId(Integer id) {
+    return vendedorDAO.obtenerPorId(id);
+  }
 }

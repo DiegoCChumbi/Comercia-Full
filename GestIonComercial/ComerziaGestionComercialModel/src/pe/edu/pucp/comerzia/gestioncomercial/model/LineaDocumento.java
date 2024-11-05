@@ -1,76 +1,86 @@
 package pe.edu.pucp.comerzia.gestioncomercial.model;
 
 public class LineaDocumento {
-    private Integer idLinea;
-    private static Integer idLineaDocumentoCorrelativo = 0;
-    private Integer idDocumento;
-    private Integer idProducto;
-    private Integer cantidad;
-    private Double precioUnitario;
 
-    public LineaDocumento(Integer idDocumento, Integer idProducto, Integer cantidad, Double precioUnitario) {
-        this.idLinea = idLineaDocumentoCorrelativo++;
-        this.idDocumento = idDocumento;
-        this.idProducto = idProducto;
-        this.cantidad = cantidad;
-        this.precioUnitario = precioUnitario;
-    }
+  private Integer idLinea;
+  private static Integer idLineaDocumentoCorrelativo = 0;
+  private Integer idDocumento;
+  private Integer idProducto;
+  private Integer cantidad;
+  private Double precioUnitario;
 
-    public LineaDocumento(Integer idLinea, Integer idDocumento, Integer idProducto, Integer cantidad, Double precioUnitario) {
-        this.idLinea = idLinea;
-        this.idDocumento = idDocumento;
-        this.idProducto = idProducto;
-        this.cantidad = cantidad;
-        this.precioUnitario = precioUnitario;
-    }
+  public LineaDocumento(
+    Integer idDocumento,
+    Integer idProducto,
+    Integer cantidad,
+    Double precioUnitario
+  ) {
+    this.idLinea = idLineaDocumentoCorrelativo++;
+    this.idDocumento = idDocumento;
+    this.idProducto = idProducto;
+    this.cantidad = cantidad;
+    this.precioUnitario = precioUnitario;
+  }
 
-    public LineaDocumento() {
-        this.idLinea = null;
-        this.idDocumento = null;
-        this.idProducto = null;
-        this.cantidad = null;
-        this.precioUnitario = null;
-    }
+  public LineaDocumento(
+    Integer idLinea,
+    Integer idDocumento,
+    Integer idProducto,
+    Integer cantidad,
+    Double precioUnitario
+  ) {
+    this.idLinea = idLinea;
+    this.idDocumento = idDocumento;
+    this.idProducto = idProducto;
+    this.cantidad = cantidad;
+    this.precioUnitario = precioUnitario;
+  }
 
-    public Integer getIdLinea() {
-        return idLinea;
-    }
+  public LineaDocumento() {
+    this.idLinea = null;
+    this.idDocumento = null;
+    this.idProducto = null;
+    this.cantidad = null;
+    this.precioUnitario = null;
+  }
 
-    public void setIdLinea(Integer idLinea) {
-        this.idLinea = idLinea;
-    }
+  public Integer getIdLinea() {
+    return idLinea;
+  }
 
-    public Integer getIdDocumento() {
-        return idDocumento;
-    }
+  public void setIdLinea(Integer idLinea) {
+    this.idLinea = idLinea;
+  }
 
-    public void setIdDocumento(Integer idDocumento) {
-        this.idDocumento = idDocumento;
-    }
+  public Integer getIdDocumento() {
+    return idDocumento;
+  }
 
-    public Integer getIdProducto() {
-        return idProducto;
-    }
+  public void setIdDocumento(Integer idDocumento) {
+    this.idDocumento = idDocumento;
+  }
 
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
-    }
+  public Integer getIdProducto() {
+    return idProducto;
+  }
 
-    public Integer getCantidad() {
-        return cantidad;
-    }
+  public void setIdProducto(Integer idProducto) {
+    this.idProducto = idProducto;
+  }
 
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
-    }
+  public Integer getCantidad() {
+    return cantidad;
+  }
 
-    public Double getPrecioUnitario() {
-        return precioUnitario;
-    }
+  public void setCantidad(Integer cantidad) {
+    this.cantidad = cantidad;
+  }
 
-    public void setPrecioUnitario(Double precioUnitario) {
-        this.precioUnitario = precioUnitario;
-    }
+  public Double getPrecioUnitario() {
+    return precioUnitario;
+  }
 
-    
+  public void setPrecioUnitario(Double precioUnitario) {
+    this.precioUnitario = precioUnitario;
+  }
 }

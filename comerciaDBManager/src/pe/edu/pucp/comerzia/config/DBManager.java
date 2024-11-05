@@ -1,4 +1,5 @@
 package pe.edu.pucp.comerzia.config;
+
 //
 //
 //import java.io.BufferedReader;
@@ -17,7 +18,7 @@ package pe.edu.pucp.comerzia.config;
 //import java.net.URLDecoder;
 //
 //public final class DBManager {
-//    
+//
 //    private static DBManager dbManager;
 //    private String url;
 //    private String usuario;
@@ -25,27 +26,27 @@ package pe.edu.pucp.comerzia.config;
 //    private Connection con;
 //    private ResultSet rs;
 //    private final String nombreArchivo = "datosConexion.txt";
-//    
+//
 //    private DBManager(){
 //        try{
 //            Class.forName("com.mysql.cj.jdbc.Driver");
 //            leerArchivoYCrearCadena();
-//         
+//
 //        }catch(ClassNotFoundException ex){
 //            System.out.println("Error registrando el driver: " + ex.getMessage());
 //        }
 //    }
-//    
+//
 //    public static DBManager getInstance(){
 //        if(dbManager == null)
 //            createInstance();
 //        return dbManager;
 //    }
-//    
+//
 //    private static void createInstance(){
 //        dbManager = new DBManager();
 //    }
-//    
+//
 //    public Connection getConnection(){
 //        try{
 //            con = DriverManager.getConnection(url, usuario, password);
@@ -54,7 +55,7 @@ package pe.edu.pucp.comerzia.config;
 //        }
 //        return con;
 //    }
-//    
+//
 //    public void leerArchivoYCrearCadena() {
 //        Map<String, String> config = new HashMap<>();
 //        String rutaArchivo = "";
@@ -85,7 +86,7 @@ package pe.edu.pucp.comerzia.config;
 //        System.out.println("Usuario: " + usuario);
 //
 //    }
-//    
+//
 //    public void cerrarConexion() {
 //        if(rs != null){
 //            try{
@@ -96,13 +97,13 @@ package pe.edu.pucp.comerzia.config;
 //        }
 //        if (con != null) {
 //            try {
-//                con.close();  
+//                con.close();
 //            } catch (SQLException ex) {
 //                System.out.println("Error al cerrar la conexión:" + ex.getMessage());
 //            }
 //        }
 //    }
-//    
+//
 //    public int ejecutarProcedimiento(String nombreProcedimiento, Map<String, Object> parametrosEntrada, Map<String, Object> parametrosSalida) {
 //        int resultado = 0;
 //        try{
@@ -111,9 +112,9 @@ package pe.edu.pucp.comerzia.config;
 //                registrarParametrosEntrada(cst, parametrosEntrada);
 //            if(parametrosSalida != null)
 //                registrarParametrosSalida(cst, parametrosSalida);
-//        
+//
 //            resultado = cst.executeUpdate();
-//        
+//
 //            if(parametrosSalida != null)
 //                obtenerValoresSalida(cst, parametrosSalida);
 //        }catch(SQLException ex){
@@ -123,7 +124,7 @@ package pe.edu.pucp.comerzia.config;
 //        }
 //        return resultado;
 //    }
-//    
+//
 //    private void registrarParametrosEntrada(CallableStatement cs, Map<String, Object> parametros) throws SQLException {
 //        for (Map.Entry<String, Object> entry : parametros.entrySet()) {
 //            String key = entry.getKey();
@@ -142,7 +143,7 @@ package pe.edu.pucp.comerzia.config;
 //            }
 //        }
 //    }
-//    
+//
 //    private void registrarParametrosSalida(CallableStatement cst, Map<String, Object> params) throws SQLException {
 //        for (Map.Entry<String, Object> entry : params.entrySet()) {
 //            String nombre = entry.getKey();
@@ -150,7 +151,7 @@ package pe.edu.pucp.comerzia.config;
 //            cst.registerOutParameter(nombre, sqlType);
 //        }
 //    }
-//    
+//
 //    public CallableStatement formarLlamadaProcedimiento(String nombreProcedimiento, Map<String, Object> parametrosEntrada, Map<String, Object> parametrosSalida) throws SQLException{
 //        con = getConnection();
 //        StringBuilder call = new StringBuilder("{call " + nombreProcedimiento + "(");
@@ -168,11 +169,11 @@ package pe.edu.pucp.comerzia.config;
 //        call.append(")}");
 //        return con.prepareCall(call.toString());
 //    }
-//    
+//
 //    public ResultSet ejecutarProcedimientoLectura(String nombreProcedimiento, Map<String, Object> parametrosEntrada){
 //        try{
 //            CallableStatement cs = formarLlamadaProcedimiento(nombreProcedimiento, parametrosEntrada, null);
-//            if(parametrosEntrada!=null) 
+//            if(parametrosEntrada!=null)
 //                registrarParametrosEntrada(cs,parametrosEntrada);
 //            rs = cs.executeQuery();
 //        }catch(SQLException ex){
@@ -180,7 +181,7 @@ package pe.edu.pucp.comerzia.config;
 //        }
 //        return rs;
 //    }
-//    
+//
 //    private void obtenerValoresSalida(CallableStatement cst, Map<String, Object> parametrosSalida) throws SQLException {
 //        for (Map.Entry<String, Object> entry : parametrosSalida.entrySet()) {
 //            String nombre = entry.getKey();
@@ -211,68 +212,72 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DBManager {
-    private static final String ARCHIVO_CONFIGURACION = "jdbc.properties";
-    
-    private Connection conexion;
-    private String driver;
-    private String tipo_de_driver;
-    private String base_de_datos;
-    private String nombre_de_host;
-    private String puerto;
-    private String usuario;
-    private String contraseña;
-    private static DBManager dbManager = null;
-    
-    private DBManager(){}; //constructor privado para que no se pueda instanciar
-    
-    public static DBManager getInstance(){
-        if (DBManager.dbManager == null)
-            createInstance();
-        return DBManager.dbManager;
+
+  private static final String ARCHIVO_CONFIGURACION = "jdbc.properties";
+
+  private Connection conexion;
+  private String driver;
+  private String tipo_de_driver;
+  private String base_de_datos;
+  private String nombre_de_host;
+  private String puerto;
+  private String usuario;
+  private String contraseña;
+  private static DBManager dbManager = null;
+
+  private DBManager() {}
+
+  //constructor privado para que no se pueda instanciar
+  public static DBManager getInstance() {
+    if (DBManager.dbManager == null) createInstance();
+    return DBManager.dbManager;
+  }
+
+  private static void createInstance() {
+    if (DBManager.dbManager == null) DBManager.dbManager = new DBManager();
+  }
+
+  public Connection getConnection() {
+    leer_archivo_propiedades();
+    try {
+      Class.forName(this.driver);
+      this.conexion = DriverManager.getConnection(
+        getURL(),
+        this.usuario,
+        this.contraseña
+      );
+    } catch (ClassNotFoundException | SQLException ex) {
+      Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
     }
-    
-    private static void createInstance(){
-        if (DBManager.dbManager == null)
-            DBManager.dbManager = new DBManager();
+    return this.conexion;
+  }
+
+  private String getURL() {
+    String url = this.tipo_de_driver.concat("://");
+    url = url.concat(this.nombre_de_host);
+    url = url.concat(":");
+    url = url.concat(this.puerto);
+    url = url.concat("/");
+    url = url.concat(this.base_de_datos);
+    return url;
+  }
+
+  private void leer_archivo_propiedades() {
+    Properties properties = new Properties();
+    String nmArchivoConf = "resources/" + ARCHIVO_CONFIGURACION;
+    try {
+      properties.load(new FileInputStream(new File(nmArchivoConf)));
+      this.driver = properties.getProperty("driver");
+      this.tipo_de_driver = properties.getProperty("tipo_de_driver");
+      this.base_de_datos = properties.getProperty("base_de_datos");
+      this.nombre_de_host = properties.getProperty("nombre_de_host");
+      this.puerto = properties.getProperty("puerto");
+      this.usuario = properties.getProperty("usuario");
+      this.contraseña = properties.getProperty("contrasenha");
+    } catch (FileNotFoundException ex) {
+      Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (IOException ex) {
+      Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
     }
-    
-    public Connection getConnection(){
-        leer_archivo_propiedades();
-        try {
-            Class.forName(this.driver);
-            this.conexion = DriverManager.getConnection(getURL(), this.usuario, this.contraseña);
-        } catch (ClassNotFoundException | SQLException ex) {        
-            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return this.conexion;
-    }
-    
-    private String getURL(){
-        String url = this.tipo_de_driver.concat("://");
-        url = url.concat(this.nombre_de_host);
-        url = url.concat(":");
-        url = url.concat(this.puerto);
-        url = url.concat("/");
-        url = url.concat(this.base_de_datos);
-        return url;
-    }
-    
-    private void leer_archivo_propiedades(){
-        Properties properties = new Properties();
-        String nmArchivoConf = "resources/"+ARCHIVO_CONFIGURACION;
-        try {
-            properties.load(new FileInputStream(new File(nmArchivoConf)));
-            this.driver = properties.getProperty("driver");
-            this.tipo_de_driver = properties.getProperty("tipo_de_driver");
-            this.base_de_datos = properties.getProperty("base_de_datos");
-            this.nombre_de_host = properties.getProperty("nombre_de_host");
-            this.puerto = properties.getProperty("puerto");
-            this.usuario = properties.getProperty("usuario");
-            this.contraseña = properties.getProperty("contrasenha");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
-        }                
-    }
+  }
 }

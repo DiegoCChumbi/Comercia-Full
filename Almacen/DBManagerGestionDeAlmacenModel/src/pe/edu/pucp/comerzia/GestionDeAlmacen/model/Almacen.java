@@ -1,55 +1,60 @@
 package pe.edu.pucp.comerzia.GestionDeAlmacen.model;
 
 public class Almacen {
-    private Integer idAlmacen;
-    private String nombre;
-    private String estado;
-    private String descripcion;
 
-    public Almacen(Integer idAlmacen, String nombre, String estado, String descripcion) {
-        this.idAlmacen = idAlmacen;
-        this.nombre = nombre;
-        this.estado = estado;
-        this.descripcion = descripcion;
-    }
-    
-    public Almacen(){
-        this.idAlmacen = null;
-        this.nombre = null;
-        this.estado = null;
-        this.descripcion = null;
-    }
-    
-    public Integer getIdAlmacen() {
-        return idAlmacen;
-    }
+  private Integer idAlmacen;
+  private String nombre;
+  private String estado;
+  private String descripcion;
 
-    public void setIdAlmacen(Integer idAlmacen) {
-        this.idAlmacen = idAlmacen;
-    }
+  public Almacen(
+    Integer idAlmacen,
+    String nombre,
+    String estado,
+    String descripcion
+  ) {
+    this.idAlmacen = idAlmacen;
+    this.nombre = nombre;
+    this.estado = estado;
+    this.descripcion = descripcion;
+  }
 
-    public String getNombre() {
-        return nombre;
-    }
+  public Almacen() {
+    this.idAlmacen = null;
+    this.nombre = null;
+    this.estado = null;
+    this.descripcion = null;
+  }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+  public Integer getIdAlmacen() {
+    return idAlmacen;
+  }
 
-    public String getEstado() {
-        return estado;
-    }
+  public void setIdAlmacen(Integer idAlmacen) {
+    this.idAlmacen = idAlmacen;
+  }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+  public String getNombre() {
+    return nombre;
+  }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
- 
+  public String getEstado() {
+    return estado;
+  }
+
+  public void setEstado(String estado) {
+    this.estado = estado;
+  }
+
+  public String getDescripcion() {
+    return descripcion;
+  }
+
+  public void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
+  }
 }

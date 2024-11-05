@@ -5,24 +5,37 @@ import java.util.ArrayList;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.ProductoAlmacenado;
 
 public interface ProductoAlmacenadoDAO {
-    
-    public Integer insertar(ProductoAlmacenado productoAlmacenado);
-    
-    public Integer insertar(ProductoAlmacenado productoAlmacenado,Boolean usarTransaccion, Connection conexion);
+  public Integer insertar(ProductoAlmacenado productoAlmacenado);
 
-    public Integer modificar(ProductoAlmacenado productoAlmacenado);
-    
-    public Integer modificar(ProductoAlmacenado productoAlmacenado,Boolean usarTransaccion, Connection conexion);
+  public Integer insertar(
+    ProductoAlmacenado productoAlmacenado,
+    Boolean usarTransaccion,
+    Connection conexion
+  );
 
-    public Integer eliminar(ProductoAlmacenado productoAlmacenado);
-    
-    public Integer eliminar(ProductoAlmacenado productoAlmacenado,Boolean usarTransaccion, Connection conexion);
+  public Integer modificar(ProductoAlmacenado productoAlmacenado);
 
-    public ArrayList<ProductoAlmacenado> listarTodos();
+  public Integer modificar(
+    ProductoAlmacenado productoAlmacenado,
+    Boolean usarTransaccion,
+    Connection conexion
+  );
 
-    public ArrayList<ProductoAlmacenado> listarPorAlmacen(Integer idAlmacen);
+  public Integer eliminar(ProductoAlmacenado productoAlmacenado);
 
-    public ProductoAlmacenado obtenerPorId(Integer idProductoAlmacenado);
-    
-    public Boolean existeProductoAlmacenado(ProductoAlmacenado productoAlmacenado);
+  public Integer eliminar(
+    ProductoAlmacenado productoAlmacenado,
+    Boolean usarTransaccion,
+    Connection conexion
+  );
+
+  public ArrayList<ProductoAlmacenado> listarTodos();
+
+  public ArrayList<ProductoAlmacenado> listarPorAlmacen(Integer idAlmacen);
+
+  public ProductoAlmacenado obtenerPorId(Integer idProductoAlmacenado);
+
+  public Boolean existeProductoAlmacenado(
+    ProductoAlmacenado productoAlmacenado
+  );
 }

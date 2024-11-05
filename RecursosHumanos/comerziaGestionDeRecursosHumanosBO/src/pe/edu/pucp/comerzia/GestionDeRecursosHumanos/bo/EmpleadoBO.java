@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.EmpleadoDAO;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.daoImp.EmpleadoDAOImpl;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
 
 /*
 
@@ -31,107 +31,118 @@ public class Empleado {
 */
 public class EmpleadoBO {
 
-    private EmpleadoDAO empleadoDAO;
+  private EmpleadoDAO empleadoDAO;
 
-    public EmpleadoBO() {
-        this.empleadoDAO = new EmpleadoDAOImpl();
-    }
+  public EmpleadoBO() {
+    this.empleadoDAO = new EmpleadoDAOImpl();
+  }
 
-    // public Integer insertar(Integer idEmpleado, String dni, String nombreCompleto, String telefono,
-    //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-    //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-    //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
-    //         TipoEmpleado tipoP, EstadoEmpleado estadoE) {
+  // public Integer insertar(Integer idEmpleado, String dni, String nombreCompleto, String telefono,
+  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
+  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
+  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
+  //         TipoEmpleado tipoP, EstadoEmpleado estadoE) {
 
-    //     Empleado empleado = new Empleado();
-    //     empleado.setIdEmpleado(idEmpleado);
-    //     empleado.setDni(dni);
-    //     empleado.setNombreCompleto(nombreCompleto);
-    //     empleado.setTelefono(telefono);
-    //     empleado.setCorreo(correo);
-    //     empleado.setDireccion(direccion);
-    //     empleado.setIngresosVentas(ingresosVentas);
-    //     empleado.setPorcentajeComision(porcentajeComision);
-    //     empleado.setLicenciaMontacarga(licenciaMontacarga);
-    //     empleado.setAlmacenAlmacenero(almacenAlmacenero);
-    //     empleado.setExperiencia(experiencia);
-    //     empleado.setAlmacenAdministrador(almacenAdministrador);
-    //     empleado.setEmpresa(empresa);
-    //     empleado.setTipoP(tipoP);
-    //     empleado.setEstadoE(estadoE);
+  //     Empleado empleado = new Empleado();
+  //     empleado.setIdEmpleado(idEmpleado);
+  //     empleado.setDni(dni);
+  //     empleado.setNombreCompleto(nombreCompleto);
+  //     empleado.setTelefono(telefono);
+  //     empleado.setCorreo(correo);
+  //     empleado.setDireccion(direccion);
+  //     empleado.setIngresosVentas(ingresosVentas);
+  //     empleado.setPorcentajeComision(porcentajeComision);
+  //     empleado.setLicenciaMontacarga(licenciaMontacarga);
+  //     empleado.setAlmacenAlmacenero(almacenAlmacenero);
+  //     empleado.setExperiencia(experiencia);
+  //     empleado.setAlmacenAdministrador(almacenAdministrador);
+  //     empleado.setEmpresa(empresa);
+  //     empleado.setTipoP(tipoP);
+  //     empleado.setEstadoE(estadoE);
 
-    //     return empleadoDAO.insertar(empleado);
-    // }
-    public Integer insertar(Integer idPersona, EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
+  //     return empleadoDAO.insertar(empleado);
+  // }
+  public Integer insertar(
+    Integer idPersona,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion
+  ) {
+    Empleado empleado = new Empleado();
+    empleado.setIdPersona(idPersona);
+    empleado.setEstado(estado);
+    empleado.setNombreUsuario(nombreUsuario);
+    empleado.setContrasenha(contrasenha);
+    empleado.setSalario(salario);
+    empleado.setFechaContratacion(fechaContratacion);
 
-        Empleado empleado = new Empleado();
-        empleado.setIdPersona(idPersona);
-        empleado.setEstado(estado);
-        empleado.setNombreUsuario(nombreUsuario);
-        empleado.setContrasenha(contrasenha);
-        empleado.setSalario(salario);
-        empleado.setFechaContratacion(fechaContratacion);
+    return empleadoDAO.insertar(empleado);
+  }
 
-        return empleadoDAO.insertar(empleado);
-    }
+  // public Integer modificar(Integer idEmpleado, String dni, String nombreCompleto, String telefono,
+  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
+  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
+  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
 
-    // public Integer modificar(Integer idEmpleado, String dni, String nombreCompleto, String telefono,
-    //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-    //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-    //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
+  //     Empleado empleado = new Empleado();
+  //     empleado.setIdEmpleado(idEmpleado);
+  //     empleado.setDni(dni);
+  //     empleado.setNombreCompleto(nombreCompleto);
+  //     empleado.setTelefono(telefono);
+  //     empleado.setCorreo(correo);
+  //     empleado.setDireccion(direccion);
+  //     empleado.setIngresosVentas(ingresosVentas);
+  //     empleado.setPorcentajeComision(porcentajeComision);
+  //     empleado.setLicenciaMontacarga(licenciaMontacarga);
+  //     empleado.setAlmacenAlmacenero(almacenAlmacenero);
+  //     empleado.setExperiencia(experiencia);
+  //     empleado.setAlmacenAdministrador(almacenAdministrador);
+  //     empleado.setEmpresa(empresa);
+  //     empleado.setTipoP(tipoP);
+  //     empleado.setEstadoE(estadoE);
 
-    //     Empleado empleado = new Empleado();
-    //     empleado.setIdEmpleado(idEmpleado);
-    //     empleado.setDni(dni);
-    //     empleado.setNombreCompleto(nombreCompleto);
-    //     empleado.setTelefono(telefono);
-    //     empleado.setCorreo(correo);
-    //     empleado.setDireccion(direccion);
-    //     empleado.setIngresosVentas(ingresosVentas);
-    //     empleado.setPorcentajeComision(porcentajeComision);
-    //     empleado.setLicenciaMontacarga(licenciaMontacarga);
-    //     empleado.setAlmacenAlmacenero(almacenAlmacenero);
-    //     empleado.setExperiencia(experiencia);
-    //     empleado.setAlmacenAdministrador(almacenAdministrador);
-    //     empleado.setEmpresa(empresa);
-    //     empleado.setTipoP(tipoP);
-    //     empleado.setEstadoE(estadoE);
+  //     return empleadoDAO.modificar(empleado);
+  // }
+  public Integer modificar(
+    Integer idEmpleado,
+    Integer idPersona,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion
+  ) {
+    Empleado empleado = new Empleado();
+    empleado.setIdEmpleado(idEmpleado);
+    empleado.setIdPersona(idPersona);
+    empleado.setEstado(estado);
+    empleado.setNombreUsuario(nombreUsuario);
+    empleado.setContrasenha(contrasenha);
+    empleado.setSalario(salario);
+    empleado.setFechaContratacion(fechaContratacion);
 
-    //     return empleadoDAO.modificar(empleado);
-    // }
-    public Integer modificar(Integer idEmpleado, Integer idPersona, EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
+    return empleadoDAO.modificar(empleado);
+  }
 
-        Empleado empleado = new Empleado();
-        empleado.setIdEmpleado(idEmpleado);
-        empleado.setIdPersona(idPersona);
-        empleado.setEstado(estado);
-        empleado.setNombreUsuario(nombreUsuario);
-        empleado.setContrasenha(contrasenha);
-        empleado.setSalario(salario);
-        empleado.setFechaContratacion(fechaContratacion);
+  public Integer eliminar(Empleado empleado) {
+    return empleadoDAO.eliminar(empleado);
+  }
 
-        return empleadoDAO.modificar(empleado);
-    }
+  public ArrayList<Empleado> listarTodos() {
+    return empleadoDAO.listarTodos();
+  }
 
-    public Integer eliminar(Empleado empleado) {
-        return empleadoDAO.eliminar(empleado);
-    }
+  public Empleado obtenerPorId(Integer id) {
+    return empleadoDAO.obtenerPorId(id);
+  }
 
-    public ArrayList<Empleado> listarTodos() {
-        return empleadoDAO.listarTodos();
-    }
+  public Integer verificarEmpleado(String cuenta, String contrasenha) {
+    return empleadoDAO.verificarEmpleado(cuenta, contrasenha);
+  }
 
-    public Empleado obtenerPorId(Integer id) {
-        return empleadoDAO.obtenerPorId(id);
-    }
-    
-    public Integer verificarEmpleado(String cuenta, String contrasenha) {
-        return empleadoDAO.verificarEmpleado(cuenta, contrasenha);
-    }
-     
-   
-    public String devolverNombreEmpleado(Integer idEmpleado) {
-       return empleadoDAO.devolverNombreEmpleado(idEmpleado);
-    }
-
+  public String devolverNombreEmpleado(Integer idEmpleado) {
+    return empleadoDAO.devolverNombreEmpleado(idEmpleado);
+  }
 }
