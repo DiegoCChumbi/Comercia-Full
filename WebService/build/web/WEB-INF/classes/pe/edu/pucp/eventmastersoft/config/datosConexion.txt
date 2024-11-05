@@ -1,5 +1,0 @@
-hostname=comerziadbgrupo03.celvkp8urr8y.us-east-1.rds.amazonaws.com
-user=admin
-password=ComerziaDBPUCPGrupo03
-port=3306
-database=ComerziaDB
