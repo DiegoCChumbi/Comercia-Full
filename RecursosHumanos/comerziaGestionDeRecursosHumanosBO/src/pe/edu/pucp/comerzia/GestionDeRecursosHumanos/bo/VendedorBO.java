@@ -20,7 +20,6 @@ import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Vendedor;
 public class Vendedor {
 
     private Integer idVendedor;
-    private static Integer idCorrelativo = 1;
 
     private Integer idEmpleado;
     // private Empleado empleado;

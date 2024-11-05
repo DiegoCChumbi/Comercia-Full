@@ -19,7 +19,6 @@ import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
 public class Administrador {
 
     private Integer idAdministrador;
-    private static int idCorrelativo = 1;
 
     private Integer idAlmacen;
  */

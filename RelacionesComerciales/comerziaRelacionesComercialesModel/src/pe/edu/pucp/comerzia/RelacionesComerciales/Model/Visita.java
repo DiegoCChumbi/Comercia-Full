@@ -6,7 +6,6 @@ import java.util.Date;
 public class Visita {
 
   private Integer idVisita;
-  private static Integer id_correlativo = 1;
   private Date fecha;
   private Double duracion;
   private Integer idCliente;
@@ -33,12 +32,10 @@ public class Visita {
     Integer idCliente,
     Integer idVendedor
   ) {
-    this.idVisita = id_correlativo;
     this.fecha = fecha;
     this.duracion = duracion;
     this.idCliente = idCliente;
     this.idVendedor = idVendedor;
-    id_correlativo++;
   }
 
   // null

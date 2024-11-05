@@ -17,7 +17,6 @@ import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 public class Persona {
 
     private Integer idPersona;
-    private static Integer idCorrelativo = 1;
 
     private String dni;
     private String nombreCompleto;

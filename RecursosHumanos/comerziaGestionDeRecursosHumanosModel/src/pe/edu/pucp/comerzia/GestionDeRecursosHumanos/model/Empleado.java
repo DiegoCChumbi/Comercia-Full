@@ -5,7 +5,6 @@ import java.util.Date;
 public class Empleado extends Persona {
 
   private Integer idEmpleado;
-  private static Integer idCorrelativo = 1;
 
   private EstadoEmpleado estado;
   private String nombreUsuario;
@@ -30,15 +29,6 @@ public class Empleado extends Persona {
     this.fechaContratacion = fechaContratacion;
   }
 
-  //    public Empleado(EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
-  //        this.idEmpleado = idCorrelativo++;
-  //        this.estado = estado;
-  //        this.nombreUsuario = nombreUsuario;
-  //        this.contrasenha = contrasenha;
-  //        this.salario = salario;
-  //        this.fechaContratacion = fechaContratacion;
-  //    }
-
   public Empleado(
     String dni,
     String nombreCompleto,
@@ -52,7 +42,6 @@ public class Empleado extends Persona {
     Date fechaContratacion
   ) {
     super(dni, nombreCompleto, telefono, correo, direccion);
-    this.idEmpleado = idCorrelativo++;
     this.estado = estado;
     this.nombreUsuario = nombreUsuario;
     this.contrasenha = contrasenha;

@@ -4,8 +4,6 @@ import java.util.Date;
 
 public class Proveedor extends Empresa {
 
-  private Integer idProveedor;
-  private static Integer id_correlativo = 1;
   private Date fecha_afiliacion;
   private String RUC;
   private String razonSocial;
@@ -13,14 +11,12 @@ public class Proveedor extends Empresa {
   private String pais;
 
   public Proveedor(
-    Integer idEmpresa,
     Date fecha_afiliacion,
     String RUC,
     String razonSocial,
     Double calificacion,
     String pais
   ) {
-    //this.idEmpresa = idEmpresa;
     this.fecha_afiliacion = fecha_afiliacion;
     this.RUC = RUC;
     this.razonSocial = razonSocial;
@@ -40,10 +36,7 @@ public class Proveedor extends Empresa {
     Double calificacion,
     String pais
   ) {
-    setNombre(nombre);
-    setDireccion(direccion);
-    setEmail(email);
-    setTipoIndustria(tipoIndustria);
+    super(nombre, direccion, telefono, email, tipoIndustria);
     this.fecha_afiliacion = fecha_afiliacion;
     this.RUC = RUC;
     this.razonSocial = razonSocial;
@@ -64,11 +57,7 @@ public class Proveedor extends Empresa {
     Double calificacion,
     String pais
   ) {
-    setIdEmpresa(idEmpresa);
-    setNombre(nombre);
-    setDireccion(direccion);
-    setEmail(email);
-    setTipoIndustria(tipoIndustria);
+    super(idEmpresa, nombre, direccion, telefono, email, tipoIndustria);
     this.fecha_afiliacion = fecha_afiliacion;
     this.RUC = RUC;
     this.razonSocial = razonSocial;
@@ -76,40 +65,13 @@ public class Proveedor extends Empresa {
     this.pais = pais;
   }
 
-  public Proveedor(
-    Date fecha_afiliacion,
-    String RUC,
-    String razonSocial,
-    Double calificacion,
-    String pais
-  ) {
-    //this.idEmpresa = id_correlativo;
-    this.fecha_afiliacion = fecha_afiliacion;
-    this.RUC = RUC;
-    this.razonSocial = razonSocial;
-    this.calificacion = calificacion;
-    this.pais = pais;
-    id_correlativo++;
-  }
-
-  // null
   public Proveedor() {
-    //this.idEmpresa = null;
     this.fecha_afiliacion = null;
     this.RUC = null;
     this.razonSocial = null;
     this.calificacion = null;
     this.pais = null;
   }
-
-  // Getters y Setters
-  //    public Integer getIdEmpresa() {
-  //        return idEmpresa;
-  //    }
-  //
-  //    public void setIdEmpresa(Integer idEmpresa) {
-  //        this.idEmpresa = idEmpresa;
-  //    }
 
   public Date getFecha_afiliacion() {
     return fecha_afiliacion;
@@ -149,13 +111,5 @@ public class Proveedor extends Empresa {
 
   public void setPais(String pais) {
     this.pais = pais;
-  }
-
-  public Integer getIdProveedor() {
-    return idProveedor;
-  }
-
-  public void setIdProveedor(Integer idProveedor) {
-    this.idProveedor = idProveedor;
   }
 }

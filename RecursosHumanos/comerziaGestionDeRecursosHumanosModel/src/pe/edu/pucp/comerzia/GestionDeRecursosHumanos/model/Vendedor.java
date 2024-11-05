@@ -5,7 +5,6 @@ import java.util.Date;
 public class Vendedor extends Empleado {
 
   private Integer idVendedor;
-  private static Integer idCorrelativo = 1;
 
   //private Integer idEmpleado;
   // private Empleado empleado;
@@ -25,7 +24,6 @@ public class Vendedor extends Empleado {
   }
 
   public Vendedor(Double ingresosVentas, Double porcentajeComision) {
-    this.idVendedor = idCorrelativo++;
     //this.idEmpleado = idEmpleado;
     this.ingresosVentas = ingresosVentas;
     this.porcentajeComision = porcentajeComision;
@@ -57,7 +55,6 @@ public class Vendedor extends Empleado {
       salario,
       fechaContratacion
     );
-    this.idVendedor = idCorrelativo++;
     //this.idEmpleado = idEmpleado;
     this.ingresosVentas = ingresosVentas;
     this.porcentajeComision = porcentajeComision;

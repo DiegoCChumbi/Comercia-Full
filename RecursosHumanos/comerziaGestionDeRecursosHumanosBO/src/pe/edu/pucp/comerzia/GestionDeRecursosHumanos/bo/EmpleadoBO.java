@@ -20,7 +20,6 @@ import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
 public class Empleado {
 
     private Integer idEmpleado;
-    private static Integer idCorrelativo = 1;
 
     private Integer idPersona;
     private EstadoEmpleado estado;

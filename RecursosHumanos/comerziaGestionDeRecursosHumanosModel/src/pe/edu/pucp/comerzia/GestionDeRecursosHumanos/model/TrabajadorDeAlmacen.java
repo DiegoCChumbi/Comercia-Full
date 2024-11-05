@@ -13,7 +13,6 @@ import java.util.Date;
 public class TrabajadorDeAlmacen extends Empleado {
 
   private Integer idTrabajadorDeAlmacen;
-  private static Integer idCorrelativo = 1;
 
   // private Integer idEmpleado;
   // private Empleado empleado;
@@ -36,7 +35,6 @@ public class TrabajadorDeAlmacen extends Empleado {
   }
 
   public TrabajadorDeAlmacen(Integer idAlmacen, boolean licenciaMontacarga) {
-    this.idTrabajadorDeAlmacen = idCorrelativo++;
     //this.idEmpleado = idEmpleado;
     this.idAlmacen = idAlmacen;
     this.licenciaMontacarga = licenciaMontacarga;
@@ -68,7 +66,6 @@ public class TrabajadorDeAlmacen extends Empleado {
       salario,
       fechaContratacion
     );
-    this.idTrabajadorDeAlmacen = idCorrelativo++;
     //this.idEmpleado = idEmpleado;
     this.idAlmacen = idAlmacen;
     this.licenciaMontacarga = licenciaMontacarga;
@@ -76,7 +73,6 @@ public class TrabajadorDeAlmacen extends Empleado {
 
   // null
   public TrabajadorDeAlmacen() {
-    this.idTrabajadorDeAlmacen = idCorrelativo++;
     this.idTrabajadorDeAlmacen = null;
     //this.idEmpleado = null;
     this.idAlmacen = null;

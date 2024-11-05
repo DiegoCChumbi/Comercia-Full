@@ -19,8 +19,8 @@ public class Representante extends Persona {
     this.idEmpresa = idEmpresa;
   }
 
-  // null
   public Representante() {
+    super();
     this.idEmpresa = null;
   }
 

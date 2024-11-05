@@ -19,7 +19,6 @@ import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
 public class TrabajadorDeAlmacen {
 
     private Integer idTrabajadorDeAlmacen;
-    private static Integer idCorrelativo = 1;
 
     private Integer idEmpleado;
     // private Empleado empleado;

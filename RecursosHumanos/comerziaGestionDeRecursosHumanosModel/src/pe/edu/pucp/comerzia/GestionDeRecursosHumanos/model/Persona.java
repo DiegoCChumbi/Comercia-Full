@@ -3,7 +3,6 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 public class Persona {
 
   private Integer idPersona;
-  private static Integer idCorrelativo = 1;
 
   private String dni;
   private String nombreCompleto;
@@ -34,8 +33,6 @@ public class Persona {
     String correo,
     String direccion
   ) {
-    this.idPersona = idCorrelativo++;
-
     this.dni = dni;
     this.nombreCompleto = nombreCompleto;
     this.telefono = telefono;

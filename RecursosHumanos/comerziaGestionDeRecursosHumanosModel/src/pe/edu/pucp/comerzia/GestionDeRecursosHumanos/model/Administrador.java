@@ -16,15 +16,8 @@ import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 public class Administrador extends Empleado {
 
   private Integer idAdministrador;
-  private static int idCorrelativo = 1;
 
   private Integer idAlmacen;
-
-  //    public Administrador(Integer idPersona, String dni, String nombreCompleto,String telefono, String correo, String direccion,Integer idAlmacen){
-  //        super(idPersona,dni,nombreCompleto,telefono,correo,direccion);
-  //        this.idAdministrador = idCorrelativo++;
-  //        this.idAlmacen=idAlmacen;
-  //    }
 
   public Administrador(
     String dni,
@@ -51,13 +44,11 @@ public class Administrador extends Empleado {
       salario,
       fechaContratacion
     );
-    this.idAdministrador = idCorrelativo++;
     this.idAlmacen = idAlmacen;
   }
 
   public Administrador(Integer idAlmacen) {
     super();
-    this.idAdministrador = idCorrelativo++;
     this.idAlmacen = idAlmacen;
   }
 

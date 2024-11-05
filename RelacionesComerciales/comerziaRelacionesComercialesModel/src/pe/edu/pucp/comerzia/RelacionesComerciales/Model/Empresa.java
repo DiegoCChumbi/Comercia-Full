@@ -1,10 +1,8 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.Model;
 
-public class Empresa { // Padre
+public class Empresa {
 
-  // Atributos
   private Integer idEmpresa;
-  private static Integer id_correlativo = 1;
   private String nombre;
   private String direccion;
   private String telefono;
@@ -34,16 +32,13 @@ public class Empresa { // Padre
     String email,
     String tipoIndustria
   ) {
-    this.idEmpresa = id_correlativo;
     this.nombre = nombre;
     this.direccion = direccion;
     this.telefono = telefono;
     this.email = email;
     this.tipoIndustria = tipoIndustria;
-    id_correlativo++;
   }
 
-  // null
   public Empresa() {
     this.idEmpresa = null;
     this.nombre = null;
@@ -53,7 +48,6 @@ public class Empresa { // Padre
     this.tipoIndustria = null;
   }
 
-  // Getters y Setters.
   public Integer getIdEmpresa() {
     return idEmpresa;
   }

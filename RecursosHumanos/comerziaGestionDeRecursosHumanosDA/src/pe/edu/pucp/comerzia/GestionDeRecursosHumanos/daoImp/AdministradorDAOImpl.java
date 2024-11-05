@@ -19,7 +19,6 @@ import pe.edu.pucp.comerzia.db.DAOImpl;
 public class Administrador {
 
     private Integer idAdministrador;
-    private static int idCorrelativo = 1;
 
     private Integer idAlmacen;
  */
