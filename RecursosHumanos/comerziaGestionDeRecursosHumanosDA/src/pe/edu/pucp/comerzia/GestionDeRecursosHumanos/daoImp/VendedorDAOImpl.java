@@ -66,7 +66,7 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
 
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
-        this.incluirParametroInt(1,this.vendedor.getIdVendedor());
+        this.incluirParametroInt(1,this.vendedor.getIdEmpleado());
     }
 
     @Override
@@ -163,8 +163,8 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
                 idEmpleado = empleadoDAO.insertar(empleado, this.usarTransaccion,this.conexion);
                 this.vendedor.setIdEmpleado(idEmpleado);
             }else{
-                idEmpleado = empleado.getIdPersona();
-                this.vendedor.setIdPersona(idEmpleado);
+                idEmpleado = empleado.getIdEmpleado();
+                this.vendedor.setIdEmpleado(idEmpleado);
                 Boolean abreConexion = false;
                 existeVendedor = this.existeVendedor(vendedor, abreConexion);
             }
@@ -314,13 +314,15 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
             if (abreConexion) {
                 this.abrirConexion();
             }
-            String sql = "select idEmpleado from Empleado where ";
-            sql = sql.concat("idEmpleado=? ");
+            String sql = "select idVendedor from Vendedor where ";
+            sql = sql.concat("ingresosVentas=? ");
+            sql = sql.concat("and porcentajeComision=? ");
             this.colocarSQLenStatement(sql);
-            this.incluirParametroInt(1, this.vendedor.getIdEmpleado());
+            this.incluirParametroDouble(1, this.vendedor.getIngresosVentas());
+            this.incluirParametroDouble(2, this.vendedor.getPorcentajeComision());
             this.ejecutarConsultaEnBD(sql);
             if (this.resultSet.next()) {
-                idEmpleado = this.resultSet.getInt("idEmpleado");
+                this.vendedor.setIdVendedor(this.resultSet.getInt("idVendedor"));
             }
         } catch (SQLException ex) {
             System.err.println("Error al consultar si existe vendedor - " + ex);
@@ -333,7 +335,7 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
                 System.err.println("Error al cerrar la conexión - " + ex);
             }
         }
-        return idEmpleado != null;
+        return this.vendedor.getIdVendedor() != null;
     }
     
     @Override

@@ -258,13 +258,21 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
             if (abreConexion) {
                 this.abrirConexion();
             }
-            String sql = "select idPersona from Persona where ";
-            sql = sql.concat("idPersona=? ");
+            String sql = "select idEmpleado from Empleado where ";
+            sql = sql.concat("estado=? ");
+            sql = sql.concat("and nombreUsuario=? ");
+            sql = sql.concat("and contrasenha=? ");
+            sql = sql.concat("and salario=? ");
+            sql = sql.concat("and fechaContratacion=? ");
             this.colocarSQLenStatement(sql);
-            this.incluirParametroInt(1, this.empleado.getIdPersona());
+            this.incluirParametroString(1, this.empleado.getEstado().toString());
+            this.incluirParametroString(2, this.empleado.getNombreUsuario());
+            this.incluirParametroString(3, this.empleado.getContrasenha());
+            this.incluirParametroDouble(4, this.empleado.getSalario());
+            this.incluirParametroDate(5, this.empleado.getFechaContratacion());
             this.ejecutarConsultaEnBD(sql);
             if (this.resultSet.next()) {
-                idPersona = this.resultSet.getInt("idPersona");
+                empleado.setIdEmpleado(this.resultSet.getInt("idEmpleado"));
             }
         } catch (SQLException ex) {
             System.err.println("Error al consultar si existe alumno - " + ex);
@@ -277,7 +285,7 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
                 System.err.println("Error al cerrar la conexión - " + ex);
             }
         }
-        return idPersona != null;
+        return empleado.getIdEmpleado() != null;
     }
     
     @Override

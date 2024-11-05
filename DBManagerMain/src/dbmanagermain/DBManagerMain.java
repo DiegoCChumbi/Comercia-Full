@@ -46,10 +46,10 @@ public class DBManagerMain {
 //        ClienteBOTest.testClienteBO();
 //        VisitaBOTest.testVisitaBO();
          //DocumentoBOTest.testDocumentoBO();
-         LineaDocumentoBOTest.testLineaDocumentoBO();
+         //LineaDocumentoBOTest.testLineaDocumentoBO();
          //AlmacenBOTest.testAlmacenBO();
-        // AdministradorTest.testAdministradorBO();
-         //TrabajadorTest.testTrabajadorBO();
-         //VendedorTest.testVendedorBO();
+         AdministradorTest.testAdministradorBO();
+         TrabajadorTest.testTrabajadorBO();
+         VendedorTest.testVendedorBO();
     }
 }

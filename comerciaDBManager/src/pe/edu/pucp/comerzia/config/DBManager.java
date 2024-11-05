@@ -1,6 +1,6 @@
 package pe.edu.pucp.comerzia.config;
-//
-//
+
+
 //import java.io.BufferedReader;
 //import java.io.FileReader;
 //import java.io.IOException;
@@ -138,7 +138,7 @@ package pe.edu.pucp.comerzia.config;
 //                default -> {
 //			cs.setString(key, value.toString());
 //                }
-//                // Agregar más tipos según sea necesario
+//                 //Agregar más tipos según sea necesario
 //            }
 //        }
 //    }
@@ -192,7 +192,7 @@ package pe.edu.pucp.comerzia.config;
 //                case Types.DOUBLE -> value = cst.getDouble(nombre);
 //                case Types.BOOLEAN -> value = cst.getBoolean(nombre);
 //                case Types.DATE -> value = cst.getDate(nombre);
-//                // Agregar más tipos según sea necesario
+//                 //Agregar más tipos según sea necesario
 //            }
 //            parametrosSalida.put(nombre, value);
 //        }

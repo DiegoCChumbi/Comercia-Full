@@ -19,3 +19,10 @@ C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaB
 C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.CoreCompileInputs.cache
 C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.dll
 C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.pdb
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll.config
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.dll
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaBO\bin\Debug\SoftComerziaBO.pdb
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.AssemblyReference.cache
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.dll
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaBO\obj\Debug\SoftComerziaBO.pdb

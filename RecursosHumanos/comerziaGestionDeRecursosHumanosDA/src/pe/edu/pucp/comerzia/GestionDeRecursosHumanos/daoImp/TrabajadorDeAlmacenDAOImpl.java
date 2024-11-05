@@ -78,7 +78,7 @@ public class TrabajadorDeAlmacenDAOImpl extends DAOImpl implements TrabajadorDeA
 
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
-        this.incluirParametroInt(1,this.trabajador.getIdPersona());
+        this.incluirParametroInt(1,this.trabajador.getIdEmpleado());
     }
 
     @Override
@@ -319,13 +319,15 @@ public class TrabajadorDeAlmacenDAOImpl extends DAOImpl implements TrabajadorDeA
             if (abreConexion) {
                 this.abrirConexion();
             }
-            String sql = "select idEmpleado from Empleado where ";
-            sql = sql.concat("idEmpleado=? ");
+            String sql = "select idTrabajador from Trabajadordealmacen where ";
+            sql = sql.concat("idAlmacen=? ");
+            sql = sql.concat("and licenciaMontacarga=? ");
             this.colocarSQLenStatement(sql);
-            this.incluirParametroInt(1, this.trabajador.getIdEmpleado());
+            this.incluirParametroInt(1, this.trabajador.getIdAlmacen());
+            this.incluirParametroBoolean(1, this.trabajador.isLicenciaMontacarga());
             this.ejecutarConsultaEnBD(sql);
             if (this.resultSet.next()) {
-                idEmpleado = this.resultSet.getInt("idEmpleado");
+                this.trabajador.setIdTrabajadorDeAlmacen(this.resultSet.getInt("idEmpleado"));
             }
         } catch (SQLException ex) {
             System.err.println("Error al consultar si existe trabajador - " + ex);
@@ -338,7 +340,7 @@ public class TrabajadorDeAlmacenDAOImpl extends DAOImpl implements TrabajadorDeA
                 System.err.println("Error al cerrar la conexión - " + ex);
             }
         }
-        return idEmpleado != null;
+        return this.trabajador.getIdTrabajadorDeAlmacen() != null;
     }
     
     @Override

@@ -31,3 +31,14 @@ C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug
 C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftCome.FC819DF8.Up2Date
 C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftComerziaGestionAlmacenBO.dll
 C:\Users\hunkj\OneDrive\Documents\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftComerziaGestionAlmacenBO.pdb
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\bin\Debug\SoftComerziaGestionAlmacenBO.dll.config
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\bin\Debug\SoftComerziaGestionAlmacenBO.dll
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\bin\Debug\SoftComerziaGestionAlmacenBO.pdb
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\bin\Debug\SoftComerziaBO.dll
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\bin\Debug\SoftComerziaBO.pdb
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\bin\Debug\SoftComerziaBO.dll.config
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftComerziaGestionAlmacenBO.csproj.AssemblyReference.cache
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftComerziaGestionAlmacenBO.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftCome.FC819DF8.Up2Date
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftComerziaGestionAlmacenBO.dll
+C:\Users\user\Documents\comerzia-java\SoftPub\SoftComerziaGestionAlmacenBO\obj\Debug\SoftComerziaGestionAlmacenBO.pdb

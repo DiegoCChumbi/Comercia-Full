@@ -311,13 +311,13 @@ public class AdministradorDAOImpl extends DAOImpl implements AdministradorDAO {
             if (abreConexion) {
                 this.abrirConexion();
             }
-            String sql = "select idEmpleado from Empleado where ";
-            sql = sql.concat("idEmpleado=? ");
+            String sql = "select idAdministrador from Administrador where ";
+            sql = sql.concat("idAlmacen=? ");
             this.colocarSQLenStatement(sql);
-            this.incluirParametroInt(1, this.administrador.getIdEmpleado());
+            this.incluirParametroInt(1, this.administrador.getIdAlmacen());
             this.ejecutarConsultaEnBD(sql);
             if (this.resultSet.next()) {
-                idEmpleado = this.resultSet.getInt("idEmpleado");
+                this.administrador.setIdAdministrador(this.resultSet.getInt("idAdministrador"));
             }
         } catch (SQLException ex) {
             System.err.println("Error al consultar si existe administrador - " + ex);
@@ -330,7 +330,7 @@ public class AdministradorDAOImpl extends DAOImpl implements AdministradorDAO {
                 System.err.println("Error al cerrar la conexión - " + ex);
             }
         }
-        return idEmpleado != null;
+        return this.administrador.getIdAdministrador() != null;
     }
     
     @Override

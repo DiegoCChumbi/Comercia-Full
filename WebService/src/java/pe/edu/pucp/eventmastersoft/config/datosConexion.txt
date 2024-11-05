@@ -1,5 +1,5 @@
-hostname=comerziadbgrupo03.celvkp8urr8y.us-east-1.rds.amazonaws.com
-user=admin
-password=ComerziaDBPUCPGrupo03
+hostname=localhost
+user=root
+password=root
 port=3306
-database=ComerziaDB
+database=tareaacademica

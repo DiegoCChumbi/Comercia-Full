@@ -6,3 +6,16 @@
 *.dll
 /build/
 *.jar
+
+# Ignorar archivos de NetBeans
+**/build/
+**/dist/
+**/nbproject/private/
+
+# Ignorar archivos de Visual Studio
+**/.vs/
+**/bin/
+**/obj/
+
+# Ignorar archivos de Glassfish
+glassfish7/

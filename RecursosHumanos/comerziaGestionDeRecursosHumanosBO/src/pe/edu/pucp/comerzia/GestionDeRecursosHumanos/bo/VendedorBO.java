@@ -135,9 +135,9 @@ public class VendedorBO {
         return vendedorDAO.modificar(vendedor);
     }
 
-    public Integer eliminar(Integer idVendedor) {
+    public Integer eliminar(Integer idEmpleado) {
         Vendedor vendedor = new Vendedor();
-        vendedor.setIdVendedor(idVendedor);
+        vendedor.setIdEmpleado(idEmpleado);
         return vendedorDAO.eliminar(vendedor);
     }
 
