@@ -1,0 +1,104 @@
+# Ignorar carpetas de configuración privada de NetBeans en cualquier nivel
+**/nbproject/private/
+**/nbproject/private/*
+**/nbproject/Makefile-*
+**/nbproject/Package-*
+**/nbactions.xml
+**/nb-configuration.xml
+**/update_tracking/
+
+# Ignorar directorios de compilación en cualquier nivel
+**/build/
+**/dist/
+**/nbbuild/
+**/nbdist/
+**/nbrelease/
+**/release/
+
+# Ignorar archivos compilados .class en cualquier nivel
+**/*.class
+
+# Ignorar archivos de registro
+**/*.log
+
+# Ignorar archivos generados
+**/hs_err_pid*
+
+# Ignorar archivos autogenerados por el constructor de GUI
+**/*.form
+
+# Ignorar archivos generados por el sistema operativo
+**/.DS_Store
+**/Thumbs.db
+
+# Ignorar archivos temporales
+**/*.tmp
+**/*.bak
+**/*.swp
+**/*~
+
+# Ignorar archivos específicos del IDE
+**/*.iml
+**/.idea/
+**/*.ipr
+**/*.iws
+**/.classpath
+**/.project
+**/.settings/
+
+# Ignorar variables de entorno
+**/.env
+
+# Ignorar archivos de Gradle
+**/.gradle/
+**/build/
+
+# Ignorar directorio target de Maven
+**/target/
+
+# Ignorar archivos y carpetas de proyectos de C# y ASP.NET
+**/bin/
+**/obj/
+**/App_Data/
+**/App_Start/
+**/.vs/        # Carpeta de Visual Studio
+**/*.user      # Archivos de configuración de usuario de Visual Studio
+**/*.suo       # Opciones de solución de Visual Studio
+**/*.pdb       # Archivos de depuración
+**/packages/   # Paquetes de NuGet descargados
+**/*.vscode/   # Configuración de Visual Studio Code
+**/project.lock.json
+**/project.fragment.lock.json
+**/project.assets.json
+
+# Ignorar archivos de configuración de sistema de compilación
+**/launchSettings.json
+
+# Ignorar archivos de cache de dependencias de NuGet
+**/artifacts/
+**/.nuget/
+
+# Ignorar directorios de publicación y empaquetado
+**/publish/
+**/wwwroot/
+
+# Ignorar archivos de configuración local y temporal
+**/*.ncrunchsolution
+**/*.ncrunchproject
+**/TestResult.xml
+**/TestResults/
+**/*.coverage
+**/*.coveragexml
+**/*.testlog
+
+# Ignorar archivos de lock de herramientas de desarrollo
+**/yarn.lock
+**/package-lock.json
+
+# Ignorar archivos de CI/CD
+**/.gitlab-ci.yml
+**/.travis.yml
+**/Dockerfile
+
+# Ignorar archivos temporales generados por herramientas de contenedores
+**/docker-compose.override.yml
