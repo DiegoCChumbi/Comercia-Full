@@ -47,12 +47,12 @@ public class DBManagerMain {
 //        ProveedorBOTest.testProveedorBO();
 //        ClienteBOTest.testClienteBO();
 //        VisitaBOTest.testVisitaBO();
-         //DocumentoBOTest.testDocumentoBO();
+         DocumentoBOTest.testDocumentoBO();
          //LineaDocumentoBOTest.testLineaDocumentoBO();
          //AlmacenBOTest.testAlmacenBO();
          //AdministradorTest.testAdministradorBO();
          //TrabajadorTest.testTrabajadorBO();
          //VendedorTest.testVendedorBO();
-         representanteTest.testRepresentanteBO();;
+         //representanteTest.testRepresentanteBO();;
     }
 }

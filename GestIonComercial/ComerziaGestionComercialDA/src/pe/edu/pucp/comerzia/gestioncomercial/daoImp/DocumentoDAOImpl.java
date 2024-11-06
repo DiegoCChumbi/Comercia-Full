@@ -15,6 +15,7 @@ import pe.edu.pucp.comerzia.db.DAOImpl;
 
 public class DocumentoDAOImpl extends DAOImpl implements DocumentoDAO{
     private Documento documento;
+    private String sql_filtro;
 
     public DocumentoDAOImpl() {
         super("Documento");
@@ -190,33 +191,20 @@ public class DocumentoDAOImpl extends DAOImpl implements DocumentoDAO{
         this.conexion = conexion;
         return this.eliminar(documento);
     }
-
+    
     @Override
-    public ArrayList<Documento> listarPorEmpresa(Integer idEmpresa) {
-        List lista = new ArrayList<>();
-        try {
-            this.abrirConexion();
-            String sql = "select ";
-            sql = sql.concat(obtenerProyeccionParaSelect());
-            sql = sql.concat(" from ");
-            sql = sql.concat(nombre_tabla);
-            sql = sql.concat(" where IdEmpresa = ");
-            sql = sql.concat(idEmpresa.toString());
-            this.colocarSQLenStatement(sql);
-            this.incluirValorDeParametrosParaListado();
-            this.ejecutarConsultaEnBD(sql);
-            while (this.resultSet.next()) {
-                agregarObjetoALaLista(lista, this.resultSet);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Error al intentar listarPorEmpresa - " + ex);
-        } finally {
-            try {
-                this.cerrarConexion();
-            } catch (SQLException ex) {
-                System.err.println("Error al cerrar la conexión - " + ex);
-            }
-        }
-        return (ArrayList<Documento>)lista;
+    public ArrayList<Documento> listarPorEmpresa(Integer idEmpresa){
+        if(idEmpresa != null)
+            this.sql_filtro = " where idEmpresa = "+idEmpresa.toString();
+        ArrayList<Documento> lista = this.listarTodos();
+        this.sql_filtro = null;
+        return lista;
+    }
+    
+    @Override
+    protected String obtenerPredicadoParaListado() {
+        if (this.sql_filtro != null)
+            return this.sql_filtro;
+        return "";
     }
 }

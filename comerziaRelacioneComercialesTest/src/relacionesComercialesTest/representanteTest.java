@@ -22,14 +22,26 @@ public class representanteTest {
 
          
         testRepresentanteBOListarPorEmpresa(1);
+        testRepresentanteBOListarPorNombre("María Gómez");
 
     }
     
     private static void testRepresentanteBOListarPorEmpresa(Integer idEmpresa) {
-        System.out.println("\ntestRepresentanteBOListarTodos");
+        System.out.println("\ntestRepresentanteBOListarId");
         listaRepresentantes = representanteBO.listarPorEmpresa(idEmpresa);
         for (Representante representante : listaRepresentantes) {
             System.out.println(representante.getIdEmpresa()+ " " + representante.getNombreCompleto());
         }
     }
+    
+    private static void testRepresentanteBOListarPorNombre(String nombre) {
+        System.out.println("\ntestRepresentanteBOListarNombre");
+        listaRepresentantes = representanteBO.listarPorNombre(nombre);
+        for (Representante representante : listaRepresentantes) {
+            System.out.println(representante.getIdEmpresa()+ " " + representante.getNombreCompleto());
+        }
+    }
+    
+    
+    
 }

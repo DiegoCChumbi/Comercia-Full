@@ -20,6 +20,8 @@ public interface RepresentanteDAO {
     public Boolean existeRepresentante(Representante representante);
     
     public Boolean existeRepresentante(Representante representante, Boolean abreConexion);
-    
+        
+    //public ArrayList<Representante> listarPor(String campo,String dato);
     public ArrayList<Representante> listarPorEmpresa(Integer idEmpresa);
+    public ArrayList<Representante> listarPorNombre(String nombre);
 }

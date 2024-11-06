@@ -15,6 +15,7 @@ import pe.edu.pucp.comerzia.db.Tipo_Operacion;
 public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
 
     private Representante representante;
+    private String sql_filtro;
 
     public RepresentanteDAOImpl() {
         super("Representante");
@@ -193,7 +194,8 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
         String sql = "select ";
         sql = sql.concat(obtenerProyeccionParaSelect());
         sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" rep ");
-        sql = sql.concat("join persona per on per.idPersona = rep.idPersona ");
+        sql = sql.concat("join persona per where per.idPersona = rep.idPersona ");
+        sql = sql.concat(obtenerPredicadoParaListado());
         if (limite != null && limite > 0) {
             sql = sql.concat(" limit ").concat(limite.toString());
         }
@@ -239,7 +241,7 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
         String sql = "select ";
         sql = sql.concat(this.obtenerProyeccionParaSelect());
         sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" rep ");
-        sql = sql.concat("join persona per on per.idPersona = rep.idPersona ");
+        sql = sql.concat("join Persona per on per.idPersona = rep.idPersona ");
         sql = sql.concat(" where ");
         sql = sql.concat(this.obtenerPredicadoParaLlavePrimaria());
         return sql;
@@ -290,36 +292,29 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
         }
         return idPersona != null;
     }
-
+    
     @Override
-    public ArrayList<Representante> listarPorEmpresa(Integer idEmpresa) {
-        List lista = new ArrayList<>();
-        try {
-            this.abrirConexion();
-            String sql = "select ";
-            sql = sql.concat(obtenerProyeccionParaSelect());
-            sql = sql.concat(" from ");
-            sql = sql.concat(nombre_tabla);
-            sql = sql.concat (" rep join Persona per");
-            sql = sql.concat(" where IdEmpresa = ");
-            sql = sql.concat(idEmpresa.toString());
-            sql = sql.concat(" and rep.idPersona = per.idPersona");
-            this.colocarSQLenStatement(sql);
-            this.incluirValorDeParametrosParaListado();
-            this.ejecutarConsultaEnBD(sql);
-            while (this.resultSet.next()) {
-                agregarObjetoALaLista(lista, this.resultSet);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Error al intentar listarPorEmpresa - " + ex);
-        } finally {
-            try {
-                this.cerrarConexion();
-            } catch (SQLException ex) {
-                System.err.println("Error al cerrar la conexión - " + ex);
-            }
-        }
-        return (ArrayList<Representante>)lista;
+    public ArrayList<Representante> listarPorEmpresa(Integer idEmpresa){
+        if(idEmpresa != null)
+            this.sql_filtro = " and idEmpresa = "+idEmpresa.toString();
+        ArrayList<Representante> lista = this.listarTodos();
+        this.sql_filtro = null;
+        return lista;
     }
 
+    @Override
+    public ArrayList<Representante> listarPorNombre(String nombre) {
+        if(nombre != null && nombre != "")
+            this.sql_filtro = " and nombreCompleto = \""+ nombre +"\"";
+        ArrayList<Representante> lista = this.listarTodos();
+        this.sql_filtro = null;
+        return lista;
+    }
+    
+    @Override
+    protected String obtenerPredicadoParaListado() {
+        if (this.sql_filtro != null)
+            return this.sql_filtro;
+        return "";
+    }
 }

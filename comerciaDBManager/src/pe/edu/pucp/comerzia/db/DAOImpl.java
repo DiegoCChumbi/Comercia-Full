@@ -212,7 +212,7 @@ public abstract class DAOImpl {
         String sql = "select ";
         sql = sql.concat(this.obtenerProyeccionParaSelect());
         sql = sql.concat(" from ").concat(this.nombre_tabla);
-        sql = sql.concat(this.obtenerPredicadoParaListado());
+        sql = sql.concat(obtenerPredicadoParaListado());
         if (limite != null && limite > 0) {
             sql = sql.concat(" limit ").concat(limite.toString());
         }
