@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softpubwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|solutionrelative:softpubwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softpubwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|solutionrelative:softpubwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softpubwa\\gestion_almacen.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|solutionrelative:softpubwa\\gestion_almacen.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "login.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftPubWA\\login.aspx.cs",
-              "RelativeDocumentMoniker": "SoftPubWA\\login.aspx.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftPubWA\\login.aspx.cs",
-              "RelativeToolTip": "SoftPubWA\\login.aspx.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowCkAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T00:44:19.071Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "login.aspx",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftPubWA\\login.aspx",
-              "RelativeDocumentMoniker": "SoftPubWA\\login.aspx",
-              "ToolTip": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftPubWA\\login.aspx",
-              "RelativeToolTip": "SoftPubWA\\login.aspx",
+              "Title": "gestion_almacen.aspx",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftPubWA\\gestion_almacen.aspx",
+              "RelativeDocumentMoniker": "SoftPubWA\\gestion_almacen.aspx",
+              "ToolTip": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftPubWA\\gestion_almacen.aspx",
+              "RelativeToolTip": "SoftPubWA\\gestion_almacen.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-05T00:35:29.806Z",
+              "WhenOpened": "2024-11-05T01:09:58.748Z",
               "EditorCaption": ""
             }
           ]

@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BD376FA-E9FD-4C53-A071-DBE6E09D2BCC}|SoftComerziaGestionAlmacenBO\\SoftComerziaGestionAlmacenBO.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softcomerziagestionalmacenbo\\productobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BD376FA-E9FD-4C53-A071-DBE6E09D2BCC}|SoftComerziaGestionAlmacenBO\\SoftComerziaGestionAlmacenBO.csproj|solutionrelative:softcomerziagestionalmacenbo\\productobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BD376FA-E9FD-4C53-A071-DBE6E09D2BCC}|SoftComerziaGestionAlmacenBO\\SoftComerziaGestionAlmacenBO.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softcomerziagestionalmacenbo\\productoalmacenadobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BD376FA-E9FD-4C53-A071-DBE6E09D2BCC}|SoftComerziaGestionAlmacenBO\\SoftComerziaGestionAlmacenBO.csproj|solutionrelative:softcomerziagestionalmacenbo\\productoalmacenadobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BD376FA-E9FD-4C53-A071-DBE6E09D2BCC}|SoftComerziaGestionAlmacenBO\\SoftComerziaGestionAlmacenBO.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softcomerziagestionalmacenbo\\almacenbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BD376FA-E9FD-4C53-A071-DBE6E09D2BCC}|SoftComerziaGestionAlmacenBO\\SoftComerziaGestionAlmacenBO.csproj|solutionrelative:softcomerziagestionalmacenbo\\almacenbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7CBD3B5-E3AC-4090-ACF2-F54756FDD81E}|SoftComerziaBO\\SoftComerziaBO.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softcomerziabo\\basebo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7CBD3B5-E3AC-4090-ACF2-F54756FDD81E}|SoftComerziaBO\\SoftComerziaBO.csproj|solutionrelative:softcomerziabo\\basebo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|c:\\users\\user\\documents\\comerzia-java\\softpub\\softpubwa\\gestion_almacen.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{6EB137C5-304F-4414-AD1D-353B748D835A}|SoftPubWA\\SoftPubWA.csproj|solutionrelative:softpubwa\\gestion_almacen.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
@@ -35,58 +19,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductoBO.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaGestionAlmacenBO\\ProductoBO.cs",
-              "RelativeDocumentMoniker": "SoftComerziaGestionAlmacenBO\\ProductoBO.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaGestionAlmacenBO\\ProductoBO.cs",
-              "RelativeToolTip": "SoftComerziaGestionAlmacenBO\\ProductoBO.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T00:24:04.92Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductoAlmacenadoBO.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaGestionAlmacenBO\\ProductoAlmacenadoBO.cs",
-              "RelativeDocumentMoniker": "SoftComerziaGestionAlmacenBO\\ProductoAlmacenadoBO.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaGestionAlmacenBO\\ProductoAlmacenadoBO.cs",
-              "RelativeToolTip": "SoftComerziaGestionAlmacenBO\\ProductoAlmacenadoBO.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T00:24:02.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AlmacenBO.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaGestionAlmacenBO\\AlmacenBO.cs",
-              "RelativeDocumentMoniker": "SoftComerziaGestionAlmacenBO\\AlmacenBO.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaGestionAlmacenBO\\AlmacenBO.cs",
-              "RelativeToolTip": "SoftComerziaGestionAlmacenBO\\AlmacenBO.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T00:23:44.232Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BaseBO.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaBO\\BaseBO.cs",
-              "RelativeDocumentMoniker": "SoftComerziaBO\\BaseBO.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftComerziaBO\\BaseBO.cs",
-              "RelativeToolTip": "SoftComerziaBO\\BaseBO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T00:23:31.563Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "gestion_almacen.aspx",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\comerzia-java\\SoftPub\\SoftPubWA\\gestion_almacen.aspx",
               "RelativeDocumentMoniker": "SoftPubWA\\gestion_almacen.aspx",
@@ -94,7 +26,7 @@
               "RelativeToolTip": "SoftPubWA\\gestion_almacen.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-04T23:15:39.584Z",
+              "WhenOpened": "2024-11-05T01:09:58.748Z",
               "EditorCaption": ""
             }
           ]

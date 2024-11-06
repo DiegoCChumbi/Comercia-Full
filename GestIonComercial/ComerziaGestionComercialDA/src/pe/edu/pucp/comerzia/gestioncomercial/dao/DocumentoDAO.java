@@ -22,4 +22,6 @@ public interface DocumentoDAO {
     public Documento obtenerPorId(Integer idDocumento);
     
     public Boolean existeDocumento(Documento documento);
+    
+    public ArrayList<Documento> listarPorEmpresa(Integer idEmpresa);
 }

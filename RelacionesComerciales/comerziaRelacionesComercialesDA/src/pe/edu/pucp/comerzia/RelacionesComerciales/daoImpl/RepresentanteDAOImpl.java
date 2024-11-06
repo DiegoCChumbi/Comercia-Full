@@ -291,4 +291,35 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
         return idPersona != null;
     }
 
+    @Override
+    public ArrayList<Representante> listarPorEmpresa(Integer idEmpresa) {
+        List lista = new ArrayList<>();
+        try {
+            this.abrirConexion();
+            String sql = "select ";
+            sql = sql.concat(obtenerProyeccionParaSelect());
+            sql = sql.concat(" from ");
+            sql = sql.concat(nombre_tabla);
+            sql = sql.concat (" rep join Persona per");
+            sql = sql.concat(" where IdEmpresa = ");
+            sql = sql.concat(idEmpresa.toString());
+            sql = sql.concat(" and rep.idPersona = per.idPersona");
+            this.colocarSQLenStatement(sql);
+            this.incluirValorDeParametrosParaListado();
+            this.ejecutarConsultaEnBD(sql);
+            while (this.resultSet.next()) {
+                agregarObjetoALaLista(lista, this.resultSet);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al intentar listarPorEmpresa - " + ex);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException ex) {
+                System.err.println("Error al cerrar la conexión - " + ex);
+            }
+        }
+        return (ArrayList<Representante>)lista;
+    }
+
 }

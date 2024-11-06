@@ -20,4 +20,6 @@ public interface RepresentanteDAO {
     public Boolean existeRepresentante(Representante representante);
     
     public Boolean existeRepresentante(Representante representante, Boolean abreConexion);
+    
+    public ArrayList<Representante> listarPorEmpresa(Integer idEmpresa);
 }

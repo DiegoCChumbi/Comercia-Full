@@ -48,4 +48,8 @@ public class DocumentoBO {
         documento.setIdTrabajadorDeAlmacen(idTrabajadorDeAlmacen);
         return this.documentoDAO.existeDocumento(documento);
     }
+    
+    public ArrayList<Documento> listarPorEmpresa(Integer idEmpresa){
+        return this.documentoDAO.listarPorEmpresa(idEmpresa);
+    }
 }

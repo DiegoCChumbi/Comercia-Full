@@ -20,13 +20,14 @@ public class DocumentoBOTest {
         System.out.println("\ntestPersonaBO");
         documentoBO = new DocumentoBO();
         ArrayList<Integer> listaId = new ArrayList<>();        
-        testPersonaBOInsertar(listaId);
-        testPersonaBOListarTodos();
-        testPersonaBOModificar(listaId);
-        testPersonaBOListarTodos();
-        testPersonaBOObtenerPorId(listaId);  
-        testPersonaBOExistePersona();
-        testPersonaBOEliminar(listaId);
+        //testPersonaBOInsertar(listaId);
+//        testPersonaBOListarTodos();
+//        testPersonaBOModificar(listaId);
+//        testPersonaBOListarTodos();
+//        testPersonaBOObtenerPorId(listaId);  
+//        testPersonaBOExistePersona();
+//        testPersonaBOEliminar(listaId);
+        testDocumentoBOListarPorEmpresa(1);
     }
     
     private static void testPersonaBOEliminar(ArrayList<Integer> listaId) {
@@ -82,12 +83,20 @@ public class DocumentoBOTest {
     
     private static void testPersonaBOInsertar(ArrayList<Integer> listaId) {
         System.out.println("\ntestPersonaBOInsertar");
-        Integer resultado = documentoBO.insertar(1,Estado.COTIZACION,Tipo.COMPRA,1,1,1);
+        Integer resultado = documentoBO.insertar(1,Estado.COTIZACION,Tipo.COMPRA,46,11,1);
         System.out.println("Llave primaria insertada: " + resultado);
         listaId.add(resultado);
-        resultado = documentoBO.insertar(1,Estado.PAGADO,Tipo.FACTURA,1,1,1);
+        resultado = documentoBO.insertar(1,Estado.PAGADO,Tipo.FACTURA,46,11,1);
         System.out.println("Llave primaria insertada: " + resultado);
         listaId.add(resultado);
 
+    }
+    
+    private static void testDocumentoBOListarPorEmpresa(Integer idEmpresa) {
+        System.out.println("\ntestDocumentoBOListarPprEmpresa");
+        listaDocumento = documentoBO.listarPorEmpresa(idEmpresa);
+        for (Documento documento : listaDocumento) {
+            System.out.println(documento.getIdEmpresa() + " " + documento.getEstado().toString() + " " + documento.getTipo().toString() + " " + documento.getIdVendedor() + " " + documento.getIdAdministrador() + " " + documento.getIdTrabajadorDeAlmacen());
+        }
     }
 }

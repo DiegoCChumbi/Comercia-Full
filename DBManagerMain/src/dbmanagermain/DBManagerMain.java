@@ -33,6 +33,8 @@ import pe.edu.pucp.comerzia.gestioncomercial.bo.DocumentoBO;
 import pe.edu.pucp.comerzia.gestioncomercial.bo.LineaDocumentoBO;
 import pe.edu.pucp.comerzia.gestioncomercial.model.Estado;
 import pe.edu.pucp.comerzia.gestioncomercial.model.Tipo;
+import relacionesComercialesTest.representanteTest;
+import static relacionesComercialesTest.representanteTest.testRepresentanteBO;
 
 
 
@@ -48,8 +50,9 @@ public class DBManagerMain {
          //DocumentoBOTest.testDocumentoBO();
          //LineaDocumentoBOTest.testLineaDocumentoBO();
          //AlmacenBOTest.testAlmacenBO();
-         AdministradorTest.testAdministradorBO();
-         TrabajadorTest.testTrabajadorBO();
-         VendedorTest.testVendedorBO();
+         //AdministradorTest.testAdministradorBO();
+         //TrabajadorTest.testTrabajadorBO();
+         //VendedorTest.testVendedorBO();
+         representanteTest.testRepresentanteBO();;
     }
 }

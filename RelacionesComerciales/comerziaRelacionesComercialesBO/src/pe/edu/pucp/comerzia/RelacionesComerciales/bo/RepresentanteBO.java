@@ -43,5 +43,9 @@ public class RepresentanteBO {
     public ArrayList<Representante> listarTodos(){
         return this.representanteDAO.listarTodos();
     }
+   
+    public ArrayList<Representante> listarPorEmpresa(Integer idEmpresa){
+        return this.representanteDAO.listarPorEmpresa(idEmpresa);
+    }
 
 }
