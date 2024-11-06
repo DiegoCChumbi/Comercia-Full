@@ -11,7 +11,7 @@ import pe.edu.pucp.comerzia.db.DAOImpl;
 
 public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
 
-  private Empresa empresa;
+  protected Empresa empresa;
 
   public EmpresaDAOImpl() {
     super("Empresa");
@@ -40,12 +40,12 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
 
   @Override
   protected String obtenerListaDeAtributosParaInsercion() {
-    return "nombre,direccion,telefono,email,tipoIndustria";
+    return "nombre, direccion, telefono, email, tipoIndustria, tipoEmpresa";
   }
 
   @Override
   protected String incluirListaDeParametrosParaInsercion() {
-    return "?, ?, ?, ?, ?";
+    return "?, ?, ?, ?, ?, ?";
   }
 
   @Override
@@ -55,6 +55,7 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
     this.incluirParametroString(3, this.empresa.getTelefono());
     this.incluirParametroString(4, this.empresa.getEmail());
     this.incluirParametroString(5, this.empresa.getTipoIndustria());
+    this.incluirParametroString(6, this.empresa.getTipoEmpresa());
   }
 
   @Override
@@ -81,18 +82,19 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
 
   @Override
   protected String obtenerListaDeValoresYAtributosParaModificacion() {
-    return "nombre=?, direccion=?, telefono=?, email=?, tipoIndustria=?";
+    return "nombre=?, direccion=?, telefono=?, email=?, tipoIndustria=?, tipoEmpresa=?";
   }
 
   @Override
   protected void incluirValorDeParametrosParaModificacion()
     throws SQLException {
-    this.incluirParametroInt(6, this.empresa.getIdEmpresa());
     this.incluirParametroString(1, this.empresa.getNombre());
     this.incluirParametroString(2, this.empresa.getDireccion());
     this.incluirParametroString(3, this.empresa.getTelefono());
     this.incluirParametroString(4, this.empresa.getEmail());
     this.incluirParametroString(5, this.empresa.getTipoIndustria());
+    this.incluirParametroString(6, this.empresa.getTipoEmpresa());
+    this.incluirParametroInt(7, this.empresa.getIdEmpresa()); // For WHERE clause
   }
 
   @Override
@@ -118,13 +120,13 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
   }
 
   @Override
-  public ArrayList<Empresa> listarTodos() {
-    return (ArrayList<Empresa>) super.listarTodos(null);
+  public <T extends Empresa> ArrayList<T> listarTodos() {
+    return (ArrayList<T>) super.listarTodos(null);
   }
 
   @Override
   protected String obtenerProyeccionParaSelect() {
-    return "idEmpresa,nombre,direccion,telefono,email,tipoIndustria";
+    return "idEmpresa, nombre, direccion, telefono, email, tipoIndustria, tipoEmpresa";
   }
 
   @Override
@@ -143,13 +145,14 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
     this.empresa.setTelefono(this.resultSet.getString("telefono"));
     this.empresa.setEmail(this.resultSet.getString("email"));
     this.empresa.setTipoIndustria(this.resultSet.getString("tipoIndustria"));
+    this.empresa.setTipoEmpresa(this.resultSet.getString("tipoEmpresa")); // New Field
   }
 
   @Override
   public Empresa obtenerPorId(Integer idEmpresa) {
     this.empresa = new Empresa();
     this.empresa.setIdEmpresa(idEmpresa);
-    this.obtenerPorId();
+    super.obtenerPorId();
     return this.empresa;
   }
 
@@ -193,5 +196,18 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
     }
     this.empresa.setIdEmpresa(idEmpresa);
     return idEmpresa != null;
+  }
+
+  @Override
+  protected String generarSQLParaListarTodos(Integer limite) {
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla;
+    if (limite != null && limite > 0) {
+      sql = sql.concat(" LIMIT ").concat(limite.toString());
+    }
+    return sql;
   }
 }

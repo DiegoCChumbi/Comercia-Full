@@ -29,37 +29,12 @@ public class Vendedor {
  */
 public class VendedorBO {
 
-  private VendedorDAO vendedorDAO;
+  private VendedorDAO<Vendedor> vendedorDAO;
 
   public VendedorBO() {
     this.vendedorDAO = new VendedorDAOImpl();
   }
 
-  // public Integer insertar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
-  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
-  //         TipoVendedor tipoP, EstadoEmpleado estadoE) {
-
-  //     Vendedor vendedor = new Vendedor();
-  //     vendedor.setIdVendedor(idVendedor);
-  //     vendedor.setDni(dni);
-  //     vendedor.setNombreCompleto(nombreCompleto);
-  //     vendedor.setTelefono(telefono);
-  //     vendedor.setCorreo(correo);
-  //     vendedor.setDireccion(direccion);
-  //     vendedor.setIngresosVentas(ingresosVentas);
-  //     vendedor.setPorcentajeComision(porcentajeComision);
-  //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
-  //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
-  //     vendedor.setExperiencia(experiencia);
-  //     vendedor.setAlmacenAdministrador(almacenAdministrador);
-  //     vendedor.setEmpresa(empresa);
-  //     vendedor.setTipoP(tipoP);
-  //     vendedor.setEstadoE(estadoE);
-
-  //     return vendedorDAO.insertar(vendedor);
-  // }
   public Integer insertar(
     String dni,
     String nombreCompleto,
@@ -94,38 +69,14 @@ public class VendedorBO {
     return vendedorDAO.insertar(vendedor);
   }
 
-  // public Integer modificar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
-  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
-
-  //     Vendedor vendedor = new Vendedor();
-  //     vendedor.setIdVendedor(idVendedor);
-  //     vendedor.setDni(dni);
-  //     vendedor.setNombreCompleto(nombreCompleto);
-  //     vendedor.setTelefono(telefono);
-  //     vendedor.setCorreo(correo);
-  //     vendedor.setDireccion(direccion);
-  //     vendedor.setIngresosVentas(ingresosVentas);
-  //     vendedor.setPorcentajeComision(porcentajeComision);
-  //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
-  //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
-  //     vendedor.setExperiencia(experiencia);
-  //     vendedor.setAlmacenAdministrador(almacenAdministrador);
-  //     vendedor.setEmpresa(empresa);
-  //     vendedor.setTipoP(tipoP);
-  //     vendedor.setEstadoE(estadoE);
-
-  //     return vendedorDAO.modificar(vendedor);
-  // }
   public Integer modificar(
-    Integer idEmpleado,
+    Integer idPersona,
     String dni,
     String nombreCompleto,
     String telefono,
     String correo,
     String direccion,
-    /*Integer idEmpleado,*/EstadoEmpleado estado,
+    EstadoEmpleado estado,
     String nombreUsuario,
     String contrasenha,
     Double salario,
@@ -135,14 +86,13 @@ public class VendedorBO {
   ) {
     Vendedor vendedor = new Vendedor();
 
-    vendedor.setIdEmpleado(idEmpleado);
+    vendedor.setIdPersona(idPersona);
     vendedor.setDni(dni);
     vendedor.setNombreCompleto(nombreCompleto);
     vendedor.setTelefono(telefono);
     vendedor.setCorreo(correo);
     vendedor.setDireccion(direccion);
 
-    //vendedor.setIdEmpleado(idEmpleado);
     vendedor.setEstado(estado);
     vendedor.setNombreUsuario(nombreUsuario);
     vendedor.setContrasenha(contrasenha);
@@ -155,9 +105,9 @@ public class VendedorBO {
     return vendedorDAO.modificar(vendedor);
   }
 
-  public Integer eliminar(Integer idVendedor) {
+  public Integer eliminar(Integer idPersona) {
     Vendedor vendedor = new Vendedor();
-    vendedor.setIdVendedor(idVendedor);
+    vendedor.setIdPersona(idPersona);
     return vendedorDAO.eliminar(vendedor);
   }
 

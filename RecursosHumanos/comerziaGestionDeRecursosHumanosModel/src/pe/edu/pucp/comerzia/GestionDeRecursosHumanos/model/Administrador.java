@@ -5,8 +5,6 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 
 import java.util.Date;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 
 /**
  * s
@@ -14,8 +12,6 @@ import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
  * @author chumbi
  */
 public class Administrador extends Empleado {
-
-  private Integer idAdministrador;
 
   private Integer idAlmacen;
 
@@ -28,7 +24,7 @@ public class Administrador extends Empleado {
     EstadoEmpleado estado,
     String nombreUsuario,
     String contrasenha,
-    Double salario,
+    double salario,
     Date fechaContratacion,
     Integer idAlmacen
   ) {
@@ -44,27 +40,46 @@ public class Administrador extends Empleado {
       salario,
       fechaContratacion
     );
+    this.setTipoPersona("ADMINISTRADOR");
     this.idAlmacen = idAlmacen;
   }
 
-  public Administrador(Integer idAlmacen) {
-    super();
+  public Administrador(
+    Integer idPersona,
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    double salario,
+    Date fechaContratacion,
+    Integer idAlmacen
+  ) {
+    super(
+      idPersona,
+      dni,
+      nombreCompleto,
+      telefono,
+      correo,
+      direccion,
+      estado,
+      nombreUsuario,
+      contrasenha,
+      salario,
+      fechaContratacion
+    );
+    this.setTipoPersona("ADMINISTRADOR");
     this.idAlmacen = idAlmacen;
   }
 
   // null
   public Administrador() {
     super();
-    this.idAdministrador = null;
+    this.setTipoPersona("ADMINISTRADOR");
     this.idAlmacen = null;
-  }
-
-  public Integer getIdAdministrador() {
-    return idAdministrador;
-  }
-
-  public void setIdAdministrador(Integer idAdministrador) {
-    this.idAdministrador = idAdministrador;
   }
 
   public Integer getIdAlmacen() {

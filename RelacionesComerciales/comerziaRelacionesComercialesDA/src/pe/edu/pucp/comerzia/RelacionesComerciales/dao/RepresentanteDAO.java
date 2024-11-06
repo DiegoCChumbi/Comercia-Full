@@ -5,9 +5,10 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.dao;
 
 import java.util.ArrayList;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.PersonaDAO;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Representante;
 
-public interface RepresentanteDAO {
+public interface RepresentanteDAO extends PersonaDAO {
   public Integer insertar(Representante representante);
 
   public Integer modificar(Representante representante);

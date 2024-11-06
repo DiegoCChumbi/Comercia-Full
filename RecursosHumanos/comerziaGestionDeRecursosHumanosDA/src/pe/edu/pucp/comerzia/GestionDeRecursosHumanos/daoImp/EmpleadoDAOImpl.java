@@ -5,87 +5,99 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.EmpleadoDAO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.PersonaDAO;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
-import pe.edu.pucp.comerzia.db.DAOImpl;
 
-public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
+public class EmpleadoDAOImpl<T extends Empleado>
+  extends PersonaDAOImpl<T>
+  implements EmpleadoDAO<T> {
 
   private Empleado empleado;
 
   public EmpleadoDAOImpl() {
-    super("Empleado");
+    super();
     this.empleado = null;
   }
 
   @Override
+  public Integer insertar(Empleado empleado) {
+    this.empleado = empleado;
+    this.retornarLlavePrimaria = true;
+
+    // Set tipoPersona to 'EMPLEADO'
+    this.empleado.setTipoPersona("EMPLEADO");
+
+    // Insert into Persona table with Empleado-specific fields
+    Integer idPersona = super.insertar(); // This will handle Persona and Empleado fields
+
+    this.retornarLlavePrimaria = false;
+    return idPersona;
+  }
+
+  @Override
   protected String obtenerListaDeAtributosParaInsercion() {
-    return "idPersona,estado,nombreUsuario,contrasenha,salario,fechaContratacion";
+    // Include Empleado-specific fields along with Persona fields
+    return (
+      super.obtenerListaDeAtributosParaInsercion() +
+      "estado, nombreUsuario, contrasenha, salario, fechaContratacion"
+    );
   }
 
   @Override
   protected String incluirListaDeParametrosParaInsercion() {
-    return "?,?,?,?,?,?";
+    // Add placeholders for Empleado-specific fields
+    return super.incluirListaDeParametrosParaInsercion() + ", ?, ?, ?, ?, ?";
   }
 
   @Override
   protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-    this.incluirParametroInt(1, this.empleado.getIdPersona());
-    this.incluirParametroString(2, this.empleado.getEstado().toString());
-    this.incluirParametroString(3, this.empleado.getNombreUsuario());
-    this.incluirParametroString(4, this.empleado.getContrasenha());
-    this.incluirParametroDouble(5, this.empleado.getSalario());
-    this.incluirParametroDate(6, this.empleado.getFechaContratacion());
+    // Insert Persona fields first
+    super.incluirValorDeParametrosParaInsercion();
+
+    this.incluirParametroString(8, this.empleado.getEstado().toString());
+    this.incluirParametroString(9, this.empleado.getNombreUsuario());
+    this.incluirParametroString(10, this.empleado.getContrasenha());
+    this.incluirParametroDouble(11, this.empleado.getSalario());
+    this.incluirParametroDate(12, this.empleado.getFechaContratacion());
   }
 
   @Override
   protected String obtenerListaDeValoresYAtributosParaModificacion() {
-    return "estado=?,nombreUsuario=?,contrasenha=?,salario=?,fechaContratacion=?";
-  }
-
-  @Override
-  protected String obtenerPredicadoParaLlavePrimaria() {
-    String sql = "";
-    if (
-      this.tipo_Operacion == tipo_Operacion.MODIFICAR ||
-      this.tipo_Operacion == tipo_Operacion.ELIMINAR
-    ) {
-      sql = "idPersona=?";
-    } else {
-      sql = "per.idPersona=?";
-    }
-    return sql;
+    // Include Empleado-specific fields in the SET clause
+    return (
+      super.obtenerListaDeValoresYAtributosParaModificacion() +
+      "estado=?, nombreUsuario=?, contrasenha=?, salario=?, fechaContratacion=?"
+    );
   }
 
   @Override
   protected void incluirValorDeParametrosParaModificacion()
     throws SQLException {
-    this.incluirParametroString(1, this.empleado.getEstado().toString());
-    this.incluirParametroString(2, this.empleado.getNombreUsuario());
-    this.incluirParametroString(3, this.empleado.getContrasenha());
-    this.incluirParametroDouble(4, this.empleado.getSalario());
-    this.incluirParametroDate(5, this.empleado.getFechaContratacion());
-    this.incluirParametroInt(6, this.empleado.getIdPersona());
+    // Update Persona fields first
+    super.incluirValorDeParametrosParaModificacion();
+
+    // Update Empleado-specific fields
+    this.incluirParametroString(8, this.empleado.getEstado().toString());
+    this.incluirParametroString(9, this.empleado.getNombreUsuario());
+    this.incluirParametroString(10, this.empleado.getContrasenha());
+    this.incluirParametroDouble(11, this.empleado.getSalario());
+    this.incluirParametroDate(12, this.empleado.getFechaContratacion());
+    this.incluirParametroInt(13, this.empleado.getIdPersona()); // WHERE clause
   }
 
   @Override
   protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
-    this.incluirParametroInt(1, this.empleado.getIdEmpleado());
+    this.incluirParametroInt(1, this.empleado.getIdPersona());
   }
 
   @Override
   protected String obtenerProyeccionParaSelect() {
-    String sql =
-      "per.idPersona, per.dni, per.nombreCompleto, per.telefono, per.correo, per.direccion, ";
-    sql = sql.concat(
-      "em.estado, em.nombreUsuario, em.contrasenha, em.salario, em.fechaContratacion ,"
+    // Include Empleado-specific fields in SELECT
+    return (
+      super.obtenerProyeccionParaSelect() +
+      "estado, nombreUsuario, contrasenha, salario, fechaContratacion"
     );
-    return sql;
   }
 
   @Override
@@ -98,24 +110,27 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
   @Override
   protected void incluirValorDeParametrosParaObtenerPorId()
     throws SQLException {
-    this.incluirParametroInt(1, this.empleado.getIdEmpleado());
+    this.incluirParametroInt(1, this.empleado.getIdPersona());
   }
 
   @Override
   protected void instanciarObjetoDelResultSet() throws SQLException {
+    // Instantiate Empleado object and populate fields from ResultSet
     this.empleado = new Empleado();
     this.empleado.setIdPersona(this.resultSet.getInt("idPersona"));
     this.empleado.setDni(this.resultSet.getString("dni"));
     this.empleado.setNombreCompleto(this.resultSet.getString("nombreCompleto"));
     this.empleado.setTelefono(this.resultSet.getString("telefono"));
     this.empleado.setCorreo(this.resultSet.getString("correo"));
-    this.empleado.setDireccion((this.resultSet.getString("direccion")));
+    this.empleado.setDireccion(this.resultSet.getString("direccion"));
 
-    this.empleado.setIdEmpleado(this.resultSet.getInt("idEmpleado"));
+    // Empleado-specific fields
+    this.empleado.setTipoPersona(this.resultSet.getString("tipoPersona"));
     this.empleado.setEstado(
         EstadoEmpleado.valueOf(this.resultSet.getString("estado"))
       );
     this.empleado.setNombreUsuario(this.resultSet.getString("nombreUsuario"));
+    this.empleado.setContrasenha(this.resultSet.getString("contrasenha"));
     this.empleado.setSalario(this.resultSet.getDouble("salario"));
     this.empleado.setFechaContratacion(
         this.resultSet.getDate("fechaContratacion")
@@ -128,155 +143,57 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
   }
 
   @Override
-  public Integer insertar(Empleado empleado) {
-    this.empleado = empleado;
-    Integer idPersona = null;
-    Integer idEmpleado = null;
-    Persona persona = new Persona();
-    persona.setIdPersona(this.empleado.getIdPersona());
-    persona.setDni(this.empleado.getDni());
-    persona.setNombreCompleto(this.empleado.getNombreCompleto());
-    persona.setTelefono(this.empleado.getTelefono());
-    persona.setCorreo(this.empleado.getTelefono());
-    persona.setDireccion(this.empleado.getDireccion());
-
-    PersonaDAO personaDAO = new PersonaDAOImpl();
-    Boolean existePersona = personaDAO.existePersona(persona);
-    Boolean existeEmpleado = false;
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      if (!existePersona) {
-        idPersona = personaDAO.insertar(
-          persona,
-          this.usarTransaccion,
-          this.conexion
-        );
-        this.empleado.setIdPersona(idPersona);
-      } else {
-        idPersona = persona.getIdPersona();
-        this.empleado.setIdPersona(idPersona);
-        Boolean abreConexion = false;
-        existeEmpleado = this.existeEmpleado(empleado, abreConexion);
-      }
-      if (!existeEmpleado) {
-        retornarLlavePrimaria = true;
-        idEmpleado = super.insertar();
-        retornarLlavePrimaria = false;
-      }
-      this.comitarTransaccion();
-    } catch (Exception ex) {
-      System.err.println("Error al intentar insertar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return idEmpleado;
+  public ArrayList<T> listarTodos() {
+    return (ArrayList<T>) super.listarTodos(null);
   }
 
   @Override
-  public Integer modificar(Empleado administrador) {
-    Integer retorno = 0;
-    this.empleado = administrador;
-    Persona persona = new Persona();
-    persona.setIdPersona(administrador.getIdPersona());
-    persona.setCorreo(administrador.getCorreo());
-    persona.setDireccion(administrador.getDireccion());
-    persona.setDni(administrador.getDni());
-    persona.setNombreCompleto(administrador.getNombreCompleto());
-    persona.setTelefono(administrador.getTelefono());
-
-    PersonaDAO personaDAO = new PersonaDAOImpl();
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      personaDAO.modificar(persona, this.usarTransaccion, this.conexion);
-      retorno = super.modificar();
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar modificar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
+  protected String generarSQLParaListarTodos(Integer limite) {
+    // Select only Empleado records where tipoPersona = 'EMPLEADO' and not eliminado
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE tipoPersona = 'EMPLEADO' AND eliminado = FALSE";
+    if (limite != null && limite > 0) {
+      sql = sql.concat(" LIMIT ").concat(limite.toString());
     }
-    this.usarTransaccion = true;
-    return retorno;
+    return sql;
+  }
+
+  @Override
+  public T obtenerPorId(Integer idPersona) {
+    this.empleado = new Empleado();
+    this.empleado.setIdPersona(idPersona);
+    super.obtenerPorId();
+    return (T) this.empleado;
+  }
+
+  @Override
+  public Integer modificar(Empleado empleado) {
+    this.empleado = empleado;
+    return super.modificar();
   }
 
   @Override
   public Integer eliminar(Empleado empleado) {
-    Integer retorno = 0;
     this.empleado = empleado;
-    Persona persona = new Persona();
-    persona.setIdPersona(this.empleado.getIdPersona());
-
-    PersonaDAO personaDAO = new PersonaDAOImpl();
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      retorno = super.eliminar();
-      personaDAO.eliminar(persona, this.usarTransaccion, this.conexion);
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar eliminar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+    return super.eliminar();
   }
 
   @Override
-  public ArrayList<Empleado> listarTodos() {
-    return (ArrayList<Empleado>) super.listarTodos(null);
-  }
-
-  @Override
-  public Empleado obtenerPorId(Integer idPersona) {
-    this.empleado = new Empleado();
-    this.empleado.setIdPersona(idPersona);
-    super.obtenerPorId();
-    return this.empleado;
-  }
-
-  @Override
-  public Boolean existeEmpleado(Empleado administrador, Boolean abreConexion) {
-    this.empleado = administrador;
+  public Boolean existeEmpleado(T empleado, Boolean abreConexion) {
+    this.empleado = empleado;
     Integer idPersona = null;
     try {
       if (abreConexion) {
         this.abrirConexion();
       }
-      String sql = "select idPersona from Persona where ";
-      sql = sql.concat("idPersona=? ");
+      String sql =
+        "SELECT idPersona FROM " +
+        this.nombre_tabla +
+        " WHERE idPersona=? AND tipoPersona IN ('EMPLEADO', 'AMBOS') AND eliminado = FALSE";
       this.colocarSQLenStatement(sql);
       this.incluirParametroInt(1, this.empleado.getIdPersona());
       this.ejecutarConsultaEnBD(sql);
@@ -284,7 +201,7 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
         idPersona = this.resultSet.getInt("idPersona");
       }
     } catch (SQLException ex) {
-      System.err.println("Error al consultar si existe alumno - " + ex);
+      System.err.println("Error al consultar si existe empleado - " + ex);
     } finally {
       try {
         if (abreConexion) {
@@ -298,24 +215,13 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
   }
 
   @Override
-  protected String generarSQLParaListarTodos(Integer limite) {
-    String sql = "select ";
-    sql = sql.concat(obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" em ");
-    sql = sql.concat("join persona per on per.idPersona = em.idPersona ");
-    if (limite != null && limite > 0) {
-      sql = sql.concat(" limit ").concat(limite.toString());
-    }
-    return sql;
-  }
-
-  @Override
-  public Boolean existeEmpleado(Empleado empleado) {
+  public Boolean existeEmpleado(T empleado) {
     Boolean abreConexion = true;
     return existeEmpleado(empleado, abreConexion);
   }
 
-  /////////////////////////
+  // Verification Methods
+
   @Override
   public Integer verificarEmpleado(
     String cuenta,
@@ -333,7 +239,7 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
         );
       }
       String sql =
-        "SELECT idEmpleado FROM Empleado WHERE nombreUsuario = ? AND contrasenha = ?";
+        "SELECT idPersona FROM Persona WHERE nombreUsuario = ? AND contrasenha = ? AND tipoPersona = 'EMPLEADO' AND eliminado = FALSE";
       this.colocarSQLenStatement(sql);
 
       // Establecer los parámetros de cuenta y contraseña en el statement
@@ -343,11 +249,11 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
 
       // Verificar si hay un resultado en el ResultSet
       if (this.resultSet.next()) {
-        idPersona = this.resultSet.getInt("idEmpleado");
-        System.out.println(idPersona);
+        idPersona = this.resultSet.getInt("idPersona");
+        System.out.println("Empleado verificado con ID: " + idPersona);
       }
     } catch (SQLException ex) {
-      System.err.println("Error al consultar si existe alumno - " + ex);
+      System.err.println("Error al verificar empleado - " + ex);
     } finally {
       try {
         if (abreConexion) {
@@ -382,8 +288,9 @@ public class EmpleadoDAOImpl extends DAOImpl implements EmpleadoDAO {
           "La conexión a la base de datos no se pudo establecer."
         );
       }
+      // Retrieve nombreCompleto for the given Empleado ID
       String sql =
-        "SELECT p.nombreCompleto FROM Empleado e JOIN Persona p ON e.idPersona = p.idPersona WHERE e.idEmpleado = ?";
+        "SELECT nombreCompleto FROM Persona WHERE idPersona = ? AND tipoPersona = 'EMPLEADO' AND eliminado = FALSE";
       this.colocarSQLenStatement(sql);
       this.incluirParametroInt(1, idEmpleado);
       this.ejecutarConsultaEnBD(sql);

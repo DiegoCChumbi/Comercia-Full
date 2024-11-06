@@ -1,19 +1,14 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.daoImp;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.EmpleadoDAO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.PersonaDAO;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.TrabajadorDeAlmacenDAO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Administrador;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
-import pe.edu.pucp.comerzia.db.DAOImpl;
 
 /*
 public class TrabajadorDeAlmacen {
@@ -28,36 +23,58 @@ public class TrabajadorDeAlmacen {
     private boolean licenciaMontacarga;
  */
 public class TrabajadorDeAlmacenDAOImpl
-  extends DAOImpl
-  implements TrabajadorDeAlmacenDAO {
+  extends EmpleadoDAOImpl<TrabajadorDeAlmacen>
+  implements TrabajadorDeAlmacenDAO<TrabajadorDeAlmacen> {
 
   private TrabajadorDeAlmacen trabajador;
 
   public TrabajadorDeAlmacenDAOImpl() {
-    super("TrabajadorDeAlmacen");
+    super();
     this.trabajador = null;
   }
 
   @Override
+  public Integer insertar(TrabajadorDeAlmacen trabajador) {
+    this.trabajador = trabajador;
+    this.retornarLlavePrimaria = true;
+
+    // Set tipoPersona to 'TRABAJADOR_DE_ALMACEN'
+    this.trabajador.setTipoPersona("TRABAJADOR_DE_ALMACEN");
+
+    // Insert into Persona table with administrador-specific fields
+    Integer idPersona = super.insertar(); // This will handle Persona and administrador fields
+
+    this.retornarLlavePrimaria = false;
+    return idPersona;
+  }
+
+  @Override
   protected String obtenerListaDeAtributosParaInsercion() {
-    return "idEmpleado,idAlmacen,licenciaMontacarga";
+    return (
+      super.obtenerListaDeAtributosParaInsercion() +
+      "idAlmacen, licenciaMontacarga"
+    );
   }
 
   @Override
   protected String incluirListaDeParametrosParaInsercion() {
-    return "?,?,?";
+    return super.incluirListaDeParametrosParaInsercion() + ", ?, ?";
   }
 
   @Override
   protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-    this.incluirParametroInt(1, this.trabajador.getIdEmpleado());
-    this.incluirParametroInt(2, this.trabajador.getIdAlmacen());
-    this.incluirParametroBoolean(3, this.trabajador.isLicenciaMontacarga());
+    super.incluirValorDeParametrosParaInsercion();
+
+    this.incluirParametroInt(13, this.trabajador.getIdAlmacen());
+    this.incluirParametroBoolean(14, this.trabajador.isLicenciaMontacarga());
   }
 
   @Override
   protected String obtenerListaDeValoresYAtributosParaModificacion() {
-    return "idAlmacen=?,licenciaMontacarga=?";
+    return (
+      super.obtenerListaDeValoresYAtributosParaModificacion() +
+      "idAlmacen=?, licenciaMontacarga=?"
+    );
   }
 
   @Override
@@ -67,9 +84,9 @@ public class TrabajadorDeAlmacenDAOImpl
       this.tipo_Operacion == tipo_Operacion.MODIFICAR ||
       this.tipo_Operacion == tipo_Operacion.ELIMINAR
     ) {
-      sql = "idEmpleado=?";
+      sql = "idPersona=?";
     } else {
-      sql = "em.idEmpleado=?";
+      sql = "em.idPersona=?";
     }
     return sql;
   }
@@ -77,8 +94,11 @@ public class TrabajadorDeAlmacenDAOImpl
   @Override
   protected void incluirValorDeParametrosParaModificacion()
     throws SQLException {
-    this.incluirParametroInt(1, this.trabajador.getIdAlmacen());
-    this.incluirParametroBoolean(1, this.trabajador.isLicenciaMontacarga());
+    super.incluirValorDeParametrosParaModificacion();
+
+    this.incluirParametroInt(13, this.trabajador.getIdAlmacen());
+    this.incluirParametroBoolean(14, this.trabajador.isLicenciaMontacarga());
+    this.incluirParametroInt(15, this.trabajador.getIdPersona()); // WHERE clause
   }
 
   @Override
@@ -88,13 +108,9 @@ public class TrabajadorDeAlmacenDAOImpl
 
   @Override
   protected String obtenerProyeccionParaSelect() {
-    String sql =
-      "per.idPersona, per.dni, per.nombreCompleto, per.telefono, per.correo, per.direccion, ";
-    sql = sql.concat(
-      "em.idEmpleado, em.estado, em.nombreUsuario, em.contrasenha, em.salario, em.fechaContratacion, "
+    return (
+      super.obtenerProyeccionParaSelect() + "idAlmacen, licenciaMontacarga"
     );
-    sql = sql.concat("tra.idEmpleado, tra.idAlmacen, tra.licenciaMontacarga");
-    return sql;
   }
 
   @Override
@@ -107,7 +123,7 @@ public class TrabajadorDeAlmacenDAOImpl
   @Override
   protected void incluirValorDeParametrosParaObtenerPorId()
     throws SQLException {
-    this.incluirParametroInt(1, this.trabajador.getIdEmpleado());
+    this.incluirParametroInt(1, this.trabajador.getIdPersona());
   }
 
   @Override
@@ -122,7 +138,7 @@ public class TrabajadorDeAlmacenDAOImpl
     this.trabajador.setCorreo(this.resultSet.getString("correo"));
     this.trabajador.setDireccion((this.resultSet.getString("direccion")));
 
-    this.trabajador.setIdEmpleado(this.resultSet.getInt("idEmpleado"));
+    this.trabajador.setTipoPersona(this.resultSet.getString("tipoPersona"));
     this.trabajador.setEstado(
         EstadoEmpleado.valueOf(this.resultSet.getString("estado"))
       );
@@ -145,171 +161,36 @@ public class TrabajadorDeAlmacenDAOImpl
   }
 
   @Override
-  public Integer insertar(TrabajadorDeAlmacen trabajador) {
-    this.trabajador = trabajador;
-    //        Integer idPersona = null;
-    //        Persona persona = new Persona();
-    //        persona.setIdPersona(this.trabajador.getIdPersona());
-    //        persona.setDni(this.trabajador.getDni());
-    //        persona.setNombreCompleto(this.trabajador.getNombreCompleto());
-    //        persona.setTelefono(this.trabajador.getTelefono());
-    //        persona.setCorreo(this.trabajador.getTelefono());
-    //        persona.setDireccion(this.trabajador.getDireccion());
-    //
-    //        PersonaDAO personaDAO = new PersonaDAOImpl();
-    //        Boolean existePersona = personaDAO.existePersona(persona);
-    //        Boolean existeTrabajador = false;
-
-    Integer idEmpleado = null;
-    Empleado empleado = new Empleado();
-    empleado.setDni(this.trabajador.getDni());
-    empleado.setNombreCompleto(this.trabajador.getNombreCompleto());
-    empleado.setNombreUsuario(this.trabajador.getNombreUsuario());
-    empleado.setTelefono(this.trabajador.getTelefono());
-    empleado.setCorreo(this.trabajador.getCorreo());
-    empleado.setDireccion(this.trabajador.getDireccion());
-
-    empleado.setEstado(this.trabajador.getEstado());
-    empleado.setNombreUsuario(this.trabajador.getNombreUsuario());
-    empleado.setContrasenha(this.trabajador.getContrasenha());
-    empleado.setSalario(this.trabajador.getSalario());
-    empleado.setFechaContratacion(this.trabajador.getFechaContratacion());
-
-    EmpleadoDAO empleadoDAO = new EmpleadoDAOImpl();
-    Boolean existeEmpleado = empleadoDAO.existeEmpleado(empleado);
-    Boolean existeTrabajador = false;
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      if (!existeEmpleado) {
-        idEmpleado = empleadoDAO.insertar(
-          empleado,
-          this.usarTransaccion,
-          this.conexion
-        );
-        this.trabajador.setIdEmpleado(idEmpleado);
-      } else {
-        idEmpleado = empleado.getIdEmpleado();
-        this.trabajador.setIdEmpleado(idEmpleado);
-        Boolean abreConexion = false;
-        existeTrabajador = this.existeTrabajadorDeAlmacen(
-            trabajador,
-            abreConexion
-          );
-      }
-      if (!existeTrabajador) {
-        super.insertar();
-      }
-      this.comitarTransaccion();
-    } catch (Exception ex) {
-      System.err.println("Error al intentar insertar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return idEmpleado;
+  public Integer insertar(
+    TrabajadorDeAlmacen trabajador,
+    Boolean usarTransaccion,
+    Connection conexion
+  ) {
+    this.usarTransaccion = usarTransaccion;
+    this.conexion = conexion;
+    return this.insertar(trabajador);
   }
 
   @Override
-  public Integer modificar(TrabajadorDeAlmacen trabajador) {
-    Integer retorno = 0;
-    //        this.trabajador = trabajador;
-    //        Persona persona = new Persona();
-    //        persona.setIdPersona(trabajador.getIdPersona());
-    //        persona.setCorreo(trabajador.getCorreo());
-    //        persona.setDireccion(trabajador.getDireccion());
-    //        persona.setDni(trabajador.getDni());
-    //        persona.setNombreCompleto(trabajador.getNombreCompleto());
-    //        persona.setTelefono(trabajador.getTelefono());
-    //
-    //        PersonaDAO personaDAO = new PersonaDAOImpl();
-
-    this.trabajador = trabajador;
-
-    Empleado empleado = new Empleado();
-    empleado.setDni(this.trabajador.getDni());
-    empleado.setNombreUsuario(this.trabajador.getNombreUsuario());
-    empleado.setTelefono(this.trabajador.getTelefono());
-    empleado.setCorreo(this.trabajador.getCorreo());
-    empleado.setDireccion(this.trabajador.getDireccion());
-
-    empleado.setEstado(this.trabajador.getEstado());
-    empleado.setNombreUsuario(this.trabajador.getNombreUsuario());
-    empleado.setContrasenha(this.trabajador.getContrasenha());
-    empleado.setSalario(this.trabajador.getSalario());
-    empleado.setFechaContratacion(this.trabajador.getFechaContratacion());
-
-    EmpleadoDAO empleadoDAO = new EmpleadoDAOImpl();
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      empleadoDAO.modificar(empleado, this.usarTransaccion, this.conexion);
-      retorno = super.modificar();
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar modificar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+  public Integer modificar(
+    TrabajadorDeAlmacen trabajador,
+    Boolean usarTransaccion,
+    Connection conexion
+  ) {
+    this.usarTransaccion = usarTransaccion;
+    this.conexion = conexion;
+    return this.modificar(trabajador);
   }
 
   @Override
-  public Integer eliminar(TrabajadorDeAlmacen trabajador) {
-    Integer retorno = 0;
-    this.trabajador = trabajador;
-    //        Persona persona = new Persona();
-    //        persona.setIdPersona(this.trabajador.getIdPersona());
-    //
-    //        PersonaDAO personaDAO = new PersonaDAOImpl();
-
-    Empleado empleado = new Empleado();
-    empleado.setIdEmpleado(this.trabajador.getIdEmpleado());
-    EmpleadoDAO empleadoDAO = new EmpleadoDAOImpl();
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      retorno = super.eliminar();
-      empleadoDAO.eliminar(empleado, this.usarTransaccion, this.conexion);
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar eliminar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+  public Integer eliminar(
+    TrabajadorDeAlmacen trabajador,
+    Boolean usarTransaccion,
+    Connection conexion
+  ) {
+    this.usarTransaccion = usarTransaccion;
+    this.conexion = conexion;
+    return this.eliminar(trabajador);
   }
 
   @Override
@@ -318,23 +199,34 @@ public class TrabajadorDeAlmacenDAOImpl
   }
 
   @Override
-  public TrabajadorDeAlmacen obtenerPorId(Integer idEmpleado) {
+  public TrabajadorDeAlmacen obtenerPorId(Integer idPersona) {
     this.trabajador = new TrabajadorDeAlmacen();
-    this.trabajador.setIdEmpleado(idEmpleado);
+    this.trabajador.setIdPersona(idPersona);
     super.obtenerPorId();
     return this.trabajador;
   }
 
   @Override
+  public Integer modificar(TrabajadorDeAlmacen trabajador) {
+    this.trabajador = trabajador;
+    return super.modificar();
+  }
+
+  @Override
+  public Integer eliminar(TrabajadorDeAlmacen trabajador) {
+    this.trabajador = trabajador;
+    return super.eliminar();
+  }
+
+  @Override
   protected String generarSQLParaListarPorId() {
-    String sql = "select ";
-    sql = sql.concat(this.obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" tra ");
-    sql = sql.concat(
-      "join Empleado em join Persona per on em.idEmpleado = tra.idEmpleado and em.idPersona = per.idPersona "
-    );
-    sql = sql.concat(" where ");
-    sql = sql.concat(this.obtenerPredicadoParaLlavePrimaria());
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE " +
+      this.obtenerPredicadoParaLlavePrimaria();
     return sql;
   }
 
@@ -344,18 +236,20 @@ public class TrabajadorDeAlmacenDAOImpl
     Boolean abreConexion
   ) {
     this.trabajador = trabajador;
-    Integer idEmpleado = null;
+    Integer idPersona = null;
     try {
       if (abreConexion) {
         this.abrirConexion();
       }
-      String sql = "select idEmpleado from Empleado where ";
-      sql = sql.concat("idEmpleado=? ");
+      String sql =
+        "SELECT idPersona FROM " +
+        this.nombre_tabla +
+        " WHERE idPersona=? AND tipoPersona IN ('TRABAJADOR_DE_ALMACEN', 'AMBOS') AND eliminado = FALSE";
       this.colocarSQLenStatement(sql);
-      this.incluirParametroInt(1, this.trabajador.getIdEmpleado());
+      this.incluirParametroInt(1, this.trabajador.getIdPersona());
       this.ejecutarConsultaEnBD(sql);
       if (this.resultSet.next()) {
-        idEmpleado = this.resultSet.getInt("idEmpleado");
+        idPersona = this.resultSet.getInt("idPersona");
       }
     } catch (SQLException ex) {
       System.err.println("Error al consultar si existe trabajador - " + ex);
@@ -368,19 +262,19 @@ public class TrabajadorDeAlmacenDAOImpl
         System.err.println("Error al cerrar la conexión - " + ex);
       }
     }
-    return idEmpleado != null;
+    return idPersona != null;
   }
 
   @Override
   protected String generarSQLParaListarTodos(Integer limite) {
-    String sql = "select ";
-    sql = sql.concat(obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" tra ");
-    sql = sql.concat(
-      "join Empleado em join Persona per on em.idEmpleado = tra.idEmpleado and em.idPersona = per.idPersona "
-    );
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE tipoPersona = 'TRABAJADOR_DE_ALMACEN' AND eliminado = FALSE";
     if (limite != null && limite > 0) {
-      sql = sql.concat(" limit ").concat(limite.toString());
+      sql = sql.concat(" LIMIT ").concat(limite.toString());
     }
     return sql;
   }

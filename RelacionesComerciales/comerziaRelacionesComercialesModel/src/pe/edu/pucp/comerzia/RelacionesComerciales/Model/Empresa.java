@@ -8,6 +8,22 @@ public class Empresa {
   private String telefono;
   private String email;
   private String tipoIndustria;
+  private String tipoEmpresa;
+
+  public Empresa(
+    String nombre,
+    String direccion,
+    String telefono,
+    String email,
+    String tipoIndustria
+  ) {
+    this.nombre = nombre;
+    this.direccion = direccion;
+    this.telefono = telefono;
+    this.email = email;
+    this.tipoIndustria = tipoIndustria;
+    this.tipoEmpresa = null;
+  }
 
   public Empresa(
     Integer idEmpresa,
@@ -23,20 +39,7 @@ public class Empresa {
     this.telefono = telefono;
     this.email = email;
     this.tipoIndustria = tipoIndustria;
-  }
-
-  public Empresa(
-    String nombre,
-    String direccion,
-    String telefono,
-    String email,
-    String tipoIndustria
-  ) {
-    this.nombre = nombre;
-    this.direccion = direccion;
-    this.telefono = telefono;
-    this.email = email;
-    this.tipoIndustria = tipoIndustria;
+    this.tipoEmpresa = null;
   }
 
   public Empresa() {
@@ -94,5 +97,13 @@ public class Empresa {
 
   public void setTipoIndustria(String tipoIndustria) {
     this.tipoIndustria = tipoIndustria;
+  }
+
+  public String getTipoEmpresa() {
+    return tipoEmpresa;
+  }
+
+  public void setTipoEmpresa(String tipoEmpresa) {
+    this.tipoEmpresa = tipoEmpresa;
   }
 }

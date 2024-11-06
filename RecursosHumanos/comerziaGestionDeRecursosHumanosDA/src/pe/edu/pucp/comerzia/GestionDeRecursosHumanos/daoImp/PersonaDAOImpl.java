@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.PersonaDAO;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 import pe.edu.pucp.comerzia.db.DAOImpl;
 
-public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
+public class PersonaDAOImpl<T extends Persona> extends DAOImpl implements PersonaDAO<T> {
 
-  private Persona persona;
+  private T persona;
 
   public PersonaDAOImpl() {
     super("Persona");
@@ -21,7 +22,7 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
   }
 
   @Override
-  public Boolean existePersona(Persona persona) {
+  public Boolean existePersona(T persona) {
     this.persona = persona;
     Integer idPersona = null;
     try {
@@ -57,12 +58,12 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
 
   @Override
   protected String obtenerListaDeAtributosParaInsercion() {
-    return "dni,nombreCompleto,telefono,correo,direccion";
+    return "dni, nombreCompleto, telefono, correo, direccion, tipoPersona, eliminado";
   }
 
   @Override
   protected String incluirListaDeParametrosParaInsercion() {
-    return "?,?,?,?,?";
+    return "?, ?, ?, ?, ?, ?, ?";
   }
 
   @Override
@@ -72,11 +73,13 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
     this.incluirParametroString(3, this.persona.getTelefono());
     this.incluirParametroString(4, this.persona.getCorreo());
     this.incluirParametroString(5, this.persona.getDireccion());
+    this.incluirParametroString(6, this.persona.getTipoPersona());
+    this.incluirParametroBoolean(7, this.persona.getEliminado());
   }
 
   @Override
   protected String obtenerListaDeValoresYAtributosParaModificacion() {
-    return "dni=?,nombreCompleto=?,telefono=?,correo=?,direccion=?";
+    return "dni=?, nombreCompleto=?, telefono=?, correo=?, direccion=?, tipoPersona=?, eliminado=?";
   }
 
   @Override
@@ -92,7 +95,9 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
     this.incluirParametroString(3, this.persona.getTelefono());
     this.incluirParametroString(4, this.persona.getCorreo());
     this.incluirParametroString(5, this.persona.getDireccion());
-    this.incluirParametroInt(6, this.persona.getIdPersona());
+    this.incluirParametroString(6, this.persona.getTipoPersona());
+    this.incluirParametroBoolean(7, this.persona.getEliminado());
+    this.incluirParametroInt(8, this.persona.getIdPersona()); // WHERE clause
   }
 
   @Override
@@ -102,7 +107,7 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
 
   @Override
   protected String obtenerProyeccionParaSelect() {
-    return "idPersona,dni,nombreCompleto,telefono,correo,direccion";
+    return "idPersona, dni, nombreCompleto, telefono, correo, direccion, tipoPersona, eliminado";
   }
 
   @Override
@@ -120,13 +125,15 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
 
   @Override
   protected void instanciarObjetoDelResultSet() throws SQLException {
-    this.persona = new Persona();
+    this.persona = (T)new Persona();
     this.persona.setIdPersona(this.resultSet.getInt("idPersona"));
     this.persona.setDni(this.resultSet.getString("dni"));
     this.persona.setNombreCompleto(this.resultSet.getString("nombreCompleto"));
     this.persona.setTelefono(this.resultSet.getString("telefono"));
     this.persona.setCorreo(this.resultSet.getString("correo"));
     this.persona.setDireccion(this.resultSet.getString("direccion"));
+    this.persona.setTipoPersona(this.resultSet.getString("tipoPersona"));
+    this.persona.setEliminado(this.resultSet.getBoolean("eliminado"));
   }
 
   @Override
@@ -135,7 +142,7 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
   }
 
   @Override
-  public Integer insertar(Persona persona) {
+  public Integer insertar(T persona) {
     this.persona = persona;
     this.retornarLlavePrimaria = true;
     Integer id = super.insertar();
@@ -144,25 +151,39 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
   }
 
   @Override
-  public Integer modificar(Persona persona) {
+  public Integer modificar(T persona) {
     this.persona = persona;
     return super.modificar();
   }
 
   @Override
-  public Integer eliminar(Persona persona) {
+  public Integer eliminar(T persona) {
     this.persona = persona;
     return super.eliminar();
   }
 
   @Override
-  public ArrayList<Persona> listarTodos() {
-    return (ArrayList<Persona>) super.listarTodos(null);
+  public ArrayList<T> listarTodos() {
+    return (ArrayList<T>) super.listarTodos(null);
   }
 
   @Override
-  public Persona obtenerPorId(Integer idPersona) {
-    this.persona = new Persona();
+  protected String generarSQLParaListarTodos(Integer limite) {
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE eliminado = FALSE";
+    if (limite != null && limite > 0) {
+      sql += " LIMIT " + limite;
+    }
+    return sql;
+  }
+
+  @Override
+  public T obtenerPorId(Integer idPersona) {
+    this.persona = (T)new Persona();
     this.persona.setIdPersona(idPersona);
     this.obtenerPorId();
     return this.persona;
@@ -170,7 +191,7 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
 
   @Override
   public Integer insertar(
-    Persona persona,
+    T persona,
     Boolean usarTransaccion,
     Connection conexion
   ) {
@@ -181,7 +202,7 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
 
   @Override
   public Integer modificar(
-    Persona persona,
+    T persona,
     Boolean usarTransaccion,
     Connection conexion
   ) {
@@ -192,7 +213,7 @@ public class PersonaDAOImpl extends DAOImpl implements PersonaDAO {
 
   @Override
   public Integer eliminar(
-    Persona persona,
+    T persona,
     Boolean usarTransaccion,
     Connection conexion
   ) {

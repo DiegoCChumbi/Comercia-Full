@@ -29,7 +29,7 @@ public class TrabajadorDeAlmacen {
  */
 public class TrabajadorDeAlmacenBO {
 
-  private TrabajadorDeAlmacenDAO trabajadorDeAlmacenDAO;
+  private TrabajadorDeAlmacenDAO<TrabajadorDeAlmacen> trabajadorDeAlmacenDAO;
 
   public TrabajadorDeAlmacenBO() {
     this.trabajadorDeAlmacenDAO = new TrabajadorDeAlmacenDAOImpl();
@@ -113,7 +113,7 @@ public class TrabajadorDeAlmacenBO {
   //     return trabajadorDeAlmacenDAO.modificar(trabajadorDeAlmacen);
   // }
   public Integer modificar(
-    Integer idEmpleado,
+    Integer idPersona,
     String dni,
     String nombreCompleto,
     String telefono,
@@ -129,7 +129,7 @@ public class TrabajadorDeAlmacenBO {
   ) {
     TrabajadorDeAlmacen trabajadorDeAlmacen = new TrabajadorDeAlmacen();
 
-    trabajadorDeAlmacen.setIdEmpleado(idEmpleado);
+    trabajadorDeAlmacen.setIdPersona(idPersona);
     trabajadorDeAlmacen.setDni(dni);
     trabajadorDeAlmacen.setNombreCompleto(nombreCompleto);
     trabajadorDeAlmacen.setTelefono(telefono);
@@ -148,9 +148,9 @@ public class TrabajadorDeAlmacenBO {
     return trabajadorDeAlmacenDAO.modificar(trabajadorDeAlmacen);
   }
 
-  public Integer eliminar(Integer idTrabajador) {
+  public Integer eliminar(Integer idPersona) {
     TrabajadorDeAlmacen trabajador = new TrabajadorDeAlmacen();
-    trabajador.setIdTrabajadorDeAlmacen(idTrabajador);
+    trabajador.setIdPersona(idPersona);
     return trabajadorDeAlmacenDAO.eliminar(trabajador);
   }
 

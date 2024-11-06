@@ -1,5 +1,6 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.daoImp;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,41 +10,67 @@ import java.util.logging.Logger;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.EmpleadoDAO;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.PersonaDAO;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.VendedorDAO;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Administrador;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Vendedor;
 import pe.edu.pucp.comerzia.db.DAOImpl;
 
-public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
+public class VendedorDAOImpl
+  extends EmpleadoDAOImpl<Vendedor>
+  implements VendedorDAO<Vendedor> {
 
   private Vendedor vendedor;
 
   public VendedorDAOImpl() {
-    super("Vendedor");
+    super();
     this.vendedor = null;
   }
 
   @Override
+  public Integer insertar(Vendedor vendedor) {
+    this.vendedor = vendedor;
+    this.retornarLlavePrimaria = true;
+
+    // Set tipoPersona to 'VENDEDOR'
+    this.vendedor.setTipoPersona("VENDEDOR");
+
+    // Insert into Persona table with administrador-specific fields
+    Integer idPersona = super.insertar(); // This will handle Persona and administrador fields
+
+    this.retornarLlavePrimaria = false;
+    return idPersona;
+  }
+
+  @Override
   protected String obtenerListaDeAtributosParaInsercion() {
-    return "idEmpleado,ingresosVentas,porcentajeComision";
+    return (
+      super.obtenerListaDeAtributosParaInsercion() +
+      "ingresosVentas,porcentajeComision"
+    );
   }
 
   @Override
   protected String incluirListaDeParametrosParaInsercion() {
-    return "?,?,?";
+    return super.incluirListaDeParametrosParaInsercion() + ", ?, ?";
   }
 
   @Override
   protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-    this.incluirParametroInt(1, this.vendedor.getIdEmpleado());
-    this.incluirParametroDouble(2, this.vendedor.getIngresosVentas());
-    this.incluirParametroDouble(3, this.vendedor.getPorcentajeComision());
+    super.incluirValorDeParametrosParaInsercion();
+
+    this.incluirParametroDouble(13, this.vendedor.getIngresosVentas());
+    this.incluirParametroDouble(14, this.vendedor.getPorcentajeComision());
   }
 
   @Override
   protected String obtenerListaDeValoresYAtributosParaModificacion() {
-    return "ingresosVentas=?,porcentajeComision=?";
+    return (
+      super.obtenerListaDeValoresYAtributosParaModificacion() +
+      "ingresosVentas=?, porcentajeComision=?"
+    );
   }
 
   @Override
@@ -53,9 +80,9 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
       this.tipo_Operacion == tipo_Operacion.MODIFICAR ||
       this.tipo_Operacion == tipo_Operacion.ELIMINAR
     ) {
-      sql = "idEmpleado=?";
+      sql = "idPersona=?";
     } else {
-      sql = "em.idEmpleado=?";
+      sql = "em.idPersona=?";
     }
     return sql;
   }
@@ -63,25 +90,23 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
   @Override
   protected void incluirValorDeParametrosParaModificacion()
     throws SQLException {
-    this.incluirParametroDouble(1, this.vendedor.getIngresosVentas());
-    this.incluirParametroDouble(2, this.vendedor.getPorcentajeComision());
-    this.incluirParametroInt(3, this.vendedor.getIdEmpleado());
+    super.incluirValorDeParametrosParaModificacion();
+
+    this.incluirParametroDouble(13, this.vendedor.getIngresosVentas());
+    this.incluirParametroDouble(14, this.vendedor.getPorcentajeComision());
+    this.incluirParametroInt(15, this.vendedor.getIdPersona()); // WHERE clause
   }
 
   @Override
   protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
-    this.incluirParametroInt(1, this.vendedor.getIdVendedor());
+    this.incluirParametroInt(1, this.vendedor.getIdPersona());
   }
 
   @Override
   protected String obtenerProyeccionParaSelect() {
-    String sql =
-      "per.idPersona, per.dni, per.nombreCompleto, per.telefono, per.correo, per.direccion, ";
-    sql = sql.concat(
-      "em.idEmpleado, em.estado, em.nombreUsuario, em.contrasenha, em.salario, em.fechaContratacion, "
+    return (
+      super.obtenerProyeccionParaSelect() + "ingresosVentas, porcentajeComision"
     );
-    sql = sql.concat("ve.ingresosVentas,ve.porcentajeComision");
-    return sql;
   }
 
   @Override
@@ -94,7 +119,7 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
   @Override
   protected void incluirValorDeParametrosParaObtenerPorId()
     throws SQLException {
-    this.incluirParametroInt(1, this.vendedor.getIdEmpleado());
+    this.incluirParametroInt(1, this.vendedor.getIdPersona());
   }
 
   @Override
@@ -107,14 +132,7 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
     this.vendedor.setCorreo(this.resultSet.getString("correo"));
     this.vendedor.setDireccion((this.resultSet.getString("direccion")));
 
-    this.vendedor.setIdEmpleado(this.resultSet.getInt("idEmpleado"));
-    this.vendedor.setIdPersona(this.resultSet.getInt("idPersona"));
-    this.vendedor.setDni(this.resultSet.getString("dni"));
-    this.vendedor.setNombreCompleto(this.resultSet.getString("nombreCompleto"));
-    this.vendedor.setTelefono(this.resultSet.getString("telefono"));
-    this.vendedor.setCorreo(this.resultSet.getString("correo"));
-    this.vendedor.setDireccion((this.resultSet.getString("direccion")));
-    this.vendedor.setIdEmpleado(this.resultSet.getInt("idEmpleado"));
+    this.vendedor.setTipoPersona(this.resultSet.getString("tipoPersona"));
     this.vendedor.setEstado(
         EstadoEmpleado.valueOf(this.resultSet.getString("estado"))
       );
@@ -124,8 +142,6 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
         this.resultSet.getDate("fechaContratacion")
       );
 
-    //this.vendedor.setIdVendedor(this.resultSet.getInt("idVendedor"));
-    this.vendedor.setIdEmpleado(this.resultSet.getInt("idEmpleado"));
     this.vendedor.setIngresosVentas(this.resultSet.getDouble("ingresosVentas"));
     this.vendedor.setPorcentajeComision(
         this.resultSet.getDouble("porcentajeComision")
@@ -138,167 +154,36 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
   }
 
   @Override
-  public Integer insertar(Vendedor vendedor) {
-    this.vendedor = vendedor;
-    //        Integer idPersona = null;
-    //        Persona persona = new Persona();
-    //        persona.setIdPersona(this.vendedor.getIdPersona());
-    //        persona.setDni(this.vendedor.getDni());
-    //        persona.setNombreCompleto(this.vendedor.getNombreCompleto());
-    //        persona.setTelefono(this.vendedor.getTelefono());
-    //        persona.setCorreo(this.vendedor.getTelefono());
-    //        persona.setDireccion(this.vendedor.getDireccion());
-    //
-    //        PersonaDAO personaDAO = new PersonaDAOImpl();
-    //        Boolean existePersona = personaDAO.existePersona(persona);
-    //        Boolean existeVendedor = false;
-
-    Integer idEmpleado = null;
-    Empleado empleado = new Empleado();
-    empleado.setDni(this.vendedor.getDni());
-    empleado.setNombreCompleto(this.vendedor.getNombreCompleto());
-    empleado.setTelefono(this.vendedor.getTelefono());
-    empleado.setCorreo(this.vendedor.getCorreo());
-    empleado.setDireccion(this.vendedor.getDireccion());
-
-    empleado.setEstado(this.vendedor.getEstado());
-    empleado.setNombreUsuario(this.vendedor.getNombreUsuario());
-    empleado.setContrasenha(this.vendedor.getContrasenha());
-    empleado.setSalario(this.vendedor.getSalario());
-    empleado.setFechaContratacion(this.vendedor.getFechaContratacion());
-
-    EmpleadoDAO empleadoDAO = new EmpleadoDAOImpl();
-    Boolean existeEmpleado = empleadoDAO.existeEmpleado(empleado);
-    Boolean existeVendedor = false;
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      if (!existeEmpleado) {
-        idEmpleado = empleadoDAO.insertar(
-          empleado,
-          this.usarTransaccion,
-          this.conexion
-        );
-        this.vendedor.setIdEmpleado(idEmpleado);
-      } else {
-        idEmpleado = empleado.getIdPersona();
-        this.vendedor.setIdPersona(idEmpleado);
-        Boolean abreConexion = false;
-        existeVendedor = this.existeVendedor(vendedor, abreConexion);
-      }
-      if (!existeVendedor) {
-        super.insertar();
-      }
-      this.comitarTransaccion();
-    } catch (Exception ex) {
-      System.err.println("Error al intentar insertar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return idEmpleado;
+  public Integer insertar(
+    Vendedor vendedor,
+    Boolean usarTransaccion,
+    Connection conexion
+  ) {
+    this.usarTransaccion = usarTransaccion;
+    this.conexion = conexion;
+    return this.insertar(vendedor);
   }
 
   @Override
-  public Integer modificar(Vendedor vendedor) {
-    Integer retorno = 0;
-    //        this.vendedor = vendedor;
-    //        Persona persona = new Persona();
-    //        persona.setIdPersona(vendedor.getIdPersona());
-    //        persona.setCorreo(vendedor.getCorreo());
-    //        persona.setDireccion(vendedor.getDireccion());
-    //        persona.setDni(vendedor.getDni());
-    //        persona.setNombreCompleto(vendedor.getNombreCompleto());
-    //        persona.setTelefono(vendedor.getTelefono());
-    //
-    //        PersonaDAO personaDAO = new PersonaDAOImpl();
-
-    this.vendedor = vendedor;
-
-    Empleado empleado = new Empleado();
-    empleado.setDni(this.vendedor.getDni());
-    empleado.setNombreUsuario(this.vendedor.getNombreUsuario());
-    empleado.setTelefono(this.vendedor.getTelefono());
-    empleado.setCorreo(this.vendedor.getCorreo());
-    empleado.setDireccion(this.vendedor.getDireccion());
-
-    empleado.setEstado(this.vendedor.getEstado());
-    empleado.setNombreUsuario(this.vendedor.getNombreUsuario());
-    empleado.setContrasenha(this.vendedor.getContrasenha());
-    empleado.setSalario(this.vendedor.getSalario());
-    empleado.setFechaContratacion(this.vendedor.getFechaContratacion());
-
-    EmpleadoDAO empleadoDAO = new EmpleadoDAOImpl();
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      empleadoDAO.modificar(empleado, this.usarTransaccion, this.conexion);
-      retorno = super.modificar();
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar modificar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+  public Integer modificar(
+    Vendedor vendedor,
+    Boolean usarTransaccion,
+    Connection conexion
+  ) {
+    this.usarTransaccion = usarTransaccion;
+    this.conexion = conexion;
+    return this.modificar(vendedor);
   }
 
   @Override
-  public Integer eliminar(Vendedor vendedor) {
-    Integer retorno = 0;
-    this.vendedor = vendedor;
-    //        Persona persona = new Persona();
-    //        persona.setIdPersona(this.vendedor.getIdPersona());
-    //
-    //        PersonaDAO personaDAO = new PersonaDAOImpl();
-
-    Empleado empleado = new Empleado();
-    empleado.setIdEmpleado(this.vendedor.getIdEmpleado());
-    EmpleadoDAO empleadoDAO = new EmpleadoDAOImpl();
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      retorno = super.eliminar();
-      empleadoDAO.eliminar(empleado, this.usarTransaccion, this.conexion);
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar eliminar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+  public Integer eliminar(
+    Vendedor vendedor,
+    Boolean usarTransaccion,
+    Connection conexion
+  ) {
+    this.usarTransaccion = usarTransaccion;
+    this.conexion = conexion;
+    return this.eliminar(vendedor);
   }
 
   @Override
@@ -307,41 +192,54 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
   }
 
   @Override
-  public Vendedor obtenerPorId(Integer idEmpleado) {
+  public Vendedor obtenerPorId(Integer idPersona) {
     this.vendedor = new Vendedor();
-    this.vendedor.setIdEmpleado(idEmpleado);
+    this.vendedor.setIdPersona(idPersona);
     super.obtenerPorId();
     return this.vendedor;
   }
 
   @Override
+  public Integer modificar(Vendedor vendedor) {
+    this.vendedor = vendedor;
+    return super.modificar();
+  }
+
+  @Override
+  public Integer eliminar(Vendedor vendedor) {
+    this.vendedor = vendedor;
+    return super.eliminar();
+  }
+
+  @Override
   protected String generarSQLParaListarPorId() {
-    String sql = "select ";
-    sql = sql.concat(this.obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" ve ");
-    sql = sql.concat(
-      "join Empleado em join Persona per on em.idEmpleado = ve.idEmpleado and em.idPersona = per.idPersona "
-    );
-    sql = sql.concat(" where ");
-    sql = sql.concat(this.obtenerPredicadoParaLlavePrimaria());
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE " +
+      this.obtenerPredicadoParaLlavePrimaria();
     return sql;
   }
 
   @Override
   public Boolean existeVendedor(Vendedor vendedor, Boolean abreConexion) {
     this.vendedor = vendedor;
-    Integer idEmpleado = null;
+    Integer idPersona = null;
     try {
       if (abreConexion) {
         this.abrirConexion();
       }
-      String sql = "select idEmpleado from Empleado where ";
-      sql = sql.concat("idEmpleado=? ");
+      String sql =
+        "SELECT idPersona FROM " +
+        this.nombre_tabla +
+        " WHERE idPersona=? AND tipoPersona IN ('VENDEDOR', 'AMBOS') AND eliminado = FALSE";
       this.colocarSQLenStatement(sql);
-      this.incluirParametroInt(1, this.vendedor.getIdEmpleado());
+      this.incluirParametroInt(1, this.vendedor.getIdPersona());
       this.ejecutarConsultaEnBD(sql);
       if (this.resultSet.next()) {
-        idEmpleado = this.resultSet.getInt("idEmpleado");
+        idPersona = this.resultSet.getInt("idPersona");
       }
     } catch (SQLException ex) {
       System.err.println("Error al consultar si existe vendedor - " + ex);
@@ -354,19 +252,19 @@ public class VendedorDAOImpl extends DAOImpl implements VendedorDAO {
         System.err.println("Error al cerrar la conexión - " + ex);
       }
     }
-    return idEmpleado != null;
+    return idPersona != null;
   }
 
   @Override
   protected String generarSQLParaListarTodos(Integer limite) {
-    String sql = "select ";
-    sql = sql.concat(obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" ve ");
-    sql = sql.concat(
-      "join Empleado em join Persona per on em.idEmpleado = ve.idEmpleado and em.idPersona = per.idPersona "
-    );
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE tipoPersona = 'VENDEDOR' AND eliminado = FALSE";
     if (limite != null && limite > 0) {
-      sql = sql.concat(" limit ").concat(limite.toString());
+      sql = sql.concat(" LIMIT ").concat(limite.toString());
     }
     return sql;
   }

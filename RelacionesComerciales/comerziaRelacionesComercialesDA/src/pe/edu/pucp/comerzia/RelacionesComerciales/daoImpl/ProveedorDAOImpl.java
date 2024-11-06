@@ -11,140 +11,78 @@ import pe.edu.pucp.comerzia.RelacionesComerciales.dao.ProveedorDAO;
 import pe.edu.pucp.comerzia.db.DAOImpl;
 import pe.edu.pucp.comerzia.db.Tipo_Operacion;
 
-public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
+public class ProveedorDAOImpl extends EmpresaDAOImpl implements ProveedorDAO {
 
   private Proveedor proveedor;
 
   public ProveedorDAOImpl() {
-    super("Proveedor");
+    super();
     this.proveedor = null;
   }
 
   @Override
   public Integer insertar(Proveedor proveedor) {
     this.proveedor = proveedor;
-    Integer idEmpresa = null;
-    Empresa empresa = new Empresa();
-    empresa.setNombre(this.proveedor.getNombre());
-    empresa.setDireccion(this.proveedor.getDireccion());
-    empresa.setTelefono(this.proveedor.getTelefono());
-    empresa.setEmail(this.proveedor.getEmail());
-    empresa.setTipoIndustria(this.proveedor.getTipoIndustria());
+    this.retornarLlavePrimaria = true;
 
-    EmpresaDAO empresaDAO = new EmpresaDAOImpl();
-    Boolean existeEmpresa = empresaDAO.existeEmpresa(empresa);
-    Boolean existeProveedor = false;
+    // Set tipoEmpresa to 'PROVEEDOR' or 'AMBOS' as appropriate
+    this.proveedor.setTipoEmpresa("PROVEEDOR");
 
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      if (!existeEmpresa) {
-        idEmpresa = empresaDAO.insertar(
-          empresa,
-          this.usarTransaccion,
-          this.conexion
-        );
-        this.proveedor.setIdEmpresa(idEmpresa);
-      } else {
-        idEmpresa = empresa.getIdEmpresa();
-        this.proveedor.setIdEmpresa(idEmpresa);
-        Boolean abreConexion = false;
-        existeProveedor = this.existeProveedor(this.proveedor, abreConexion);
-      }
-      if (!existeProveedor) {
-        super.insertar();
-      }
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar insertar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
+    // Insert into Empresa table with Proveedor-specific fields
+    Integer idEmpresa = super.insertar();
+
+    this.retornarLlavePrimaria = false;
     return idEmpresa;
   }
 
   @Override
   protected String obtenerListaDeAtributosParaInsercion() {
-    return "idEmpresa, fecha_afiliacion, RUC, razonSocial, calificacion, pais";
+    return (
+      super.obtenerListaDeAtributosParaInsercion() +
+      ", fecha_afiliacion, RUC, razonSocial, calificacion, pais"
+    );
   }
 
   @Override
   protected String incluirListaDeParametrosParaInsercion() {
-    return "?, ?, ?, ?, ?, ?";
+    return super.incluirListaDeParametrosParaInsercion() + ", ?, ?, ?, ?, ?";
   }
 
   @Override
   protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-    this.incluirParametroInt(1, this.proveedor.getIdEmpresa());
-    this.incluirParametroDate(2, this.proveedor.getFecha_afiliacion());
-    this.incluirParametroString(3, this.proveedor.getRUC());
-    this.incluirParametroString(4, this.proveedor.getRazonSocial());
-    this.incluirParametroDouble(5, this.proveedor.getCalificacion());
-    this.incluirParametroString(6, this.proveedor.getPais());
+    super.incluirValorDeParametrosParaInsercion();
+    this.incluirParametroDate(7, this.proveedor.getFecha_afiliacion());
+    this.incluirParametroString(8, this.proveedor.getRUC());
+    this.incluirParametroString(9, this.proveedor.getRazonSocial());
+    this.incluirParametroDouble(10, this.proveedor.getCalificacion());
+    this.incluirParametroString(11, this.proveedor.getPais());
   }
 
   @Override
   public Integer modificar(Proveedor proveedor) {
-    Integer retorno = 0;
     this.proveedor = proveedor;
-    Empresa empresa = new Empresa();
-    empresa.setIdEmpresa(this.proveedor.getIdEmpresa());
-    empresa.setNombre(this.proveedor.getNombre());
-    empresa.setDireccion(this.proveedor.getDireccion());
-    empresa.setTelefono(this.proveedor.getTelefono());
-    empresa.setEmail(this.proveedor.getEmail());
-    empresa.setTipoIndustria(this.proveedor.getTipoIndustria());
-
-    EmpresaDAO empresaDAO = new EmpresaDAOImpl();
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      empresaDAO.modificar(empresa, this.usarTransaccion, this.conexion);
-      retorno = super.modificar();
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar modificar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+    return super.modificar();
   }
 
   @Override
   protected String obtenerListaDeValoresYAtributosParaModificacion() {
-    return "fecha_afiliacion=?, RUC=?, razonSocial=?, calificacion=?, pais=?";
+    // Include Proveedor-specific fields
+    return (
+      super.obtenerListaDeValoresYAtributosParaModificacion() +
+      ", fecha_afiliacion=?, RUC=?, razonSocial=?, calificacion=?, pais=?"
+    );
   }
 
   @Override
   protected void incluirValorDeParametrosParaModificacion()
     throws SQLException {
-    this.incluirParametroInt(6, this.proveedor.getIdEmpresa());
-    this.incluirParametroDate(1, this.proveedor.getFecha_afiliacion());
-    this.incluirParametroString(2, this.proveedor.getRUC());
-    this.incluirParametroString(3, this.proveedor.getRazonSocial());
-    this.incluirParametroDouble(4, this.proveedor.getCalificacion());
-    this.incluirParametroString(5, this.proveedor.getPais());
+    super.incluirValorDeParametrosParaModificacion();
+    this.incluirParametroDate(7, this.proveedor.getFecha_afiliacion());
+    this.incluirParametroString(8, this.proveedor.getRUC());
+    this.incluirParametroString(9, this.proveedor.getRazonSocial());
+    this.incluirParametroDouble(10, this.proveedor.getCalificacion());
+    this.incluirParametroString(11, this.proveedor.getPais());
+    this.incluirParametroInt(12, this.proveedor.getIdEmpresa()); // For WHERE clause
   }
 
   @Override
@@ -163,34 +101,8 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
 
   @Override
   public Integer eliminar(Proveedor proveedor) {
-    Integer retorno = 0;
     this.proveedor = proveedor;
-    Empresa empresa = new Empresa();
-    empresa.setIdEmpresa(this.proveedor.getIdEmpresa());
-
-    EmpresaDAO empresaDAO = new EmpresaDAOImpl();
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      retorno = super.eliminar();
-      empresaDAO.eliminar(empresa, this.usarTransaccion, this.conexion);
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar eliminar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+    return super.eliminar();
   }
 
   @Override
@@ -205,24 +117,25 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
 
   @Override
   protected String generarSQLParaListarTodos(Integer limite) {
-    String sql = "select ";
-    sql = sql.concat(obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" pro ");
-    sql = sql.concat("join empresa emp on emp.idEmpresa = pro.idEmpresa ");
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE tipoEmpresa IN ('PROVEEDOR', 'AMBOS')";
     if (limite != null && limite > 0) {
-      sql = sql.concat(" limit ").concat(limite.toString());
+      sql = sql.concat(" LIMIT ").concat(limite.toString());
     }
     return sql;
   }
 
   @Override
   protected String obtenerProyeccionParaSelect() {
-    String sql = "emp.idEmpresa, emp.nombre, emp.direccion, emp.telefono, ";
-    sql = sql.concat("emp.email, emp.tipoIndustria, ");
-    sql = sql.concat(
-      "pro.fecha_afiliacion, pro.RUC, pro.razonSocial, pro.calificacion, pro.pais"
+    // Include Proveedor-specific fields
+    return (
+      super.obtenerProyeccionParaSelect() +
+      ", fecha_afiliacion, RUC, razonSocial, calificacion, pais"
     );
-    return sql;
   }
 
   @Override
@@ -241,10 +154,12 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
     this.proveedor.setTelefono(this.resultSet.getString("telefono"));
     this.proveedor.setEmail(this.resultSet.getString("email"));
     this.proveedor.setTipoIndustria(this.resultSet.getString("tipoIndustria"));
+    this.proveedor.setTipoEmpresa(this.resultSet.getString("tipoEmpresa")); // Set via constructor or setter
     this.proveedor.setFecha_afiliacion(
         this.resultSet.getTimestamp("fecha_afiliacion")
       );
-    this.proveedor.setEmail(this.resultSet.getString("razonSocial"));
+    this.proveedor.setRUC(this.resultSet.getString("RUC"));
+    this.proveedor.setRazonSocial(this.resultSet.getString("razonSocial"));
     this.proveedor.setCalificacion(this.resultSet.getDouble("calificacion"));
     this.proveedor.setPais(this.resultSet.getString("pais"));
   }
@@ -259,12 +174,12 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
 
   @Override
   protected String generarSQLParaListarPorId() {
-    String sql = "select ";
-    sql = sql.concat(this.obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" pro ");
-    sql = sql.concat("join empresa emp on emp.idEmpresa = pro.idEmpresa ");
-    sql = sql.concat(" where ");
-    sql = sql.concat(this.obtenerPredicadoParaLlavePrimaria());
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE idEmpresa=?";
     return sql;
   }
 
@@ -293,8 +208,10 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
       if (abreConexion) {
         this.abrirConexion();
       }
-      String sql = "select idEmpresa from proveedor where ";
-      sql = sql.concat("idEmpresa=? ");
+      String sql =
+        "SELECT idEmpresa FROM " +
+        this.nombre_tabla +
+        " WHERE idEmpresa=? AND tipoEmpresa IN ('PROVEEDOR', 'AMBOS') AND eliminado = FALSE";
       this.colocarSQLenStatement(sql);
       this.incluirParametroInt(1, this.proveedor.getIdEmpresa());
       this.ejecutarConsultaEnBD(sql);

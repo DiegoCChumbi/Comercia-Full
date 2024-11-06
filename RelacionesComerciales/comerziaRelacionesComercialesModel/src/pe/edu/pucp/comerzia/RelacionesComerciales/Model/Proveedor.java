@@ -11,20 +11,6 @@ public class Proveedor extends Empresa {
   private String pais;
 
   public Proveedor(
-    Date fecha_afiliacion,
-    String RUC,
-    String razonSocial,
-    Double calificacion,
-    String pais
-  ) {
-    this.fecha_afiliacion = fecha_afiliacion;
-    this.RUC = RUC;
-    this.razonSocial = razonSocial;
-    this.calificacion = calificacion;
-    this.pais = pais;
-  }
-
-  public Proveedor(
     String nombre,
     String direccion,
     String telefono,
@@ -37,6 +23,7 @@ public class Proveedor extends Empresa {
     String pais
   ) {
     super(nombre, direccion, telefono, email, tipoIndustria);
+    this.setTipoEmpresa("PROVEEDOR");
     this.fecha_afiliacion = fecha_afiliacion;
     this.RUC = RUC;
     this.razonSocial = razonSocial;
@@ -58,6 +45,7 @@ public class Proveedor extends Empresa {
     String pais
   ) {
     super(idEmpresa, nombre, direccion, telefono, email, tipoIndustria);
+    this.setTipoEmpresa("PROVEEDOR");
     this.fecha_afiliacion = fecha_afiliacion;
     this.RUC = RUC;
     this.razonSocial = razonSocial;
@@ -66,6 +54,8 @@ public class Proveedor extends Empresa {
   }
 
   public Proveedor() {
+    super();
+    this.setTipoEmpresa("PROVEEDOR");
     this.fecha_afiliacion = null;
     this.RUC = null;
     this.razonSocial = null;

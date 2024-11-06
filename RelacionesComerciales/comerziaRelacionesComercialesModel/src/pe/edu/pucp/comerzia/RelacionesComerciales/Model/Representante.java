@@ -17,11 +17,13 @@ public class Representante extends Persona {
   ) {
     super(idPersona, dni, nombreCompleto, telefono, correo, direccion);
     this.idEmpresa = idEmpresa;
+    this.setTipoPersona("REPRESENTANTE"); // Set discriminator
   }
 
   public Representante() {
     super();
     this.idEmpresa = null;
+    this.setTipoPersona("REPRESENTANTE"); // Set discriminator
   }
 
   public Integer getIdEmpresa() {

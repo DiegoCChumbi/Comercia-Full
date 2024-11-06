@@ -8,20 +8,10 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
  *
  * @author chumbi
  */
-import java.util.ArrayList;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Administrador;
 
-public interface AdministradorDAO {
-  public Integer insertar(Administrador administrador);
-
-  public Integer modificar(Administrador administrador);
-
-  public Integer eliminar(Administrador administrador);
-
-  public ArrayList<Administrador> listarTodos();
-
-  public Administrador obtenerPorId(Integer idAdministrador);
-
+public interface AdministradorDAO<T extends Administrador>
+  extends EmpleadoDAO<Administrador> {
   public Boolean existeAdministrador(Administrador administrador);
 
   public Boolean existeAdministrador(

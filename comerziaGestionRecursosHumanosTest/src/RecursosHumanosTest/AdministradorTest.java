@@ -35,7 +35,7 @@ public class AdministradorTest {
   private static void testAdministradorBOEliminar() {
     System.out.println("\ntestAdministradorBOEliminar");
     for (Administrador administrador : listaAdministradores) {
-      administradorBO.eliminar(administrador.getIdEmpleado());
+      administradorBO.eliminar(administrador.getIdPersona());
     }
   }
 
@@ -47,7 +47,7 @@ public class AdministradorTest {
       Administrador administrador = administradorBO.obtenerPorId(id);
       System.out.println(
         "idAlmacen: " +
-        administrador.getIdAdministrador() +
+        administrador.getIdPersona() +
         " " +
         administrador.getDni() +
         " " +
@@ -80,7 +80,7 @@ public class AdministradorTest {
     for (Administrador administrador : listaAdministradores) {
       System.out.println(
         "idAlmacen: " +
-        administrador.getIdAdministrador() +
+        administrador.getIdPersona() +
         " " +
         administrador.getDni() +
         " " +

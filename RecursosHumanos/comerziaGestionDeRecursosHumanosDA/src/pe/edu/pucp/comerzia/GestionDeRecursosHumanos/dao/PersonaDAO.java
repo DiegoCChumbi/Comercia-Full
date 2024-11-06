@@ -2,36 +2,38 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Administrador;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
+import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Empresa;
 
-public interface PersonaDAO {
-  public Integer insertar(Persona persona);
+public interface PersonaDAO<T extends Persona> {
+  public Integer insertar(T persona);
 
   public Integer insertar(
-    Persona persona,
+    T persona,
     Boolean usarTransaccion,
     Connection conexion
   );
 
-  public Integer modificar(Persona persona);
+  public Integer modificar(T persona);
 
   public Integer modificar(
-    Persona persona,
+    T persona,
     Boolean usarTransaccion,
     Connection conexion
   );
 
-  public Integer eliminar(Persona persona);
+  public Integer eliminar(T persona);
 
   public Integer eliminar(
-    Persona persona,
+    T persona,
     Boolean usarTransaccion,
     Connection conexion
   );
 
-  public ArrayList<Persona> listarTodos();
+  public ArrayList<T> listarTodos();
 
-  public Persona obtenerPorId(Integer idPersona);
+  public T obtenerPorId(Integer idPersona);
 
-  public Boolean existePersona(Persona persona);
+  public Boolean existePersona(T persona);
 }

@@ -78,7 +78,7 @@ public class ClienteBO {
 
   public Integer eliminar(Integer idCliente) {
     Cliente cliente = new Cliente();
-    cliente.setIdCliente(idCliente);
+    cliente.setIdEmpresa(idCliente);
     return this.clienteDAO.eliminar(cliente);
   }
 

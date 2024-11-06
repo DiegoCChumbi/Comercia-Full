@@ -12,33 +12,8 @@ import java.util.Date;
  */
 public class TrabajadorDeAlmacen extends Empleado {
 
-  private Integer idTrabajadorDeAlmacen;
-
-  // private Integer idEmpleado;
-  // private Empleado empleado;
   private Integer idAlmacen;
-  // private Almacen almacenDeTrabajo;
   private boolean licenciaMontacarga;
-
-  public TrabajadorDeAlmacen(
-    Integer idTrabajadorDeAlmacen,
-    Integer idEmpleado,
-    boolean licenciaMontacarga,
-    Integer idAlmacen
-  ) {
-    this.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
-
-    //this.idEmpleado = idEmpleado;
-    this.idAlmacen = idAlmacen;
-
-    this.licenciaMontacarga = licenciaMontacarga;
-  }
-
-  public TrabajadorDeAlmacen(Integer idAlmacen, boolean licenciaMontacarga) {
-    //this.idEmpleado = idEmpleado;
-    this.idAlmacen = idAlmacen;
-    this.licenciaMontacarga = licenciaMontacarga;
-  }
 
   public TrabajadorDeAlmacen(
     String dni,
@@ -49,10 +24,10 @@ public class TrabajadorDeAlmacen extends Empleado {
     EstadoEmpleado estado,
     String nombreUsuario,
     String contrasenha,
-    Double salario,
+    double salario,
     Date fechaContratacion,
-    boolean licenciaMontacarga,
-    Integer idAlmacen
+    Integer idAlmacen,
+    boolean licenciaMontacarga
   ) {
     super(
       dni,
@@ -66,34 +41,52 @@ public class TrabajadorDeAlmacen extends Empleado {
       salario,
       fechaContratacion
     );
-    //this.idEmpleado = idEmpleado;
+    this.setTipoPersona("TRABAJADOR_DE_ALMACEN");
+
+    this.idAlmacen = idAlmacen;
+    this.licenciaMontacarga = licenciaMontacarga;
+  }
+
+  public TrabajadorDeAlmacen(
+    Integer idPersona,
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    double salario,
+    Date fechaContratacion,
+    Integer idAlmacen,
+    boolean licenciaMontacarga
+  ) {
+    super(
+      idPersona,
+      dni,
+      nombreCompleto,
+      telefono,
+      correo,
+      direccion,
+      estado,
+      nombreUsuario,
+      contrasenha,
+      salario,
+      fechaContratacion
+    );
+    this.setTipoPersona("TRABAJADOR_DE_ALMACEN");
     this.idAlmacen = idAlmacen;
     this.licenciaMontacarga = licenciaMontacarga;
   }
 
   // null
   public TrabajadorDeAlmacen() {
-    this.idTrabajadorDeAlmacen = null;
-    //this.idEmpleado = null;
+    super();
+    this.setTipoPersona("TRABAJADOR_DE_ALMACEN");
     this.idAlmacen = null;
-    // this.licenciaMontacarga = false;
+    this.licenciaMontacarga = false;
   }
-
-  public Integer getIdTrabajadorDeAlmacen() {
-    return idTrabajadorDeAlmacen;
-  }
-
-  public void setIdTrabajadorDeAlmacen(Integer idTrabajadorDeAlmacen) {
-    this.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
-  }
-
-  //    public Integer getIdEmpleado() {
-  //        return idEmpleado;
-  //    }
-  //
-  //    public void setIdEmpleado(Integer idEmpleado) {
-  //        this.idEmpleado = idEmpleado;
-  //    }
 
   public Integer getIdAlmacen() {
     return idAlmacen;

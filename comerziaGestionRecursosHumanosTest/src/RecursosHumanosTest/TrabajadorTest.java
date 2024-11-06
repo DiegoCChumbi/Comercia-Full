@@ -37,7 +37,7 @@ public class TrabajadorTest {
   private static void testTrabajadorBOEliminar() {
     System.out.println("\ntestTrabajadorBOEliminar");
     for (TrabajadorDeAlmacen trabajador : listaTrabajadores) {
-      trabajadorBO.eliminar(trabajador.getIdEmpleado());
+      trabajadorBO.eliminar(trabajador.getIdPersona());
     }
   }
 

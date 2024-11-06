@@ -7,43 +7,16 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 import java.sql.Connection;
 import java.util.ArrayList;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 
 /**
  *
  * @author chumbi
  */
-public interface EmpleadoDAO {
-  public Integer insertar(Empleado empleado);
+public interface EmpleadoDAO<T extends Empleado> extends PersonaDAO<T> {
+  public Boolean existeEmpleado(T empleado);
 
-  public Integer insertar(
-    Empleado empleado,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public Integer modificar(Empleado empleado);
-
-  public Integer modificar(
-    Empleado empleado,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public Integer eliminar(Empleado empleado);
-
-  public Integer eliminar(
-    Empleado empleado,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public ArrayList<Empleado> listarTodos();
-
-  public Empleado obtenerPorId(Integer idEmpleado);
-
-  public Boolean existeEmpleado(Empleado empleado);
-
-  public Boolean existeEmpleado(Empleado empleado, Boolean abreConexion);
+  public Boolean existeEmpleado(T empleado, Boolean abreConexion);
 
   public Integer verificarEmpleado(
     String cuenta,

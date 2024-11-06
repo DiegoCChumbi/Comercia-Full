@@ -87,7 +87,7 @@ public class ProveedorBO {
 
   public Integer eliminar(Integer idProveedor) {
     Proveedor proveedor = new Proveedor();
-    proveedor.setIdProveedor(idProveedor);
+    proveedor.setIdEmpresa(idProveedor);
     return this.proveedorDAO.eliminar(proveedor);
   }
 

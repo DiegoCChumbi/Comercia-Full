@@ -17,6 +17,7 @@ public class Cliente extends Empresa {
     Date fechaUltimaCompra
   ) {
     super(nombre, direccion, telefono, email, tipoIndustria);
+    this.setTipoEmpresa("CLIENTE");
     this.fechaRegistro = fechaRegistro;
     this.fechaUltimaCompra = fechaUltimaCompra;
   }
@@ -32,17 +33,15 @@ public class Cliente extends Empresa {
     Date fechaUltimaCompra
   ) {
     super(idEmpresa, nombre, direccion, telefono, email, tipoIndustria);
-    this.fechaRegistro = fechaRegistro;
-    this.fechaUltimaCompra = fechaUltimaCompra;
-  }
-
-  public Cliente(Date fechaRegistro, Date fechaUltimaCompra) {
+    this.setTipoEmpresa("CLIENTE");
     this.fechaRegistro = fechaRegistro;
     this.fechaUltimaCompra = fechaUltimaCompra;
   }
 
   // Default constructor
   public Cliente() {
+    super();
+    this.setTipoEmpresa("CLIENTE");
     this.fechaRegistro = null;
     this.fechaUltimaCompra = null;
   }

@@ -29,7 +29,7 @@ public interface EmpresaDAO {
     Connection conexion
   );
 
-  public ArrayList<Empresa> listarTodos();
+  public <T extends Empresa> ArrayList<T> listarTodos();
 
   public Empresa obtenerPorId(Integer idEmpresa);
 

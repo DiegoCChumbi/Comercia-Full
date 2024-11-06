@@ -30,7 +30,7 @@ public class Empleado {
 */
 public class EmpleadoBO {
 
-  private EmpleadoDAO empleadoDAO;
+  private EmpleadoDAO<Empleado> empleadoDAO;
 
   public EmpleadoBO() {
     this.empleadoDAO = new EmpleadoDAOImpl();
@@ -105,7 +105,6 @@ public class EmpleadoBO {
   //     return empleadoDAO.modificar(empleado);
   // }
   public Integer modificar(
-    Integer idEmpleado,
     Integer idPersona,
     EstadoEmpleado estado,
     String nombreUsuario,
@@ -114,7 +113,6 @@ public class EmpleadoBO {
     Date fechaContratacion
   ) {
     Empleado empleado = new Empleado();
-    empleado.setIdEmpleado(idEmpleado);
     empleado.setIdPersona(idPersona);
     empleado.setEstado(estado);
     empleado.setNombreUsuario(nombreUsuario);

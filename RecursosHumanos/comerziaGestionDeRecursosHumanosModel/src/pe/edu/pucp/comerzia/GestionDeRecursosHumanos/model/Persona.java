@@ -3,12 +3,13 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 public class Persona {
 
   private Integer idPersona;
-
   private String dni;
   private String nombreCompleto;
   private String telefono;
   private String correo;
   private String direccion;
+  private String tipoPersona;
+  private Boolean eliminado;
 
   public Persona(
     Integer idPersona,
@@ -24,6 +25,8 @@ public class Persona {
     this.telefono = telefono;
     this.correo = correo;
     this.direccion = direccion;
+    this.tipoPersona = null;
+    this.eliminado = false;
   }
 
   public Persona(
@@ -38,6 +41,8 @@ public class Persona {
     this.telefono = telefono;
     this.correo = correo;
     this.direccion = direccion;
+    this.tipoPersona = null;
+    this.eliminado = false;
   }
 
   public Persona() {
@@ -47,6 +52,8 @@ public class Persona {
     this.telefono = null;
     this.correo = null;
     this.direccion = null;
+    this.tipoPersona = null;
+    this.eliminado = false;
   }
 
   public Integer getIdPersona() {
@@ -95,5 +102,21 @@ public class Persona {
 
   public void setDireccion(String direccion) {
     this.direccion = direccion;
+  }
+
+  public String getTipoPersona() {
+    return tipoPersona;
+  }
+
+  public void setTipoPersona(String tipoPersona) {
+    this.tipoPersona = tipoPersona;
+  }
+
+  public Boolean getEliminado() {
+    return eliminado;
+  }
+
+  public void setEliminado(Boolean eliminado) {
+    this.eliminado = eliminado;
   }
 }

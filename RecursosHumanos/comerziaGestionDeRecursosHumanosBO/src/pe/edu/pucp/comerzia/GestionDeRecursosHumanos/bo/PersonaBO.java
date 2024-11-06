@@ -26,7 +26,7 @@ public class Persona {
  */
 public class PersonaBO {
 
-  private PersonaDAO personaDAO;
+  private PersonaDAO<Persona> personaDAO;
 
   public PersonaBO() {
     this.personaDAO = new PersonaDAOImpl();

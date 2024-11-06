@@ -12,135 +12,68 @@ import pe.edu.pucp.comerzia.RelacionesComerciales.dao.RepresentanteDAO;
 import pe.edu.pucp.comerzia.db.DAOImpl;
 import pe.edu.pucp.comerzia.db.Tipo_Operacion;
 
-public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
+public class RepresentanteDAOImpl
+  extends PersonaDAOImpl
+  implements RepresentanteDAO {
 
   private Representante representante;
 
   public RepresentanteDAOImpl() {
-    super("Representante");
+    super();
     this.representante = null;
   }
 
   @Override
   public Integer insertar(Representante representante) {
     this.representante = representante;
-    Integer idPersona = null;
-    Persona persona = new Persona();
-    persona.setDni(this.representante.getDni());
-    persona.setNombreCompleto(this.representante.getNombreCompleto());
-    persona.setDireccion(this.representante.getDireccion());
-    persona.setTelefono(this.representante.getTelefono());
-    persona.setCorreo(this.representante.getCorreo());
+    this.retornarLlavePrimaria = true;
 
-    PersonaDAO personaDAO = new PersonaDAOImpl();
-    Boolean existePersona = personaDAO.existePersona(persona);
-    Boolean existeRepresentante = false;
+    // Set tipoPersona to 'REPRESENTANTE' to indicate the subtype
+    this.representante.setTipoPersona("REPRESENTANTE");
 
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      if (!existePersona) {
-        idPersona = personaDAO.insertar(
-          persona,
-          this.usarTransaccion,
-          this.conexion
-        );
-        this.representante.setIdPersona(idPersona);
-      } else {
-        idPersona = persona.getIdPersona();
-        this.representante.setIdPersona(idPersona);
-        Boolean abreConexion = false;
-        existeRepresentante = this.existeRepresentante(
-            this.representante,
-            abreConexion
-          );
-      }
-      if (!existeRepresentante) {
-        super.insertar();
-      }
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar insertar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
+    // Insert into Persona table
+    Integer idPersona = super.insertar(this.representante);
+
+    this.retornarLlavePrimaria = false;
     return idPersona;
   }
 
   @Override
   protected String obtenerListaDeAtributosParaInsercion() {
-    return "idPersona, idEmpresa";
+    // Include Representante-specific field: idEmpresa
+    return super.obtenerListaDeAtributosParaInsercion() + ", idEmpresa";
   }
 
   @Override
   protected String incluirListaDeParametrosParaInsercion() {
-    return "?, ?";
+    return super.incluirListaDeParametrosParaInsercion() + ", ?";
   }
 
   @Override
   protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-    this.incluirParametroInt(1, this.representante.getIdPersona());
-    this.incluirParametroInt(2, this.representante.getIdEmpresa());
+    super.incluirValorDeParametrosParaInsercion();
+    this.incluirParametroInt(8, this.representante.getIdEmpresa());
   }
 
   @Override
   public Integer modificar(Representante representante) {
-    Integer retorno = 0;
     this.representante = representante;
-    Persona persona = new Persona();
-    persona.setIdPersona(this.representante.getIdPersona());
-    persona.setDni(this.representante.getDni());
-    persona.setNombreCompleto(this.representante.getNombreCompleto());
-    persona.setDireccion(this.representante.getDireccion());
-    persona.setTelefono(this.representante.getTelefono());
-    persona.setCorreo(this.representante.getCorreo());
-
-    PersonaDAO personaDAO = new PersonaDAOImpl();
-
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      personaDAO.modificar(persona, this.usarTransaccion, this.conexion);
-      retorno = super.modificar();
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar modificar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+    return super.modificar();
   }
 
   @Override
   protected String obtenerListaDeValoresYAtributosParaModificacion() {
-    return "idEmpresa=?";
+    return (
+      super.obtenerListaDeValoresYAtributosParaModificacion() + ", idEmpresa=?"
+    );
   }
 
   @Override
   protected void incluirValorDeParametrosParaModificacion()
     throws SQLException {
-    this.incluirParametroInt(2, this.representante.getIdPersona());
-    this.incluirParametroInt(1, this.representante.getIdEmpresa());
+    super.incluirValorDeParametrosParaModificacion();
+    this.incluirParametroInt(8, this.representante.getIdEmpresa());
+    this.incluirParametroInt(9, this.representante.getIdPersona()); // WHERE clause
   }
 
   @Override
@@ -159,34 +92,8 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
 
   @Override
   public Integer eliminar(Representante representante) {
-    Integer retorno = 0;
     this.representante = representante;
-    Persona persona = new Persona();
-    persona.setIdPersona(this.representante.getIdPersona());
-
-    PersonaDAO personaDAO = new PersonaDAOImpl();
-    this.usarTransaccion = false;
-    try {
-      this.iniciarTransaccion();
-      retorno = super.eliminar();
-      personaDAO.eliminar(persona, this.usarTransaccion, this.conexion);
-      this.comitarTransaccion();
-    } catch (SQLException ex) {
-      System.err.println("Error al intentar eliminar - " + ex);
-      try {
-        this.rollbackTransaccion();
-      } catch (SQLException ex1) {
-        System.err.println("Error al intentar hacer rollback - " + ex1);
-      }
-    } finally {
-      try {
-        this.cerrarConexion();
-      } catch (SQLException ex) {
-        System.err.println("Error al intentar cerrar la conexion - " + ex);
-      }
-    }
-    this.usarTransaccion = true;
-    return retorno;
+    return super.eliminar();
   }
 
   @Override
@@ -201,23 +108,22 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
 
   @Override
   protected String generarSQLParaListarTodos(Integer limite) {
-    String sql = "select ";
-    sql = sql.concat(obtenerProyeccionParaSelect());
-    sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" rep ");
-    sql = sql.concat("join persona per on per.idPersona = rep.idPersona ");
+    String sql =
+      "SELECT " +
+      this.obtenerProyeccionParaSelect() +
+      " FROM " +
+      this.nombre_tabla +
+      " WHERE tipoPersona IN ('REPRESENTANTE', 'AMBOS') AND eliminado = FALSE";
     if (limite != null && limite > 0) {
-      sql = sql.concat(" limit ").concat(limite.toString());
+      sql += " LIMIT " + limite;
     }
     return sql;
   }
 
   @Override
   protected String obtenerProyeccionParaSelect() {
-    String sql =
-      "per.idPersona, per.nombreCompleto, per.direccion, per.telefono, ";
-    sql = sql.concat("per.correo, per.dni, ");
-    sql = sql.concat("rep.idEmpresa");
-    return sql;
+    // Include Representante-specific field: idEmpresa
+    return super.obtenerProyeccionParaSelect() + ", idEmpresa";
   }
 
   @Override
@@ -231,13 +137,15 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
   protected void instanciarObjetoDelResultSet() throws SQLException {
     this.representante = new Representante();
     this.representante.setIdPersona(this.resultSet.getInt("idPersona"));
+    this.representante.setDni(this.resultSet.getString("dni"));
     this.representante.setNombreCompleto(
         this.resultSet.getString("nombreCompleto")
       );
-    this.representante.setDireccion(this.resultSet.getString("direccion"));
     this.representante.setTelefono(this.resultSet.getString("telefono"));
     this.representante.setCorreo(this.resultSet.getString("correo"));
-    this.representante.setDni(this.resultSet.getString("dni"));
+    this.representante.setDireccion(this.resultSet.getString("direccion"));
+    this.representante.setTipoPersona(this.resultSet.getString("tipoPersona"));
+    this.representante.setEliminado(this.resultSet.getBoolean("eliminado"));
     this.representante.setIdEmpresa(this.resultSet.getInt("idEmpresa"));
   }
 
@@ -288,8 +196,10 @@ public class RepresentanteDAOImpl extends DAOImpl implements RepresentanteDAO {
       if (abreConexion) {
         this.abrirConexion();
       }
-      String sql = "select idPersona from representante where ";
-      sql = sql.concat("idPersona=? ");
+      String sql =
+        "SELECT idPersona FROM " +
+        this.nombre_tabla +
+        " WHERE idPersona=? AND tipoPersona IN ('REPRESENTANTE', 'AMBOS') AND eliminado = FALSE";
       this.colocarSQLenStatement(sql);
       this.incluirParametroInt(1, this.representante.getIdPersona());
       this.ejecutarConsultaEnBD(sql);

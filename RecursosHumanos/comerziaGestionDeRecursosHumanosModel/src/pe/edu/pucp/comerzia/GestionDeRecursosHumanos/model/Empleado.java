@@ -4,30 +4,11 @@ import java.util.Date;
 
 public class Empleado extends Persona {
 
-  private Integer idEmpleado;
-
   private EstadoEmpleado estado;
   private String nombreUsuario;
   private String contrasenha;
-  private Double salario;
+  private double salario;
   private Date fechaContratacion;
-
-  public Empleado(
-    Integer idEmpleado,
-    Integer idPersona,
-    EstadoEmpleado estado,
-    String nombreUsuario,
-    String contrasenha,
-    Double salario,
-    Date fechaContratacion
-  ) {
-    this.idEmpleado = idEmpleado;
-    this.estado = estado;
-    this.nombreUsuario = nombreUsuario;
-    this.contrasenha = contrasenha;
-    this.salario = salario;
-    this.fechaContratacion = fechaContratacion;
-  }
 
   public Empleado(
     String dni,
@@ -38,10 +19,33 @@ public class Empleado extends Persona {
     EstadoEmpleado estado,
     String nombreUsuario,
     String contrasenha,
-    Double salario,
+    double salario,
     Date fechaContratacion
   ) {
     super(dni, nombreCompleto, telefono, correo, direccion);
+    this.setTipoPersona("EMPLEADO");
+    this.estado = estado;
+    this.nombreUsuario = nombreUsuario;
+    this.contrasenha = contrasenha;
+    this.salario = salario;
+    this.fechaContratacion = fechaContratacion;
+  }
+
+  public Empleado(
+    Integer idPersona,
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    double salario,
+    Date fechaContratacion
+  ) {
+    super(idPersona, dni, nombreCompleto, telefono, correo, direccion);
+    this.setTipoPersona("EMPLEADO");
     this.estado = estado;
     this.nombreUsuario = nombreUsuario;
     this.contrasenha = contrasenha;
@@ -51,20 +55,8 @@ public class Empleado extends Persona {
 
   // nulls
   public Empleado() {
-    this.idEmpleado = null;
-    this.estado = null;
-    this.nombreUsuario = null;
-    this.contrasenha = null;
-    this.salario = null;
-    this.fechaContratacion = null;
-  }
-
-  public Integer getIdEmpleado() {
-    return idEmpleado;
-  }
-
-  public void setIdEmpleado(Integer idEmpleado) {
-    this.idEmpleado = idEmpleado;
+    super();
+    this.setTipoPersona("EMPLEADO"); // Ensure tipoPersona is set
   }
 
   public EstadoEmpleado getEstado() {
@@ -91,11 +83,11 @@ public class Empleado extends Persona {
     this.contrasenha = contrasenha;
   }
 
-  public Double getSalario() {
+  public double getSalario() {
     return salario;
   }
 
-  public void setSalario(Double salario) {
+  public void setSalario(double salario) {
     this.salario = salario;
   }
 

@@ -37,7 +37,7 @@ public class VendedorTest {
   private static void testVendedorBOEliminar() {
     System.out.println("\ntestTrabajadorBOEliminar");
     for (Vendedor vendedor : listaVendedores) {
-      vendedorBO.eliminar(vendedor.getIdEmpleado());
+      vendedorBO.eliminar(vendedor.getIdPersona());
     }
   }
 

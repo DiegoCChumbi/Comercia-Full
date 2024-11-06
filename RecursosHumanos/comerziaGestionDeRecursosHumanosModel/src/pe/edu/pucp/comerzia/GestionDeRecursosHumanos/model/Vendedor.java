@@ -4,30 +4,8 @@ import java.util.Date;
 
 public class Vendedor extends Empleado {
 
-  private Integer idVendedor;
-
-  //private Integer idEmpleado;
-  // private Empleado empleado;
-
-  private Double ingresosVentas;
-  private Double porcentajeComision;
-
-  public Vendedor(
-    Integer idEmpleado,
-    Double ingresosVentas,
-    Double porcentajeComision
-  ) {
-    this.idVendedor = idVendedor;
-    // this.idEmpleado = idEmpleado;
-    this.ingresosVentas = ingresosVentas;
-    this.porcentajeComision = porcentajeComision;
-  }
-
-  public Vendedor(Double ingresosVentas, Double porcentajeComision) {
-    //this.idEmpleado = idEmpleado;
-    this.ingresosVentas = ingresosVentas;
-    this.porcentajeComision = porcentajeComision;
-  }
+  private double ingresosVentas;
+  private double porcentajeComision;
 
   public Vendedor(
     String dni,
@@ -38,10 +16,10 @@ public class Vendedor extends Empleado {
     EstadoEmpleado estado,
     String nombreUsuario,
     String contrasenha,
-    Double salario,
+    double salario,
     Date fechaContratacion,
-    Double ingresosVentas,
-    Double porcentajeComision
+    double ingresosVentas,
+    double porcentajeComision
   ) {
     super(
       dni,
@@ -55,49 +33,65 @@ public class Vendedor extends Empleado {
       salario,
       fechaContratacion
     );
-    //this.idEmpleado = idEmpleado;
+    this.setTipoPersona("VENDEDOR");
+    this.ingresosVentas = ingresosVentas;
+    this.porcentajeComision = porcentajeComision;
+  }
+
+  public Vendedor(
+    Integer idPersona,
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleado estado,
+    String nombreUsuario,
+    String contrasenha,
+    double salario,
+    Date fechaContratacion,
+    double ingresosVentas,
+    double porcentajeComision
+  ) {
+    super(
+      idPersona,
+      dni,
+      nombreCompleto,
+      telefono,
+      correo,
+      direccion,
+      estado,
+      nombreUsuario,
+      contrasenha,
+      salario,
+      fechaContratacion
+    );
+    this.setTipoPersona("VENDEDOR");
     this.ingresosVentas = ingresosVentas;
     this.porcentajeComision = porcentajeComision;
   }
 
   // null
   public Vendedor() {
-    this.idVendedor = null;
-    //this.idEmpleado = null;
-
+    super();
+    this.setTipoPersona("VENDEDOR");
     this.ingresosVentas = 0.0;
     this.porcentajeComision = 0.0;
   }
 
-  public Integer getIdVendedor() {
-    return idVendedor;
-  }
-
-  public void setIdVendedor(Integer idVendedor) {
-    this.idVendedor = idVendedor;
-  }
-
-  //    public Integer getIdEmpleado() {
-  //        return idEmpleado;
-  //    }
-  //
-  //    public void setIdEmpleado(Integer idEmpleado) {
-  //        this.idEmpleado = idEmpleado;
-  //    }
-
-  public Double getIngresosVentas() {
+  public double getIngresosVentas() {
     return ingresosVentas;
   }
 
-  public void setIngresosVentas(Double ingresosVentas) {
+  public void setIngresosVentas(double ingresosVentas) {
     this.ingresosVentas = ingresosVentas;
   }
 
-  public Double getPorcentajeComision() {
+  public double getPorcentajeComision() {
     return porcentajeComision;
   }
 
-  public void setPorcentajeComision(Double porcentajeComision) {
+  public void setPorcentajeComision(double porcentajeComision) {
     this.porcentajeComision = porcentajeComision;
   }
 }

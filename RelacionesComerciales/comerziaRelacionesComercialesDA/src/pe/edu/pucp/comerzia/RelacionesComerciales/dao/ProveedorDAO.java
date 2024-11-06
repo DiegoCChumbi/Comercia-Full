@@ -3,7 +3,7 @@ package pe.edu.pucp.comerzia.RelacionesComerciales.dao;
 import java.util.ArrayList;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Proveedor;
 
-public interface ProveedorDAO {
+public interface ProveedorDAO extends EmpresaDAO {
   public Integer insertar(Proveedor proveedor);
 
   public Integer modificar(Proveedor proveedor);

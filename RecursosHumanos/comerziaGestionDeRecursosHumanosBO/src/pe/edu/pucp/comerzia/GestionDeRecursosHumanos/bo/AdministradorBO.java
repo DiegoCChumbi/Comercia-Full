@@ -24,7 +24,7 @@ public class Administrador {
  */
 public class AdministradorBO {
 
-  private AdministradorDAO administradorDAO;
+  private AdministradorDAO<Administrador> administradorDAO;
 
   public AdministradorBO() {
     this.administradorDAO = new AdministradorDAOImpl();
@@ -92,7 +92,7 @@ public class AdministradorBO {
   //     return administradorDAO.modificar(administrador);
   // }
   public Integer modificar(
-    Integer idEmpleado,
+    Integer idPersona,
     String dni,
     String nombreCompleto,
     String telefono,
@@ -106,7 +106,7 @@ public class AdministradorBO {
     Integer idAlmacen
   ) {
     Administrador administrador = new Administrador();
-    administrador.setIdEmpleado(idEmpleado);
+    administrador.setIdPersona(idPersona);
     administrador.setDni(dni);
     administrador.setNombreCompleto(nombreCompleto);
     administrador.setTelefono(telefono);
@@ -124,9 +124,9 @@ public class AdministradorBO {
   }
 
   //--
-  public Integer eliminar(Integer idEmpleado) {
+  public Integer eliminar(Integer idPersona) {
     Administrador administrador = new Administrador();
-    administrador.setIdEmpleado(idEmpleado);
+    administrador.setIdPersona(idPersona);
     return administradorDAO.eliminar(administrador);
   }
 
