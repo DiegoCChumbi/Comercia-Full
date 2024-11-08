@@ -5,57 +5,14 @@ import java.util.Date;
 public class Proveedor extends Empresa {
 
   private Date fecha_afiliacion;
+  // TODO: Mover lo de abajo a Clase Empresa
   private String RUC;
   private String razonSocial;
   private Double calificacion;
   private String pais;
 
-  public Proveedor(
-    String nombre,
-    String direccion,
-    String telefono,
-    String email,
-    String tipoIndustria,
-    Date fecha_afiliacion,
-    String RUC,
-    String razonSocial,
-    Double calificacion,
-    String pais
-  ) {
-    super(nombre, direccion, telefono, email, tipoIndustria);
-    this.setTipoEmpresa("PROVEEDOR");
-    this.fecha_afiliacion = fecha_afiliacion;
-    this.RUC = RUC;
-    this.razonSocial = razonSocial;
-    this.calificacion = calificacion;
-    this.pais = pais;
-  }
-
-  public Proveedor(
-    Integer idEmpresa,
-    String nombre,
-    String direccion,
-    String telefono,
-    String email,
-    String tipoIndustria,
-    Date fecha_afiliacion,
-    String RUC,
-    String razonSocial,
-    Double calificacion,
-    String pais
-  ) {
-    super(idEmpresa, nombre, direccion, telefono, email, tipoIndustria);
-    this.setTipoEmpresa("PROVEEDOR");
-    this.fecha_afiliacion = fecha_afiliacion;
-    this.RUC = RUC;
-    this.razonSocial = razonSocial;
-    this.calificacion = calificacion;
-    this.pais = pais;
-  }
-
   public Proveedor() {
     super();
-    this.setTipoEmpresa("PROVEEDOR");
     this.fecha_afiliacion = null;
     this.RUC = null;
     this.razonSocial = null;

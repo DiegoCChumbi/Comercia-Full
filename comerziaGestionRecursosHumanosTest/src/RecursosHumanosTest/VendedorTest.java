@@ -1,27 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package RecursosHumanosTest;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo.TrabajadorDeAlmacenBO;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo.VendedorBO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleadoEnum;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Vendedor;
 
-/**
- *
- * @author user
- */
 public class VendedorTest {
 
   private static VendedorBO vendedorBO;
   private static ArrayList<Vendedor> listaVendedores;
 
-  public static void testVendedorBO() {
+  public static void testVendedorBO() throws SQLException {
     System.out.println("\ntestVendedorBO");
     vendedorBO = new VendedorBO();
 
@@ -34,59 +26,62 @@ public class VendedorTest {
     testVendedorBOEliminar();
   }
 
-  private static void testVendedorBOEliminar() {
+  private static void testVendedorBOEliminar() throws SQLException {
     System.out.println("\ntestTrabajadorBOEliminar");
     for (Vendedor vendedor : listaVendedores) {
-      vendedorBO.eliminar(vendedor.getIdPersona());
+      vendedorBO.eliminar(vendedor.getId());
     }
   }
 
-  private static void testVendedorBOObtenerPorId(ArrayList<Integer> listaId) {
+  private static void testVendedorBOObtenerPorId(ArrayList<Integer> listaId)
+    throws SQLException {
     System.out.println("\ntestTrabajadorBOObtenerPorId");
     for (Integer id : listaId) {
-      Vendedor vendedor = vendedorBO.obtenerPorId(id);
-      System.out.println(
-        "idPersona: " +
-        vendedor.getIdPersona() +
-        " " +
-        vendedor.getDni() +
-        " " +
-        vendedor.getNombreCompleto() +
-        " " +
-        vendedor.getTelefono() +
-        " " +
-        vendedor.getCorreo() +
-        " " +
-        vendedor.getDireccion() +
-        " " +
-        vendedor.getEstado().toString() +
-        " " +
-        vendedor.getNombreUsuario() +
-        " " +
-        vendedor.getContrasenha() +
-        " " +
-        vendedor.getSalario() +
-        " " +
-        vendedor.getFechaContratacion() +
-        " " +
-        vendedor.getIngresosVentas() +
-        " " +
-        vendedor.getPorcentajeComision()
-      );
+      Optional<Vendedor> vendedor = vendedorBO.obtenerPorId(id);
+      if (vendedor.isPresent()) {
+        System.out.println(
+          "idPersona: " +
+          vendedor.get().getId() +
+          " " +
+          vendedor.get().getDni() +
+          " " +
+          vendedor.get().getNombre() +
+          " " +
+          vendedor.get().getTelefono() +
+          " " +
+          vendedor.get().getCorreo() +
+          " " +
+          vendedor.get().getDireccion() +
+          " " +
+          vendedor.get().getEstado().toString() +
+          " " +
+          vendedor.get().getNombreUsuario() +
+          " " +
+          vendedor.get().getContrasenha() +
+          " " +
+          vendedor.get().getSalario() +
+          " " +
+          vendedor.get().getFechaContratacion() +
+          " " +
+          vendedor.get().getIngresosVentas() +
+          " " +
+          vendedor.get().getPorcentajeComision()
+        );
+      }
     }
   }
 
-  private static void testVendedorBOListarTodos() {
+  private static void testVendedorBOListarTodos() throws SQLException {
     System.out.println("\ntestTrabajadorBOListarTodos");
     listaVendedores = vendedorBO.listarTodos();
     for (Vendedor vendedor : listaVendedores) {
       System.out.println(
         "idPersona: " +
-        vendedor.getIdPersona() +
+        vendedor.getId() +
         " " +
         vendedor.getDni() +
         " " +
-        vendedor.getNombreCompleto() +
+        vendedor.getNombre() +
         " " +
         vendedor.getTelefono() +
         " " +
@@ -111,7 +106,8 @@ public class VendedorTest {
     }
   }
 
-  private static void testVendedorBOModificar(ArrayList<Integer> listaId) {
+  private static void testVendedorBOModificar(ArrayList<Integer> listaId)
+    throws SQLException {
     System.out.println("\ntestTrabajadorBOModificar");
     Integer resultado = vendedorBO.modificar(
       listaId.get(0),
@@ -120,7 +116,7 @@ public class VendedorTest {
       "998877665",
       "roberto.garcia@email.com",
       "Av. Los Jardines 456",
-      EstadoEmpleado.ACTIVO,
+      EstadoEmpleadoEnum.ACTIVO,
       "rgarcia",
       "password321",
       3000.50,
@@ -135,7 +131,7 @@ public class VendedorTest {
       "912345678",
       "mariana.torres@email.com",
       "Calle Las Flores 789",
-      EstadoEmpleado.INACTIVO,
+      EstadoEmpleadoEnum.INACTIVO,
       "mtorres",
       "pass456",
       2500.75,
@@ -145,7 +141,8 @@ public class VendedorTest {
     );
   }
 
-  private static void testVendedorBOInsertar(ArrayList<Integer> listaId) {
+  private static void testVendedorBOInsertar(ArrayList<Integer> listaId)
+    throws SQLException {
     System.out.println("\ntestTrabajadorBOInsertar");
     int resultado;
 
@@ -155,7 +152,7 @@ public class VendedorTest {
       "998877665",
       "roberto.garcia@email.com",
       "Av. Los Jardines 456",
-      EstadoEmpleado.ACTIVO,
+      EstadoEmpleadoEnum.ACTIVO,
       "rgarcia",
       "password321",
       3000.50,
@@ -172,7 +169,7 @@ public class VendedorTest {
       "912345678",
       "mariana.torres@email.com",
       "Calle Las Flores 789",
-      EstadoEmpleado.INACTIVO,
+      EstadoEmpleadoEnum.INACTIVO,
       "mtorres",
       "pass456",
       2500.75,

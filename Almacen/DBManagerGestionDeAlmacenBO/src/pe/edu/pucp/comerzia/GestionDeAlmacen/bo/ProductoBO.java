@@ -1,8 +1,9 @@
 package pe.edu.pucp.comerzia.GestionDeAlmacen.bo;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.dao.ProductoDAO;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.daoImpl.ProductoDAOImpl;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Producto;
 
 public class ProductoBO {
@@ -10,48 +11,52 @@ public class ProductoBO {
   private ProductoDAO productoDAO;
 
   public ProductoBO() {
-    this.productoDAO = new ProductoDAOImpl();
+    this.productoDAO = new ProductoDAO();
   }
 
-  public Integer insertar(
-    String nombreProducto,
-    Double precio,
-    Integer stockMinimo
-  ) {
-    Producto producto = new Producto(null, nombreProducto, precio, stockMinimo);
-    return productoDAO.insertar(producto);
+  public Integer insertar(String nombre, Double precio, Integer stockMinimo)
+    throws SQLException {
+    Producto producto = new Producto();
+
+    producto.setNombre(nombre);
+    producto.setPrecio(precio);
+    producto.setStockMinimo(stockMinimo);
+
+    return productoDAO.insert(producto);
   }
 
   public Integer modificar(
-    Integer idProducto,
-    String nombreProducto,
+    Integer id,
+    String nombre,
     Double precio,
     Integer stockMinimo
-  ) {
-    Producto producto = new Producto(
-      idProducto,
-      nombreProducto,
-      precio,
-      stockMinimo
-    );
-    return productoDAO.modificar(producto);
-  }
-
-  public Integer eliminar(Integer idProducto) {
+  ) throws SQLException {
     Producto producto = new Producto();
-    producto.setIdProducto(idProducto);
-    return productoDAO.eliminar(producto);
+
+    producto.setId(id);
+    producto.setNombre(nombre);
+    producto.setPrecio(precio);
+    producto.setStockMinimo(stockMinimo);
+
+    return productoDAO.update(producto);
   }
 
-  public ArrayList<Producto> listarTodos() {
-    return this.productoDAO.listarTodos();
+  public Integer eliminar(Integer id) throws SQLException {
+    return productoDAO.delete(id);
   }
 
-  public ArrayList<Producto> buscarProductos(String nombreProducto) {
-    return this.productoDAO.buscarProductos(nombreProducto);
+  public ArrayList<Producto> listarTodos() throws SQLException {
+    return new ArrayList<>(productoDAO.findAll());
   }
 
-  public Producto obtenerPorId(Integer idProducto) {
-    return this.productoDAO.obtenerPorId(idProducto);
+  public Optional<Producto> obtenerPorId(Integer id) throws SQLException {
+    return this.productoDAO.findById(id);
+  }
+
+  public ArrayList<Producto> buscarProductos(String nombre)
+    throws SQLException {
+    return new ArrayList<>(
+      productoDAO.query().where(ProductoDAO.nombre.eq(nombre)).list()
+    );
   }
 }

@@ -1,23 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.comerzia.RelacionesComerciales.bo;
 
-import java.sql.Time;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Visita;
 import pe.edu.pucp.comerzia.RelacionesComerciales.dao.VisitaDAO;
-import pe.edu.pucp.comerzia.RelacionesComerciales.daoImpl.VisitaDAOImpl;
 
 public class VisitaBO {
 
-  // Creamos la clase.
   private VisitaDAO visitaDAO;
 
   public VisitaBO() {
-    this.visitaDAO = new VisitaDAOImpl(); // Constructor
+    this.visitaDAO = new VisitaDAO();
   }
 
   public Integer insertar(
@@ -25,38 +20,44 @@ public class VisitaBO {
     Double duracion,
     Integer idCliente,
     Integer idVendedor
-  ) {
-    Visita visita = new Visita(fecha, duracion, idCliente, idVendedor);
-    return this.visitaDAO.insertar(visita);
-  }
-
-  public Integer modificar(
-    Integer idVisita,
-    Date fecha,
-    Double duracion,
-    Integer idCliente,
-    Integer idVendedor
-  ) {
+  ) throws SQLException {
     Visita visita = new Visita();
-    visita.setIdVisita(idVisita);
+
     visita.setFecha(fecha);
     visita.setDuracion(duracion);
     visita.setIdCliente(idCliente);
     visita.setIdVendedor(idVendedor);
-    return visitaDAO.modificar(visita);
+
+    return this.visitaDAO.insert(visita);
   }
 
-  public Integer eliminar(Integer idVisita) {
+  public Integer modificar(
+    Integer id,
+    Date fecha,
+    Double duracion,
+    Integer idCliente,
+    Integer idVendedor
+  ) throws SQLException {
     Visita visita = new Visita();
-    visita.setIdVisita(idVisita);
-    return this.visitaDAO.eliminar(visita);
+
+    visita.setId(id);
+    visita.setFecha(fecha);
+    visita.setDuracion(duracion);
+    visita.setIdCliente(idCliente);
+    visita.setIdVendedor(idVendedor);
+
+    return visitaDAO.update(visita);
   }
 
-  public Visita obtenerPorId(Integer idVisita) {
-    return this.visitaDAO.obtenerPorId(idVisita); // Pendiente
+  public Integer eliminar(Integer id) throws SQLException {
+    return this.visitaDAO.delete(id);
   }
 
-  public ArrayList<Visita> listarTodos() {
-    return this.visitaDAO.listarTodos();
+  public Optional<Visita> obtenerPorId(Integer id) throws SQLException {
+    return this.visitaDAO.findById(id);
+  }
+
+  public ArrayList<Visita> listarTodos() throws SQLException {
+    return new ArrayList<>(this.visitaDAO.findAll());
   }
 }

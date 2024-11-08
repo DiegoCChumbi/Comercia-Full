@@ -1,41 +1,43 @@
 package pe.edu.pucp.comerzia.GestionDeAlmacen.dao;
 
-import java.sql.Connection;
-import java.util.ArrayList;
+import pe.edu.pucp.comerzia.GestionDeAlmacen.mapper.ProductoAlmacenadoMapper;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.ProductoAlmacenado;
+import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
-public interface ProductoAlmacenadoDAO {
-  public Integer insertar(ProductoAlmacenado productoAlmacenado);
+public class ProductoAlmacenadoDAO
+  extends BaseDAOImpl<ProductoAlmacenado, Integer> {
 
-  public Integer insertar(
-    ProductoAlmacenado productoAlmacenado,
-    Boolean usarTransaccion,
-    Connection conexion
+  public static final Column<Integer> id = new Column<>("id", Integer.class);
+  public static final Column<Integer> idAlmacen = new Column<>(
+    "id_almacen",
+    Integer.class
+  );
+  public static final Column<Integer> idProducto = new Column<>(
+    "id_producto",
+    Integer.class
+  );
+  public static final Column<Integer> fechaAlmacenado = new Column<>(
+    "fecha_almacenado",
+    Integer.class
+  );
+  public static final Column<Integer> stockActual = new Column<>(
+    "stock_actual",
+    Integer.class
   );
 
-  public Integer modificar(ProductoAlmacenado productoAlmacenado);
+  // Default
+  public ProductoAlmacenadoDAO() {
+    super(ProductoAlmacenado.class, new ProductoAlmacenadoMapper());
+  }
 
-  public Integer modificar(
-    ProductoAlmacenado productoAlmacenado,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
+  @Override
+  protected String getTableName() {
+    return "producto_almacenado";
+  }
 
-  public Integer eliminar(ProductoAlmacenado productoAlmacenado);
-
-  public Integer eliminar(
-    ProductoAlmacenado productoAlmacenado,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public ArrayList<ProductoAlmacenado> listarTodos();
-
-  public ArrayList<ProductoAlmacenado> listarPorAlmacen(Integer idAlmacen);
-
-  public ProductoAlmacenado obtenerPorId(Integer idProductoAlmacenado);
-
-  public Boolean existeProductoAlmacenado(
-    ProductoAlmacenado productoAlmacenado
-  );
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

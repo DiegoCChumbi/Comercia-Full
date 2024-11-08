@@ -1,39 +1,38 @@
 package pe.edu.pucp.comerzia.GestionDeAlmacen.dao;
 
-import java.sql.Connection;
-import java.util.ArrayList;
+import pe.edu.pucp.comerzia.GestionDeAlmacen.mapper.ProductoMapper;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Producto;
+import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
-public interface ProductoDAO {
-  public Integer insertar(Producto producto);
+public class ProductoDAO extends BaseDAOImpl<Producto, Integer> {
 
-  public Integer insertar(
-    Producto producto,
-    Boolean usarTransaccion,
-    Connection conexion
+  public static final Column<Integer> id = new Column<>("id", Integer.class);
+  public static final Column<String> nombre = new Column<>(
+    "nombre",
+    String.class
+  );
+  public static final Column<Double> precio = new Column<>(
+    "precio",
+    Double.class
+  );
+  public static final Column<Integer> stockMinimo = new Column<>(
+    "stock_minimo",
+    Integer.class
   );
 
-  public Integer modificar(Producto producto);
+  // Default
+  public ProductoDAO() {
+    super(Producto.class, new ProductoMapper());
+  }
 
-  public Integer modificar(
-    Producto producto,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
+  @Override
+  protected String getTableName() {
+    return "producto";
+  }
 
-  public Integer eliminar(Producto producto);
-
-  public Integer eliminar(
-    Producto producto,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public ArrayList<Producto> listarTodos();
-
-  public ArrayList<Producto> buscarProductos(String nombreProducto);
-
-  public Producto obtenerPorId(Integer idProducto);
-
-  public Boolean existeProducto(Producto producto);
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

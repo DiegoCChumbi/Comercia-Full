@@ -1,9 +1,11 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.VendedorMapper;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Vendedor;
 
-public interface VendedorDAO<T extends Vendedor> extends EmpleadoDAO<Vendedor> {
-  public Boolean existeVendedor(Vendedor vendedor);
+public class VendedorDAO extends EmpleadoDAO<Vendedor> {
 
-  public Boolean existeVendedor(Vendedor vendedor, Boolean abreConexion);
+  public VendedorDAO() {
+    super(Vendedor.class, new VendedorMapper());
+  }
 }

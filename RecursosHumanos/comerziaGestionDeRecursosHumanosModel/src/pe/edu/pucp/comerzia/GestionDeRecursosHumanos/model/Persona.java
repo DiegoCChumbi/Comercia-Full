@@ -2,66 +2,22 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 
 public class Persona {
 
-  private Integer idPersona;
+  private Integer id;
   private String dni;
-  private String nombreCompleto;
+  private String nombre;
   private String telefono;
   private String correo;
   private String direccion;
-  private String tipoPersona;
   private Boolean eliminado;
 
-  public Persona(
-    Integer idPersona,
-    String dni,
-    String nombreCompleto,
-    String telefono,
-    String correo,
-    String direccion
-  ) {
-    this.idPersona = idPersona;
-    this.dni = dni;
-    this.nombreCompleto = nombreCompleto;
-    this.telefono = telefono;
-    this.correo = correo;
-    this.direccion = direccion;
-    this.tipoPersona = null;
-    this.eliminado = false;
+  public Persona() {}
+
+  public Integer getId() {
+    return id;
   }
 
-  public Persona(
-    String dni,
-    String nombreCompleto,
-    String telefono,
-    String correo,
-    String direccion
-  ) {
-    this.dni = dni;
-    this.nombreCompleto = nombreCompleto;
-    this.telefono = telefono;
-    this.correo = correo;
-    this.direccion = direccion;
-    this.tipoPersona = null;
-    this.eliminado = false;
-  }
-
-  public Persona() {
-    this.idPersona = null;
-    this.dni = null;
-    this.nombreCompleto = null;
-    this.telefono = null;
-    this.correo = null;
-    this.direccion = null;
-    this.tipoPersona = null;
-    this.eliminado = false;
-  }
-
-  public Integer getIdPersona() {
-    return idPersona;
-  }
-
-  public void setIdPersona(Integer idPersona) {
-    this.idPersona = idPersona;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public String getDni() {
@@ -72,12 +28,12 @@ public class Persona {
     this.dni = dni;
   }
 
-  public String getNombreCompleto() {
-    return nombreCompleto;
+  public String getNombre() {
+    return nombre;
   }
 
-  public void setNombreCompleto(String nombreCompleto) {
-    this.nombreCompleto = nombreCompleto;
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
   }
 
   public String getTelefono() {
@@ -102,14 +58,6 @@ public class Persona {
 
   public void setDireccion(String direccion) {
     this.direccion = direccion;
-  }
-
-  public String getTipoPersona() {
-    return tipoPersona;
-  }
-
-  public void setTipoPersona(String tipoPersona) {
-    this.tipoPersona = tipoPersona;
   }
 
   public Boolean getEliminado() {

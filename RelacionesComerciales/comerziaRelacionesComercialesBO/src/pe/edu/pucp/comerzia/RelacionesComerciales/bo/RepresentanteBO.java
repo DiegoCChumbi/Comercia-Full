@@ -1,20 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.comerzia.RelacionesComerciales.bo;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Representante;
 import pe.edu.pucp.comerzia.RelacionesComerciales.dao.RepresentanteDAO;
-import pe.edu.pucp.comerzia.RelacionesComerciales.daoImpl.RepresentanteDAOImpl;
 
 public class RepresentanteBO {
 
   private RepresentanteDAO representanteDAO;
 
   public RepresentanteBO() {
-    this.representanteDAO = new RepresentanteDAOImpl();
+    this.representanteDAO = new RepresentanteDAO();
   }
 
   public Integer insertar(
@@ -24,51 +21,50 @@ public class RepresentanteBO {
     String correo,
     String direccion,
     Integer idEmpresa
-  ) {
-    Representante representante = new Representante(
-      null,
-      dni,
-      nombreCompleto,
-      telefono,
-      correo,
-      direccion,
-      idEmpresa
-    );
-    return this.representanteDAO.insertar(representante);
+  ) throws SQLException {
+    Representante representante = new Representante();
+
+    representante.setDni(dni);
+    representante.setNombre(nombreCompleto);
+    representante.setTelefono(telefono);
+    representante.setCorreo(correo);
+    representante.setDireccion(direccion);
+    representante.setIdEmpresa(idEmpresa);
+
+    return this.representanteDAO.insert(representante);
   }
 
   public Integer modificar(
-    Integer idPersona,
+    Integer id,
     String dni,
     String nombreCompleto,
     String telefono,
     String correo,
     String direccion,
     Integer idEmpresa
-  ) {
-    Representante representante = new Representante(
-      idPersona,
-      dni,
-      nombreCompleto,
-      telefono,
-      correo,
-      direccion,
-      idEmpresa
-    );
-    return representanteDAO.modificar(representante);
-  }
-
-  public Integer eliminar(Integer idPersona) {
+  ) throws SQLException {
     Representante representante = new Representante();
-    representante.setIdPersona(idPersona);
-    return this.representanteDAO.eliminar(representante);
+
+    representante.setId(id);
+    representante.setDni(dni);
+    representante.setNombre(nombreCompleto);
+    representante.setTelefono(telefono);
+    representante.setCorreo(correo);
+    representante.setDireccion(direccion);
+    representante.setIdEmpresa(idEmpresa);
+
+    return representanteDAO.update(representante);
   }
 
-  public Representante obtenerPorId(Integer idPersona) {
-    return this.representanteDAO.obtenerPorId(idPersona);
+  public Integer eliminar(Integer id) throws SQLException {
+    return this.representanteDAO.delete(id);
   }
 
-  public ArrayList<Representante> listarTodos() {
-    return this.representanteDAO.listarTodos();
+  public Optional<Representante> obtenerPorId(Integer id) throws SQLException {
+    return this.representanteDAO.findById(id);
+  }
+
+  public ArrayList<Representante> listarTodos() throws SQLException {
+    return new ArrayList<>(this.representanteDAO.findAll());
   }
 }

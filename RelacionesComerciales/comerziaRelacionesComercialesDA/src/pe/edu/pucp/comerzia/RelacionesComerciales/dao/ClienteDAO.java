@@ -1,16 +1,11 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.dao;
 
-import java.util.ArrayList;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Cliente;
+import pe.edu.pucp.comerzia.RelacionesComerciales.mapper.ClienteMapper;
 
-public interface ClienteDAO extends EmpresaDAO {
-  public Integer insertar(Cliente cliente);
+public class ClienteDAO extends EmpresaDAO<Cliente> {
 
-  public Integer modificar(Cliente cliente);
-
-  public Integer eliminar(Cliente cliente);
-
-  public ArrayList<Cliente> listarTodos();
-
-  public Cliente obtenerPorId(Integer idCliente);
+  public ClienteDAO() {
+    super(Cliente.class, new ClienteMapper());
+  }
 }

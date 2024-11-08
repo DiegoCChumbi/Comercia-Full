@@ -1,37 +1,52 @@
 package pe.edu.pucp.comerzia.gestioncomercial.dao;
 
-import java.sql.Connection;
-import java.util.ArrayList;
+import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.utils.Column;
+import pe.edu.pucp.comerzia.gestioncomercial.mapper.DocumentoMapper;
 import pe.edu.pucp.comerzia.gestioncomercial.model.Documento;
+import pe.edu.pucp.comerzia.gestioncomercial.model.EstadoDocumentoEnum;
+import pe.edu.pucp.comerzia.gestioncomercial.model.TipoDocumentoEnum;
 
-public interface DocumentoDAO {
-  public Integer insertar(Documento documento);
+public class DocumentoDAO extends BaseDAOImpl<Documento, Integer> {
 
-  public Integer insertar(
-    Documento documento,
-    Boolean usarTransaccion,
-    Connection conexion
+  public static final Column<Integer> id = new Column<>("id", Integer.class);
+  public static final Column<Integer> idEmpresa = new Column<>(
+    "id_empresa",
+    Integer.class
+  );
+  public static final Column<EstadoDocumentoEnum> estado = new Column<>(
+    "estado",
+    EstadoDocumentoEnum.class
+  );
+  public static final Column<TipoDocumentoEnum> tipo = new Column<>(
+    "tipo",
+    TipoDocumentoEnum.class
+  );
+  public static final Column<Integer> idVendedor = new Column<>(
+    "id_vendedor",
+    Integer.class
+  );
+  public static final Column<Integer> idAdministrador = new Column<>(
+    "id_administrador",
+    Integer.class
+  );
+  public static final Column<Integer> idTrabajadorDeAlmacen = new Column<>(
+    "id_trabajador_de_almacen",
+    Integer.class
   );
 
-  public Integer modificar(Documento documento);
+  // Default
+  public DocumentoDAO() {
+    super(Documento.class, new DocumentoMapper());
+  }
 
-  public Integer modificar(
-    Documento documento,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
+  @Override
+  protected String getTableName() {
+    return "documento";
+  }
 
-  public Integer eliminar(Documento documento);
-
-  public Integer eliminar(
-    Documento documento,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public ArrayList<Documento> listarTodos();
-
-  public Documento obtenerPorId(Integer idDocumento);
-
-  public Boolean existeDocumento(Documento documento);
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

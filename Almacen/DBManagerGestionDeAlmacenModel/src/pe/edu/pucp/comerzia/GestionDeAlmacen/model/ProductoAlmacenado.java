@@ -4,40 +4,26 @@ import java.util.Date;
 
 public class ProductoAlmacenado {
 
-  private Integer idProductoAlmacenado;
+  private Integer id;
   private Integer idAlmacen;
   private Integer idProducto;
   private Date fechaAlmacenado;
   private Integer stockActual;
 
   public ProductoAlmacenado() {
-    this.idProductoAlmacenado = null;
+    this.id = null;
     this.idAlmacen = null;
     this.fechaAlmacenado = null;
     this.stockActual = 0;
     this.idProducto = null;
   }
 
-  public ProductoAlmacenado(
-    Integer idProductoAlmacenado,
-    Integer idAlmacen,
-    Date fechaAlmacenado,
-    Integer stockActual,
-    Integer idProducto
-  ) {
-    this.idProductoAlmacenado = idProductoAlmacenado;
-    this.idAlmacen = idAlmacen;
-    this.fechaAlmacenado = fechaAlmacenado;
-    this.stockActual = stockActual;
-    this.idProducto = idProducto;
+  public Integer getId() {
+    return id;
   }
 
-  public Integer getIdProductoAlmacenado() {
-    return idProductoAlmacenado;
-  }
-
-  public void setIdProductoAlmacenado(Integer idProductoAlmacenado) {
-    this.idProductoAlmacenado = idProductoAlmacenado;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public Integer getIdAlmacen() {

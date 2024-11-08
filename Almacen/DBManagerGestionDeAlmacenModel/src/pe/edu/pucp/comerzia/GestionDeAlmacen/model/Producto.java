@@ -2,44 +2,32 @@ package pe.edu.pucp.comerzia.GestionDeAlmacen.model;
 
 public class Producto {
 
-  private Integer idProducto;
-  private String nombreProducto;
+  private Integer id;
+  private String nombre;
   private Double precio;
   private Integer stockMinimo;
 
   public Producto() {
-    this.idProducto = null;
-    this.nombreProducto = null;
+    this.id = null;
+    this.nombre = null;
     this.precio = null;
     this.stockMinimo = 0;
   }
 
-  public Producto(
-    Integer idProducto,
-    String nombreProducto,
-    Double precio,
-    Integer stockMinimo
-  ) {
-    this.idProducto = idProducto;
-    this.nombreProducto = nombreProducto;
-    this.precio = precio;
-    this.stockMinimo = stockMinimo;
+  public Integer getId() {
+    return id;
   }
 
-  public Integer getIdProducto() {
-    return idProducto;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
-  public void setIdProducto(Integer idProducto) {
-    this.idProducto = idProducto;
+  public String getNombre() {
+    return nombre;
   }
 
-  public String getNombreProducto() {
-    return nombreProducto;
-  }
-
-  public void setNombreProducto(String nombreProducto) {
-    this.nombreProducto = nombreProducto;
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
   }
 
   public Double getPrecio() {

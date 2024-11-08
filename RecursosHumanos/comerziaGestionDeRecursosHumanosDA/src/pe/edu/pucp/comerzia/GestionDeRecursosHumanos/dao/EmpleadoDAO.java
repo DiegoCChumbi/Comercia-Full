@@ -1,35 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 
-import java.sql.Connection;
-import java.util.ArrayList;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.EmpleadoMapper;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
-/**
- *
- * @author chumbi
- */
-public interface EmpleadoDAO<T extends Empleado> extends PersonaDAO<T> {
-  public Boolean existeEmpleado(T empleado);
+public class EmpleadoDAO<T extends Empleado> extends PersonaDAO<T> {
 
-  public Boolean existeEmpleado(T empleado, Boolean abreConexion);
+  public static class Columns {
 
-  public Integer verificarEmpleado(
-    String cuenta,
-    String contrasenha,
-    Boolean abreConexion
-  );
+    public static final Column<Integer> id = new Column<>("id", Integer.class);
+  }
 
-  public Integer verificarEmpleado(String cuenta, String contrasenha);
+  public EmpleadoDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
+    super(entityClass, entityMapper);
+  }
 
-  public String devolverNombreEmpleado(
-    Integer idEmpleado,
-    Boolean abreConexion
-  );
-
-  public String devolverNombreEmpleado(Integer idEmpleado);
+  // Default
+  @SuppressWarnings("unchecked")
+  public EmpleadoDAO() {
+    super(
+      (Class<T>) Empleado.class,
+      (EntityMapper<T>) new EmpleadoMapper<Empleado>()
+    );
+  }
 }

@@ -1,14 +1,11 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 
-import java.util.ArrayList;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.TrabajadorDeAlmacenMapper;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
 
-public interface TrabajadorDeAlmacenDAO<T extends TrabajadorDeAlmacen>
-  extends EmpleadoDAO<TrabajadorDeAlmacen> {
-  public Boolean existeTrabajadorDeAlmacen(TrabajadorDeAlmacen trabajador);
+public class TrabajadorDeAlmacenDAO extends EmpleadoDAO<TrabajadorDeAlmacen> {
 
-  public Boolean existeTrabajadorDeAlmacen(
-    TrabajadorDeAlmacen trbajador,
-    Boolean abreConexion
-  );
+  public TrabajadorDeAlmacenDAO() {
+    super(TrabajadorDeAlmacen.class, new TrabajadorDeAlmacenMapper());
+  }
 }

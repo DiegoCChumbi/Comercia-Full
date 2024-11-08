@@ -1,128 +1,63 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo;
 
-/**
- *
- * @author chumbi
- */
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.PersonaDAO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.daoImp.PersonaDAOImpl;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 
-/*
-public class Persona {
-
-    private Integer idPersona;
-
-    private String dni;
-    private String nombreCompleto;
-    private String telefono;
-    private String correo;
-    private String direccion;
- */
 public class PersonaBO {
 
   private PersonaDAO<Persona> personaDAO;
 
   public PersonaBO() {
-    this.personaDAO = new PersonaDAOImpl();
+    this.personaDAO = new PersonaDAO<>();
   }
 
-  // public Integer insertar(Integer idPersona, String dni, String nombreCompleto, String telefono,
-  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
-  //         TipoPersona tipoP, EstadoEmpleado estadoE) {
-  //     Persona persona = new Persona();
-  //     persona.setIdPersona(idPersona);
-  //     persona.setDni(dni);
-  //     persona.setNombreCompleto(nombreCompleto);
-  //     persona.setTelefono(telefono);
-  //     persona.setCorreo(correo);
-  //     persona.setDireccion(direccion);
-  //     persona.setIngresosVentas(ingresosVentas);
-  //     persona.setPorcentajeComision(porcentajeComision);
-  //     persona.setLicenciaMontacarga(licenciaMontacarga);
-  //     persona.setAlmacenAlmacenero(almacenAlmacenero);
-  //     persona.setExperiencia(experiencia);
-  //     persona.setAlmacenAdministrador(almacenAdministrador);
-  //     persona.setEmpresa(empresa);
-  //     persona.setTipoP(tipoP);
-  //     persona.setEstadoE(estadoE);
-  //     return personaDAO.insertar(persona);
-  // }
   public Integer insertar(
     String dni,
     String nombreCompleto,
     String telefono,
     String correo,
     String direccion
-  ) {
+  ) throws SQLException {
     Persona persona = new Persona();
     persona.setDni(dni);
-    persona.setNombreCompleto(nombreCompleto);
+    persona.setNombre(nombreCompleto);
     persona.setTelefono(telefono);
     persona.setCorreo(correo);
     persona.setDireccion(direccion);
-    return personaDAO.insertar(persona);
+    return this.personaDAO.insert(persona);
   }
 
-  // public Integer modificar(Integer idPersona, String dni, String nombreCompleto, String telefono,
-  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
-
-  //     Persona persona = new Persona();
-  //     persona.setIdPersona(idPersona);
-  //     persona.setDni(dni);
-  //     persona.setNombreCompleto(nombreCompleto);
-  //     persona.setTelefono(telefono);
-  //     persona.setCorreo(correo);
-  //     persona.setDireccion(direccion);
-  //     persona.setIngresosVentas(ingresosVentas);
-  //     persona.setPorcentajeComision(porcentajeComision);
-  //     persona.setLicenciaMontacarga(licenciaMontacarga);
-  //     persona.setAlmacenAlmacenero(almacenAlmacenero);
-  //     persona.setExperiencia(experiencia);
-  //     persona.setAlmacenAdministrador(almacenAdministrador);
-  //     persona.setEmpresa(empresa);
-  //     persona.setTipoP(tipoP);
-  //     persona.setEstadoE(estadoE);
-
-  //     return personaDAO.modificar(persona);
-  // }
   public Integer modificar(
-    Integer idPersona,
+    Integer id,
     String dni,
     String nombreCompleto,
     String telefono,
     String correo,
     String direccion
-  ) {
+  ) throws SQLException {
     Persona persona = new Persona();
-    persona.setIdPersona(idPersona);
+    persona.setId(id);
     persona.setDni(dni);
-    persona.setNombreCompleto(nombreCompleto);
+    persona.setNombre(nombreCompleto);
     persona.setTelefono(telefono);
     persona.setCorreo(correo);
     persona.setDireccion(direccion);
 
-    return personaDAO.modificar(persona);
+    return this.personaDAO.update(persona);
   }
 
-  public Integer eliminar(Persona persona) {
-    return personaDAO.eliminar(persona);
+  public Integer eliminar(Persona persona) throws SQLException {
+    return personaDAO.delete(persona.getId());
   }
 
-  public ArrayList<Persona> listarTodos() {
-    return personaDAO.listarTodos();
+  public ArrayList<Persona> listarTodos() throws SQLException {
+    return new ArrayList<>(personaDAO.findAll());
   }
 
-  public Persona obtenerPorId(Integer id) {
-    return personaDAO.obtenerPorId(id);
+  public Optional<Persona> obtenerPorId(Integer id) throws SQLException {
+    return personaDAO.findById(id);
   }
 }

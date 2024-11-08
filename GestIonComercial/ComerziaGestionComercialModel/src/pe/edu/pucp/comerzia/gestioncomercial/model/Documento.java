@@ -2,52 +2,16 @@ package pe.edu.pucp.comerzia.gestioncomercial.model;
 
 public class Documento {
 
-  private Integer idDocumento;
-  private static Integer idDocumentoCorrelativo = 0;
+  private Integer id;
   private Integer idEmpresa;
-  private Estado estado;
-  private Tipo tipo;
+  private EstadoDocumentoEnum estado;
+  private TipoDocumentoEnum tipo;
   private Integer idVendedor;
   private Integer idAdministrador;
   private Integer idTrabajadorDeAlmacen;
 
-  public Documento(
-    Integer idEmpresa,
-    Estado estado,
-    Tipo tipo,
-    Integer idVendedor,
-    Integer idAdministrador,
-    Integer idTrabajadorDeAlmacen
-  ) {
-    this.idDocumento = idDocumentoCorrelativo++;
-    this.idEmpresa = idEmpresa;
-    this.estado = estado;
-    this.tipo = tipo;
-    this.idVendedor = idVendedor;
-    this.idAdministrador = idAdministrador;
-    this.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
-  }
-
-  public Documento(
-    Integer idDocumento,
-    Integer idEmpresa,
-    Estado estado,
-    Tipo tipo,
-    Integer idVendedor,
-    Integer idAdministrador,
-    Integer idTrabajadorDeAlmacen
-  ) {
-    this.idDocumento = idDocumento;
-    this.idEmpresa = idEmpresa;
-    this.estado = estado;
-    this.tipo = tipo;
-    this.idVendedor = idVendedor;
-    this.idAdministrador = idAdministrador;
-    this.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
-  }
-
   public Documento() {
-    this.idDocumento = null;
+    this.id = null;
     this.idEmpresa = null;
     this.estado = null;
     this.tipo = null;
@@ -56,12 +20,12 @@ public class Documento {
     this.idTrabajadorDeAlmacen = null;
   }
 
-  public Integer getIdDocumento() {
-    return idDocumento;
+  public Integer getId() {
+    return id;
   }
 
-  public void setIdDocumento(Integer idDocumento) {
-    this.idDocumento = idDocumento;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public Integer getIdEmpresa() {
@@ -72,19 +36,19 @@ public class Documento {
     this.idEmpresa = idEmpresa;
   }
 
-  public Estado getEstado() {
+  public EstadoDocumentoEnum getEstado() {
     return estado;
   }
 
-  public void setEstado(Estado estado) {
+  public void setEstado(EstadoDocumentoEnum estado) {
     this.estado = estado;
   }
 
-  public Tipo getTipo() {
+  public TipoDocumentoEnum getTipo() {
     return tipo;
   }
 
-  public void setTipo(Tipo tipo) {
+  public void setTipo(TipoDocumentoEnum tipo) {
     this.tipo = tipo;
   }
 

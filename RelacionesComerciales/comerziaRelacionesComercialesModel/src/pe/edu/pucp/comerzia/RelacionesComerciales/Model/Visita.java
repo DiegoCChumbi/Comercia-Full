@@ -1,46 +1,17 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.Model;
 
-import java.sql.Time;
 import java.util.Date;
 
 public class Visita {
 
-  private Integer idVisita;
+  private Integer id;
   private Date fecha;
   private Double duracion;
   private Integer idCliente;
   private Integer idVendedor;
 
-  // Constructores.
-  public Visita(
-    Integer idVisita,
-    Date fecha,
-    Double duracion,
-    Integer idCliente,
-    Integer idVendedor
-  ) {
-    this.idVisita = idVisita;
-    this.fecha = fecha;
-    this.duracion = duracion;
-    this.idCliente = idCliente;
-    this.idVendedor = idVendedor;
-  }
-
-  public Visita(
-    Date fecha,
-    Double duracion,
-    Integer idCliente,
-    Integer idVendedor
-  ) {
-    this.fecha = fecha;
-    this.duracion = duracion;
-    this.idCliente = idCliente;
-    this.idVendedor = idVendedor;
-  }
-
-  // null
   public Visita() {
-    this.idVisita = null;
+    this.id = null;
     this.fecha = null;
     this.duracion = null;
     this.idCliente = null;
@@ -48,12 +19,12 @@ public class Visita {
   }
 
   // Getters y Setters.
-  public Integer getIdVisita() {
-    return idVisita;
+  public Integer getId() {
+    return id;
   }
 
-  public void setIdVisita(Integer idVisita) {
-    this.idVisita = idVisita;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public Date getFecha() {

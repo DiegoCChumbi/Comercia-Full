@@ -1,26 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.comerzia.RelacionesComerciales.bo;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Empresa;
 import pe.edu.pucp.comerzia.RelacionesComerciales.dao.EmpresaDAO;
-import pe.edu.pucp.comerzia.RelacionesComerciales.daoImpl.EmpresaDAOImpl;
 
-/**
- *
- * @author camilo
- */
 public class EmpresaBO {
 
-  // Creamos la clase.
-  private EmpresaDAO empresaDAO;
+  private EmpresaDAO<Empresa> empresaDAO;
 
   public EmpresaBO() {
-    this.empresaDAO = new EmpresaDAOImpl(); // Constructor
+    this.empresaDAO = new EmpresaDAO<>();
   }
 
   public Integer insertar(
@@ -29,41 +20,47 @@ public class EmpresaBO {
     String telefono,
     String email,
     String tipoIndustria
-  ) {
-    Empresa empresa;
-    empresa = new Empresa(nombre, direccion, telefono, email, tipoIndustria);
-    return empresaDAO.insertar(empresa);
-  }
-
-  public Integer modificar(
-    Integer idEmpresa,
-    String nombre,
-    String direccion,
-    String telefono,
-    String email,
-    String tipoIndustria
-  ) {
+  ) throws SQLException {
     Empresa empresa = new Empresa();
-    empresa.setIdEmpresa(idEmpresa);
+
     empresa.setNombre(nombre);
     empresa.setDireccion(direccion);
     empresa.setTelefono(telefono);
     empresa.setEmail(email);
     empresa.setTipoIndustria(tipoIndustria);
-    return this.empresaDAO.modificar(empresa);
+
+    return empresaDAO.insert(empresa);
   }
 
-  public Integer eliminar(Integer idEmpresa) {
+  public Integer modificar(
+    Integer id,
+    String nombre,
+    String direccion,
+    String telefono,
+    String email,
+    String tipoIndustria
+  ) throws SQLException {
     Empresa empresa = new Empresa();
-    empresa.setIdEmpresa(idEmpresa);
-    return this.empresaDAO.eliminar(empresa);
+
+    empresa.setId(id);
+    empresa.setNombre(nombre);
+    empresa.setDireccion(direccion);
+    empresa.setTelefono(telefono);
+    empresa.setEmail(email);
+    empresa.setTipoIndustria(tipoIndustria);
+
+    return this.empresaDAO.update(empresa);
   }
 
-  public Empresa obtenerPorId(Integer idEmpresa) {
-    return this.empresaDAO.obtenerPorId(idEmpresa); // Pendiente
+  public Integer eliminar(Integer id) throws SQLException {
+    return this.empresaDAO.delete(id);
   }
 
-  public ArrayList<Empresa> listarTodos() {
-    return this.empresaDAO.listarTodos();
+  public ArrayList<Empresa> listarTodos() throws SQLException {
+    return new ArrayList<>(this.empresaDAO.findAll());
+  }
+
+  public Optional<Empresa> obtenerPorId(Integer id) throws SQLException {
+    return this.empresaDAO.findById(id);
   }
 }

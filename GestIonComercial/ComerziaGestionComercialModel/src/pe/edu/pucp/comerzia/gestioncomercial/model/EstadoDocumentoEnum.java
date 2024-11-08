@@ -1,6 +1,6 @@
 package pe.edu.pucp.comerzia.gestioncomercial.model;
 
-public enum Estado {
+public enum EstadoDocumentoEnum {
   SOLICITUD,
   COTIZACION,
   PAGADO,

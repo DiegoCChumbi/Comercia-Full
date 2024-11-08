@@ -1,6 +1,6 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 
-public enum EstadoEmpleado {
+public enum EstadoEmpleadoEnum {
   ACTIVO,
   INACTIVO,
 }

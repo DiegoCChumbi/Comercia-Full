@@ -1,37 +1,42 @@
 package pe.edu.pucp.comerzia.gestioncomercial.dao;
 
-import java.sql.Connection;
-import java.util.ArrayList;
+import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.utils.Column;
+import pe.edu.pucp.comerzia.gestioncomercial.mapper.LineaDocumentoMapper;
 import pe.edu.pucp.comerzia.gestioncomercial.model.LineaDocumento;
 
-public interface LineaDocumentoDAO {
-  public Integer insertar(LineaDocumento lineaDocumento);
+public class LineaDocumentoDAO extends BaseDAOImpl<LineaDocumento, Integer> {
 
-  public Integer insertar(
-    LineaDocumento lineaDocumento,
-    Boolean usarTransaccion,
-    Connection conexion
+  public static final Column<Integer> id = new Column<>("id", Integer.class);
+  public static final Column<Integer> idDocumento = new Column<>(
+    "id_documento",
+    Integer.class
+  );
+  public static final Column<Integer> idProducto = new Column<>(
+    "id_producto",
+    Integer.class
+  );
+  public static final Column<Integer> cantidad = new Column<>(
+    "cantidad",
+    Integer.class
+  );
+  public static final Column<Double> precioUnitario = new Column<>(
+    "precio_unitario",
+    Double.class
   );
 
-  public Integer modificar(LineaDocumento lineaDocumento);
+  // Default
+  public LineaDocumentoDAO() {
+    super(LineaDocumento.class, new LineaDocumentoMapper());
+  }
 
-  public Integer modificar(
-    LineaDocumento lineaDocumento,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
+  @Override
+  protected String getTableName() {
+    return "linea_documento";
+  }
 
-  public Integer eliminar(LineaDocumento lineaDocumento);
-
-  public Integer eliminar(
-    LineaDocumento lineaDocumento,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public ArrayList<LineaDocumento> listarTodos();
-
-  public LineaDocumento obtenerPorId(Integer idLineaDocumento);
-
-  public Boolean existeLineaDocumento(LineaDocumento lineaDocumento);
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

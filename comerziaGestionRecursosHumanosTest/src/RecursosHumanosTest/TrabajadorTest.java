@@ -1,27 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package RecursosHumanosTest;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo.AdministradorBO;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo.TrabajadorDeAlmacenBO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Administrador;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleadoEnum;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
 
-/**
- *
- * @author user
- */
 public class TrabajadorTest {
 
   private static TrabajadorDeAlmacenBO trabajadorBO;
   private static ArrayList<TrabajadorDeAlmacen> listaTrabajadores;
 
-  public static void testTrabajadorBO() {
+  public static void testTrabajadorBO() throws SQLException {
     System.out.println("\ntestTrabajadorBO");
     trabajadorBO = new TrabajadorDeAlmacenBO();
 
@@ -34,57 +26,60 @@ public class TrabajadorTest {
     testTrabajadorBOEliminar();
   }
 
-  private static void testTrabajadorBOEliminar() {
+  private static void testTrabajadorBOEliminar() throws SQLException {
     System.out.println("\ntestTrabajadorBOEliminar");
     for (TrabajadorDeAlmacen trabajador : listaTrabajadores) {
-      trabajadorBO.eliminar(trabajador.getIdPersona());
+      trabajadorBO.eliminar(trabajador.getId());
     }
   }
 
-  private static void testTrabajadorBOObtenerPorId(ArrayList<Integer> listaId) {
+  private static void testTrabajadorBOObtenerPorId(ArrayList<Integer> listaId)
+    throws SQLException {
     System.out.println("\ntestTrabajadorBOObtenerPorId");
     for (Integer id : listaId) {
-      TrabajadorDeAlmacen trabajador = trabajadorBO.obtenerPorId(id);
-      System.out.println(
-        "idPersona: " +
-        trabajador.getIdPersona() +
-        " " +
-        trabajador.getDni() +
-        " " +
-        trabajador.getNombreCompleto() +
-        " " +
-        trabajador.getTelefono() +
-        " " +
-        trabajador.getCorreo() +
-        " " +
-        trabajador.getDireccion() +
-        " " +
-        trabajador.getEstado().toString() +
-        " " +
-        trabajador.getNombreUsuario() +
-        " " +
-        trabajador.getContrasenha() +
-        " " +
-        trabajador.getSalario() +
-        " " +
-        trabajador.getFechaContratacion() +
-        " " +
-        trabajador.getIdAlmacen()
-      );
+      Optional<TrabajadorDeAlmacen> trabajador = trabajadorBO.obtenerPorId(id);
+      if (trabajador.isPresent()) {
+        System.out.println(
+          "idPersona: " +
+          trabajador.get().getId() +
+          " " +
+          trabajador.get().getDni() +
+          " " +
+          trabajador.get().getNombre() +
+          " " +
+          trabajador.get().getTelefono() +
+          " " +
+          trabajador.get().getCorreo() +
+          " " +
+          trabajador.get().getDireccion() +
+          " " +
+          trabajador.get().getEstado().toString() +
+          " " +
+          trabajador.get().getNombreUsuario() +
+          " " +
+          trabajador.get().getContrasenha() +
+          " " +
+          trabajador.get().getSalario() +
+          " " +
+          trabajador.get().getFechaContratacion() +
+          " " +
+          trabajador.get().getIdAlmacen()
+        );
+      }
     }
   }
 
-  private static void testTrabajadorBOListarTodos() {
+  private static void testTrabajadorBOListarTodos() throws SQLException {
     System.out.println("\ntestTrabajadorBOListarTodos");
     listaTrabajadores = trabajadorBO.listarTodos();
     for (TrabajadorDeAlmacen trabajador : listaTrabajadores) {
       System.out.println(
         "idPersona: " +
-        trabajador.getIdPersona() +
+        trabajador.getId() +
         " " +
         trabajador.getDni() +
         " " +
-        trabajador.getNombreCompleto() +
+        trabajador.getNombre() +
         " " +
         trabajador.getTelefono() +
         " " +
@@ -107,7 +102,8 @@ public class TrabajadorTest {
     }
   }
 
-  private static void testTrabajadorBOModificar(ArrayList<Integer> listaId) {
+  private static void testTrabajadorBOModificar(ArrayList<Integer> listaId)
+    throws SQLException {
     System.out.println("\ntestTrabajadorBOModificar");
     Integer resultado = trabajadorBO.modificar(
       listaId.get(0),
@@ -116,7 +112,7 @@ public class TrabajadorTest {
       "987654321",
       "2222@example.com",
       "Av. Principal 123",
-      EstadoEmpleado.INACTIVO,
+      EstadoEmpleadoEnum.INACTIVO,
       "ctorres",
       "password789",
       2800.0,
@@ -131,7 +127,7 @@ public class TrabajadorTest {
       "912345678",
       "ana.gomez@example.com",
       "Calle Secundaria 456",
-      EstadoEmpleado.ACTIVO,
+      EstadoEmpleadoEnum.ACTIVO,
       "agomez",
       "password456",
       3500.0,
@@ -141,7 +137,8 @@ public class TrabajadorTest {
     );
   }
 
-  private static void testTrabajadorBOInsertar(ArrayList<Integer> listaId) {
+  private static void testTrabajadorBOInsertar(ArrayList<Integer> listaId)
+    throws SQLException {
     System.out.println("\ntestTrabajadorBOInsertar");
     int resultado;
 
@@ -151,7 +148,7 @@ public class TrabajadorTest {
       "987654321",
       "carlos.torres@example.com",
       "Av. Principal 123",
-      EstadoEmpleado.INACTIVO,
+      EstadoEmpleadoEnum.INACTIVO,
       "ctorres",
       "password789",
       2800.0,
@@ -168,7 +165,7 @@ public class TrabajadorTest {
       "912345678",
       "ana.gomez@example.com",
       "Calle Secundaria 456",
-      EstadoEmpleado.ACTIVO,
+      EstadoEmpleadoEnum.ACTIVO,
       "agomez",
       "password456",
       3500.0,

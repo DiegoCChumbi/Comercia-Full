@@ -1,16 +1,23 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.dao;
 
-import java.util.ArrayList;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Visita;
+import pe.edu.pucp.comerzia.RelacionesComerciales.mapper.VisitaMapper;
+import pe.edu.pucp.comerzia.db.BaseDAOImpl;
 
-public interface VisitaDAO {
-  public Integer insertar(Visita visita);
+public class VisitaDAO extends BaseDAOImpl<Visita, Integer> {
 
-  public Integer modificar(Visita visita);
+  // Default
+  public VisitaDAO() {
+    super(Visita.class, new VisitaMapper());
+  }
 
-  public Integer eliminar(Visita visita);
+  @Override
+  protected String getTableName() {
+    return "visita";
+  }
 
-  public ArrayList<Visita> listarTodos();
-
-  public Visita obtenerPorId(Integer idVisita);
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

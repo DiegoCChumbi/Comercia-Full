@@ -2,54 +2,26 @@ package pe.edu.pucp.comerzia.gestioncomercial.model;
 
 public class LineaDocumento {
 
-  private Integer idLinea;
-  private static Integer idLineaDocumentoCorrelativo = 0;
+  private Integer id;
   private Integer idDocumento;
   private Integer idProducto;
   private Integer cantidad;
   private Double precioUnitario;
 
-  public LineaDocumento(
-    Integer idDocumento,
-    Integer idProducto,
-    Integer cantidad,
-    Double precioUnitario
-  ) {
-    this.idLinea = idLineaDocumentoCorrelativo++;
-    this.idDocumento = idDocumento;
-    this.idProducto = idProducto;
-    this.cantidad = cantidad;
-    this.precioUnitario = precioUnitario;
-  }
-
-  public LineaDocumento(
-    Integer idLinea,
-    Integer idDocumento,
-    Integer idProducto,
-    Integer cantidad,
-    Double precioUnitario
-  ) {
-    this.idLinea = idLinea;
-    this.idDocumento = idDocumento;
-    this.idProducto = idProducto;
-    this.cantidad = cantidad;
-    this.precioUnitario = precioUnitario;
-  }
-
   public LineaDocumento() {
-    this.idLinea = null;
+    this.id = null;
     this.idDocumento = null;
     this.idProducto = null;
     this.cantidad = null;
     this.precioUnitario = null;
   }
 
-  public Integer getIdLinea() {
-    return idLinea;
+  public Integer getId() {
+    return id;
   }
 
-  public void setIdLinea(Integer idLinea) {
-    this.idLinea = idLinea;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public Integer getIdDocumento() {

@@ -1,20 +1,11 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.dao;
 
-import java.util.ArrayList;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Proveedor;
+import pe.edu.pucp.comerzia.RelacionesComerciales.mapper.ProveedorMapper;
 
-public interface ProveedorDAO extends EmpresaDAO {
-  public Integer insertar(Proveedor proveedor);
+public class ProveedorDAO extends EmpresaDAO<Proveedor> {
 
-  public Integer modificar(Proveedor proveedor);
-
-  public Integer eliminar(Proveedor proveedor);
-
-  public ArrayList<Proveedor> listarTodos();
-
-  public Proveedor obtenerPorId(Integer idProveedor);
-
-  public Boolean existeProveedor(Proveedor proveedor);
-
-  public Boolean existeProveedor(Proveedor proveedor, Boolean abreConexion);
+  public ProveedorDAO() {
+    super(Proveedor.class, new ProveedorMapper());
+  }
 }

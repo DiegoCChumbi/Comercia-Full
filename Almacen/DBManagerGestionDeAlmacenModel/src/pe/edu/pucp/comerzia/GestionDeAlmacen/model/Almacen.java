@@ -2,36 +2,24 @@ package pe.edu.pucp.comerzia.GestionDeAlmacen.model;
 
 public class Almacen {
 
-  private Integer idAlmacen;
+  private Integer id;
   private String nombre;
   private String estado;
   private String descripcion;
 
-  public Almacen(
-    Integer idAlmacen,
-    String nombre,
-    String estado,
-    String descripcion
-  ) {
-    this.idAlmacen = idAlmacen;
-    this.nombre = nombre;
-    this.estado = estado;
-    this.descripcion = descripcion;
-  }
-
   public Almacen() {
-    this.idAlmacen = null;
+    this.id = null;
     this.nombre = null;
     this.estado = null;
     this.descripcion = null;
   }
 
-  public Integer getIdAlmacen() {
-    return idAlmacen;
+  public Integer getId() {
+    return id;
   }
 
-  public void setIdAlmacen(Integer idAlmacen) {
-    this.idAlmacen = idAlmacen;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public String getNombre() {

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package pe.edu.pucp.eventmastersoft.services;
 
 import jakarta.jws.WebMethod;
@@ -15,11 +11,6 @@ import pe.edu.pucp.comerzia.GestionDeAlmacen.bo.ProductoBO;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Producto;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.ProductoAlmacenado;
-
-/**
- *
- * @author hunkj
- */
 
 @WebService(
   serviceName = "AlmacenWS",

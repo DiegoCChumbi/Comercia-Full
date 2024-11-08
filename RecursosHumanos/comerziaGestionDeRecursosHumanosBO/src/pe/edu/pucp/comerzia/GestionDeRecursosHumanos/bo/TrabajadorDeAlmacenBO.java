@@ -1,79 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo;
 
-/**
- *
- * @author chumbi
- */
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.TrabajadorDeAlmacenDAO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.daoImp.TrabajadorDeAlmacenDAOImpl;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleadoEnum;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
 
-/*
-public class TrabajadorDeAlmacen {
-
-    private Integer idTrabajadorDeAlmacen;
-
-    private Integer idEmpleado;
-    // private Empleado empleado;
-    private Integer idAlmacen;
-    // private Almacen almacenDeTrabajo;
-
-    private boolean licenciaMontacarga;
- */
 public class TrabajadorDeAlmacenBO {
 
-  private TrabajadorDeAlmacenDAO<TrabajadorDeAlmacen> trabajadorDeAlmacenDAO;
+  private TrabajadorDeAlmacenDAO trabajadorDeAlmacenDAO;
 
   public TrabajadorDeAlmacenBO() {
-    this.trabajadorDeAlmacenDAO = new TrabajadorDeAlmacenDAOImpl();
+    this.trabajadorDeAlmacenDAO = new TrabajadorDeAlmacenDAO();
   }
 
-  // public Integer insertar(Integer idEmpleado, Integer almacenAlmacenero, Integer experiencia,
-  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
-  //         TipoTrabajadorDeAlmacen tipoP, EstadoEmpleado estadoE) {
-  //     TrabajadorDeAlmacen trabajadorDeAlmacen = new TrabajadorDeAlmacen();
-  //     trabajadorDeAlmacen.setIdTrabajadorDeAlmacen(idTrabajadorDeAlmacen);
-  //     trabajadorDeAlmacen.setDni(dni);
-  //     trabajadorDeAlmacen.setNombreCompleto(nombreCompleto);
-  //     trabajadorDeAlmacen.setTelefono(telefono);
-  //     trabajadorDeAlmacen.setCorreo(correo);
-  //     trabajadorDeAlmacen.setDireccion(direccion);
-  //     trabajadorDeAlmacen.setIngresosVentas(ingresosVentas);
-  //     trabajadorDeAlmacen.setPorcentajeComision(porcentajeComision);
-  //     trabajadorDeAlmacen.setLicenciaMontacarga(licenciaMontacarga);
-  //     trabajadorDeAlmacen.setAlmacenAlmacenero(almacenAlmacenero);
-  //     trabajadorDeAlmacen.setExperiencia(experiencia);
-  //     trabajadorDeAlmacen.setAlmacenAdministrador(almacenAdministrador);
-  //     trabajadorDeAlmacen.setEmpresa(empresa);
-  //     trabajadorDeAlmacen.setTipoP(tipoP);
-  //     trabajadorDeAlmacen.setEstadoE(estadoE);
-  //     return trabajadorDeAlmacenDAO.insertar(trabajadorDeAlmacen);
-  // }
   public Integer insertar(
     String dni,
     String nombreCompleto,
     String telefono,
     String correo,
     String direccion,
-    EstadoEmpleado estado,
+    EstadoEmpleadoEnum estado,
     String nombreUsuario,
     String contrasenha,
     Double salario,
     Date fechaContratacion,
     Integer idAlmacen,
     Boolean licenciaMontacarga
-  ) {
+  ) throws SQLException {
     TrabajadorDeAlmacen trabajadorDeAlmacen = new TrabajadorDeAlmacen();
 
     trabajadorDeAlmacen.setDni(dni);
-    trabajadorDeAlmacen.setNombreCompleto(nombreCompleto);
+    trabajadorDeAlmacen.setNombre(nombreCompleto);
     trabajadorDeAlmacen.setTelefono(telefono);
     trabajadorDeAlmacen.setCorreo(correo);
     trabajadorDeAlmacen.setDireccion(direccion);
@@ -87,51 +47,29 @@ public class TrabajadorDeAlmacenBO {
     trabajadorDeAlmacen.setIdAlmacen(idAlmacen);
     trabajadorDeAlmacen.setLicenciaMontacarga(licenciaMontacarga);
 
-    return trabajadorDeAlmacenDAO.insertar(trabajadorDeAlmacen);
+    return trabajadorDeAlmacenDAO.insert(trabajadorDeAlmacen);
   }
 
-  // public Integer modificar(Integer idTrabajadorDeAlmacen, String dni, String nombreCompleto, String telefono,
-  //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-  //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-  //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
-  //     TrabajadorDeAlmacen trabajadorDeAlmacen = new TrabajadorDeAlmacen();
-  //     trabajadorDeAlmacen.setIdTrabajadorDeAlmacen(idTrabajadorDeAlmacen);
-  //     trabajadorDeAlmacen.setDni(dni);
-  //     trabajadorDeAlmacen.setNombreCompleto(nombreCompleto);
-  //     trabajadorDeAlmacen.setTelefono(telefono);
-  //     trabajadorDeAlmacen.setCorreo(correo);
-  //     trabajadorDeAlmacen.setDireccion(direccion);
-  //     trabajadorDeAlmacen.setIngresosVentas(ingresosVentas);
-  //     trabajadorDeAlmacen.setPorcentajeComision(porcentajeComision);
-  //     trabajadorDeAlmacen.setLicenciaMontacarga(licenciaMontacarga);
-  //     trabajadorDeAlmacen.setAlmacenAlmacenero(almacenAlmacenero);
-  //     trabajadorDeAlmacen.setExperiencia(experiencia);
-  //     trabajadorDeAlmacen.setAlmacenAdministrador(almacenAdministrador);
-  //     trabajadorDeAlmacen.setEmpresa(empresa);
-  //     trabajadorDeAlmacen.setTipoP(tipoP);
-  //     trabajadorDeAlmacen.setEstadoE(estadoE);
-  //     return trabajadorDeAlmacenDAO.modificar(trabajadorDeAlmacen);
-  // }
   public Integer modificar(
-    Integer idPersona,
+    Integer id,
     String dni,
     String nombreCompleto,
     String telefono,
     String correo,
     String direccion,
-    EstadoEmpleado estado,
+    EstadoEmpleadoEnum estado,
     String nombreUsuario,
     String contrasenha,
     Double salario,
     Date fechaContratacion,
     Integer idAlmacen,
     Boolean licenciaMontacarga
-  ) {
+  ) throws SQLException {
     TrabajadorDeAlmacen trabajadorDeAlmacen = new TrabajadorDeAlmacen();
 
-    trabajadorDeAlmacen.setIdPersona(idPersona);
+    trabajadorDeAlmacen.setId(id);
     trabajadorDeAlmacen.setDni(dni);
-    trabajadorDeAlmacen.setNombreCompleto(nombreCompleto);
+    trabajadorDeAlmacen.setNombre(nombreCompleto);
     trabajadorDeAlmacen.setTelefono(telefono);
     trabajadorDeAlmacen.setCorreo(correo);
     trabajadorDeAlmacen.setDireccion(direccion);
@@ -145,20 +83,19 @@ public class TrabajadorDeAlmacenBO {
     trabajadorDeAlmacen.setIdAlmacen(idAlmacen);
     trabajadorDeAlmacen.setLicenciaMontacarga(licenciaMontacarga);
 
-    return trabajadorDeAlmacenDAO.modificar(trabajadorDeAlmacen);
+    return trabajadorDeAlmacenDAO.update(trabajadorDeAlmacen);
   }
 
-  public Integer eliminar(Integer idPersona) {
-    TrabajadorDeAlmacen trabajador = new TrabajadorDeAlmacen();
-    trabajador.setIdPersona(idPersona);
-    return trabajadorDeAlmacenDAO.eliminar(trabajador);
+  public Integer eliminar(Integer id) throws SQLException {
+    return trabajadorDeAlmacenDAO.delete(id);
   }
 
-  public ArrayList<TrabajadorDeAlmacen> listarTodos() {
-    return trabajadorDeAlmacenDAO.listarTodos();
+  public ArrayList<TrabajadorDeAlmacen> listarTodos() throws SQLException {
+    return new ArrayList<>(trabajadorDeAlmacenDAO.findAll());
   }
 
-  public TrabajadorDeAlmacen obtenerPorId(Integer id) {
-    return trabajadorDeAlmacenDAO.obtenerPorId(id);
+  public Optional<TrabajadorDeAlmacen> obtenerPorId(Integer id)
+    throws SQLException {
+    return trabajadorDeAlmacenDAO.findById(id);
   }
 }

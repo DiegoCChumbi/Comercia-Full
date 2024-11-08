@@ -4,66 +4,21 @@ import java.util.Date;
 
 public class Empleado extends Persona {
 
-  private EstadoEmpleado estado;
+  private EstadoEmpleadoEnum estado;
   private String nombreUsuario;
   private String contrasenha;
-  private double salario;
+  private Double salario;
   private Date fechaContratacion;
 
-  public Empleado(
-    String dni,
-    String nombreCompleto,
-    String telefono,
-    String correo,
-    String direccion,
-    EstadoEmpleado estado,
-    String nombreUsuario,
-    String contrasenha,
-    double salario,
-    Date fechaContratacion
-  ) {
-    super(dni, nombreCompleto, telefono, correo, direccion);
-    this.setTipoPersona("EMPLEADO");
-    this.estado = estado;
-    this.nombreUsuario = nombreUsuario;
-    this.contrasenha = contrasenha;
-    this.salario = salario;
-    this.fechaContratacion = fechaContratacion;
-  }
-
-  public Empleado(
-    Integer idPersona,
-    String dni,
-    String nombreCompleto,
-    String telefono,
-    String correo,
-    String direccion,
-    EstadoEmpleado estado,
-    String nombreUsuario,
-    String contrasenha,
-    double salario,
-    Date fechaContratacion
-  ) {
-    super(idPersona, dni, nombreCompleto, telefono, correo, direccion);
-    this.setTipoPersona("EMPLEADO");
-    this.estado = estado;
-    this.nombreUsuario = nombreUsuario;
-    this.contrasenha = contrasenha;
-    this.salario = salario;
-    this.fechaContratacion = fechaContratacion;
-  }
-
-  // nulls
   public Empleado() {
     super();
-    this.setTipoPersona("EMPLEADO"); // Ensure tipoPersona is set
   }
 
-  public EstadoEmpleado getEstado() {
+  public EstadoEmpleadoEnum getEstado() {
     return estado;
   }
 
-  public void setEstado(EstadoEmpleado estado) {
+  public void setEstado(EstadoEmpleadoEnum estado) {
     this.estado = estado;
   }
 
@@ -83,11 +38,11 @@ public class Empleado extends Persona {
     this.contrasenha = contrasenha;
   }
 
-  public double getSalario() {
+  public Double getSalario() {
     return salario;
   }
 
-  public void setSalario(double salario) {
+  public void setSalario(Double salario) {
     this.salario = salario;
   }
 

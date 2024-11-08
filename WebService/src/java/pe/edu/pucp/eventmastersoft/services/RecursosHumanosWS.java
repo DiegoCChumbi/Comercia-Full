@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package pe.edu.pucp.eventmastersoft.services;
 
 import jakarta.jws.WebMethod;
@@ -9,10 +5,6 @@ import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo.EmpleadoBO;
 
-/**
- *
- * @author hunkj
- */
 @WebService(
   serviceName = "RecursosHumanosWS",
   targetNamespace = "http://services.eventmastersoft.pucp.edu.pe"

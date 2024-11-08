@@ -1,6 +1,6 @@
 package pe.edu.pucp.comerzia.gestioncomercial.model;
 
-public enum Tipo {
+public enum TipoDocumentoEnum {
   COMPRA,
   VENTA,
   FACTURA,

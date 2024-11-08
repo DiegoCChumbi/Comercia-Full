@@ -1,39 +1,31 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 
-import java.sql.Connection;
-import java.util.ArrayList;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Administrador;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.PersonaMapper;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
-import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Empresa;
+import pe.edu.pucp.comerzia.db.BaseDAOImpl;
 
-public interface PersonaDAO<T extends Persona> {
-  public Integer insertar(T persona);
+public class PersonaDAO<T extends Persona> extends BaseDAOImpl<T, Integer> {
 
-  public Integer insertar(
-    T persona,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
+  public PersonaDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
+    super(entityClass, entityMapper);
+  }
 
-  public Integer modificar(T persona);
+  // Default
+  @SuppressWarnings("unchecked")
+  public PersonaDAO() {
+    super(
+      (Class<T>) Persona.class,
+      (EntityMapper<T>) new PersonaMapper<Persona>()
+    );
+  }
 
-  public Integer modificar(
-    T persona,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
+  @Override
+  protected String getTableName() {
+    return "persona";
+  }
 
-  public Integer eliminar(T persona);
-
-  public Integer eliminar(
-    T persona,
-    Boolean usarTransaccion,
-    Connection conexion
-  );
-
-  public ArrayList<T> listarTodos();
-
-  public T obtenerPorId(Integer idPersona);
-
-  public Boolean existePersona(T persona);
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

@@ -1,89 +1,97 @@
 package pe.edu.pucp.comerzia.gestioncomercial.bo;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.gestioncomercial.dao.DocumentoDAO;
-import pe.edu.pucp.comerzia.gestioncomercial.daoImp.DocumentoDAOImpl;
 import pe.edu.pucp.comerzia.gestioncomercial.model.Documento;
-import pe.edu.pucp.comerzia.gestioncomercial.model.Estado;
-import pe.edu.pucp.comerzia.gestioncomercial.model.Tipo;
+import pe.edu.pucp.comerzia.gestioncomercial.model.EstadoDocumentoEnum;
+import pe.edu.pucp.comerzia.gestioncomercial.model.TipoDocumentoEnum;
 
 public class DocumentoBO {
 
   private DocumentoDAO documentoDAO;
 
   public DocumentoBO() {
-    this.documentoDAO = new DocumentoDAOImpl();
+    this.documentoDAO = new DocumentoDAO();
   }
 
   public Integer insertar(
     Integer idEmpresa,
-    Estado estado,
-    Tipo tipo,
+    EstadoDocumentoEnum estado,
+    TipoDocumentoEnum tipo,
     Integer idVendedor,
     Integer idAdministrador,
     Integer idTrabajadorDeAlmacen
-  ) {
-    Documento documento = new Documento(
-      idEmpresa,
-      estado,
-      tipo,
-      idVendedor,
-      idAdministrador,
-      idTrabajadorDeAlmacen
-    );
-    return documentoDAO.insertar(documento);
-  }
-
-  public Integer modificar(
-    Integer idDocumento,
-    Integer idEmpresa,
-    Estado estado,
-    Tipo tipo,
-    Integer idVendedor,
-    Integer idAdministrador,
-    Integer idTrabajadorDeAlmacen
-  ) {
-    Documento lineaDocumento = new Documento(
-      idDocumento,
-      idEmpresa,
-      estado,
-      tipo,
-      idVendedor,
-      idAdministrador,
-      idTrabajadorDeAlmacen
-    );
-    return documentoDAO.modificar(lineaDocumento);
-  }
-
-  public Integer eliminar(Integer idDocumento) {
+  ) throws SQLException {
     Documento documento = new Documento();
-    documento.setIdDocumento(idDocumento);
-    return documentoDAO.eliminar(documento);
-  }
 
-  public ArrayList<Documento> listarTodos() {
-    return this.documentoDAO.listarTodos();
-  }
-
-  public Documento obtenerPorId(Integer idDocumento) {
-    return this.documentoDAO.obtenerPorId(idDocumento);
-  }
-
-  public Boolean existeDocumento(
-    Integer idEmpresa,
-    Estado estado,
-    Tipo tipo,
-    Integer idVendedor,
-    Integer idAdministrador,
-    Integer idTrabajadorDeAlmacen
-  ) {
-    Documento documento = new Documento();
     documento.setIdEmpresa(idEmpresa);
     documento.setEstado(estado);
     documento.setTipo(tipo);
     documento.setIdVendedor(idVendedor);
     documento.setIdAdministrador(idAdministrador);
     documento.setIdTrabajadorDeAlmacen(idTrabajadorDeAlmacen);
-    return this.documentoDAO.existeDocumento(documento);
+
+    return documentoDAO.insert(documento);
+  }
+
+  public Integer modificar(
+    Integer id,
+    Integer idEmpresa,
+    EstadoDocumentoEnum estado,
+    TipoDocumentoEnum tipo,
+    Integer idVendedor,
+    Integer idAdministrador,
+    Integer idTrabajadorDeAlmacen
+  ) throws SQLException {
+    Documento documento = new Documento();
+
+    documento.setId(id);
+    documento.setIdEmpresa(idEmpresa);
+    documento.setEstado(estado);
+    documento.setTipo(tipo);
+    documento.setIdVendedor(idVendedor);
+    documento.setIdAdministrador(idAdministrador);
+    documento.setIdTrabajadorDeAlmacen(idTrabajadorDeAlmacen);
+
+    return documentoDAO.update(documento);
+  }
+
+  public Integer eliminar(Integer id) throws SQLException {
+    return documentoDAO.delete(id);
+  }
+
+  public Optional<Documento> obtenerPorId(Integer id) throws SQLException {
+    return this.documentoDAO.findById(id);
+  }
+
+  public ArrayList<Documento> listarTodos() throws SQLException {
+    return new ArrayList<>(this.documentoDAO.findAll());
+  }
+
+  public Boolean buscarDocumento(
+    int idEmpresa,
+    EstadoDocumentoEnum cotizacion,
+    TipoDocumentoEnum compra,
+    int idVendedor,
+    int idAdministrador,
+    int idTrabajadorDeAlmacen
+  ) throws SQLException {
+    return (
+      documentoDAO
+        .query()
+        .whereAll(
+          DocumentoDAO.idEmpresa.eq(idEmpresa),
+          DocumentoDAO.estado.eq(cotizacion),
+          DocumentoDAO.tipo.eq(compra),
+          DocumentoDAO.idVendedor.eq(idVendedor),
+          DocumentoDAO.idAdministrador.eq(idAdministrador),
+          DocumentoDAO.idTrabajadorDeAlmacen.eq(idTrabajadorDeAlmacen)
+        )
+        .list()
+        .size() >
+      0
+    );
   }
 }
