@@ -1,26 +1,23 @@
 package pe.edu.pucp.comerzia.GestionDeAlmacen.dao;
 
-import java.sql.Connection;
-import java.util.ArrayList;
+import pe.edu.pucp.comerzia.GestionDeAlmacen.mapper.AlmacenMapper;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 
-public interface AlmacenDAO {
+public class AlmacenDAO extends BaseDAO<Almacen, Integer> {
 
-    public Integer insertar(Almacen almacen);
-    
-    public Integer insertar(Almacen almacen,Boolean usarTransaccion, Connection conexion);
+  // Default
+  public AlmacenDAO() {
+    super(Almacen.class, new AlmacenMapper());
+  }
 
-    public Integer modificar(Almacen almacen);
-    
-    public Integer modificar(Almacen almacen,Boolean usarTransaccion, Connection conexion);
+  @Override
+  protected String getTableName() {
+    return "almacen";
+  }
 
-    public Integer eliminar(Almacen almacen);
-    
-    public Integer eliminar(Almacen almacen,Boolean usarTransaccion, Connection conexion);
-
-    public ArrayList<Almacen> listarTodos();
-
-    public Almacen obtenerPorId(Integer idAlmacen);
-    
-    public Boolean existeAlmacen(Almacen almacen);
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

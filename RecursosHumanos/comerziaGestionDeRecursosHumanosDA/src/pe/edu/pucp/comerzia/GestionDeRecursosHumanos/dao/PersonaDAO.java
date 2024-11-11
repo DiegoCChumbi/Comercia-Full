@@ -1,25 +1,31 @@
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 
-import java.util.ArrayList;
-import java.sql.Connection;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.PersonaMapper;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 
-public interface PersonaDAO {
-    public Integer insertar(Persona persona);
-    
-    public Integer insertar(Persona persona, Boolean usarTransaccion, Connection conexion);
-    
-    public Integer modificar(Persona persona);
-    
-    public Integer modificar(Persona persona, Boolean usarTransaccion, Connection conexion);
-    
-    public Integer eliminar(Persona persona);
-    
-    public Integer eliminar(Persona persona, Boolean usarTransaccion, Connection conexion);
-    
-    public ArrayList<Persona> listarTodos();
-    
-    public Persona obtenerPorId(Integer idPersona);
-    
-    public Boolean existePersona(Persona persona);
+public class PersonaDAO<T extends Persona> extends BaseDAO<T, Integer> {
+
+  public PersonaDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
+    super(entityClass, entityMapper);
+  }
+
+  // Default
+  @SuppressWarnings("unchecked")
+  public PersonaDAO() {
+    super(
+      (Class<T>) Persona.class,
+      (EntityMapper<T>) new PersonaMapper<Persona>()
+    );
+  }
+
+  @Override
+  protected String getTableName() {
+    return "persona";
+  }
+
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }

@@ -2,101 +2,55 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 
 import java.util.Date;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona {
 
-    private Integer idEmpleado;
-    private static Integer idCorrelativo = 1;
+  private EstadoEmpleadoEnum estado;
+  private String nombreUsuario;
+  private String contrasenha;
+  private Double salario;
+  private Date fechaContratacion;
 
-    private EstadoEmpleado estado;
-    private String nombreUsuario;
-    private String contrasenha;
-    private Double salario;
-    private Date fechaContratacion;
+  public Empleado() {
+    super();
+  }
 
-    public Empleado(Integer idEmpleado, Integer idPersona, EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
-        this.idEmpleado = idEmpleado;
-        this.estado = estado;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenha = contrasenha;
-        this.salario = salario;
-        this.fechaContratacion = fechaContratacion;
-    }
+  public EstadoEmpleadoEnum getEstado() {
+    return estado;
+  }
 
-//    public Empleado(EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion) {
-//        this.idEmpleado = idCorrelativo++;
-//        this.estado = estado;
-//        this.nombreUsuario = nombreUsuario;
-//        this.contrasenha = contrasenha;
-//        this.salario = salario;
-//        this.fechaContratacion = fechaContratacion;
-//    }
-    
-    public Empleado(String dni, String nombreCompleto, String telefono, String correo, String direccion,
-            EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion){
-        super( dni,  nombreCompleto,  telefono,  correo,  direccion);
-        this.idEmpleado = idCorrelativo++;
-        this.estado = estado;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenha = contrasenha;
-        this.salario = salario;
-        this.fechaContratacion = fechaContratacion;
-    }
+  public void setEstado(EstadoEmpleadoEnum estado) {
+    this.estado = estado;
+  }
 
-    // nulls
-    public Empleado() {
-        this.idEmpleado = null;
-        this.estado = null;
-        this.nombreUsuario = null;
-        this.contrasenha = null;
-        this.salario = null;
-        this.fechaContratacion = null;
-    }
+  public String getNombreUsuario() {
+    return nombreUsuario;
+  }
 
-    public Integer getIdEmpleado() {
-        return idEmpleado;
-    }
+  public void setNombreUsuario(String nombreUsuario) {
+    this.nombreUsuario = nombreUsuario;
+  }
 
-    public void setIdEmpleado(Integer idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
+  public String getContrasenha() {
+    return contrasenha;
+  }
 
-    public EstadoEmpleado getEstado() {
-        return estado;
-    }
+  public void setContrasenha(String contrasenha) {
+    this.contrasenha = contrasenha;
+  }
 
-    public void setEstado(EstadoEmpleado estado) {
-        this.estado = estado;
-    }
+  public Double getSalario() {
+    return salario;
+  }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
+  public void setSalario(Double salario) {
+    this.salario = salario;
+  }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
+  public Date getFechaContratacion() {
+    return fechaContratacion;
+  }
 
-    public String getContrasenha() {
-        return contrasenha;
-    }
-
-    public void setContrasenha(String contrasenha) {
-        this.contrasenha = contrasenha;
-    }
-
-    public Double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(Double salario) {
-        this.salario = salario;
-    }
-
-    public Date getFechaContratacion() {
-        return fechaContratacion;
-    }
-
-    public void setFechaContratacion(Date fechaContratacion) {
-        this.fechaContratacion = fechaContratacion;
-    }
+  public void setFechaContratacion(Date fechaContratacion) {
+    this.fechaContratacion = fechaContratacion;
+  }
 }

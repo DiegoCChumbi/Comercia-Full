@@ -1,152 +1,100 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo;
 
-/**
- *
- * @author chumbi
- */
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.VendedorDAO;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.daoImp.VendedorDAOImpl;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleado;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleadoEnum;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Vendedor;
 
-/*
-
-public class Vendedor {
-
-    private Integer idVendedor;
-    private static Integer idCorrelativo = 1;
-
-    private Integer idEmpleado;
-    // private Empleado empleado;
-
-    private Double ingresosVentas;
-    private Double porcentajeComision;
- */
 public class VendedorBO {
 
-    private VendedorDAO vendedorDAO;
+  private VendedorDAO vendedorDAO;
 
-    public VendedorBO() {
-        this.vendedorDAO = new VendedorDAOImpl();
-    }
+  public VendedorBO() {
+    this.vendedorDAO = new VendedorDAO();
+  }
 
-    // public Integer insertar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
-    //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-    //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-    //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa,
-    //         TipoVendedor tipoP, EstadoEmpleado estadoE) {
+  public Integer insertar(
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleadoEnum estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion,
+    Double ingresosVentas,
+    Double porcentajeComision
+  ) throws SQLException {
+    Vendedor vendedor = new Vendedor();
 
-    //     Vendedor vendedor = new Vendedor();
-    //     vendedor.setIdVendedor(idVendedor);
-    //     vendedor.setDni(dni);
-    //     vendedor.setNombreCompleto(nombreCompleto);
-    //     vendedor.setTelefono(telefono);
-    //     vendedor.setCorreo(correo);
-    //     vendedor.setDireccion(direccion);
-    //     vendedor.setIngresosVentas(ingresosVentas);
-    //     vendedor.setPorcentajeComision(porcentajeComision);
-    //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
-    //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
-    //     vendedor.setExperiencia(experiencia);
-    //     vendedor.setAlmacenAdministrador(almacenAdministrador);
-    //     vendedor.setEmpresa(empresa);
-    //     vendedor.setTipoP(tipoP);
-    //     vendedor.setEstadoE(estadoE);
+    vendedor.setDni(dni);
+    vendedor.setNombre(nombreCompleto);
+    vendedor.setTelefono(telefono);
+    vendedor.setCorreo(correo);
+    vendedor.setDireccion(direccion);
 
-    //     return vendedorDAO.insertar(vendedor);
-    // }
-    public Integer insertar(String dni, String nombreCompleto, String telefono, String correo, String direccion,
-            EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion,
-            Double ingresosVentas, Double porcentajeComision) {
+    vendedor.setEstado(estado);
+    vendedor.setNombreUsuario(nombreUsuario);
+    vendedor.setContrasenha(contrasenha);
+    vendedor.setSalario(salario);
+    vendedor.setFechaContratacion(fechaContratacion);
 
-        Vendedor vendedor = new Vendedor();
+    vendedor.setIngresosVentas(ingresosVentas);
+    vendedor.setPorcentajeComision(porcentajeComision);
 
-        vendedor.setDni(dni);
-        vendedor.setNombreCompleto(nombreCompleto);
-        vendedor.setTelefono(telefono);
-        vendedor.setCorreo(correo);
-        vendedor.setDireccion(direccion);
+    return vendedorDAO.insert(vendedor);
+  }
 
-        vendedor.setEstado(estado);
-        vendedor.setNombreUsuario(nombreUsuario);
-        vendedor.setContrasenha(contrasenha);
-        vendedor.setSalario(salario);
-        vendedor.setFechaContratacion(fechaContratacion);
-        
-        vendedor.setIngresosVentas(ingresosVentas);
-        vendedor.setPorcentajeComision(porcentajeComision);
+  public Integer modificar(
+    Integer id,
+    String dni,
+    String nombreCompleto,
+    String telefono,
+    String correo,
+    String direccion,
+    EstadoEmpleadoEnum estado,
+    String nombreUsuario,
+    String contrasenha,
+    Double salario,
+    Date fechaContratacion,
+    Double ingresosVentas,
+    Double porcentajeComision
+  ) throws SQLException {
+    Vendedor vendedor = new Vendedor();
 
-        return vendedorDAO.insertar(vendedor);
-    }
+    vendedor.setId(id);
+    vendedor.setDni(dni);
+    vendedor.setNombre(nombreCompleto);
+    vendedor.setTelefono(telefono);
+    vendedor.setCorreo(correo);
+    vendedor.setDireccion(direccion);
 
-    // public Integer modificar(Integer idVendedor, String dni, String nombreCompleto, String telefono,
-    //         String correo, String direccion, Double ingresosVentas, Double porcentajeComision,
-    //         Boolean licenciaMontacarga, Integer almacenAlmacenero, Integer experiencia,
-    //         Integer almacenAdministrador, Integer IdAlmacendministrador, Integer empresa, EstadoEmpleado estadoE) {
+    vendedor.setEstado(estado);
+    vendedor.setNombreUsuario(nombreUsuario);
+    vendedor.setContrasenha(contrasenha);
+    vendedor.setSalario(salario);
+    vendedor.setFechaContratacion(fechaContratacion);
 
-    //     Vendedor vendedor = new Vendedor();
-    //     vendedor.setIdVendedor(idVendedor);
-    //     vendedor.setDni(dni);
-    //     vendedor.setNombreCompleto(nombreCompleto);
-    //     vendedor.setTelefono(telefono);
-    //     vendedor.setCorreo(correo);
-    //     vendedor.setDireccion(direccion);
-    //     vendedor.setIngresosVentas(ingresosVentas);
-    //     vendedor.setPorcentajeComision(porcentajeComision);
-    //     vendedor.setLicenciaMontacarga(licenciaMontacarga);
-    //     vendedor.setAlmacenAlmacenero(almacenAlmacenero);
-    //     vendedor.setExperiencia(experiencia);
-    //     vendedor.setAlmacenAdministrador(almacenAdministrador);
-    //     vendedor.setEmpresa(empresa);
-    //     vendedor.setTipoP(tipoP);
-    //     vendedor.setEstadoE(estadoE);
+    vendedor.setIngresosVentas(ingresosVentas);
+    vendedor.setPorcentajeComision(porcentajeComision);
 
-    //     return vendedorDAO.modificar(vendedor);
-    // }
-    public Integer modificar(Integer idEmpleado, String dni, String nombreCompleto, String telefono, String correo, String direccion,
-            /*Integer idEmpleado,*/EstadoEmpleado estado, String nombreUsuario, String contrasenha, Double salario, Date fechaContratacion,
-            Double ingresosVentas, Double porcentajeComision) {
+    return vendedorDAO.update(id, vendedor);
+  }
 
-        Vendedor vendedor = new Vendedor();
+  public Integer eliminar(Integer id) throws SQLException {
+    return vendedorDAO.delete(id);
+  }
 
-        vendedor.setIdEmpleado(idEmpleado);
-        vendedor.setDni(dni);
-         vendedor.setNombreCompleto(nombreCompleto);
-         vendedor.setTelefono(telefono);
-         vendedor.setCorreo(correo);
-         vendedor.setDireccion(direccion);
-         
-         //vendedor.setIdEmpleado(idEmpleado);
-         vendedor.setEstado(estado);
-         vendedor.setNombreUsuario(nombreUsuario);
-         vendedor.setContrasenha(contrasenha);
-         vendedor.setSalario(salario);
-         vendedor.setFechaContratacion(fechaContratacion);
-        
-        vendedor.setIngresosVentas(ingresosVentas);
-        vendedor.setPorcentajeComision(porcentajeComision);
+  public ArrayList<Vendedor> listarTodos() throws SQLException {
+    return new ArrayList<>(vendedorDAO.findAll());
+  }
 
-        return vendedorDAO.modificar(vendedor);
-    }
-
-    public Integer eliminar(Integer idVendedor) {
-        Vendedor vendedor = new Vendedor();
-        vendedor.setIdVendedor(idVendedor);
-        return vendedorDAO.eliminar(vendedor);
-    }
-
-    public ArrayList<Vendedor> listarTodos() {
-        return vendedorDAO.listarTodos();
-    }
-
-    public Vendedor obtenerPorId(Integer id) {
-        return vendedorDAO.obtenerPorId(id);
-    }
-
+  public Optional<Vendedor> obtenerPorId(Integer id) throws SQLException {
+    return vendedorDAO.findById(id);
+  }
 }

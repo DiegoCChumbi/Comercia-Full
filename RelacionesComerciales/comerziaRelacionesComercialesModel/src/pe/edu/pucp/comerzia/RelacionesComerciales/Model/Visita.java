@@ -1,82 +1,61 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.Model;
 
-import java.sql.Time;
 import java.util.Date;
 
 public class Visita {
 
-    private Integer idVisita;
-    private static Integer id_correlativo = 1;
-    private Date fecha;
-    private Double duracion;
-    private Integer idCliente;
-    private Integer idVendedor;
+  private Integer id;
+  private Date fecha;
+  private Double duracion;
+  private Integer idCliente;
+  private Integer idVendedor;
 
-    // Constructores.
-    public Visita(Integer idVisita, Date fecha, Double duracion, Integer idCliente, Integer idVendedor) {
-        this.idVisita = idVisita;
-        this.fecha = fecha;
-        this.duracion = duracion;
-        this.idCliente = idCliente;
-        this.idVendedor = idVendedor;
-    }
+  public Visita() {
+    this.id = null;
+    this.fecha = null;
+    this.duracion = null;
+    this.idCliente = null;
+    this.idVendedor = null;
+  }
 
-    public Visita(Date fecha, Double duracion, Integer idCliente, Integer idVendedor) {
-        this.idVisita = id_correlativo;
-        this.fecha = fecha;
-        this.duracion = duracion;
-        this.idCliente = idCliente;
-        this.idVendedor = idVendedor;
-        id_correlativo++;
-    }
+  // Getters y Setters.
+  public Integer getId() {
+    return id;
+  }
 
-    // null
-    public Visita() {
-        this.idVisita = null;
-        this.fecha = null;
-        this.duracion = null;
-        this.idCliente = null;
-        this.idVendedor = null;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    // Getters y Setters.
-    public Integer getIdVisita() {
-        return idVisita;
-    }
+  public Date getFecha() {
+    return fecha;
+  }
 
-    public void setIdVisita(Integer idVisita) {
-        this.idVisita = idVisita;
-    }
+  public void setFecha(Date fecha) {
+    this.fecha = fecha;
+  }
 
-    public Date getFecha() {
-        return fecha;
-    }
+  public Double getDuracion() {
+    return duracion;
+  }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+  public void setDuracion(Double duracion) {
+    this.duracion = duracion;
+  }
 
-    public Double getDuracion() {
-        return duracion;
-    }
+  public Integer getIdCliente() {
+    return idCliente;
+  }
 
-    public void setDuracion(Double duracion) {
-        this.duracion = duracion;
-    }
+  public void setIdCliente(Integer idCliente) {
+    this.idCliente = idCliente;
+  }
 
-    public Integer getIdCliente() {
-        return idCliente;
-    }
+  public Integer getIdVendedor() {
+    return idVendedor;
+  }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Integer getIdVendedor() {
-        return idVendedor;
-    }
-
-    public void setIdVendedor(Integer idVendedor) {
-        this.idVendedor = idVendedor;
-    }
+  public void setIdVendedor(Integer idVendedor) {
+    this.idVendedor = idVendedor;
+  }
 }

@@ -2,89 +2,69 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model;
 
 public class Persona {
 
-    private Integer idPersona;
-    private static Integer idCorrelativo = 1;
+  private Integer id;
+  private String dni;
+  private String nombre;
+  private String telefono;
+  private String correo;
+  private String direccion;
+  private Boolean eliminado;
 
-    private String dni;
-    private String nombreCompleto;
-    private String telefono;
-    private String correo;
-    private String direccion;
+  public Persona() {}
 
-    public Persona(Integer idPersona, String dni, String nombreCompleto, String telefono, String correo, String direccion) {
-        this.idPersona = idPersona;
-        this.dni = dni;
-        this.nombreCompleto = nombreCompleto;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.direccion = direccion;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public Persona(String dni, String nombreCompleto, String telefono, String correo, String direccion) {
-        this.idPersona = idCorrelativo++;
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-        this.dni = dni;
-        this.nombreCompleto = nombreCompleto;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.direccion = direccion;
-    }
+  public String getDni() {
+    return dni;
+  }
 
-    public Persona() {
-        this.idPersona = null;
-        this.dni = null;
-        this.nombreCompleto = null;
-        this.telefono = null;
-        this.correo = null;
-        this.direccion = null;
-    }
+  public void setDni(String dni) {
+    this.dni = dni;
+  }
 
-    public Integer getIdPersona() {
-        return idPersona;
-    }
+  public String getNombre() {
+    return nombre;
+  }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
-    }
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-    public String getDni() {
-        return dni;
-    }
+  public String getTelefono() {
+    return telefono;
+  }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
+  public void setTelefono(String telefono) {
+    this.telefono = telefono;
+  }
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
+  public String getCorreo() {
+    return correo;
+  }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
-    }
+  public void setCorreo(String correo) {
+    this.correo = correo;
+  }
 
-    public String getTelefono() {
-        return telefono;
-    }
+  public String getDireccion() {
+    return direccion;
+  }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+  public void setDireccion(String direccion) {
+    this.direccion = direccion;
+  }
 
-    public String getCorreo() {
-        return correo;
-    }
+  public Boolean getEliminado() {
+    return eliminado;
+  }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
+  public void setEliminado(Boolean eliminado) {
+    this.eliminado = eliminado;
+  }
 }

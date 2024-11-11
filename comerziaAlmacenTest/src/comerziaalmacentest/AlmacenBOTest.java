@@ -1,76 +1,117 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package comerziaalmacentest;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
+import java.util.List;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.bo.AlmacenBO;
+import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
 
 public class AlmacenBOTest {
-    private static AlmacenBO almacenBO;
-    private static ArrayList<Almacen> listaAlmacenes;
-    
-    public static void testAlmacenBO() {
-        System.out.println("\ntestAlmacenBO");
-        almacenBO = new AlmacenBO();
 
-        ArrayList<Integer> listaId = new ArrayList<>();
-        testAlmacenBOInsertar(listaId);
-        testAlmacenBOListarTodos();
-        testAlmacenBOModificar(listaId);
-        testAlmacenBOListarTodos();
-        testAlmacenBOObtenerPorId(listaId);
-        testAlmacenBOEliminar();
+  private static AlmacenBO almacenBO = new AlmacenBO();
+  private static List<Almacen> listaAlmacenes = new ArrayList<>();
+  private static List<Integer> listaIds = new ArrayList<>();
+
+  public static void main(String[] args) throws SQLException {
+    System.out.println("Running AlmacenBO Tests");
+
+    testInsert();
+    testListAll();
+    testModify();
+    testListAll();
+    testGetById();
+    testDelete();
+    testListAll();
+
+    System.out.println("All AlmacenBO Tests Completed");
+  }
+
+  private static void testInsert() throws SQLException {
+    System.out.println("\n== testInsert ==");
+
+    insertAlmacen("Almacen1", "operativo", "elalmacen1");
+    insertAlmacen("Almacen2", "operativo", "elalmacen2");
+
+    assert listaIds.size() == 2 : "Expected 2 almacenes inserted.";
+  }
+
+  private static void insertAlmacen(
+    String nombre,
+    String estado,
+    String descripcion
+  ) throws SQLException {
+    int id = almacenBO.insertar(nombre, estado, descripcion);
+    System.out.println("Inserted Almacen ID: " + id);
+    listaIds.add(id);
+  }
+
+  private static void testListAll() throws SQLException {
+    System.out.println("\n== testListAll ==");
+
+    listaAlmacenes = almacenBO.listarTodos();
+    for (Almacen almacen : listaAlmacenes) {
+      System.out.printf(
+        "ID: %d, Nombre: %s, Estado: %s, Descripcion: %s%n",
+        almacen.getId(),
+        almacen.getNombre(),
+        almacen.getEstado(),
+        almacen.getDescripcion()
+      );
     }
 
-    private static void testAlmacenBOEliminar() {
-        System.out.println("\ntestAlmacenBOEliminar");
-        for (Almacen almacen : listaAlmacenes) {
-            almacenBO.eliminar(almacen.getIdAlmacen());        
-        }
+    assert !listaAlmacenes.isEmpty() : "Almacenes list should not be empty.";
+  }
+
+  private static void testModify() throws SQLException {
+    System.out.println("\n== testModify ==");
+
+    if (listaIds.size() >= 2) {
+      modifyAlmacen(listaIds.get(0), "Almacen1Mod", "inactivo", "modificado1");
+      modifyAlmacen(listaIds.get(1), "Almacen2Mod", "inactivo", "modificado2");
+    }
+  }
+
+  private static void modifyAlmacen(
+    int id,
+    String nombre,
+    String estado,
+    String descripcion
+  ) throws SQLException {
+    int result = almacenBO.modificar(id, nombre, estado, descripcion);
+    System.out.println("Modified Almacen ID: " + id + ", Result: " + result);
+    assert result > 0 : "Modification should return a positive result.";
+  }
+
+  private static void testGetById() throws SQLException {
+    System.out.println("\n== testGetById ==");
+
+    for (int id : listaIds) {
+      Optional<Almacen> almacenOpt = almacenBO.obtenerPorId(id);
+      if (almacenOpt.isPresent()) {
+        Almacen almacen = almacenOpt.get();
+        System.out.printf(
+          "Found Almacen - ID: %d, Estado: %s, Descripcion: %s%n",
+          almacen.getId(),
+          almacen.getEstado(),
+          almacen.getDescripcion()
+        );
+      } else {
+        System.out.println("Almacen not found for ID: " + id);
+      }
+    }
+  }
+
+  private static void testDelete() throws SQLException {
+    System.out.println("\n== testDelete ==");
+
+    for (int id : listaIds) {
+      int result = almacenBO.eliminar(id);
+      System.out.println("Deleted Almacen ID: " + id + ", Result: " + result);
+      assert result > 0 : "Deletion should return a positive result.";
     }
 
-    private static void testAlmacenBOObtenerPorId(ArrayList<Integer> listaId) {
-        System.out.println("\ntestAlmacenBOObtenerPorId");
-        for (Integer id : listaId) {
-            Almacen almacen = almacenBO.obtenerPorId(id);
-            System.out.println("idAlmacen: " + almacen.getIdAlmacen()+ " " + almacen.getEstado()+ " " + almacen.getDescripcion());
-        }
-    }
-
-    private static void testAlmacenBOListarTodos() {
-        System.out.println("\ntestAlmacenBOListarTodos");
-        listaAlmacenes = almacenBO.listarTodos();
-        for (Almacen almacen : listaAlmacenes) {
-            System.out.print(almacen.getIdAlmacen().toString());
-            System.out.print(", ");
-            System.out.print(almacen.getNombre());
-            System.out.print(", ");
-            System.out.print(almacen.getEstado());
-            System.out.print(", ");
-            System.out.println(almacen.getDescripcion());
-        }
-    }
-
-    private static void testAlmacenBOModificar(ArrayList<Integer> listaId) {
-        System.out.println("\ntestAlmacenBOModificar");
-        Integer resultado = almacenBO.modificar(listaId.get(0),"almacen1","operativo","elalmacen111");
-        resultado = almacenBO.modificar(listaId.get(1),"almacen2","operativo","elalmacen222");
-    }
-
-    private static void testAlmacenBOInsertar(ArrayList<Integer> listaId) {
-        System.out.println("\ntestAlmacenBOInsertar");
-        int resultado;
-        
-        resultado = almacenBO.insertar("almacen1","operativo","elalmacen1");
-        System.out.println("Llave primaria insertada: " + resultado);
-        listaId.add(resultado);
-        
-        resultado = almacenBO.insertar("almacen2","operativo","elalmacen2");
-        System.out.println("Llave primaria insertada: " + resultado);
-        listaId.add(resultado);
-    }
+    listaIds.clear(); // Clear the list after deletion
+  }
 }

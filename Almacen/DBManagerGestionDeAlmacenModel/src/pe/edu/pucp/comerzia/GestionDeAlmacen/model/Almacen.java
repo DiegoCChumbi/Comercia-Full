@@ -1,55 +1,48 @@
 package pe.edu.pucp.comerzia.GestionDeAlmacen.model;
 
 public class Almacen {
-    private Integer idAlmacen;
-    private String nombre;
-    private String estado;
-    private String descripcion;
 
-    public Almacen(Integer idAlmacen, String nombre, String estado, String descripcion) {
-        this.idAlmacen = idAlmacen;
-        this.nombre = nombre;
-        this.estado = estado;
-        this.descripcion = descripcion;
-    }
-    
-    public Almacen(){
-        this.idAlmacen = null;
-        this.nombre = null;
-        this.estado = null;
-        this.descripcion = null;
-    }
-    
-    public Integer getIdAlmacen() {
-        return idAlmacen;
-    }
+  private Integer id;
+  private String nombre;
+  private String estado;
+  private String descripcion;
 
-    public void setIdAlmacen(Integer idAlmacen) {
-        this.idAlmacen = idAlmacen;
-    }
+  public Almacen() {
+    this.id = null;
+    this.nombre = null;
+    this.estado = null;
+    this.descripcion = null;
+  }
 
-    public String getNombre() {
-        return nombre;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public String getEstado() {
-        return estado;
-    }
+  public String getNombre() {
+    return nombre;
+  }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+  public String getEstado() {
+    return estado;
+  }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
- 
+  public void setEstado(String estado) {
+    this.estado = estado;
+  }
+
+  public String getDescripcion() {
+    return descripcion;
+  }
+
+  public void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
+  }
 }

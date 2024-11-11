@@ -1,27 +1,31 @@
 package pe.edu.pucp.comerzia.RelacionesComerciales.dao;
 
-import java.util.ArrayList;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Empresa;
-import java.sql.Connection;
+import pe.edu.pucp.comerzia.RelacionesComerciales.mapper.EmpresaMapper;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 
-public interface EmpresaDAO {
-    
-    public Integer insertar(Empresa empresa);
-    
-    public Integer insertar(Empresa empresa, Boolean usarTransaccion, Connection conexion);
-    
-    public Integer modificar(Empresa empresa);
-    
-    public Integer modificar(Empresa empresa, Boolean usarTransaccion, Connection conexion);
-    
-    public Integer eliminar(Empresa empresa);
-    
-    public Integer eliminar(Empresa empresa, Boolean usarTransaccion, Connection conexion);
-    
-    public ArrayList<Empresa> listarTodos();
-    
-    public Empresa obtenerPorId(Integer idEmpresa);
-    
-    public Boolean existeEmpresa(Empresa empresa);
-    
+public class EmpresaDAO<T extends Empresa> extends BaseDAO<T, Integer> {
+
+  public EmpresaDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
+    super(entityClass, entityMapper);
+  }
+
+  // Default
+  @SuppressWarnings("unchecked")
+  public EmpresaDAO() {
+    super(
+      (Class<T>) Empresa.class,
+      (EntityMapper<T>) new EmpresaMapper<Empresa>()
+    );
+  }
+
+  @Override
+  protected String getTableName() {
+    return "empresa";
+  }
+
+  @Override
+  protected String getPrimaryKeyColumnName() {
+    return "id";
+  }
 }
