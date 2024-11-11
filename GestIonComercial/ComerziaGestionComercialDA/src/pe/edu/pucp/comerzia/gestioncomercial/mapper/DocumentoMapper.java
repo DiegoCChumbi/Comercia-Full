@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.BaseDAO.EntityMapper;
 import pe.edu.pucp.comerzia.db.utils.Column;
 import pe.edu.pucp.comerzia.gestioncomercial.model.Documento;
 import pe.edu.pucp.comerzia.gestioncomercial.model.EstadoDocumentoEnum;

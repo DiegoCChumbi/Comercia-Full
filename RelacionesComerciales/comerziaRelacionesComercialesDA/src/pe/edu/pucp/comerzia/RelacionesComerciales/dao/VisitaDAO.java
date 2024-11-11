@@ -2,9 +2,9 @@ package pe.edu.pucp.comerzia.RelacionesComerciales.dao;
 
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Visita;
 import pe.edu.pucp.comerzia.RelacionesComerciales.mapper.VisitaMapper;
-import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 
-public class VisitaDAO extends BaseDAOImpl<Visita, Integer> {
+public class VisitaDAO extends BaseDAO<Visita, Integer> {
 
   // Default
   public VisitaDAO() {

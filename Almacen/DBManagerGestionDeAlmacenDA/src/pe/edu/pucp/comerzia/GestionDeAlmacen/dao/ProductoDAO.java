@@ -2,10 +2,10 @@ package pe.edu.pucp.comerzia.GestionDeAlmacen.dao;
 
 import pe.edu.pucp.comerzia.GestionDeAlmacen.mapper.ProductoMapper;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Producto;
-import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 import pe.edu.pucp.comerzia.db.utils.Column;
 
-public class ProductoDAO extends BaseDAOImpl<Producto, Integer> {
+public class ProductoDAO extends BaseDAO<Producto, Integer> {
 
   public static final Column<Integer> id = new Column<>("id", Integer.class);
   public static final Column<String> nombre = new Column<>(

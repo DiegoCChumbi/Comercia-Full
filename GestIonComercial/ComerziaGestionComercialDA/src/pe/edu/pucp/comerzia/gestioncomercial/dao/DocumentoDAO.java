@@ -1,13 +1,13 @@
 package pe.edu.pucp.comerzia.gestioncomercial.dao;
 
-import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 import pe.edu.pucp.comerzia.db.utils.Column;
 import pe.edu.pucp.comerzia.gestioncomercial.mapper.DocumentoMapper;
 import pe.edu.pucp.comerzia.gestioncomercial.model.Documento;
 import pe.edu.pucp.comerzia.gestioncomercial.model.EstadoDocumentoEnum;
 import pe.edu.pucp.comerzia.gestioncomercial.model.TipoDocumentoEnum;
 
-public class DocumentoDAO extends BaseDAOImpl<Documento, Integer> {
+public class DocumentoDAO extends BaseDAO<Documento, Integer> {
 
   public static final Column<Integer> id = new Column<>("id", Integer.class);
   public static final Column<Integer> idEmpresa = new Column<>(

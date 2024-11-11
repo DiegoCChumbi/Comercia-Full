@@ -2,9 +2,9 @@ package pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao;
 
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.PersonaMapper;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
-import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 
-public class PersonaDAO<T extends Persona> extends BaseDAOImpl<T, Integer> {
+public class PersonaDAO<T extends Persona> extends BaseDAO<T, Integer> {
 
   public PersonaDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
     super(entityClass, entityMapper);

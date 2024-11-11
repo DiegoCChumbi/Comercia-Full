@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.ProductoAlmacenado;
-import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.BaseDAO.EntityMapper;
 import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class ProductoAlmacenadoMapper

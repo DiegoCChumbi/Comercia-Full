@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Producto;
-import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.BaseDAO.EntityMapper;
 import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class ProductoMapper implements EntityMapper<Producto> {

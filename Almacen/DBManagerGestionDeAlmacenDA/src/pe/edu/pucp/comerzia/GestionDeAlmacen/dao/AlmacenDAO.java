@@ -2,9 +2,9 @@ package pe.edu.pucp.comerzia.GestionDeAlmacen.dao;
 
 import pe.edu.pucp.comerzia.GestionDeAlmacen.mapper.AlmacenMapper;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
-import pe.edu.pucp.comerzia.db.BaseDAOImpl;
+import pe.edu.pucp.comerzia.db.BaseDAO;
 
-public class AlmacenDAO extends BaseDAOImpl<Almacen, Integer> {
+public class AlmacenDAO extends BaseDAO<Almacen, Integer> {
 
   // Default
   public AlmacenDAO() {

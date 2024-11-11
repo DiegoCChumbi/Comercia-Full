@@ -3,7 +3,6 @@ package pe.edu.pucp.comerzia.db;
 import java.math.BigInteger;
 import java.sql.*;
 import java.util.*;
-import java.util.stream.Collectors;
 import pe.edu.pucp.comerzia.config.DBManager;
 import pe.edu.pucp.comerzia.db.utils.AndExpression;
 import pe.edu.pucp.comerzia.db.utils.Column;
@@ -11,13 +10,13 @@ import pe.edu.pucp.comerzia.db.utils.Expression;
 import pe.edu.pucp.comerzia.db.utils.Order;
 
 /**
- * BaseDAOImpl is a generic Data Access Object that provides basic CRUD operations,
+ * BaseDAO is a generic Data Access Object that provides basic CRUD operations,
  * query building, and transaction support for entities.
  *
  * @param <T> The type of the entity.
  * @param <K> The type of the primary key.
  */
-public abstract class BaseDAOImpl<T, K> {
+public abstract class BaseDAO<T, K> {
 
   protected Class<T> entityClass;
 
@@ -28,7 +27,7 @@ public abstract class BaseDAOImpl<T, K> {
    *
    * @param entityClass The class of the entity.
    */
-  protected BaseDAOImpl(Class<T> entityClass, EntityMapper<T> entityMapper) {
+  protected BaseDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
     this.entityClass = entityClass;
     this.entityMapper = entityMapper;
   }
@@ -417,7 +416,7 @@ public abstract class BaseDAOImpl<T, K> {
    */
   public static class QueryBuilder<T> {
 
-    private final BaseDAOImpl<T, ?> dao;
+    private final BaseDAO<T, ?> dao;
     private final List<Object> parameters;
     private Expression whereExpression;
     private String orderByClause;
@@ -429,7 +428,7 @@ public abstract class BaseDAOImpl<T, K> {
     private List<String> joinClauses;
     private Class<?> resultType;
 
-    public QueryBuilder(BaseDAOImpl<T, ?> dao) {
+    public QueryBuilder(BaseDAO<T, ?> dao) {
       this.dao = dao;
       this.parameters = new ArrayList<>();
       this.selectColumns = new ArrayList<>();
@@ -470,20 +469,17 @@ public abstract class BaseDAOImpl<T, K> {
       return this;
     }
 
-    public QueryBuilder<T> join(BaseDAOImpl<?, ?> otherDao, JoinOn onClause) {
+    public QueryBuilder<T> join(BaseDAO<?, ?> otherDao, JoinOn onClause) {
       return join("INNER JOIN", otherDao, onClause);
     }
 
-    public QueryBuilder<T> leftJoin(
-      BaseDAOImpl<?, ?> otherDao,
-      JoinOn onClause
-    ) {
+    public QueryBuilder<T> leftJoin(BaseDAO<?, ?> otherDao, JoinOn onClause) {
       return join("LEFT JOIN", otherDao, onClause);
     }
 
     private QueryBuilder<T> join(
       String joinType,
-      BaseDAOImpl<?, ?> otherDao,
+      BaseDAO<?, ?> otherDao,
       JoinOn onClause
     ) {
       StringBuilder joinSql = new StringBuilder();
