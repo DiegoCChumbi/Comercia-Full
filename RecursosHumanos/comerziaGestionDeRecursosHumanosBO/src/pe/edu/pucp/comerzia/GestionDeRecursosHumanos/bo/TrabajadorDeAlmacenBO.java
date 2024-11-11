@@ -83,7 +83,7 @@ public class TrabajadorDeAlmacenBO {
     trabajadorDeAlmacen.setIdAlmacen(idAlmacen);
     trabajadorDeAlmacen.setLicenciaMontacarga(licenciaMontacarga);
 
-    return trabajadorDeAlmacenDAO.update(trabajadorDeAlmacen);
+    return trabajadorDeAlmacenDAO.update(id, trabajadorDeAlmacen);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

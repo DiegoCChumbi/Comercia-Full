@@ -5,9 +5,31 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.utils.Column;
 import pe.edu.pucp.comerzia.gestioncomercial.model.LineaDocumento;
 
 public class LineaDocumentoMapper implements EntityMapper<LineaDocumento> {
+
+  public static class Columns {
+
+    public static final Column<Integer> id = new Column<>("id", Integer.class);
+    public static final Column<Integer> idDocumento = new Column<>(
+      "id_documento",
+      Integer.class
+    );
+    public static final Column<Integer> idProducto = new Column<>(
+      "id_producto",
+      Integer.class
+    );
+    public static final Column<Integer> cantidad = new Column<>(
+      "cantidad",
+      Integer.class
+    );
+    public static final Column<Double> precioUnitario = new Column<>(
+      "precio_unitario",
+      Double.class
+    );
+  }
 
   @Override
   public LineaDocumento createEntity() {
@@ -28,13 +50,13 @@ public class LineaDocumentoMapper implements EntityMapper<LineaDocumento> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(LineaDocumento entity) {
-    Map<String, Object> columns = new HashMap<>();
+  public Map<Column<?>, Object> mapEntityToColumns(LineaDocumento entity) {
+    Map<Column<?>, Object> columns = new HashMap<>();
 
-    columns.put("id_documento", entity.getIdDocumento());
-    columns.put("id_producto", entity.getIdProducto());
-    columns.put("cantidad", entity.getCantidad());
-    columns.put("precio_unitario", entity.getPrecioUnitario());
+    columns.put(Columns.idDocumento, entity.getIdDocumento());
+    columns.put(Columns.idProducto, entity.getIdProducto());
+    columns.put(Columns.cantidad, entity.getCantidad());
+    columns.put(Columns.precioUnitario, entity.getPrecioUnitario());
 
     return columns;
   }

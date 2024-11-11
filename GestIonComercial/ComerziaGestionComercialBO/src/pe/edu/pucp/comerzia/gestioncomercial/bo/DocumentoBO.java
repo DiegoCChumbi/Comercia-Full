@@ -55,7 +55,7 @@ public class DocumentoBO {
     documento.setIdAdministrador(idAdministrador);
     documento.setIdTrabajadorDeAlmacen(idTrabajadorDeAlmacen);
 
-    return documentoDAO.update(documento);
+    return documentoDAO.update(id, documento);
   }
 
   public Integer eliminar(Integer id) throws SQLException {
@@ -89,6 +89,19 @@ public class DocumentoBO {
           DocumentoDAO.idAdministrador.eq(idAdministrador),
           DocumentoDAO.idTrabajadorDeAlmacen.eq(idTrabajadorDeAlmacen)
         )
+        .list()
+        .size() >
+      0
+    );
+  }
+
+  public Boolean existeDocumentoConTrabajadorDeAlmacen(
+    int idTrabajadorDeAlmacen
+  ) throws SQLException {
+    return (
+      documentoDAO
+        .query()
+        .where(DocumentoDAO.idTrabajadorDeAlmacen.eq(idTrabajadorDeAlmacen))
         .list()
         .size() >
       0

@@ -49,7 +49,7 @@ public class EmpresaBO {
     empresa.setEmail(email);
     empresa.setTipoIndustria(tipoIndustria);
 
-    return this.empresaDAO.update(empresa);
+    return this.empresaDAO.update(id, empresa);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

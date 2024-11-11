@@ -95,14 +95,6 @@
 **/yarn.lock
 **/package-lock.json
 
-# Ignorar archivos de CI/CD
-**/.gitlab-ci.yml
-**/.travis.yml
-**/Dockerfile
-
-# Ignorar archivos temporales generados por herramientas de contenedores
-**/docker-compose.override.yml
-
 # Ignorar archivos y carpetas de desarrollo Node.js
 **/node_modules/
 **/npm-debug.log*
@@ -142,11 +134,6 @@
 **/jest-test-results.json
 **/junit-report.xml
 **/tap-output.log
-
-# Ignorar configuraciones de contenedores y de servicios externos
-**/docker-compose.override.yml
-**/Dockerfile
-**/docker-compose.yml
 
 # Ignorar archivos de configuración de herramientas de desarrollo local
 **/.vscode/

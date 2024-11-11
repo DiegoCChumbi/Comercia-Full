@@ -1,4 +1,4 @@
-USE tarea_academica;
+USE comerzia_db;
 
 -- Eliminar tabla LineaDocumento
 DROP TABLE IF EXISTS linea_documento;
@@ -42,7 +42,7 @@ CREATE TABLE empresa (
     email VARCHAR(100) NOT NULL,
     tipo_industria VARCHAR(50) NOT NULL,
     -- Common fields for all company types
-    company_type ENUM('client_company', 'provider_company'),
+    company_type ENUM('client_company', 'provider_company'), -- Discriminator column
 
     -- Fields for Proveedor
     fecha_afiliacion DATE,
@@ -67,7 +67,7 @@ CREATE TABLE persona (
     correo VARCHAR(100) NOT NULL,
     direccion VARCHAR(255) NOT NULL,
     -- Common fields for all person types
-    person_type ENUM('employee_person', 'representative_person'),
+    person_type ENUM('employee_person', 'representative_person'), -- Discriminator column
 
     -- Fields for Empleado
     estado ENUM('ACTIVO', 'INACTIVO'),
@@ -76,7 +76,7 @@ CREATE TABLE persona (
     salario DOUBLE,
     fecha_contratacion DATE,
     -- Common fields for all employee types
-    employee_type ENUM('admin_employee', 'warehouse_employee', 'sales_employee'),
+    employee_type ENUM('admin_employee', 'warehouse_employee', 'sales_employee'), -- Discriminator column
 
     -- Empleado Fields For Administrador and TrabajadorDeAlmacen
     id_almacen INT,
@@ -161,52 +161,3 @@ CREATE TABLE linea_documento (
 
     eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
 );
-
--- -- Insertar datos en la tabla Almacen
--- INSERT INTO almacen (nombre, estado, descripcion) VALUES
--- ('Almacen Central', 'Activo', 'Almacen principal de la empresa'),
--- ('Almacen Secundario', 'Activo', 'Almacen secundario para productos especiales');
-
--- -- Insertar datos en la tabla Empresa
--- INSERT INTO empresa (nombre, direccion, telefono, email, tipo_industria, company_type, fecha_afiliacion, ruc, razon_social, calificacion, pais, fecha_registro, fecha_ultima_compra) VALUES
--- ('Empresa 1', 'Calle Principal 123', '123456789', 'empresa1@example.com', 'Servicios', 'provider_company', '2022-01-01', '12345678912', 'Proveedor 1', 4.5, 'Perú', '2022-02-01', '2024-10-01'),
--- ('Empresa 2', 'Calle Secundaria 456', '987654321', 'empresa2@example.com', 'Comercio', 'provider_company', '2023-01-01', '98765432112', 'Proveedor 2', 4.0, 'Colombia', '2023-02-01', '2024-10-02');
-
--- -- Insertar datos en la tabla Persona
--- -- Juan Pérez: Empleado (Administrador, TrabajadorDeAlmacen, Vendedor) y Representante
--- INSERT INTO persona (dni, nombre, telefono, correo, direccion, person_type, estado, nombre_usuario, contrasenha, salario, fecha_contratacion, id_almacen, licencia_montacarga, ingresos_ventas, porcentaje_comision, id_empresa) VALUES
--- ('12345678A', 'Juan Pérez', '987654321', 'juan.perez@example.com', 'Calle Falsa 123', null, 'ACTIVO', 'juanp', 'password123', 3000.00, '2022-01-15', 1, TRUE, 10000.00, 0.05, 1);
-
--- -- María Gómez: Representante
--- INSERT INTO persona (dni, nombre, telefono, correo, direccion, person_type, id_empresa) VALUES
--- ('23456789B', 'María Gómez', '987654322', 'maria.gomez@example.com', 'Calle Verdadera 456', 'representative_person', 2);
-
--- -- Luis Martínez: Empleado (administrador, vendedor)
--- INSERT INTO persona (dni, nombre, telefono, correo, direccion, person_type, estado, nombre_usuario, contrasenha, salario, fecha_contratacion, id_almacen, ingresos_ventas, porcentaje_comision) VALUES
--- ('34567890C', 'Luis Martínez', '987654323', 'luis.martinez@example.com', 'Calle Imaginaria 789', 'employee_person', 'ACTIVO', 'luism', 'password789', 3500.00, '2023-03-10', 2, 15000.00, 0.07);
-
--- -- Insertar datos en la tabla Visita
--- INSERT INTO visita (id_vendedor, fecha, duracion, id_cliente) VALUES
--- (1, '2024-10-01', '01:30:00', 1),
--- (3, '2024-10-15', '02:00:00', 2);
-
--- -- Insertar datos en la tabla Producto
--- INSERT INTO producto (nombre, precio, stock_minimo) VALUES
--- ('Producto A', 50.00, 10),
--- ('Producto B', 30.00, 5);
-
--- -- Insertar datos en la tabla ProductoAlmacenado
--- INSERT INTO producto_almacenado (id_producto, id_almacen, fecha_almacenado, stock_actual) VALUES
--- (1, 1, '2024-10-01', 100),
--- (2, 1, '2024-10-01', 50);
-
--- -- Insertar datos en la tabla Documento
--- INSERT INTO documento (id_empresa, estado, tipo, id_vendedor, id_administrador, id_trabajador_de_almacen) VALUES
--- (1, 'COTIZACION', 'VENTA', 1, 1, NULL),
--- (2, 'PAGADO', 'COMPRA', NULL, 3, 3);
-
--- -- Insertar datos en la tabla LineaDocumento
--- INSERT INTO linea_documento (id_documento, id_producto, cantidad, precio_unitario) VALUES
--- (1, 1, 2, 50.00),
--- (1, 2, 1, 30.00),
--- (2, 1, 3, 50.00);

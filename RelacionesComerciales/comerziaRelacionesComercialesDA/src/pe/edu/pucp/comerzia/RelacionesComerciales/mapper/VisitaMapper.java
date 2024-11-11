@@ -2,12 +2,32 @@ package pe.edu.pucp.comerzia.RelacionesComerciales.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Visita;
 import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class VisitaMapper implements EntityMapper<Visita> {
+
+  public static class Columns {
+
+    public static final Column<Integer> id = new Column<>("id", Integer.class);
+    public static final Column<Date> fecha = new Column<>("fecha", Date.class);
+    public static final Column<Double> duracion = new Column<>(
+      "duracion",
+      Double.class
+    );
+    public static final Column<Integer> idCliente = new Column<>(
+      "id_cliente",
+      Integer.class
+    );
+    public static final Column<Integer> idVendedor = new Column<>(
+      "id_vendedor",
+      Integer.class
+    );
+  }
 
   @Override
   public Visita createEntity() {
@@ -28,13 +48,13 @@ public class VisitaMapper implements EntityMapper<Visita> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(Visita entity) {
-    Map<String, Object> columns = new HashMap<>();
+  public Map<Column<?>, Object> mapEntityToColumns(Visita entity) {
+    Map<Column<?>, Object> columns = new HashMap<>();
 
-    columns.put("fecha", entity.getFecha());
-    columns.put("duracion", entity.getDuracion());
-    columns.put("id_cliente", entity.getIdCliente());
-    columns.put("id_vendedor", entity.getIdVendedor());
+    columns.put(Columns.fecha, entity.getFecha());
+    columns.put(Columns.duracion, entity.getDuracion());
+    columns.put(Columns.idCliente, entity.getIdCliente());
+    columns.put(Columns.idVendedor, entity.getIdVendedor());
 
     return columns;
   }

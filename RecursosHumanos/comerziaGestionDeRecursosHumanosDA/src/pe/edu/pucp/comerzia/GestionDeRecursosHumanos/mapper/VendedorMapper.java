@@ -5,8 +5,21 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Vendedor;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class VendedorMapper extends EmpleadoMapper<Vendedor> {
+
+  public static class Columns extends EmpleadoMapper.Columns {
+
+    public static final Column<Double> ingresosVentas = new Column<>(
+      "ingresos_ventas",
+      Double.class
+    );
+    public static final Column<Double> porcentajeComision = new Column<>(
+      "porcentaje_comision",
+      Double.class
+    );
+  }
 
   @Override
   public Vendedor createEntity() {
@@ -24,18 +37,18 @@ public class VendedorMapper extends EmpleadoMapper<Vendedor> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(Vendedor entity) {
-    Map<String, Object> columns = super.mapEntityToColumns(entity);
+  public Map<Column<?>, Object> mapEntityToColumns(Vendedor entity) {
+    Map<Column<?>, Object> columns = super.mapEntityToColumns(entity);
 
-    columns.put("ingresos_ventas", entity.getIngresosVentas());
-    columns.put("porcentaje_comision", entity.getPorcentajeComision());
+    columns.put(Columns.ingresosVentas, entity.getIngresosVentas());
+    columns.put(Columns.porcentajeComision, entity.getPorcentajeComision());
 
     return columns;
   }
 
   @Override
-  public Map<String, String> getDiscriminatorColumns() {
-    Map<String, String> discriminators = new HashMap<>(
+  public Map<String, Object> getDiscriminatorColumns() {
+    Map<String, Object> discriminators = new HashMap<>(
       super.getDiscriminatorColumns()
     );
     discriminators.put("employee_type", "sales_employee");
@@ -43,7 +56,7 @@ public class VendedorMapper extends EmpleadoMapper<Vendedor> {
   }
 
   @Override
-  public boolean canMap(Map<String, String> discriminatorValues) {
+  public boolean canMap(Map<String, Object> discriminatorValues) {
     if (!super.canMap(discriminatorValues)) {
       return false;
     }

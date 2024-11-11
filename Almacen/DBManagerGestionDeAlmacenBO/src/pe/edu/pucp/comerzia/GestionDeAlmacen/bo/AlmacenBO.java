@@ -38,7 +38,7 @@ public class AlmacenBO {
     almacen.setEstado(estado);
     almacen.setDescripcion(descripcion);
 
-    return almacenDAO.update(almacen);
+    return almacenDAO.update(id, almacen);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

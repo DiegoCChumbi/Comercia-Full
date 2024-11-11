@@ -53,7 +53,7 @@ public class RepresentanteBO {
     representante.setDireccion(direccion);
     representante.setIdEmpresa(idEmpresa);
 
-    return representanteDAO.update(representante);
+    return representanteDAO.update(id, representante);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

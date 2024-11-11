@@ -70,7 +70,7 @@ public class ProveedorBO {
     proveedor.setCalificacion(calificacion);
     proveedor.setPais(pais);
 
-    return this.proveedorDAO.update(proveedor);
+    return this.proveedorDAO.update(id, proveedor);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

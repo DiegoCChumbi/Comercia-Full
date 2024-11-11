@@ -6,8 +6,34 @@ import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Empresa;
 import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class EmpresaMapper<T extends Empresa> implements EntityMapper<T> {
+
+  public static class Columns {
+
+    public static final Column<Integer> id = new Column<>("id", Integer.class);
+    public static final Column<String> nombre = new Column<>(
+      "nombre",
+      String.class
+    );
+    public static final Column<String> direccion = new Column<>(
+      "direccion",
+      String.class
+    );
+    public static final Column<String> telefono = new Column<>(
+      "telefono",
+      String.class
+    );
+    public static final Column<String> email = new Column<>(
+      "correo",
+      String.class
+    );
+    public static final Column<String> tipoIndustria = new Column<>(
+      "tipo_industria",
+      String.class
+    );
+  }
 
   @SuppressWarnings("unchecked")
   public T createEntity() {
@@ -28,20 +54,15 @@ public class EmpresaMapper<T extends Empresa> implements EntityMapper<T> {
     return empresa;
   }
 
-  protected void mapAdditionalFields(ResultSet rs, T persona)
-    throws SQLException {
-    // Default implementation does nothing; subclasses can override
-  }
-
   @Override
-  public Map<String, Object> mapEntityToColumns(T entity) {
-    Map<String, Object> columns = new HashMap<>();
+  public Map<Column<?>, Object> mapEntityToColumns(T entity) {
+    Map<Column<?>, Object> columns = new HashMap<>();
 
-    columns.put("nombre", entity.getNombre());
-    columns.put("direccion", entity.getDireccion());
-    columns.put("telefono", entity.getTelefono());
-    columns.put("correo", entity.getEmail());
-    columns.put("tipo_industria", entity.getTipoIndustria());
+    columns.put(Columns.nombre, entity.getNombre());
+    columns.put(Columns.direccion, entity.getDireccion());
+    columns.put(Columns.telefono, entity.getTelefono());
+    columns.put(Columns.email, entity.getEmail());
+    columns.put(Columns.tipoIndustria, entity.getTipoIndustria());
 
     return columns;
   }

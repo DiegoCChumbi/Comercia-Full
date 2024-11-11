@@ -21,11 +21,6 @@ public class LineaDocumentoBO {
     Double precioUnitario
   ) throws SQLException {
     LineaDocumento lineaDocumento = new LineaDocumento();
-    //   idDocumento,
-    //   idProducto,
-    //   cantidad,
-    //   precioUnitario
-    // );
     lineaDocumento.setIdDocumento(idDocumento);
     lineaDocumento.setIdProducto(idProducto);
     lineaDocumento.setCantidad(cantidad);
@@ -49,7 +44,7 @@ public class LineaDocumentoBO {
     lineaDocumento.setCantidad(cantidad);
     lineaDocumento.setPrecioUnitario(precioUnitario);
 
-    return lineaDocumentoDAO.update(lineaDocumento);
+    return lineaDocumentoDAO.update(id, lineaDocumento);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

@@ -38,7 +38,7 @@ public class ProductoBO {
     producto.setPrecio(precio);
     producto.setStockMinimo(stockMinimo);
 
-    return productoDAO.update(producto);
+    return productoDAO.update(id, producto);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

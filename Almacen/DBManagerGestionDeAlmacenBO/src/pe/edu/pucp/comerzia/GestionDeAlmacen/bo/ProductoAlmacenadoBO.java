@@ -46,7 +46,7 @@ public class ProductoAlmacenadoBO {
     productoAlmacenado.setStockActual(stockActual);
     productoAlmacenado.setIdProducto(idProducto);
 
-    return productoAlmacenadoDAO.update(productoAlmacenado);
+    return productoAlmacenadoDAO.update(id, productoAlmacenado);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

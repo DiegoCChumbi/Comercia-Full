@@ -6,8 +6,35 @@ import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Persona;
 import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class PersonaMapper<T extends Persona> implements EntityMapper<T> {
+
+  public static class Columns {
+
+    public static final Column<Integer> id = new Column<>("id", Integer.class);
+    public static final Column<String> dni = new Column<>("dni", String.class);
+    public static final Column<String> nombre = new Column<>(
+      "nombre",
+      String.class
+    );
+    public static final Column<String> telefono = new Column<>(
+      "telefono",
+      String.class
+    );
+    public static final Column<String> correo = new Column<>(
+      "correo",
+      String.class
+    );
+    public static final Column<String> direccion = new Column<>(
+      "direccion",
+      String.class
+    );
+    public static final Column<Boolean> eliminado = new Column<>(
+      "eliminado",
+      Boolean.class
+    );
+  }
 
   @SuppressWarnings("unchecked")
   public T createEntity() {
@@ -29,21 +56,16 @@ public class PersonaMapper<T extends Persona> implements EntityMapper<T> {
     return persona;
   }
 
-  protected void mapAdditionalFields(ResultSet rs, T persona)
-    throws SQLException {
-    // Default implementation does nothing; subclasses can override
-  }
-
   @Override
-  public Map<String, Object> mapEntityToColumns(T entity) {
-    Map<String, Object> columns = new HashMap<>();
+  public Map<Column<?>, Object> mapEntityToColumns(T entity) {
+    Map<Column<?>, Object> columns = new HashMap<>();
 
-    columns.put("dni", entity.getDni());
-    columns.put("nombre", entity.getNombre());
-    columns.put("telefono", entity.getTelefono());
-    columns.put("correo", entity.getCorreo());
-    columns.put("direccion", entity.getDireccion());
-    columns.put("eliminado", entity.getEliminado());
+    columns.put(Columns.dni, entity.getDni());
+    columns.put(Columns.nombre, entity.getNombre());
+    columns.put(Columns.telefono, entity.getTelefono());
+    columns.put(Columns.correo, entity.getCorreo());
+    columns.put(Columns.direccion, entity.getDireccion());
+    columns.put(Columns.eliminado, entity.getEliminado());
 
     return columns;
   }

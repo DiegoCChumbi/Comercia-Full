@@ -6,8 +6,26 @@ import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Producto;
 import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class ProductoMapper implements EntityMapper<Producto> {
+
+  public static class Columns {
+
+    public static final Column<Integer> id = new Column<>("id", Integer.class);
+    public static final Column<String> nombre = new Column<>(
+      "nombre",
+      String.class
+    );
+    public static final Column<Double> precio = new Column<>(
+      "precio",
+      Double.class
+    );
+    public static final Column<Integer> stockMinimo = new Column<>(
+      "stock_minimo",
+      Integer.class
+    );
+  }
 
   @Override
   public Producto createEntity() {
@@ -27,12 +45,12 @@ public class ProductoMapper implements EntityMapper<Producto> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(Producto entity) {
-    Map<String, Object> columns = new HashMap<>();
+  public Map<Column<?>, Object> mapEntityToColumns(Producto entity) {
+    Map<Column<?>, Object> columns = new HashMap<>();
 
-    columns.put("nombre", entity.getNombre());
-    columns.put("precio", entity.getPrecio());
-    columns.put("stock_minimo", entity.getStockMinimo());
+    columns.put(Columns.nombre, entity.getNombre());
+    columns.put(Columns.precio, entity.getPrecio());
+    columns.put(Columns.stockMinimo, entity.getStockMinimo());
 
     return columns;
   }

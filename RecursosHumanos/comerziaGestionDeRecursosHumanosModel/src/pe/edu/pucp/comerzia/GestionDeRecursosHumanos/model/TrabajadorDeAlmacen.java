@@ -19,7 +19,7 @@ public class TrabajadorDeAlmacen extends Empleado {
     this.idAlmacen = idAlmacen;
   }
 
-  public boolean isLicenciaMontacarga() {
+  public boolean getLicenciaMontacarga() {
     return licenciaMontacarga;
   }
 

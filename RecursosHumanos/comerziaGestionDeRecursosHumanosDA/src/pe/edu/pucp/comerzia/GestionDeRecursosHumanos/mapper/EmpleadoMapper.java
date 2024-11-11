@@ -6,8 +6,33 @@ import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleadoEnum;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class EmpleadoMapper<T extends Empleado> extends PersonaMapper<T> {
+
+  public static class Columns extends PersonaMapper.Columns {
+
+    public static final Column<EstadoEmpleadoEnum> estado = new Column<>(
+      "estado",
+      EstadoEmpleadoEnum.class
+    );
+    public static final Column<String> nombreUsuario = new Column<>(
+      "nombre_usuario",
+      String.class
+    );
+    public static final Column<String> contrasenha = new Column<>(
+      "contrasenha",
+      String.class
+    );
+    public static final Column<Double> salario = new Column<>(
+      "salario",
+      Double.class
+    );
+    public static final Column<String> fechaContratacion = new Column<>(
+      "fecha_contratacion",
+      String.class
+    );
+  }
 
   @SuppressWarnings("unchecked")
   @Override
@@ -38,21 +63,21 @@ public class EmpleadoMapper<T extends Empleado> extends PersonaMapper<T> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(T entity) {
-    Map<String, Object> columns = super.mapEntityToColumns(entity);
+  public Map<Column<?>, Object> mapEntityToColumns(T entity) {
+    Map<Column<?>, Object> columns = super.mapEntityToColumns(entity);
 
-    columns.put("estado", entity.getEstado().toString());
-    columns.put("nombre_usuario", entity.getNombreUsuario());
-    columns.put("contrasenha", entity.getContrasenha());
-    columns.put("salario", entity.getSalario());
-    columns.put("fecha_contratacion", entity.getFechaContratacion());
+    columns.put(Columns.estado, entity.getEstado());
+    columns.put(Columns.nombreUsuario, entity.getNombreUsuario());
+    columns.put(Columns.contrasenha, entity.getContrasenha());
+    columns.put(Columns.salario, entity.getSalario());
+    columns.put(Columns.fechaContratacion, entity.getFechaContratacion());
 
     return columns;
   }
 
   @Override
-  public Map<String, String> getDiscriminatorColumns() {
-    Map<String, String> discriminators = new HashMap<>(
+  public Map<String, Object> getDiscriminatorColumns() {
+    Map<String, Object> discriminators = new HashMap<>(
       super.getDiscriminatorColumns()
     );
     discriminators.put("person_type", "employee_person");
@@ -60,7 +85,7 @@ public class EmpleadoMapper<T extends Empleado> extends PersonaMapper<T> {
   }
 
   @Override
-  public boolean canMap(Map<String, String> discriminatorValues) {
+  public boolean canMap(Map<String, Object> discriminatorValues) {
     if (!super.canMap(discriminatorValues)) {
       return false;
     }

@@ -46,7 +46,7 @@ public class PersonaBO {
     persona.setCorreo(correo);
     persona.setDireccion(direccion);
 
-    return this.personaDAO.update(persona);
+    return this.personaDAO.update(id, persona);
   }
 
   public Integer eliminar(Persona persona) throws SQLException {

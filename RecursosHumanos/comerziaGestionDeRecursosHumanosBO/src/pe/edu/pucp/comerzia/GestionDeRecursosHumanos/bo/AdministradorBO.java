@@ -77,7 +77,7 @@ public class AdministradorBO {
     administrador.setFechaContratacion(fechaContratacion);
 
     administrador.setIdAlmacen(idAlmacen);
-    return administradorDAO.update(administrador);
+    return administradorDAO.update(id, administrador);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

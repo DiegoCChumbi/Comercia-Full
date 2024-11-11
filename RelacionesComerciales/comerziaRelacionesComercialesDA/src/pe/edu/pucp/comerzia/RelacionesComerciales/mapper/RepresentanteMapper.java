@@ -6,8 +6,17 @@ import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.PersonaMapper;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Representante;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class RepresentanteMapper extends PersonaMapper<Representante> {
+
+  public static class Columns extends PersonaMapper.Columns {
+
+    public static final Column<Integer> idEmpresa = new Column<>(
+      "id_empresa",
+      Integer.class
+    );
+  }
 
   @Override
   public Representante createEntity() {
@@ -24,17 +33,17 @@ public class RepresentanteMapper extends PersonaMapper<Representante> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(Representante entity) {
-    Map<String, Object> columns = super.mapEntityToColumns(entity);
+  public Map<Column<?>, Object> mapEntityToColumns(Representante entity) {
+    Map<Column<?>, Object> columns = super.mapEntityToColumns(entity);
 
-    columns.put("id_empresa", entity.getIdEmpresa());
+    columns.put(Columns.idEmpresa, entity.getIdEmpresa());
 
     return columns;
   }
 
   @Override
-  public Map<String, String> getDiscriminatorColumns() {
-    Map<String, String> discriminators = new HashMap<>(
+  public Map<String, Object> getDiscriminatorColumns() {
+    Map<String, Object> discriminators = new HashMap<>(
       super.getDiscriminatorColumns()
     );
     discriminators.put("person_type", "representative_person");
@@ -42,7 +51,7 @@ public class RepresentanteMapper extends PersonaMapper<Representante> {
   }
 
   @Override
-  public boolean canMap(Map<String, String> discriminatorValues) {
+  public boolean canMap(Map<String, Object> discriminatorValues) {
     if (!super.canMap(discriminatorValues)) {
       return false;
     }

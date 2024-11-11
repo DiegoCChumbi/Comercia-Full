@@ -20,8 +20,8 @@ public class DBManagerMain {
     DocumentoBOTest.main(null);
     LineaDocumentoBOTest.main(null);
     AlmacenBOTest.main(null);
-    // AdministradorTest.main(null);
-    // TrabajadorTest.testTrabajadorBO();
-    // VendedorTest.testVendedorBO();
+    AdministradorTest.main(null);
+    TrabajadorTest.main(null);
+    VendedorTest.main(null);
   }
 }

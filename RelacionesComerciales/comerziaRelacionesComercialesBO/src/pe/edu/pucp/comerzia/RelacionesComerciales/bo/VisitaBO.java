@@ -46,7 +46,7 @@ public class VisitaBO {
     visita.setIdCliente(idCliente);
     visita.setIdVendedor(idVendedor);
 
-    return visitaDAO.update(visita);
+    return visitaDAO.update(id, visita);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

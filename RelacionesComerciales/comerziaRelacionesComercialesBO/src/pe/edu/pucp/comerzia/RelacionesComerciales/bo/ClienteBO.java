@@ -58,7 +58,7 @@ public class ClienteBO {
     cliente.setFechaRegistro(fechaRegistro);
     cliente.setFechaUltimaCompra(fechaUltimaCompra);
 
-    return clienteDAO.update(cliente);
+    return clienteDAO.update(id, cliente);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.dao.EmpleadoDAO;
+import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.mapper.EmpleadoMapper;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Empleado;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.EstadoEmpleadoEnum;
 
@@ -51,7 +52,7 @@ public class EmpleadoBO {
     empleado.setSalario(salario);
     empleado.setFechaContratacion(fechaContratacion);
 
-    return empleadoDAO.update(empleado);
+    return empleadoDAO.update(id, empleado);
   }
 
   public Integer eliminar(Integer id) throws SQLException {
@@ -65,15 +66,23 @@ public class EmpleadoBO {
   public Optional<Empleado> obtenerPorId(Integer id) throws SQLException {
     return empleadoDAO.findById(id);
   }
-  // public Integer verificarEmpleado(String cuenta, String contrasenha) {
-  // return empleadoDAO.query().where(
-  //   empleadoDAO.getNombreUsuario().eq(cuenta).and(
-  //     empleadoDAO.getContrasenha().eq(contrasenha)
-  //   )
-  // ).fetchCount();
-  // }
 
-  // public String devolverNombreEmpleado(Integer idEmpleado) {
-  // return empleadoDAO.query().where(empleadoDAO.getId().eq(idEmpleado)).fetchOne().getNombreUsuario();
-  // }
+  public Integer verificarEmpleado(String cuenta, String contrasenha)
+    throws SQLException {
+    return empleadoDAO
+      .query()
+      .whereAll(
+        EmpleadoMapper.Columns.nombreUsuario.eq(cuenta),
+        EmpleadoMapper.Columns.contrasenha.eq(contrasenha)
+      )
+      .count();
+  }
+
+  public String devolverNombreEmpleado(Integer idEmpleado) throws SQLException {
+    Optional<Empleado> empleado = empleadoDAO
+      .query()
+      .where(EmpleadoMapper.Columns.id.eq(idEmpleado))
+      .unique();
+    return empleado.get().getNombreUsuario();
+  }
 }

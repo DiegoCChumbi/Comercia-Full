@@ -5,8 +5,21 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.RelacionesComerciales.Model.Cliente;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class ClienteMapper extends EmpresaMapper<Cliente> {
+
+  public static class Columns extends EmpresaMapper.Columns {
+
+    public static final Column<Integer> fechaRegistro = new Column<>(
+      "fecha_registro",
+      Integer.class
+    );
+    public static final Column<Integer> fechaUltimaCompra = new Column<>(
+      "fecha_ultima_compra",
+      Integer.class
+    );
+  }
 
   @Override
   public Cliente createEntity() {
@@ -23,18 +36,18 @@ public class ClienteMapper extends EmpresaMapper<Cliente> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(Cliente entity) {
-    Map<String, Object> columns = super.mapEntityToColumns(entity);
+  public Map<Column<?>, Object> mapEntityToColumns(Cliente entity) {
+    Map<Column<?>, Object> columns = super.mapEntityToColumns(entity);
 
-    columns.put("fecha_registro", entity.getFechaRegistro());
-    columns.put("fecha_ultima_compra", entity.getFechaUltimaCompra());
+    columns.put(Columns.fechaRegistro, entity.getFechaRegistro());
+    columns.put(Columns.fechaUltimaCompra, entity.getFechaUltimaCompra());
 
     return columns;
   }
 
   @Override
-  public Map<String, String> getDiscriminatorColumns() {
-    Map<String, String> discriminators = new HashMap<>(
+  public Map<String, Object> getDiscriminatorColumns() {
+    Map<String, Object> discriminators = new HashMap<>(
       super.getDiscriminatorColumns()
     );
     discriminators.put("company_type", "client_company");
@@ -42,7 +55,7 @@ public class ClienteMapper extends EmpresaMapper<Cliente> {
   }
 
   @Override
-  public boolean canMap(Map<String, String> discriminatorValues) {
+  public boolean canMap(Map<String, Object> discriminatorValues) {
     if (!super.canMap(discriminatorValues)) {
       return false;
     }

@@ -5,8 +5,17 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.Administrador;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class AdministradorMapper extends EmpleadoMapper<Administrador> {
+
+  public static class Columns extends EmpleadoMapper.Columns {
+
+    public static final Column<Integer> idAlmacen = new Column<>(
+      "id_almacen",
+      Integer.class
+    );
+  }
 
   @Override
   public Administrador createEntity() {
@@ -23,17 +32,17 @@ public class AdministradorMapper extends EmpleadoMapper<Administrador> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(Administrador entity) {
-    Map<String, Object> columns = super.mapEntityToColumns(entity);
+  public Map<Column<?>, Object> mapEntityToColumns(Administrador entity) {
+    Map<Column<?>, Object> columns = super.mapEntityToColumns(entity);
 
-    columns.put("id_almacen", entity.getIdAlmacen());
+    columns.put(Columns.idAlmacen, entity.getIdAlmacen());
 
     return columns;
   }
 
   @Override
-  public Map<String, String> getDiscriminatorColumns() {
-    Map<String, String> discriminators = new HashMap<>(
+  public Map<String, Object> getDiscriminatorColumns() {
+    Map<String, Object> discriminators = new HashMap<>(
       super.getDiscriminatorColumns()
     );
     discriminators.put("employee_type", "admin_employee");
@@ -41,7 +50,7 @@ public class AdministradorMapper extends EmpleadoMapper<Administrador> {
   }
 
   @Override
-  public boolean canMap(Map<String, String> discriminatorValues) {
+  public boolean canMap(Map<String, Object> discriminatorValues) {
     if (!super.canMap(discriminatorValues)) {
       return false;
     }

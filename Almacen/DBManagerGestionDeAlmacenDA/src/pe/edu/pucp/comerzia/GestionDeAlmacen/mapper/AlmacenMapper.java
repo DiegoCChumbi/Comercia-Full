@@ -6,8 +6,26 @@ import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
 import pe.edu.pucp.comerzia.db.BaseDAOImpl.EntityMapper;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class AlmacenMapper implements EntityMapper<Almacen> {
+
+  public static class Columns {
+
+    public static final Column<Integer> id = new Column<>("id", Integer.class);
+    public static final Column<String> nombre = new Column<>(
+      "nombre",
+      String.class
+    );
+    public static final Column<String> estado = new Column<>(
+      "estado",
+      String.class
+    );
+    public static final Column<String> descripcion = new Column<>(
+      "descripcion",
+      String.class
+    );
+  }
 
   @Override
   public Almacen createEntity() {
@@ -27,12 +45,12 @@ public class AlmacenMapper implements EntityMapper<Almacen> {
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(Almacen entity) {
-    Map<String, Object> columns = new HashMap<>();
+  public Map<Column<?>, Object> mapEntityToColumns(Almacen entity) {
+    Map<Column<?>, Object> columns = new HashMap<>();
 
-    columns.put("nombre", entity.getNombre());
-    columns.put("estado", entity.getEstado());
-    columns.put("descripcion", entity.getDescripcion());
+    columns.put(Columns.nombre, entity.getNombre());
+    columns.put(Columns.estado, entity.getEstado());
+    columns.put(Columns.descripcion, entity.getDescripcion());
 
     return columns;
   }

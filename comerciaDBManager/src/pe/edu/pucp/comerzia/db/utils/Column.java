@@ -7,6 +7,10 @@ public class Column<T> {
   private final String alias;
   private final boolean isAggregated;
 
+  public static <T> Column<T> of(String name, Class<T> type) {
+    return new Column<>(name, type);
+  }
+
   public Column(String name, Class<T> type) {
     this(name, type, null, false);
   }
@@ -64,9 +68,9 @@ public class Column<T> {
     return new SimpleExpression<>(this, "<=", value);
   }
 
-  // public SimpleExpression<String> like(String pattern) {
-  //   return new SimpleExpression<>(this, "LIKE", pattern);
-  // }
+  public SimpleExpression<T> like(String pattern) {
+    return new SimpleExpression<>(this, "LIKE", pattern);
+  }
 
   // Aggregate functions
   public AggregateColumn<Double> avg() {

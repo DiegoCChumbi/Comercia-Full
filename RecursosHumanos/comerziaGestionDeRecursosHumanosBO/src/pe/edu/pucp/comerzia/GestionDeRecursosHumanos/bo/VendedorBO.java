@@ -83,7 +83,7 @@ public class VendedorBO {
     vendedor.setIngresosVentas(ingresosVentas);
     vendedor.setPorcentajeComision(porcentajeComision);
 
-    return vendedorDAO.update(vendedor);
+    return vendedorDAO.update(id, vendedor);
   }
 
   public Integer eliminar(Integer id) throws SQLException {

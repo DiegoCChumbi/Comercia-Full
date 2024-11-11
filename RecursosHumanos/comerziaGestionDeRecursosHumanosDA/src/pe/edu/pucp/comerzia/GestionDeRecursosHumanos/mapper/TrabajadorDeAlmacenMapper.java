@@ -5,9 +5,22 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.model.TrabajadorDeAlmacen;
+import pe.edu.pucp.comerzia.db.utils.Column;
 
 public class TrabajadorDeAlmacenMapper
   extends EmpleadoMapper<TrabajadorDeAlmacen> {
+
+  public static class Columns extends EmpleadoMapper.Columns {
+
+    public static final Column<Integer> idAlmacen = new Column<>(
+      "id_almacen",
+      Integer.class
+    );
+    public static final Column<Boolean> licenciaMontacarga = new Column<>(
+      "licencia_montacarga",
+      Boolean.class
+    );
+  }
 
   @Override
   public TrabajadorDeAlmacen createEntity() {
@@ -28,18 +41,18 @@ public class TrabajadorDeAlmacenMapper
   }
 
   @Override
-  public Map<String, Object> mapEntityToColumns(TrabajadorDeAlmacen entity) {
-    Map<String, Object> columns = super.mapEntityToColumns(entity);
+  public Map<Column<?>, Object> mapEntityToColumns(TrabajadorDeAlmacen entity) {
+    Map<Column<?>, Object> columns = super.mapEntityToColumns(entity);
 
-    columns.put("id_almacen", entity.getIdAlmacen());
-    columns.put("licencia_montacarga", entity.isLicenciaMontacarga());
+    columns.put(Columns.idAlmacen, entity.getIdAlmacen());
+    columns.put(Columns.licenciaMontacarga, entity.getLicenciaMontacarga());
 
     return columns;
   }
 
   @Override
-  public Map<String, String> getDiscriminatorColumns() {
-    Map<String, String> discriminators = new HashMap<>(
+  public Map<String, Object> getDiscriminatorColumns() {
+    Map<String, Object> discriminators = new HashMap<>(
       super.getDiscriminatorColumns()
     );
     discriminators.put("employee_type", "warehouse_employee");
@@ -47,7 +60,7 @@ public class TrabajadorDeAlmacenMapper
   }
 
   @Override
-  public boolean canMap(Map<String, String> discriminatorValues) {
+  public boolean canMap(Map<String, Object> discriminatorValues) {
     if (!super.canMap(discriminatorValues)) {
       return false;
     }

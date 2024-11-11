@@ -7,9 +7,9 @@ public class SimpleExpression<T> implements Expression {
 
   private final Column<T> column;
   private final String operator;
-  private final T value;
+  private final Object value;
 
-  public SimpleExpression(Column<T> column, String operator, T value) {
+  public SimpleExpression(Column<T> column, String operator, Object value) {
     this.column = column;
     this.operator = operator;
     this.value = value;

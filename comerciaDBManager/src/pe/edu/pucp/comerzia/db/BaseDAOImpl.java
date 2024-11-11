@@ -3,6 +3,7 @@ package pe.edu.pucp.comerzia.db;
 import java.math.BigInteger;
 import java.sql.*;
 import java.util.*;
+import java.util.stream.Collectors;
 import pe.edu.pucp.comerzia.config.DBManager;
 import pe.edu.pucp.comerzia.db.utils.AndExpression;
 import pe.edu.pucp.comerzia.db.utils.Column;
@@ -57,14 +58,13 @@ public abstract class BaseDAOImpl<T, K> {
    * @throws SQLException If a database access error occurs.
    */
   public Optional<T> findById(K id) throws SQLException {
-    String sql =
-      "SELECT * FROM " +
-      getTableName() +
-      " WHERE " +
-      getPrimaryKeyColumnName() +
-      " = ?";
-    List<Object> params = Collections.singletonList(id);
-    return executeUniqueResultQuery(sql, params);
+    return query()
+      .where(
+        Column.of(getPrimaryKeyColumnName(), (Class<K>) id.getClass()).eq(
+          (K) id
+        )
+      )
+      .unique();
   }
 
   /**
@@ -74,8 +74,7 @@ public abstract class BaseDAOImpl<T, K> {
    * @throws SQLException If a database access error occurs.
    */
   public List<T> findAll() throws SQLException {
-    String sql = "SELECT * FROM " + getTableName();
-    return executeQuery(sql, Collections.emptyList());
+    return query().list();
   }
 
   /**
@@ -86,7 +85,7 @@ public abstract class BaseDAOImpl<T, K> {
    * @throws SQLException If a database access error occurs.
    */
   public K insert(T entity) throws SQLException {
-    Map<String, Object> columns = getEntityMapper().mapEntityToColumns(entity);
+    Map<String, Object> columns = mapEntityToColumns(entity);
 
     StringBuilder sql = new StringBuilder("INSERT INTO ")
       .append(getTableName())
@@ -133,6 +132,10 @@ public abstract class BaseDAOImpl<T, K> {
     }
   }
 
+  public Integer update(K id, T entity) throws SQLException {
+    return update(id, entity, entityMapper.mapEntityToColumns(entity).keySet());
+  }
+
   /**
    * Updates an entity in the table.
    * Performs a partial update based on the specified columns.
@@ -141,22 +144,19 @@ public abstract class BaseDAOImpl<T, K> {
    * @param columnsToUpdate A set of column names to update.
    * @throws SQLException If a database access error occurs.
    */
-  public Integer update(T entity) throws SQLException {
-    return update(
-      entity,
-      getEntityMapper().mapEntityToColumns(entity).keySet()
-    );
-  }
-
-  public Integer update(T entity, Set<String> columnsToUpdate)
+  public Integer update(K id, T entity, Set<Column<?>> columnsToUpdate)
     throws SQLException {
-    Map<String, Object> columns = getEntityMapper().mapEntityToColumns(entity);
+    Map<String, Object> columns = mapEntityToColumns(entity);
 
     // Filter columns to include only those specified
     Map<String, Object> columnsToUse = new LinkedHashMap<>();
-    for (String column : columnsToUpdate) {
-      if (columns.containsKey(column)) {
-        columnsToUse.put(column, columns.get(column));
+    for (Column<?> column : columnsToUpdate) {
+      String columnName = column.getName();
+      if (
+        columns.containsKey(columnName) &&
+        !columnName.equals(getPrimaryKeyColumnName())
+      ) {
+        columnsToUse.put(columnName, columns.get(columnName));
       }
     }
 
@@ -182,7 +182,6 @@ public abstract class BaseDAOImpl<T, K> {
       .append(getPrimaryKeyColumnName())
       .append(" = ?");
 
-    Object id = getEntityMapper().getId(entity);
     params.add(id);
 
     try (
@@ -232,6 +231,11 @@ public abstract class BaseDAOImpl<T, K> {
    *
    * @param callback The transaction callback.
    * @throws SQLException If a database access error occurs.
+   * @example
+   * dao.executeTransaction(() -> {
+   *  dao.insert(entity1);
+   *  dao.insert(entity2);
+   * });
    */
   public void executeTransaction(TransactionCallback callback)
     throws SQLException {
@@ -240,7 +244,7 @@ public abstract class BaseDAOImpl<T, K> {
       conn.setAutoCommit(false);
 
       try {
-        callback.execute(conn);
+        callback.execute();
         conn.commit();
       } catch (SQLException e) {
         conn.rollback();
@@ -248,56 +252,6 @@ public abstract class BaseDAOImpl<T, K> {
       } finally {
         conn.setAutoCommit(originalAutoCommit);
       }
-    }
-  }
-
-  /**
-   * Executes a query and returns a list of results.
-   *
-   * @param sql      The SQL query.
-   * @param params   The list of parameters.
-   * @return A list of entities.
-   * @throws SQLException If a database access error occurs.
-   */
-  protected List<T> executeQuery(String sql, List<Object> params)
-    throws SQLException {
-    try (
-      Connection conn = DBManager.getInstance().getConnection();
-      PreparedStatement ps = conn.prepareStatement(sql)
-    ) {
-      setParameters(ps, params);
-      // System.out.println(ps.toString());
-      System.out.println("---------------------- SQL: " + ps.toString());
-      ResultSet rs = ps.executeQuery();
-
-      List<T> results = new ArrayList<>();
-      while (rs.next()) {
-        T entity = getEntityMapper().mapResultSetToEntity(rs);
-        results.add(entity);
-      }
-      return results;
-    }
-  }
-
-  /**
-   * Executes a unique result query.
-   *
-   * @param sql      The SQL query.
-   * @param params   The list of parameters.
-   * @return An Optional containing the entity if found.
-   * @throws SQLException If a database access error occurs.
-   */
-  protected Optional<T> executeUniqueResultQuery(
-    String sql,
-    List<Object> params
-  ) throws SQLException {
-    List<T> results = executeQuery(sql, params);
-    if (results.isEmpty()) {
-      return Optional.empty();
-    } else if (results.size() == 1) {
-      return Optional.of(results.get(0));
-    } else {
-      throw new SQLException("Expected one result, but found multiple");
     }
   }
 
@@ -353,10 +307,46 @@ public abstract class BaseDAOImpl<T, K> {
   }
 
   /**
+   * Retrieves the EntityMapper for the given discriminator values.
+   */
+  protected T mapResultSetToEntity(ResultSet rs) throws SQLException {
+    // Retrieve discriminator values from the ResultSet
+    Map<String, Object> discriminatorValues = new HashMap<>();
+    for (String column : entityMapper.getDiscriminatorColumns().keySet()) {
+      discriminatorValues.put(column, rs.getString(column));
+    }
+
+    // Determine the correct EntityMapper based on discriminator values
+    // In this simplified example, we assume that entityMapper is capable of handling all cases.
+    // In a real scenario, we might have a registry of mappers for different subclasses.
+    if (!entityMapper.canMap(discriminatorValues)) {
+      throw new SQLException(
+        "No suitable mapper found for discriminator values: " +
+        discriminatorValues
+      );
+    }
+
+    return entityMapper.mapResultSetToEntity(rs);
+  }
+
+  protected Map<String, Object> mapEntityToColumns(T entity) {
+    Map<Column<?>, Object> columns = entityMapper.mapEntityToColumns(entity);
+    Map<String, Object> transformedMap = new HashMap<>();
+    for (Map.Entry<Column<?>, Object> entry : columns.entrySet()) {
+      transformedMap.put(entry.getKey().getName(), entry.getValue());
+    }
+
+    transformedMap.putAll(entityMapper.getDiscriminatorColumns());
+
+    return transformedMap;
+  }
+
+  /**
    * Callback interface for transaction execution.
    */
+
   public interface TransactionCallback {
-    void execute(Connection conn) throws SQLException;
+    void execute() throws SQLException;
   }
 
   /**
@@ -386,7 +376,7 @@ public abstract class BaseDAOImpl<T, K> {
      * @param entity The entity to map.
      * @return A map of column names to values.
      */
-    Map<String, Object> mapEntityToColumns(T entity);
+    Map<Column<?>, Object> mapEntityToColumns(T entity);
 
     /**
      * Sets the generated ID into the entity.
@@ -408,16 +398,15 @@ public abstract class BaseDAOImpl<T, K> {
     /**
      * Returns a map of discriminator columns and their expected values for this entity.
      */
-    default Map<String, String> getDiscriminatorColumns() {
+    default Map<String, Object> getDiscriminatorColumns() {
       return Collections.emptyMap();
     }
 
     /**
      * Determines if this mapper can map the entity based on discriminator values.
      */
-    default boolean canMap(Map<String, String> discriminatorValues) {
-      // No discriminators, so can map if there are no discriminator values
-      return discriminatorValues.isEmpty();
+    default boolean canMap(Map<String, Object> discriminatorValues) {
+      return true;
     }
   }
 
@@ -461,12 +450,23 @@ public abstract class BaseDAOImpl<T, K> {
     }
 
     public QueryBuilder<T> where(Expression expression) {
-      this.whereExpression = expression;
+      if (whereExpression == null) {
+        this.whereExpression = expression;
+      } else {
+        this.whereExpression = new AndExpression(whereExpression, expression);
+      }
       return this;
     }
 
     public QueryBuilder<T> whereAll(Expression... expressions) {
-      this.whereExpression = new AndExpression(expressions);
+      if (whereExpression == null) {
+        this.whereExpression = new AndExpression(expressions);
+      } else {
+        this.whereExpression = new AndExpression(
+          whereExpression,
+          new AndExpression(expressions)
+        );
+      }
       return this;
     }
 
@@ -541,41 +541,60 @@ public abstract class BaseDAOImpl<T, K> {
 
     public <R> List<R> list(Class<R> resultClass) throws SQLException {
       this.resultType = resultClass;
-      String sql = buildSql();
-      List<Object> finalParams = new ArrayList<>(parameters);
 
-      if (resultClass.equals(dao.entityClass)) {
-        // Return list of entities
-        return (List<R>) dao.executeQuery(sql, finalParams);
-      } else {
-        // Return list of custom objects or scalar values
-        return executeCustomQuery(sql, finalParams, resultClass);
-      }
+      return executeQuery(resultClass);
     }
 
     public List<T> list() throws SQLException {
       return list(dao.entityClass);
     }
 
-    // Unique result
-    public <R> Optional<R> uniqueResult(Class<R> resultClass)
-      throws SQLException {
-      List<R> results = list(resultClass);
-      if (results.isEmpty()) {
-        return Optional.empty();
-      } else if (results.size() == 1) {
+    /**
+     * Executes a unique result query.
+     *
+     * @param resultClass The class of the result.
+     */
+    public <R> Optional<R> unique(Class<R> resultClass) throws SQLException {
+      // Set limit to 2 to check if there is more than one result
+      limit(2);
+
+      List<R> results = executeQuery(resultClass);
+      if (results.size() == 1) {
         return Optional.of(results.get(0));
+      } else if (results.isEmpty()) {
+        throw new SQLException("Expected one result, but found none");
       } else {
         throw new SQLException("Expected one result, but found multiple");
       }
     }
 
-    public Optional<T> uniqueResult() throws SQLException {
-      return uniqueResult(dao.entityClass);
+    public Optional<T> unique() throws SQLException {
+      return unique(dao.entityClass);
+    }
+
+    /**
+     * Executes a query and returns the first result.
+     *
+     * @param resultClass The class of the result.
+     */
+    public <R> Optional<R> first(Class<R> resultClass) throws SQLException {
+      // Set limit to 1 to fetch only the first result
+      limit(1);
+
+      List<R> results = executeQuery(resultClass);
+      if (results.isEmpty()) {
+        return Optional.empty();
+      } else {
+        return Optional.of(results.get(0));
+      }
+    }
+
+    public Optional<T> first() throws SQLException {
+      return first(dao.entityClass);
     }
 
     // Count method
-    public int count() throws SQLException {
+    public Integer count() throws SQLException {
       StringBuilder countSql = new StringBuilder(
         "SELECT COUNT(*) FROM "
       ).append(dao.getTableName());
@@ -670,12 +689,44 @@ public abstract class BaseDAOImpl<T, K> {
       return sql.toString();
     }
 
-    // Execute custom query
-    private <R> List<R> executeCustomQuery(
-      String sql,
-      List<Object> params,
-      Class<R> resultClass
-    ) throws SQLException {
+    /**
+     * Executes a query and returns a list of results.
+     *
+     * @param sql      The SQL query.
+     * @param params   The list of parameters.
+     * @param resultClass The class of the result.
+     * @return A list of entities.
+     * @throws SQLException If a database access error occurs.
+     */
+    private <R> List<R> executeQuery(Class<R> resultClass) throws SQLException {
+      if (dao.entityMapper != null) {
+        // Add discriminator columns to select columns
+        Map<String, Object> discriminatorColumns =
+          dao.entityMapper.getDiscriminatorColumns();
+        if (!discriminatorColumns.isEmpty()) {
+          AndExpression[] expressions =
+            new AndExpression[discriminatorColumns.size()];
+
+          int i = 0;
+          for (Map.Entry<
+            String,
+            Object
+          > entry : discriminatorColumns.entrySet()) {
+            expressions[i++] = new AndExpression(
+              Column.of(
+                entry.getKey(),
+                (Class<Object>) entry.getValue().getClass()
+              ).eq(entry.getValue())
+            );
+          }
+
+          whereAll(expressions);
+        }
+      }
+
+      String sql = buildSql();
+      List<Object> params = new ArrayList<>(parameters);
+
       try (
         Connection conn = DBManager.getInstance().getConnection();
         PreparedStatement ps = conn.prepareStatement(sql)
@@ -691,17 +742,32 @@ public abstract class BaseDAOImpl<T, K> {
             for (int i = 0; i < row.length; i++) {
               row[i] = rs.getObject(i + 1);
             }
-            results.add((R) row);
+            results.add(resultClass.cast(row));
           } else if (
             Number.class.isAssignableFrom(resultClass) ||
             resultClass.equals(String.class)
           ) {
             results.add(rs.getObject(1, resultClass));
+          } else if (resultClass.equals(Map.class)) {
+            ResultSetMetaData metaData = rs.getMetaData();
+            Map<String, Object> row = new HashMap<>();
+            for (int i = 1; i <= metaData.getColumnCount(); i++) {
+              row.put(metaData.getColumnName(i), rs.getObject(i));
+            }
+            results.add(resultClass.cast(row));
           } else {
-            // Handle custom mappings or throw an exception
-            throw new SQLException(
-              "Unsupported result type: " + resultClass.getName()
-            );
+            // Use a custom mapper if provided
+            if (
+              dao.getEntityMapper() != null &&
+              resultClass.equals(dao.entityClass)
+            ) {
+              R entity = resultClass.cast(dao.mapResultSetToEntity(rs));
+              results.add(entity);
+            } else {
+              throw new SQLException(
+                "Unsupported result type: " + resultClass.getName()
+              );
+            }
           }
         }
         return results;
