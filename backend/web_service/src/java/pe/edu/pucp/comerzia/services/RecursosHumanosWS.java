@@ -1,4 +1,4 @@
-package pe.edu.pucp.eventmastersoft.services;
+package pe.edu.pucp.comerzia.services;
 
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -7,7 +7,7 @@ import pe.edu.pucp.comerzia.modules.recursos_humanos.bo.EmpleadoBO;
 
 @WebService(
   serviceName = "RecursosHumanosWS",
-  targetNamespace = "http://services.eventmastersoft.pucp.edu.pe"
+  targetNamespace = "http://services.comerziasoft.pucp.edu.pe"
 )
 public class RecursosHumanosWS {
 

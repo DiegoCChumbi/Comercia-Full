@@ -1,10 +1,11 @@
-package pe.edu.pucp.eventmastersoft.services;
+package pe.edu.pucp.comerzia.services;
 
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.bo.AlmacenBO;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.bo.ProductoAlmacenadoBO;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.bo.ProductoBO;
@@ -30,34 +31,61 @@ public class AlmacenWS {
 
   @WebMethod(operationName = "listarAlmacenes")
   public ArrayList<Almacen> listarAlmacenes() {
-    return daoAlmacen.listarTodos();
-  } // Funciona correctamente.
+    try {
+      return daoAlmacen.listarTodos();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
+  }
 
   @WebMethod(operationName = "obtenerPorId")
   public Almacen obtenerPorId(@WebParam(name = "id") String id) {
-    return daoAlmacen.obtenerPorId(Integer.valueOf(id));
-  } // Funciona correctamente.
+    try {
+      Optional<Almacen> almacen = daoAlmacen.obtenerPorId(Integer.valueOf(id));
+      return almacen.orElse(null);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
 
   // Ahora los metodos de los productos almacenados.
   @WebMethod(operationName = "listarPorAlmacen")
   public ArrayList<ProductoAlmacenado> listarPorAlmacen(
     @WebParam(name = "idAlmacen") String id
   ) {
-    return daoProductoAlmacenado.listarPorAlmacen(Integer.valueOf(id));
+    try {
+      return daoProductoAlmacenado.listarPorAlmacen(Integer.valueOf(id));
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
   }
 
   @WebMethod(operationName = "buscarPorNombre")
   public ArrayList<Producto> buscarProductos(
     @WebParam(name = "nombreProd") String nombre
   ) {
-    return daoProducto.buscarProductos(nombre);
+    try {
+      return daoProducto.buscarProductos(nombre);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
   }
 
   @WebMethod(operationName = "buscarProductoPorId")
   public Producto obtenerPorIdProd(
     @WebParam(name = "idProd") Integer idProducto
   ) {
-    return daoProducto.obtenerPorId(idProducto);
+    try {
+      Optional<Producto> producto = daoProducto.obtenerPorId(idProducto);
+      return producto.orElse(null);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 
   @WebMethod(operationName = "insertarProductoAlmacenado")
@@ -67,11 +95,16 @@ public class AlmacenWS {
     @WebParam(name = "stock") Integer stockActual,
     @WebParam(name = "idProd") Integer idProducto
   ) {
-    return daoProductoAlmacenado.insertar(
-      idAlmacen,
-      fechaAlmacenado,
-      stockActual,
-      idProducto
-    );
+    try {
+      return daoProductoAlmacenado.insertar(
+        idAlmacen,
+        fechaAlmacenado,
+        stockActual,
+        idProducto
+      );
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
   }
 }
