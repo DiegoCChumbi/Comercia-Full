@@ -2194,7 +2194,7 @@
     <Content Include="Images\pucp.png" />
     <Content Include="index.aspx" />
     <Content Include="GestionComercial.aspx" />
-    <Content Include="GestionRecursosHumanos.aspx" />
+    <Content Include="RecursosHumanos.aspx" />
     <Content Include="mantenimiento_especialidad.aspx" />
     <Content Include="mantenimiento_grupo.aspx" />
     <Content Include="mantenimiento_seccion.aspx" />
@@ -2339,12 +2339,12 @@
     <Compile Include="GestionComercial.aspx.designer.cs">
       <DependentUpon>GestionComercial.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GestionRecursosHumanos.aspx.cs">
-      <DependentUpon>GestionRecursosHumanos.aspx</DependentUpon>
+    <Compile Include="RecursosHumanos.aspx.cs">
+      <DependentUpon>RecursosHumanos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GestionRecursosHumanos.aspx.designer.cs">
-      <DependentUpon>GestionRecursosHumanos.aspx</DependentUpon>
+    <Compile Include="RecursosHumanos.aspx.designer.cs">
+      <DependentUpon>RecursosHumanos.aspx</DependentUpon>
     </Compile>
     <Compile Include="mantenimiento_especialidad.aspx.cs">
       <DependentUpon>mantenimiento_especialidad.aspx</DependentUpon>

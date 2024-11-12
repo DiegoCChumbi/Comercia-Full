@@ -383,11 +383,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 21,
-              "Title": "GestionRecursosHumanos.aspx",
-              "DocumentMoniker": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\GestionRecursosHumanos.aspx",
-              "RelativeDocumentMoniker": "SoftPubWA\\GestionRecursosHumanos.aspx",
-              "ToolTip": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\GestionRecursosHumanos.aspx",
-              "RelativeToolTip": "SoftPubWA\\GestionRecursosHumanos.aspx",
+              "Title": "RecursosHumanos.aspx",
+              "DocumentMoniker": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\RecursosHumanos.aspx",
+              "RelativeDocumentMoniker": "SoftPubWA\\RecursosHumanos.aspx",
+              "ToolTip": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\RecursosHumanos.aspx",
+              "RelativeToolTip": "SoftPubWA\\RecursosHumanos.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-10-29T22:35:40.352Z"
@@ -395,11 +395,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "GestionRecursosHumanos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\GestionRecursosHumanos.aspx.cs",
-              "RelativeDocumentMoniker": "SoftPubWA\\GestionRecursosHumanos.aspx.cs",
-              "ToolTip": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\GestionRecursosHumanos.aspx.cs",
-              "RelativeToolTip": "SoftPubWA\\GestionRecursosHumanos.aspx.cs",
+              "Title": "RecursosHumanos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\RecursosHumanos.aspx.cs",
+              "RelativeDocumentMoniker": "SoftPubWA\\RecursosHumanos.aspx.cs",
+              "ToolTip": "C:\\Users\\hunkj\\OneDrive\\Documents\\SoftPub\\SoftPubWA\\RecursosHumanos.aspx.cs",
+              "RelativeToolTip": "SoftPubWA\\RecursosHumanos.aspx.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAIA+wBAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-29T22:35:42.778Z"

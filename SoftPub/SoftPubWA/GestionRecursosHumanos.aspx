@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SoftPub.Master" AutoEventWireup="true" CodeBehind="GestionRecursosHumanos.aspx.cs" Inherits="SoftPubWA.insertar_seccion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SoftPub.Master" AutoEventWireup="true" CodeBehind="RecursosHumanos.aspx.cs" Inherits="SoftPubWA.insertar_seccion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
     
 </asp:Content>

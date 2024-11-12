@@ -41,7 +41,7 @@
                     <a href="gestion_almacen.aspx"><i class="fa-solid fa-warehouse"></i>Gestión de Almacén</a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href="GestionRecursosHumanos.aspx"><i class="fa-solid fa-address-card"></i>Gestión de Recursos Humanos</a>
+                    <a href="RecursosHumanos.aspx"><i class="fa-solid fa-address-card"></i>Gestión de Recursos Humanos</a>
                 </li>
                 
             </ul>

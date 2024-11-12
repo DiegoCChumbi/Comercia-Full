@@ -16,31 +16,31 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${reference.comerziaGestionDeRecursosHumanosBO.jar}</file>
+                    <file>${reference.RecursosHumanosBO.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${reference.comerziaGestionDeRecursosHumanosDA.jar}</file>
+                    <file>${reference.RecursosHumanosDAO.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${reference.comerziaGestionDeRecursosHumanosModel.jar}</file>
+                    <file>${reference.RecursosHumanosModel.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${reference.DBManagerGestionDeAlmacenBO.jar}</file>
+                    <file>${reference.GestionAlmacenBO.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${reference.DBManagerGestionDeAlmacenDA.jar}</file>
+                    <file>${reference.GestionAlmacenDAO.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${reference.DBManagerGestionDeAlmacenModel.jar}</file>
+                    <file>${reference.GestionAlmacenModel.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${reference.comerciaDBManager.jar}</file>
+                    <file>${reference.CoreDB.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
@@ -54,7 +54,7 @@
         </data>
         <references xmlns="http://www.netbeans.org/ns/ant-project-references/1">
             <reference>
-                <foreign-project>DBManagerGestionDeAlmacenBO</foreign-project>
+                <foreign-project>GestionAlmacenBO</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>
@@ -62,7 +62,7 @@
                 <id>jar</id>
             </reference>
             <reference>
-                <foreign-project>DBManagerGestionDeAlmacenDA</foreign-project>
+                <foreign-project>GestionAlmacenDAO</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>
@@ -70,7 +70,7 @@
                 <id>jar</id>
             </reference>
             <reference>
-                <foreign-project>DBManagerGestionDeAlmacenModel</foreign-project>
+                <foreign-project>GestionAlmacenModel</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>
@@ -78,7 +78,7 @@
                 <id>jar</id>
             </reference>
             <reference>
-                <foreign-project>comerciaDBManager</foreign-project>
+                <foreign-project>CoreDB</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>
@@ -86,7 +86,7 @@
                 <id>jar</id>
             </reference>
             <reference>
-                <foreign-project>comerziaGestionDeRecursosHumanosBO</foreign-project>
+                <foreign-project>RecursosHumanosBO</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>
@@ -94,7 +94,7 @@
                 <id>jar</id>
             </reference>
             <reference>
-                <foreign-project>comerziaGestionDeRecursosHumanosDA</foreign-project>
+                <foreign-project>RecursosHumanosDAO</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>
@@ -102,7 +102,7 @@
                 <id>jar</id>
             </reference>
             <reference>
-                <foreign-project>comerziaGestionDeRecursosHumanosModel</foreign-project>
+                <foreign-project>RecursosHumanosModel</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>

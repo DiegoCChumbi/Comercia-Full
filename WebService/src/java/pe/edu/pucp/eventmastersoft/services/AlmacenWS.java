@@ -5,12 +5,12 @@ import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
 import java.util.ArrayList;
 import java.util.Date;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.bo.AlmacenBO;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.bo.ProductoAlmacenadoBO;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.bo.ProductoBO;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Almacen;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.model.Producto;
-import pe.edu.pucp.comerzia.GestionDeAlmacen.model.ProductoAlmacenado;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.bo.AlmacenBO;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.bo.ProductoAlmacenadoBO;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.bo.ProductoBO;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.model.Almacen;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.model.Producto;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.model.ProductoAlmacenado;
 
 @WebService(
   serviceName = "AlmacenWS",

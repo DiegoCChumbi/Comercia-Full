@@ -3,7 +3,7 @@ package pe.edu.pucp.eventmastersoft.services;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
-import pe.edu.pucp.comerzia.GestionDeRecursosHumanos.bo.EmpleadoBO;
+import pe.edu.pucp.comerzia.modules.recursos_humanos.bo.EmpleadoBO;
 
 @WebService(
   serviceName = "RecursosHumanosWS",

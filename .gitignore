@@ -142,3 +142,4 @@
 **/.prettierignore
 **/.eslintrc*
 **/.eslintignore
+/backend/core/test/build
