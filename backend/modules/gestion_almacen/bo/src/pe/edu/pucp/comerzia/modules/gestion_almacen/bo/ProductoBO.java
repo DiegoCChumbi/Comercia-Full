@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.dao.ProductoDAO;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.dao.mapper.ProductoMapper;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.model.Producto;
 
 public class ProductoBO {
@@ -56,7 +57,7 @@ public class ProductoBO {
   public ArrayList<Producto> buscarProductos(String nombre)
     throws SQLException {
     return new ArrayList<>(
-      productoDAO.query().where(ProductoDAO.nombre.eq(nombre)).list()
+      productoDAO.query().where(ProductoMapper.Columns.nombre.eq(nombre)).list()
     );
   }
 }

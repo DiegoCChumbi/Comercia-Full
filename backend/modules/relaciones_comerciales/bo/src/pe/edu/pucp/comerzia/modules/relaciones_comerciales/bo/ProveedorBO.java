@@ -84,4 +84,10 @@ public class ProveedorBO {
   public ArrayList<Proveedor> listarTodos() throws SQLException {
     return new ArrayList<>(this.proveedorDAO.findAll());
   }
+
+    // return this.daoProveedor.listarParaIndex();
+  // query limit 3 list
+  public ArrayList<Proveedor> listarParaIndex() throws SQLException {
+    return new ArrayList<>(this.proveedorDAO.query().limit(3).list());
+  }
 }

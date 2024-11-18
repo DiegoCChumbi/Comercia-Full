@@ -850,6 +850,24 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.CoreDB}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
+        <ant antfile="${project.GestionComercialBO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.GestionComercialDAO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.GestionComercialModel}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.NotificacionBO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.NotificacionDAO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.NotificacionModel}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
         <ant antfile="${project.RecursosHumanosBO}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
@@ -857,6 +875,15 @@ exists or setup the property manually. For example like this:
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.RecursosHumanosModel}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.RelacionesComercialesBO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.RelacionesComercialesDAO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.RelacionesComercialesModel}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
     </target>
@@ -873,6 +900,24 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.CoreDB}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
+        <ant antfile="${project.GestionComercialBO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.GestionComercialDAO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.GestionComercialModel}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.NotificacionBO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.NotificacionDAO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.NotificacionModel}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
         <ant antfile="${project.RecursosHumanosBO}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
@@ -880,6 +925,15 @@ exists or setup the property manually. For example like this:
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.RecursosHumanosModel}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.RelacionesComercialesBO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.RelacionesComercialesDAO}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.RelacionesComercialesModel}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
     </target>
@@ -1035,6 +1089,15 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.GestionAlmacenDAO.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.GestionAlmacenModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.CoreDB.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.GestionComercialBO.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.GestionComercialDAO.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.GestionComercialModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.NotificacionBO.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.NotificacionDAO.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.NotificacionModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.RelacionesComercialesBO.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.RelacionesComercialesDAO.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.RelacionesComercialesModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
@@ -1048,6 +1111,15 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.GestionAlmacenDAO.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.GestionAlmacenModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.CoreDB.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.GestionComercialBO.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.GestionComercialDAO.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.GestionComercialModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.NotificacionBO.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.NotificacionDAO.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.NotificacionModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.RelacionesComercialesBO.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.RelacionesComercialesDAO.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.RelacionesComercialesModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
@@ -1466,9 +1538,18 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.GestionAlmacenDAO}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.GestionAlmacenModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.CoreDB}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.GestionComercialBO}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.GestionComercialDAO}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.GestionComercialModel}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.NotificacionBO}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.NotificacionDAO}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.NotificacionModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.RecursosHumanosBO}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.RecursosHumanosDAO}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.RecursosHumanosModel}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.RelacionesComercialesBO}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.RelacionesComercialesDAO}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.RelacionesComercialesModel}/build.xml" inheritall="false" target="clean"/>
     </target>
     <target depends="init" name="do-clean">
         <condition property="build.dir.to.clean" value="${build.web.dir}">

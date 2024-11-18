@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.dao.ProductoAlmacenadoDAO;
+import pe.edu.pucp.comerzia.modules.gestion_almacen.dao.mapper.ProductoAlmacenadoMapper;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.model.ProductoAlmacenado;
 
 public class ProductoAlmacenadoBO {
@@ -66,7 +67,7 @@ public class ProductoAlmacenadoBO {
     throws SQLException {
     return new ArrayList<>(
       this.productoAlmacenadoDAO.query()
-        .where(ProductoAlmacenadoDAO.idAlmacen.eq(idAlmacen))
+        .where(ProductoAlmacenadoMapper.Columns.idAlmacen.eq(idAlmacen))
         .list()
     );
   }

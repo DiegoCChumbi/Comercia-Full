@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.gestion_comercial.dao.LineaDocumentoDAO;
+import pe.edu.pucp.comerzia.modules.gestion_comercial.dao.mapper.LineaDocumentoMapper;
 import pe.edu.pucp.comerzia.modules.gestion_comercial.model.LineaDocumento;
 
 public class LineaDocumentoBO {
@@ -67,16 +68,24 @@ public class LineaDocumentoBO {
     double precioUnitario
   ) throws SQLException {
     return (
-      lineaDocumentoDAO
-        .query()
+      this.lineaDocumentoDAO.query()
         .whereAll(
-          LineaDocumentoDAO.idDocumento.eq(idDocumento),
-          LineaDocumentoDAO.idProducto.eq(idProducto),
-          LineaDocumentoDAO.cantidad.eq(cantidad),
-          LineaDocumentoDAO.precioUnitario.eq(precioUnitario)
+          LineaDocumentoMapper.Columns.idDocumento.eq(idDocumento),
+          LineaDocumentoMapper.Columns.idProducto.eq(idProducto),
+          LineaDocumentoMapper.Columns.cantidad.eq(cantidad),
+          LineaDocumentoMapper.Columns.precioUnitario.eq(precioUnitario)
         )
         .count() >
       0
+    );
+  }
+
+  public ArrayList<LineaDocumento> listarPorDocumento(Integer idDocumento)
+    throws SQLException {
+    return new ArrayList<>(
+      this.lineaDocumentoDAO.query()
+        .where(LineaDocumentoMapper.Columns.idDocumento.eq(idDocumento))
+        .list()
     );
   }
 }

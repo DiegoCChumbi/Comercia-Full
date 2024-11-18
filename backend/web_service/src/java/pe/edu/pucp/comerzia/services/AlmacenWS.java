@@ -19,20 +19,20 @@ import pe.edu.pucp.comerzia.modules.gestion_almacen.model.ProductoAlmacenado;
 )
 public class AlmacenWS {
 
-  private final AlmacenBO daoAlmacen;
-  private final ProductoAlmacenadoBO daoProductoAlmacenado;
-  private final ProductoBO daoProducto;
+  private final AlmacenBO boAlmacen;
+  private final ProductoAlmacenadoBO boProductoAlmacenado;
+  private final ProductoBO boProducto;
 
   public AlmacenWS() {
-    daoAlmacen = new AlmacenBO();
-    daoProductoAlmacenado = new ProductoAlmacenadoBO();
-    daoProducto = new ProductoBO();
+    boAlmacen = new AlmacenBO();
+    boProductoAlmacenado = new ProductoAlmacenadoBO();
+    boProducto = new ProductoBO();
   }
 
   @WebMethod(operationName = "listarAlmacenes")
   public ArrayList<Almacen> listarAlmacenes() {
     try {
-      return daoAlmacen.listarTodos();
+      return boAlmacen.listarTodos();
     } catch (Exception e) {
       e.printStackTrace();
       return new ArrayList<>();
@@ -42,7 +42,7 @@ public class AlmacenWS {
   @WebMethod(operationName = "obtenerPorId")
   public Almacen obtenerPorId(@WebParam(name = "id") String id) {
     try {
-      Optional<Almacen> almacen = daoAlmacen.obtenerPorId(Integer.valueOf(id));
+      Optional<Almacen> almacen = boAlmacen.obtenerPorId(Integer.valueOf(id));
       return almacen.orElse(null);
     } catch (Exception e) {
       e.printStackTrace();
@@ -56,7 +56,7 @@ public class AlmacenWS {
     @WebParam(name = "idAlmacen") String id
   ) {
     try {
-      return daoProductoAlmacenado.listarPorAlmacen(Integer.valueOf(id));
+      return boProductoAlmacenado.listarPorAlmacen(Integer.valueOf(id));
     } catch (Exception e) {
       e.printStackTrace();
       return new ArrayList<>();
@@ -68,7 +68,7 @@ public class AlmacenWS {
     @WebParam(name = "nombreProd") String nombre
   ) {
     try {
-      return daoProducto.buscarProductos(nombre);
+      return boProducto.buscarProductos(nombre);
     } catch (Exception e) {
       e.printStackTrace();
       return new ArrayList<>();
@@ -80,7 +80,7 @@ public class AlmacenWS {
     @WebParam(name = "idProd") Integer idProducto
   ) {
     try {
-      Optional<Producto> producto = daoProducto.obtenerPorId(idProducto);
+      Optional<Producto> producto = boProducto.obtenerPorId(idProducto);
       return producto.orElse(null);
     } catch (Exception e) {
       e.printStackTrace();
@@ -96,7 +96,7 @@ public class AlmacenWS {
     @WebParam(name = "idProd") Integer idProducto
   ) {
     try {
-      return daoProductoAlmacenado.insertar(
+      return boProductoAlmacenado.insertar(
         idAlmacen,
         fechaAlmacenado,
         stockActual,

@@ -69,13 +69,14 @@ public class EmpleadoBO {
 
   public Integer verificarEmpleado(String cuenta, String contrasenha)
     throws SQLException {
-    return empleadoDAO
+    Optional<Empleado> empleado = empleadoDAO
       .query()
       .whereAll(
         EmpleadoMapper.Columns.nombreUsuario.eq(cuenta),
         EmpleadoMapper.Columns.contrasenha.eq(contrasenha)
       )
-      .count();
+      .unique();
+    return empleado.get().getId(); // Throws NoSuchElementException if not found
   }
 
   public String devolverNombreEmpleado(Integer idEmpleado) throws SQLException {

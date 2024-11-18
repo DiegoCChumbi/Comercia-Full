@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.dao.RepresentanteDAO;
+import pe.edu.pucp.comerzia.modules.relaciones_comerciales.dao.mapper.RepresentanteMapper;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Representante;
 
 public class RepresentanteBO {
@@ -66,5 +67,23 @@ public class RepresentanteBO {
 
   public ArrayList<Representante> listarTodos() throws SQLException {
     return new ArrayList<>(this.representanteDAO.findAll());
+  }
+
+  public ArrayList<Representante> listarPorEmpresa(Integer id)
+    throws SQLException {
+    return new ArrayList<>(
+      this.representanteDAO.query()
+        .where(RepresentanteMapper.Columns.idEmpresa.eq(id))
+        .list()
+    );
+  }
+
+  public ArrayList<Representante> listarPorNombre(String nombre)
+    throws SQLException {
+    return new ArrayList<>(
+      this.representanteDAO.query()
+        .where(RepresentanteMapper.Columns.nombre.eq(nombre))
+        .list()
+    );
   }
 }

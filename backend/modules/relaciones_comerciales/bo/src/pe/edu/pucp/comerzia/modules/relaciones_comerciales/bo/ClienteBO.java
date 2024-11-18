@@ -72,4 +72,8 @@ public class ClienteBO {
   public Optional<Cliente> obtenerPorId(Integer id) throws SQLException {
     return this.clienteDAO.findById(id);
   }
+
+  public ArrayList<Cliente> listarParaIndex() throws SQLException {
+    return new ArrayList<>(this.clienteDAO.query().limit(3).list());
+  }
 }
