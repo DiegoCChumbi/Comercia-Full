@@ -86,4 +86,12 @@ public class EmpleadoBO {
       .unique();
     return empleado.get().getNombreUsuario();
   }
+
+  public ArrayList<Empleado> listarParaIndex() throws SQLException {
+    return new ArrayList<>(empleadoDAO.query().limit(3).list());
+  }
+
+  public String devolverRol(Integer idEmpleado) throws SQLException {
+    throw new UnsupportedOperationException("Not supported yet.");
+  }
 }

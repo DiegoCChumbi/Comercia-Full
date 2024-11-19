@@ -26,7 +26,7 @@ public class EmpresaMapper<T extends Empresa> implements EntityMapper<T> {
       String.class
     );
     public static final Column<String> email = new Column<>(
-      "correo",
+      "email",
       String.class
     );
     public static final Column<String> tipoIndustria = new Column<>(
@@ -48,8 +48,8 @@ public class EmpresaMapper<T extends Empresa> implements EntityMapper<T> {
     empresa.setNombre(rs.getString("nombre"));
     empresa.setDireccion(rs.getString("direccion"));
     empresa.setTelefono(rs.getString("telefono"));
-    empresa.setEmail(rs.getString("correo"));
-    empresa.setTipoIndustria(rs.getString("tipoIndustria"));
+    empresa.setEmail(rs.getString("email"));
+    empresa.setTipoIndustria(rs.getString("tipo_industria"));
 
     return empresa;
   }

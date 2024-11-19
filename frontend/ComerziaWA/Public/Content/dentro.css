@@ -1,0 +1,168 @@
+﻿/* Contenedor general */
+.form-wrapper {
+   
+}
+
+/* Estilos generales para los contenedores */
+.green-container, .blue-container {
+    width: 100%; /* Cada contenedor ocupa el ancho completo */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
+}
+
+.green-container {
+    border: 2px solid green;
+    background-color: #f0fff0;
+    max-height: 600px; /* Limita la altura */
+    margin-top: -8px; /* Ajusta este valor para mover el contenedor más arriba */
+}
+
+.blue-container {
+    border: 2px solid blue;
+    background-color: #f0f8ff;
+    position: relative;
+    top: -15px; /* Ajusta este valor para mover el contenedor más arriba */
+}
+
+
+/* Configuración de columnas */
+.form-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-column {
+    width: 48%; /* Divide el espacio entre las dos columnas */
+}
+
+    /* Estilos para etiquetas y campos de entrada */
+    .form-container label, .form-column label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-control, .form-column .form-control {
+        width: 100%;
+        max-width: 400px; /* Ancho máximo de 400px */
+        padding: 8px;
+        font-size: 14px;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+/* Estilos para el botón de guardar */
+.btnGuardar {
+    margin: 0px auto 0; /* Ajustado para estar más arriba */
+    display: block; /* Permite centrar con margin auto */
+    /*width: 300px;*/ /* Reduce el ancho del botón */
+    padding: 8px; /* Reduce el padding para que el botón sea más compacto */
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnGuardar:hover {
+     background-color: #0056b3;
+ }
+
+/* Estilo para el GridView */
+.gvVendedores {
+    width: 100%; /* Ajusta el ancho de la tabla */
+    border-collapse: collapse; /* Elimina espacios entre bordes */
+}
+
+    .gvVendedores th, .gvVendedores td {
+        border: 1px solid #dddddd; /* Bordes para las celdas */
+        text-align: left; /* Alineación del texto */
+        padding: 8px; /* Espaciado interno */
+    }
+
+    .gvVendedores th {
+        background-color: #f2f2f2; /* Color de fondo para encabezados */
+        color: #333; /* Color del texto en encabezados */
+    }
+
+    .gvVendedores tr:nth-child(even) {
+        background-color: #f9f9f9; /* Color de fondo para filas pares */
+    }
+
+    .gvVendedores tr:hover {
+        background-color: #ddd; /* Color de fondo al pasar el mouse */
+    }
+
+/* estilos.css */
+
+/* Contenedor principal de la sección de Gestión de Empleados */
+.gestion-empleados-body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+/* Contenedor principal */
+.gestion-empleados-contenedor {
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+/* Título */
+.gestion-empleados-contenedor h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+/* Contenedor de botones */
+.gestion-empleados-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center; /* Centers the buttons horizontally */
+}
+
+/* Estilos de los botones */
+.gestion-empleados-btn {
+    display: block; /* Ensures the <a> elements act as block-level buttons */
+    width: 100%; /* Makes buttons take full width of the container */
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4CAF50;
+    text-align: center; /* Centers the text within the buttons */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Removes underline from links */
+}
+
+.gestion-empleados-btn:hover {
+     background-color: #45a049;
+ }
+
+.gestion-empleados-titulo {
+    margin-bottom: 20px; /* Espacio debajo del título */
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}

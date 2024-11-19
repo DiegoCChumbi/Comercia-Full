@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.comerzia.pucp.edu.pe" targetNamespace="http://services.comerzia.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarRepresentante" type="tns:eliminarRepresentante" />
+  <xs:element name="eliminarRepresentanteResponse" type="tns:eliminarRepresentanteResponse" />
+  <xs:element name="listarClientes" type="tns:listarClientes" />
+  <xs:element name="listarClientesParaIndex" type="tns:listarClientesParaIndex" />
+  <xs:element name="listarClientesParaIndexResponse" type="tns:listarClientesParaIndexResponse" />
+  <xs:element name="listarClientesResponse" type="tns:listarClientesResponse" />
+  <xs:element name="listarDocumentosPorEmpresa" type="tns:listarDocumentosPorEmpresa" />
+  <xs:element name="listarDocumentosPorEmpresaResponse" type="tns:listarDocumentosPorEmpresaResponse" />
+  <xs:element name="listarProveedores" type="tns:listarProveedores" />
+  <xs:element name="listarProveedoresParaIndex" type="tns:listarProveedoresParaIndex" />
+  <xs:element name="listarProveedoresParaIndexResponse" type="tns:listarProveedoresParaIndexResponse" />
+  <xs:element name="listarProveedoresResponse" type="tns:listarProveedoresResponse" />
+  <xs:element name="listarRepresentantesPorEmpresa" type="tns:listarRepresentantesPorEmpresa" />
+  <xs:element name="listarRepresentantesPorEmpresaResponse" type="tns:listarRepresentantesPorEmpresaResponse" />
+  <xs:element name="listarRepresentantesPorNombre" type="tns:listarRepresentantesPorNombre" />
+  <xs:element name="listarRepresentantesPorNombreResponse" type="tns:listarRepresentantesPorNombreResponse" />
+  <xs:element name="modificarCliente" type="tns:modificarCliente" />
+  <xs:element name="modificarClienteResponse" type="tns:modificarClienteResponse" />
+  <xs:element name="modificarProveedor" type="tns:modificarProveedor" />
+  <xs:element name="modificarProveedorResponse" type="tns:modificarProveedorResponse" />
+  <xs:element name="modificarRepresentante" type="tns:modificarRepresentante" />
+  <xs:element name="modificarRepresentanteResponse" type="tns:modificarRepresentanteResponse" />
+  <xs:element name="obtenerPorIdCliente" type="tns:obtenerPorIdCliente" />
+  <xs:element name="obtenerPorIdClienteResponse" type="tns:obtenerPorIdClienteResponse" />
+  <xs:element name="obtenerPorIdProveedor" type="tns:obtenerPorIdProveedor" />
+  <xs:element name="obtenerPorIdProveedorResponse" type="tns:obtenerPorIdProveedorResponse" />
+  <xs:element name="obtenerPorIdRepresentante" type="tns:obtenerPorIdRepresentante" />
+  <xs:element name="obtenerPorIdRepresentanteResponse" type="tns:obtenerPorIdRepresentanteResponse" />
+  <xs:complexType name="listarProveedoresParaIndex">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarProveedoresParaIndexResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="proveedor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:empresa">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="calificacion" type="xs:double" />
+          <xs:element minOccurs="0" name="fecha_afiliacion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="pais" type="xs:string" />
+          <xs:element minOccurs="0" name="RUC" type="xs:string" />
+          <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="empresa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoIndustria" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarDocumentosPorEmpresa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarDocumentosPorEmpresaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:documento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="tns:estadoDocumentoEnum" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idAdministrador" type="xs:int" />
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="idTrabajadorDeAlmacen" type="xs:int" />
+      <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
+      <xs:element minOccurs="0" name="tipo" type="tns:tipoDocumentoEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdProveedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdProveedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:proveedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarClientes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarClientesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cliente">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:empresa">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fechaRegistro" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaUltimaCompra" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="modificarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoIndustria" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaUltimaCompra" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarRepresentantesPorNombre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarRepresentantesPorNombreResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:representante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="representante">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="persona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="eliminado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarProveedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoIndustria" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaAfiliacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RUC" type="xs:string" />
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+      <xs:element minOccurs="0" name="calificacion" type="xs:double" />
+      <xs:element minOccurs="0" name="pais" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarProveedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProveedores">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarProveedoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdRepresentante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdRepresentanteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:representante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarRepresentante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarRepresentanteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarRepresentantesPorEmpresa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarRepresentantesPorEmpresaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:representante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarRepresentante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPersona" type="xs:int" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarRepresentanteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarClientesParaIndex">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarClientesParaIndexResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="estadoDocumentoEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SOLICITUD" />
+      <xs:enumeration value="COTIZACION" />
+      <xs:enumeration value="PAGADO" />
+      <xs:enumeration value="ANULADO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoDocumentoEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMPRA" />
+      <xs:enumeration value="VENTA" />
+      <xs:enumeration value="FACTURA" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

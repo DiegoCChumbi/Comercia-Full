@@ -9,7 +9,7 @@ import pe.edu.pucp.comerzia.modules.notificacion.model.Notificacion;
 
 @WebService(
   serviceName = "NotificacionesWS",
-  targetNamespace = "http://services.comerziasoft.pucp.edu.pe"
+  targetNamespace = "http://services.comerzia.pucp.edu.pe"
 )
 public class NotificacionesWS {
 

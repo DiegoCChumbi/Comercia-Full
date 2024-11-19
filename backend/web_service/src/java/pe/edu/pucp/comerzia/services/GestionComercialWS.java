@@ -14,7 +14,7 @@ import pe.edu.pucp.comerzia.modules.gestion_comercial.model.TipoDocumentoEnum;
 
 @WebService(
   serviceName = "GestionComercialWS",
-  targetNamespace = "http://services.comerziasoft.pucp.edu.pe"
+  targetNamespace = "http://services.comerzia.pucp.edu.pe"
 )
 public class GestionComercialWS {
 

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.comerzia.pucp.edu.pe" targetNamespace="http://services.comerzia.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="devolverNombreEmpleado" type="tns:devolverNombreEmpleado" />
+  <xs:element name="devolverNombreEmpleadoResponse" type="tns:devolverNombreEmpleadoResponse" />
+  <xs:element name="devolverRol" type="tns:devolverRol" />
+  <xs:element name="devolverRolResponse" type="tns:devolverRolResponse" />
+  <xs:element name="eliminar_administrador" type="tns:eliminar_administrador" />
+  <xs:element name="eliminar_administradorResponse" type="tns:eliminar_administradorResponse" />
+  <xs:element name="eliminar_trabajadorDeAlmacen" type="tns:eliminar_trabajadorDeAlmacen" />
+  <xs:element name="eliminar_trabajadorDeAlmacenResponse" type="tns:eliminar_trabajadorDeAlmacenResponse" />
+  <xs:element name="eliminar_vendedor" type="tns:eliminar_vendedor" />
+  <xs:element name="eliminar_vendedorResponse" type="tns:eliminar_vendedorResponse" />
+  <xs:element name="insertar_administrador" type="tns:insertar_administrador" />
+  <xs:element name="insertar_administradorResponse" type="tns:insertar_administradorResponse" />
+  <xs:element name="insertar_trabajadorDeAlmacen" type="tns:insertar_trabajadorDeAlmacen" />
+  <xs:element name="insertar_trabajadorDeAlmacenResponse" type="tns:insertar_trabajadorDeAlmacenResponse" />
+  <xs:element name="insertar_vendedor" type="tns:insertar_vendedor" />
+  <xs:element name="insertar_vendedorResponse" type="tns:insertar_vendedorResponse" />
+  <xs:element name="listarParaIndex_administrador" type="tns:listarParaIndex_administrador" />
+  <xs:element name="listarParaIndex_administradorResponse" type="tns:listarParaIndex_administradorResponse" />
+  <xs:element name="listarParaIndex_trabajadorDeAlmacen" type="tns:listarParaIndex_trabajadorDeAlmacen" />
+  <xs:element name="listarParaIndex_trabajadorDeAlmacenResponse" type="tns:listarParaIndex_trabajadorDeAlmacenResponse" />
+  <xs:element name="listarParaIndex_vendedor" type="tns:listarParaIndex_vendedor" />
+  <xs:element name="listarParaIndex_vendedorResponse" type="tns:listarParaIndex_vendedorResponse" />
+  <xs:element name="listarTodos_administrador" type="tns:listarTodos_administrador" />
+  <xs:element name="listarTodos_administradorResponse" type="tns:listarTodos_administradorResponse" />
+  <xs:element name="listarTodos_empleado" type="tns:listarTodos_empleado" />
+  <xs:element name="listarTodos_empleadoResponse" type="tns:listarTodos_empleadoResponse" />
+  <xs:element name="listarTodos_trabajadorDeAlmacen" type="tns:listarTodos_trabajadorDeAlmacen" />
+  <xs:element name="listarTodos_trabajadorDeAlmacenResponse" type="tns:listarTodos_trabajadorDeAlmacenResponse" />
+  <xs:element name="listarTodos_vendedor" type="tns:listarTodos_vendedor" />
+  <xs:element name="listarTodos_vendedorResponse" type="tns:listarTodos_vendedorResponse" />
+  <xs:element name="modificar_administrador" type="tns:modificar_administrador" />
+  <xs:element name="modificar_administradorResponse" type="tns:modificar_administradorResponse" />
+  <xs:element name="modificar_trabajadorDeAlmacen" type="tns:modificar_trabajadorDeAlmacen" />
+  <xs:element name="modificar_trabajadorDeAlmacenResponse" type="tns:modificar_trabajadorDeAlmacenResponse" />
+  <xs:element name="modificar_vendedor" type="tns:modificar_vendedor" />
+  <xs:element name="modificar_vendedorResponse" type="tns:modificar_vendedorResponse" />
+  <xs:element name="obtenerPorId_Empleado" type="tns:obtenerPorId_Empleado" />
+  <xs:element name="obtenerPorId_EmpleadoResponse" type="tns:obtenerPorId_EmpleadoResponse" />
+  <xs:element name="obtenerPorId_administrador" type="tns:obtenerPorId_administrador" />
+  <xs:element name="obtenerPorId_administradorResponse" type="tns:obtenerPorId_administradorResponse" />
+  <xs:element name="obtenerPorId_trabajadorDeAlmacen" type="tns:obtenerPorId_trabajadorDeAlmacen" />
+  <xs:element name="obtenerPorId_trabajadorDeAlmacenResponse" type="tns:obtenerPorId_trabajadorDeAlmacenResponse" />
+  <xs:element name="obtenerPorId_vendedor" type="tns:obtenerPorId_vendedor" />
+  <xs:element name="obtenerPorId_vendedorResponse" type="tns:obtenerPorId_vendedorResponse" />
+  <xs:element name="verEmpleado" type="tns:verEmpleado" />
+  <xs:element name="verEmpleadoResponse" type="tns:verEmpleadoResponse" />
+  <xs:complexType name="insertar_vendedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoEmpleadoEnum" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+      <xs:element minOccurs="0" name="salario" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ingresosVentas" type="xs:double" />
+      <xs:element minOccurs="0" name="porcentajeComision" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_vendedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_vendedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
+      <xs:element minOccurs="0" name="idPersona" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_vendedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodos_administrador">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodos_administradorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:administrador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="administrador">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:empleado">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="empleado">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+          <xs:element minOccurs="0" name="estado" type="tns:estadoEmpleadoEnum" />
+          <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+          <xs:element minOccurs="0" name="salario" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="persona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="eliminado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_Empleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_EmpleadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:persona" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_trabajadorDeAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoEmpleadoEnum" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+      <xs:element minOccurs="0" name="salario" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+      <xs:element minOccurs="0" name="licenciaMontacarga" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_trabajadorDeAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_administrador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoEmpleadoEnum" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+      <xs:element minOccurs="0" name="salario" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_administradorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_trabajadorDeAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPersona" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_trabajadorDeAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_vendedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_vendedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:vendedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vendedor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:empleado">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ingresosVentas" type="xs:double" />
+          <xs:element minOccurs="0" name="porcentajeComision" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="listarParaIndex_trabajadorDeAlmacen">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarParaIndex_trabajadorDeAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajadorDeAlmacen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trabajadorDeAlmacen">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:empleado">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+          <xs:element name="licenciaMontacarga" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="verEmpleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuenta" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verEmpleadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodos_vendedor">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodos_vendedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:vendedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_trabajadorDeAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPersona" type="xs:int" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoEmpleadoEnum" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+      <xs:element minOccurs="0" name="salario" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+      <xs:element minOccurs="0" name="licenciaMontacarga" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_trabajadorDeAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodos_empleado">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodos_empleadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodos_trabajadorDeAlmacen">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodos_trabajadorDeAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajadorDeAlmacen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_administrador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPersona" type="xs:int" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoEmpleadoEnum" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+      <xs:element minOccurs="0" name="salario" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idAlmacen" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_administradorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarParaIndex_administrador">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarParaIndex_administradorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:administrador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarParaIndex_vendedor">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarParaIndex_vendedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:vendedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="devolverRol">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idEmpleado" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="devolverRolResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_vendedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPersona" type="xs:int" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoEmpleadoEnum" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
+      <xs:element minOccurs="0" name="salario" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ingresosVentas" type="xs:double" />
+      <xs:element minOccurs="0" name="porcentajeComision" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_vendedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_administrador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPersona" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_administradorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="devolverNombreEmpleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idEmpleado" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="devolverNombreEmpleadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_administrador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_administradorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:administrador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_trabajadorDeAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorId_trabajadorDeAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:trabajadorDeAlmacen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="estadoEmpleadoEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVO" />
+      <xs:enumeration value="INACTIVO" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

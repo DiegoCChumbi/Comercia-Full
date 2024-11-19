@@ -98,4 +98,8 @@ public class TrabajadorDeAlmacenBO {
     throws SQLException {
     return trabajadorDeAlmacenDAO.findById(id);
   }
+
+  public ArrayList<TrabajadorDeAlmacen> listarParaIndex() throws SQLException {
+    return new ArrayList<>(trabajadorDeAlmacenDAO.query().limit(3).list());
+  }
 }

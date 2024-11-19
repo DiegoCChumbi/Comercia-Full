@@ -3,4 +3,10 @@
 ref="http://localhost:8080/WebService/RecursosHumanosWS?WSDL"/>
 <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/"
 ref="http://localhost:8080/WebService/AlmacenWS?WSDL"/>
+<contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/"
+ref="http://localhost:8080/WebService/RelacionesComercialesWS?WSDL"/>
+<contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/"
+ref="http://localhost:8080/WebService/GestionComercialWS?WSDL"/>
+<contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/"
+ref="http://localhost:8080/WebService/NotificacionesWS?WSDL"/>
 </discovery>

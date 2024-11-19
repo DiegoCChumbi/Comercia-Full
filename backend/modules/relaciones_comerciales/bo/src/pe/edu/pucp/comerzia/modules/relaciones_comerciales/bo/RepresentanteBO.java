@@ -82,7 +82,7 @@ public class RepresentanteBO {
     throws SQLException {
     return new ArrayList<>(
       this.representanteDAO.query()
-        .where(RepresentanteMapper.Columns.nombre.eq(nombre))
+        .where(RepresentanteMapper.Columns.nombre.like("%" + nombre + "%"))
         .list()
     );
   }

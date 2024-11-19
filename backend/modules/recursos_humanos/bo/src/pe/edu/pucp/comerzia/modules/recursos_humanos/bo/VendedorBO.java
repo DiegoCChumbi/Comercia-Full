@@ -91,10 +91,20 @@ public class VendedorBO {
   }
 
   public ArrayList<Vendedor> listarTodos() throws SQLException {
-    return new ArrayList<>(vendedorDAO.findAll());
+    // return new ArrayList<>(vendedorDAO.findAll());
+    // for debugging purposes
+    ArrayList<Vendedor> vendedores = new ArrayList<>(vendedorDAO.findAll());
+    for (Vendedor vendedor : vendedores) {
+      System.out.println(vendedor);
+    }
+    return vendedores;
   }
 
   public Optional<Vendedor> obtenerPorId(Integer id) throws SQLException {
     return vendedorDAO.findById(id);
+  }
+
+  public ArrayList<Vendedor> listarParaIndex() throws SQLException {
+    return new ArrayList<>(vendedorDAO.query().limit(3).list());
   }
 }

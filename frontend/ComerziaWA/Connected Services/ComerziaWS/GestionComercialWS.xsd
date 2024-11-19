@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.comerzia.pucp.edu.pe" targetNamespace="http://services.comerzia.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminar_documento" type="tns:eliminar_documento" />
+  <xs:element name="eliminar_documentoResponse" type="tns:eliminar_documentoResponse" />
+  <xs:element name="eliminar_lineaDocumento" type="tns:eliminar_lineaDocumento" />
+  <xs:element name="eliminar_lineaDocumentoResponse" type="tns:eliminar_lineaDocumentoResponse" />
+  <xs:element name="existeDocumento" type="tns:existeDocumento" />
+  <xs:element name="existeDocumentoResponse" type="tns:existeDocumentoResponse" />
+  <xs:element name="insertar_documento" type="tns:insertar_documento" />
+  <xs:element name="insertar_documentoResponse" type="tns:insertar_documentoResponse" />
+  <xs:element name="insertar_lineaDocumento" type="tns:insertar_lineaDocumento" />
+  <xs:element name="insertar_lineaDocumentoResponse" type="tns:insertar_lineaDocumentoResponse" />
+  <xs:element name="listarDocumentos" type="tns:listarDocumentos" />
+  <xs:element name="listarDocumentosResponse" type="tns:listarDocumentosResponse" />
+  <xs:element name="listarLineasPorDocumento" type="tns:listarLineasPorDocumento" />
+  <xs:element name="listarLineasPorDocumentoResponse" type="tns:listarLineasPorDocumentoResponse" />
+  <xs:element name="listarPorEmpresa" type="tns:listarPorEmpresa" />
+  <xs:element name="listarPorEmpresaResponse" type="tns:listarPorEmpresaResponse" />
+  <xs:element name="modificar_documento" type="tns:modificar_documento" />
+  <xs:element name="modificar_documentoResponse" type="tns:modificar_documentoResponse" />
+  <xs:element name="modificar_lineaDocumento" type="tns:modificar_lineaDocumento" />
+  <xs:element name="modificar_lineaDocumentoResponse" type="tns:modificar_lineaDocumentoResponse" />
+  <xs:element name="obtenerDocumentoPorId" type="tns:obtenerDocumentoPorId" />
+  <xs:element name="obtenerDocumentoPorIdResponse" type="tns:obtenerDocumentoPorIdResponse" />
+  <xs:element name="obtenerLineaDocumentoPorId" type="tns:obtenerLineaDocumentoPorId" />
+  <xs:element name="obtenerLineaDocumentoPorIdResponse" type="tns:obtenerLineaDocumentoPorIdResponse" />
+  <xs:complexType name="modificar_lineaDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idLinea" type="xs:int" />
+      <xs:element minOccurs="0" name="idDocumento" type="xs:int" />
+      <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="precioUnitario" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_lineaDocumentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_lineaDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idLineaDocumento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_lineaDocumentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerLineaDocumentoPorId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idLineaDocumento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerLineaDocumentoPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:lineaDocumento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lineaDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idDocumento" type="xs:int" />
+      <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="precioUnitario" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorEmpresa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorEmpresaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:documento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="tns:estadoDocumentoEnum" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idAdministrador" type="xs:int" />
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="idTrabajadorDeAlmacen" type="xs:int" />
+      <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
+      <xs:element minOccurs="0" name="tipo" type="tns:tipoDocumentoEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLineasPorDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idDocumento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLineasPorDocumentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaDocumento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarDocumentos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarDocumentosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:documento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_documento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idDocumento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminar_documentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_lineaDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idDocumento" type="xs:int" />
+      <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="precioUnitario" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_lineaDocumentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existeDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoDocumentoEnum" />
+      <xs:element minOccurs="0" name="tipo" type="tns:tipoDocumentoEnum" />
+      <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
+      <xs:element minOccurs="0" name="idAdministrador" type="xs:int" />
+      <xs:element minOccurs="0" name="idTrabajadorDeAlmacen" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existeDocumentoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerDocumentoPorId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerDocumentoPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:documento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_documento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idDocumento" type="xs:int" />
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoDocumentoEnum" />
+      <xs:element minOccurs="0" name="tipo" type="tns:tipoDocumentoEnum" />
+      <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
+      <xs:element minOccurs="0" name="idAdministrador" type="xs:int" />
+      <xs:element minOccurs="0" name="idTrabajadorDeAlmacen" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificar_documentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_documento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="tns:estadoDocumentoEnum" />
+      <xs:element minOccurs="0" name="tipo" type="tns:tipoDocumentoEnum" />
+      <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
+      <xs:element minOccurs="0" name="idAdministrador" type="xs:int" />
+      <xs:element minOccurs="0" name="idTrabajadorDeAlmacen" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertar_documentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="estadoDocumentoEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SOLICITUD" />
+      <xs:enumeration value="COTIZACION" />
+      <xs:enumeration value="PAGADO" />
+      <xs:enumeration value="ANULADO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoDocumentoEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMPRA" />
+      <xs:enumeration value="VENTA" />
+      <xs:enumeration value="FACTURA" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

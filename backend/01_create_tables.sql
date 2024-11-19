@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS producto;
 DROP TABLE IF EXISTS almacen;
 
 -- Almacen table remains the same
-CREATE TABLE almacen (
+CREATE TABLE IF NOT EXISTS almacen (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     estado VARCHAR(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE almacen (
 );
 
 -- Merged Empresa table using Single Table Inheritance
-CREATE TABLE empresa (
+CREATE TABLE IF NOT EXISTS empresa (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     direccion VARCHAR(255) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE empresa (
 );
 
 -- Merged Persona table using Single Table Inheritance
-CREATE TABLE persona (
+CREATE TABLE IF NOT EXISTS persona (
     id INT AUTO_INCREMENT PRIMARY KEY,
     dni VARCHAR(20) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE persona (
 );
 
 -- Visita table updated to reference Persona and Empresa tables directly
-CREATE TABLE visita (
+CREATE TABLE IF NOT EXISTS visita (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_vendedor INT,  -- Now references persona(id)
     fecha DATE NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE visita (
 );
 
 -- Producto table remains the same
-CREATE TABLE producto (
+CREATE TABLE IF NOT EXISTS producto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     precio DOUBLE NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE producto (
 );
 
 -- ProductoAlmacenado table remains the same
-CREATE TABLE producto_almacenado (
+CREATE TABLE IF NOT EXISTS producto_almacenado (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_producto INT,
     id_almacen INT,
@@ -133,7 +133,7 @@ CREATE TABLE producto_almacenado (
 );
 
 -- Documento table updated to reference Persona table directly
-CREATE TABLE documento (
+CREATE TABLE IF NOT EXISTS documento (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_empresa INT,
     estado ENUM('SOLICITUD', 'COTIZACION', 'ANULADO', 'PAGADO') NOT NULL,
@@ -150,7 +150,7 @@ CREATE TABLE documento (
 );
 
 -- LineaDocumento table remains the same
-CREATE TABLE linea_documento (
+CREATE TABLE IF NOT EXISTS linea_documento (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_documento INT,
     id_producto INT,
@@ -160,4 +160,13 @@ CREATE TABLE linea_documento (
     FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
 
     eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+);
+
+CREATE TABLE IF NOT EXISTS notificacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_producto INT,
+    id_almacen INT,
+    mensaje VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE CASCADE
 );

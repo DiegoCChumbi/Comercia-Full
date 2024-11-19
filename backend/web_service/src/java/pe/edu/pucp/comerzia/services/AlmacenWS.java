@@ -15,7 +15,7 @@ import pe.edu.pucp.comerzia.modules.gestion_almacen.model.ProductoAlmacenado;
 
 @WebService(
   serviceName = "AlmacenWS",
-  targetNamespace = "http://services.comerziasoft.pucp.edu.pe"
+  targetNamespace = "http://services.comerzia.pucp.edu.pe"
 )
 public class AlmacenWS {
 
@@ -29,10 +29,117 @@ public class AlmacenWS {
     boProducto = new ProductoBO();
   }
 
+  @WebMethod(operationName = "insertar_almacen")
+  public Integer insertar_almacen(
+    @WebParam(name = "nombre") String nombre,
+    @WebParam(name = "estado") String estado,
+    @WebParam(name = "descripcion") String descripcion
+  ) {
+    try {
+      return boAlmacen.insertar(nombre, estado, descripcion);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+  }
+
+  @WebMethod(operationName = "modificar_almacen")
+  public Integer modificar_almacen(
+    @WebParam(name = "idAlmacen") Integer idAlmacen,
+    @WebParam(name = "nombre") String nombre,
+    @WebParam(name = "estado") String estado,
+    @WebParam(name = "descripcion") String descripcion
+  ) {
+    try {
+      return boAlmacen.modificar(idAlmacen, nombre, estado, descripcion);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+  }
+
+  @WebMethod(operationName = "eliminar_almacen")
+  public Integer eliminar_almacen(
+    @WebParam(name = "idAlmacen") Integer idAlmacen
+  ) {
+    try {
+      return boAlmacen.eliminar(idAlmacen);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+  }
+
+  @WebMethod(operationName = "insertar_producto")
+  public Integer insertar_producto(
+    @WebParam(name = "nombreProducto") String nombreProducto,
+    @WebParam(name = "precio") Double precio,
+    @WebParam(name = "stockMinimo") Integer stockMinimo
+  ) {
+    try {
+      return boProducto.insertar(nombreProducto, precio, stockMinimo);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+  }
+
+  @WebMethod(operationName = "modificar_producto")
+  public Integer modificar_producto(
+    @WebParam(name = "idProducto") Integer idProducto,
+    @WebParam(name = "nombreProducto") String nombreProducto,
+    @WebParam(name = "precio") Double precio,
+    @WebParam(name = "stockMinimo") Integer stockMinimo
+  ) {
+    try {
+      return boProducto.modificar(
+        idProducto,
+        nombreProducto,
+        precio,
+        stockMinimo
+      );
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+  }
+
+  @WebMethod(operationName = "eliminar_producto")
+  public Integer eliminar_producto(
+    @WebParam(name = "idProducto") Integer idProducto
+  ) {
+    try {
+      return boProducto.eliminar(idProducto);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+  }
+
   @WebMethod(operationName = "listarAlmacenes")
   public ArrayList<Almacen> listarAlmacenes() {
     try {
       return boAlmacen.listarTodos();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  @WebMethod(operationName = "listarAlmacenesParaIndex")
+  public ArrayList<Almacen> listarAlmacenesParaIndex() {
+    try {
+      return boAlmacen.listarParaIndex();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  @WebMethod(operationName = "listarProductoParaIndex")
+  public ArrayList<Producto> listarProductoParaIndex() {
+    try {
+      return boProducto.listarParaIndex();
     } catch (Exception e) {
       e.printStackTrace();
       return new ArrayList<>();
@@ -50,7 +157,6 @@ public class AlmacenWS {
     }
   }
 
-  // Ahora los metodos de los productos almacenados.
   @WebMethod(operationName = "listarPorAlmacen")
   public ArrayList<ProductoAlmacenado> listarPorAlmacen(
     @WebParam(name = "idAlmacen") String id
@@ -64,11 +170,11 @@ public class AlmacenWS {
   }
 
   @WebMethod(operationName = "buscarPorNombre")
-  public ArrayList<Producto> buscarProductos(
+  public ArrayList<Producto> buscarProductosPorNombre(
     @WebParam(name = "nombreProd") String nombre
   ) {
     try {
-      return boProducto.buscarProductos(nombre);
+      return boProducto.buscarProductosPorNombre(nombre);
     } catch (Exception e) {
       e.printStackTrace();
       return new ArrayList<>();
@@ -102,6 +208,18 @@ public class AlmacenWS {
         stockActual,
         idProducto
       );
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+  }
+
+  @WebMethod(operationName = "eliminarProductoAlmacenado")
+  public Integer eliminarPorIdProductoAlmacenado(
+    @WebParam(name = "idProductoAlmacenado") Integer idProdAlm
+  ) {
+    try {
+      return boProductoAlmacenado.eliminar(idProdAlm);
     } catch (Exception e) {
       e.printStackTrace();
       return -1;

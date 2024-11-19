@@ -54,10 +54,17 @@ public class ProductoBO {
     return this.productoDAO.findById(id);
   }
 
-  public ArrayList<Producto> buscarProductos(String nombre)
+  public ArrayList<Producto> buscarProductosPorNombre(String nombre)
     throws SQLException {
     return new ArrayList<>(
-      productoDAO.query().where(ProductoMapper.Columns.nombre.eq(nombre)).list()
+      productoDAO
+        .query()
+        .where(ProductoMapper.Columns.nombre.like("%" + nombre + "%"))
+        .list()
     );
+  }
+
+  public ArrayList<Producto> listarParaIndex() throws SQLException {
+    return new ArrayList<>(productoDAO.query().limit(3).list());
   }
 }

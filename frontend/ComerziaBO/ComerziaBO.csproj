@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7CBD3B5-E3AC-4090-ACF2-F54756FDD81E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ComerziaBO</RootNamespace>
+    <AssemblyName>ComerziaBO</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseBO.cs" />
+    <Compile Include="Connected Services\ComerziaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\ComerziaWS\AlmacenWS.wsdl" />
+    <None Include="Connected Services\ComerziaWS\AlmacenWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.administrador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.almacen.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarProductoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.cliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.devolverNombreEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.devolverRolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.documento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminarProductoAlmacenadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminarRepresentanteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminar_administradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminar_almacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminar_documentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminar_lineaDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminar_productoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminar_trabajadorDeAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.eliminar_vendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.empleado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.existeDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertarProductoAlmacenadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertar_administradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertar_almacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertar_documentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertar_lineaDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertar_productoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertar_trabajadorDeAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertar_vendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.lineaDocumento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarAlmacenesParaIndexResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarAlmacenesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarClientesParaIndexResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarClientesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarDocumentosPorEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarDocumentosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarLineasPorDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarNotificacionesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarParaIndex_administradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarParaIndex_vendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarPorAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarPorEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarProductoParaIndexResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarProveedoresParaIndexResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarProveedoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarRepresentantesPorEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarRepresentantesPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarTodos_administradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarTodos_empleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.listarTodos_vendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificarRepresentanteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificar_administradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificar_almacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificar_documentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificar_lineaDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificar_productoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificar_trabajadorDeAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.modificar_vendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.notificacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerDocumentoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerLineaDocumentoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorIdClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorIdProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorIdRepresentanteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorId_administradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorId_EmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorId_trabajadorDeAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerPorId_vendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.persona.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.producto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.productoAlmacenado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.proveedor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.representante.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.trabajadorDeAlmacen.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.vendedor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.verEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\GestionComercialWS.wsdl" />
+    <None Include="Connected Services\ComerziaWS\GestionComercialWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ComerziaWS\NotificacionesWS.wsdl" />
+    <None Include="Connected Services\ComerziaWS\NotificacionesWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ComerziaWS\RecursosHumanosWS.wsdl" />
+    <None Include="Connected Services\ComerziaWS\RecursosHumanosWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ComerziaWS\RelacionesComercialesWS.wsdl" />
+    <None Include="Connected Services\ComerziaWS\RelacionesComercialesWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ComerziaWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ComerziaWS\archivo.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ComerziaWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ComerziaWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ComerziaWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

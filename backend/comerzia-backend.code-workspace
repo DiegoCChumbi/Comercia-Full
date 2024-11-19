@@ -6,5 +6,8 @@
   ],
   "settings": {
     "dotnet.preferCSharpExtension": true,
+    "files.associations": {
+      "*.xml": "html",
+    },
   },
 }

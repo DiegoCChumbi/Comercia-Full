@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.comerzia.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="RecursosHumanosWS" targetNamespace="http://services.comerzia.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/WebService/RecursosHumanosWS?xsd=1" namespace="http://services.comerzia.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="listarParaIndex_trabajadorDeAlmacen">
+    <part name="parameters" element="tns:listarParaIndex_trabajadorDeAlmacen" />
+  </message>
+  <message name="listarParaIndex_trabajadorDeAlmacenResponse">
+    <part name="parameters" element="tns:listarParaIndex_trabajadorDeAlmacenResponse" />
+  </message>
+  <message name="eliminar_trabajadorDeAlmacen">
+    <part name="parameters" element="tns:eliminar_trabajadorDeAlmacen" />
+  </message>
+  <message name="eliminar_trabajadorDeAlmacenResponse">
+    <part name="parameters" element="tns:eliminar_trabajadorDeAlmacenResponse" />
+  </message>
+  <message name="listarTodos_trabajadorDeAlmacen">
+    <part name="parameters" element="tns:listarTodos_trabajadorDeAlmacen" />
+  </message>
+  <message name="listarTodos_trabajadorDeAlmacenResponse">
+    <part name="parameters" element="tns:listarTodos_trabajadorDeAlmacenResponse" />
+  </message>
+  <message name="obtenerPorId_trabajadorDeAlmacen">
+    <part name="parameters" element="tns:obtenerPorId_trabajadorDeAlmacen" />
+  </message>
+  <message name="obtenerPorId_trabajadorDeAlmacenResponse">
+    <part name="parameters" element="tns:obtenerPorId_trabajadorDeAlmacenResponse" />
+  </message>
+  <message name="listarParaIndex_administrador">
+    <part name="parameters" element="tns:listarParaIndex_administrador" />
+  </message>
+  <message name="listarParaIndex_administradorResponse">
+    <part name="parameters" element="tns:listarParaIndex_administradorResponse" />
+  </message>
+  <message name="modificar_trabajadorDeAlmacen">
+    <part name="parameters" element="tns:modificar_trabajadorDeAlmacen" />
+  </message>
+  <message name="modificar_trabajadorDeAlmacenResponse">
+    <part name="parameters" element="tns:modificar_trabajadorDeAlmacenResponse" />
+  </message>
+  <message name="insertar_trabajadorDeAlmacen">
+    <part name="parameters" element="tns:insertar_trabajadorDeAlmacen" />
+  </message>
+  <message name="insertar_trabajadorDeAlmacenResponse">
+    <part name="parameters" element="tns:insertar_trabajadorDeAlmacenResponse" />
+  </message>
+  <message name="insertar_vendedor">
+    <part name="parameters" element="tns:insertar_vendedor" />
+  </message>
+  <message name="insertar_vendedorResponse">
+    <part name="parameters" element="tns:insertar_vendedorResponse" />
+  </message>
+  <message name="verEmpleado">
+    <part name="parameters" element="tns:verEmpleado" />
+  </message>
+  <message name="verEmpleadoResponse">
+    <part name="parameters" element="tns:verEmpleadoResponse" />
+  </message>
+  <message name="modificar_vendedor">
+    <part name="parameters" element="tns:modificar_vendedor" />
+  </message>
+  <message name="modificar_vendedorResponse">
+    <part name="parameters" element="tns:modificar_vendedorResponse" />
+  </message>
+  <message name="eliminar_vendedor">
+    <part name="parameters" element="tns:eliminar_vendedor" />
+  </message>
+  <message name="eliminar_vendedorResponse">
+    <part name="parameters" element="tns:eliminar_vendedorResponse" />
+  </message>
+  <message name="devolverRol">
+    <part name="parameters" element="tns:devolverRol" />
+  </message>
+  <message name="devolverRolResponse">
+    <part name="parameters" element="tns:devolverRolResponse" />
+  </message>
+  <message name="listarTodos_vendedor">
+    <part name="parameters" element="tns:listarTodos_vendedor" />
+  </message>
+  <message name="listarTodos_vendedorResponse">
+    <part name="parameters" element="tns:listarTodos_vendedorResponse" />
+  </message>
+  <message name="obtenerPorId_vendedor">
+    <part name="parameters" element="tns:obtenerPorId_vendedor" />
+  </message>
+  <message name="obtenerPorId_vendedorResponse">
+    <part name="parameters" element="tns:obtenerPorId_vendedorResponse" />
+  </message>
+  <message name="insertar_administrador">
+    <part name="parameters" element="tns:insertar_administrador" />
+  </message>
+  <message name="insertar_administradorResponse">
+    <part name="parameters" element="tns:insertar_administradorResponse" />
+  </message>
+  <message name="devolverNombreEmpleado">
+    <part name="parameters" element="tns:devolverNombreEmpleado" />
+  </message>
+  <message name="devolverNombreEmpleadoResponse">
+    <part name="parameters" element="tns:devolverNombreEmpleadoResponse" />
+  </message>
+  <message name="obtenerPorId_Empleado">
+    <part name="parameters" element="tns:obtenerPorId_Empleado" />
+  </message>
+  <message name="obtenerPorId_EmpleadoResponse">
+    <part name="parameters" element="tns:obtenerPorId_EmpleadoResponse" />
+  </message>
+  <message name="eliminar_administrador">
+    <part name="parameters" element="tns:eliminar_administrador" />
+  </message>
+  <message name="eliminar_administradorResponse">
+    <part name="parameters" element="tns:eliminar_administradorResponse" />
+  </message>
+  <message name="listarTodos_administrador">
+    <part name="parameters" element="tns:listarTodos_administrador" />
+  </message>
+  <message name="listarTodos_administradorResponse">
+    <part name="parameters" element="tns:listarTodos_administradorResponse" />
+  </message>
+  <message name="listarTodos_empleado">
+    <part name="parameters" element="tns:listarTodos_empleado" />
+  </message>
+  <message name="listarTodos_empleadoResponse">
+    <part name="parameters" element="tns:listarTodos_empleadoResponse" />
+  </message>
+  <message name="modificar_administrador">
+    <part name="parameters" element="tns:modificar_administrador" />
+  </message>
+  <message name="modificar_administradorResponse">
+    <part name="parameters" element="tns:modificar_administradorResponse" />
+  </message>
+  <message name="obtenerPorId_administrador">
+    <part name="parameters" element="tns:obtenerPorId_administrador" />
+  </message>
+  <message name="obtenerPorId_administradorResponse">
+    <part name="parameters" element="tns:obtenerPorId_administradorResponse" />
+  </message>
+  <message name="listarParaIndex_vendedor">
+    <part name="parameters" element="tns:listarParaIndex_vendedor" />
+  </message>
+  <message name="listarParaIndex_vendedorResponse">
+    <part name="parameters" element="tns:listarParaIndex_vendedorResponse" />
+  </message>
+  <portType name="RecursosHumanosWS">
+    <operation name="listarParaIndex_trabajadorDeAlmacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajadorDeAlmacenRequest" message="tns:listarParaIndex_trabajadorDeAlmacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajadorDeAlmacenResponse" message="tns:listarParaIndex_trabajadorDeAlmacenResponse" />
+    </operation>
+    <operation name="eliminar_trabajadorDeAlmacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_trabajadorDeAlmacenRequest" message="tns:eliminar_trabajadorDeAlmacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_trabajadorDeAlmacenResponse" message="tns:eliminar_trabajadorDeAlmacenResponse" />
+    </operation>
+    <operation name="listarTodos_trabajadorDeAlmacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_trabajadorDeAlmacenRequest" message="tns:listarTodos_trabajadorDeAlmacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_trabajadorDeAlmacenResponse" message="tns:listarTodos_trabajadorDeAlmacenResponse" />
+    </operation>
+    <operation name="obtenerPorId_trabajadorDeAlmacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeAlmacenRequest" message="tns:obtenerPorId_trabajadorDeAlmacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeAlmacenResponse" message="tns:obtenerPorId_trabajadorDeAlmacenResponse" />
+    </operation>
+    <operation name="listarParaIndex_administrador">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_administradorRequest" message="tns:listarParaIndex_administrador" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_administradorResponse" message="tns:listarParaIndex_administradorResponse" />
+    </operation>
+    <operation name="modificar_trabajadorDeAlmacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlmacenRequest" message="tns:modificar_trabajadorDeAlmacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlmacenResponse" message="tns:modificar_trabajadorDeAlmacenResponse" />
+    </operation>
+    <operation name="insertar_trabajadorDeAlmacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmacenRequest" message="tns:insertar_trabajadorDeAlmacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmacenResponse" message="tns:insertar_trabajadorDeAlmacenResponse" />
+    </operation>
+    <operation name="insertar_vendedor">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_vendedorRequest" message="tns:insertar_vendedor" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_vendedorResponse" message="tns:insertar_vendedorResponse" />
+    </operation>
+    <operation name="verEmpleado">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoRequest" message="tns:verEmpleado" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoResponse" message="tns:verEmpleadoResponse" />
+    </operation>
+    <operation name="modificar_vendedor">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_vendedorRequest" message="tns:modificar_vendedor" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_vendedorResponse" message="tns:modificar_vendedorResponse" />
+    </operation>
+    <operation name="eliminar_vendedor">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorRequest" message="tns:eliminar_vendedor" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorResponse" message="tns:eliminar_vendedorResponse" />
+    </operation>
+    <operation name="devolverRol">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverRolRequest" message="tns:devolverRol" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverRolResponse" message="tns:devolverRolResponse" />
+    </operation>
+    <operation name="listarTodos_vendedor">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorRequest" message="tns:listarTodos_vendedor" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorResponse" message="tns:listarTodos_vendedorResponse" />
+    </operation>
+    <operation name="obtenerPorId_vendedor">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorRequest" message="tns:obtenerPorId_vendedor" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorResponse" message="tns:obtenerPorId_vendedorResponse" />
+    </operation>
+    <operation name="insertar_administrador">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorRequest" message="tns:insertar_administrador" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorResponse" message="tns:insertar_administradorResponse" />
+    </operation>
+    <operation name="devolverNombreEmpleado">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverNombreEmpleadoRequest" message="tns:devolverNombreEmpleado" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverNombreEmpleadoResponse" message="tns:devolverNombreEmpleadoResponse" />
+    </operation>
+    <operation name="obtenerPorId_Empleado">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoRequest" message="tns:obtenerPorId_Empleado" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoResponse" message="tns:obtenerPorId_EmpleadoResponse" />
+    </operation>
+    <operation name="eliminar_administrador">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorRequest" message="tns:eliminar_administrador" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorResponse" message="tns:eliminar_administradorResponse" />
+    </operation>
+    <operation name="listarTodos_administrador">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorRequest" message="tns:listarTodos_administrador" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorResponse" message="tns:listarTodos_administradorResponse" />
+    </operation>
+    <operation name="listarTodos_empleado">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoRequest" message="tns:listarTodos_empleado" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoResponse" message="tns:listarTodos_empleadoResponse" />
+    </operation>
+    <operation name="modificar_administrador">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorRequest" message="tns:modificar_administrador" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorResponse" message="tns:modificar_administradorResponse" />
+    </operation>
+    <operation name="obtenerPorId_administrador">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_administradorRequest" message="tns:obtenerPorId_administrador" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_administradorResponse" message="tns:obtenerPorId_administradorResponse" />
+    </operation>
+    <operation name="listarParaIndex_vendedor">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_vendedorRequest" message="tns:listarParaIndex_vendedor" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_vendedorResponse" message="tns:listarParaIndex_vendedorResponse" />
+    </operation>
+  </portType>
+  <binding name="RecursosHumanosWSPortBinding" type="tns:RecursosHumanosWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarParaIndex_trabajadorDeAlmacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminar_trabajadorDeAlmacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodos_trabajadorDeAlmacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorId_trabajadorDeAlmacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarParaIndex_administrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificar_trabajadorDeAlmacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertar_trabajadorDeAlmacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertar_vendedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="verEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificar_vendedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminar_vendedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="devolverRol">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodos_vendedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorId_vendedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertar_administrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="devolverNombreEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorId_Empleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminar_administrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodos_administrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodos_empleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificar_administrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorId_administrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarParaIndex_vendedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="RecursosHumanosWS">
+    <port name="RecursosHumanosWSPort" binding="tns:RecursosHumanosWSPortBinding">
+      <soap:address location="http://localhost:8080/WebService/RecursosHumanosWS" />
+    </port>
+  </service>
+</definitions>

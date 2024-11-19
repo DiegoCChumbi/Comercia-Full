@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.comerzia.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="AlmacenWS" targetNamespace="http://services.comerzia.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/WebService/AlmacenWS?xsd=1" namespace="http://services.comerzia.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="insertarProductoAlmacenado">
+    <part name="parameters" element="tns:insertarProductoAlmacenado" />
+  </message>
+  <message name="insertarProductoAlmacenadoResponse">
+    <part name="parameters" element="tns:insertarProductoAlmacenadoResponse" />
+  </message>
+  <message name="eliminarProductoAlmacenado">
+    <part name="parameters" element="tns:eliminarProductoAlmacenado" />
+  </message>
+  <message name="eliminarProductoAlmacenadoResponse">
+    <part name="parameters" element="tns:eliminarProductoAlmacenadoResponse" />
+  </message>
+  <message name="obtenerPorId">
+    <part name="parameters" element="tns:obtenerPorId" />
+  </message>
+  <message name="obtenerPorIdResponse">
+    <part name="parameters" element="tns:obtenerPorIdResponse" />
+  </message>
+  <message name="insertar_producto">
+    <part name="parameters" element="tns:insertar_producto" />
+  </message>
+  <message name="insertar_productoResponse">
+    <part name="parameters" element="tns:insertar_productoResponse" />
+  </message>
+  <message name="eliminar_almacen">
+    <part name="parameters" element="tns:eliminar_almacen" />
+  </message>
+  <message name="eliminar_almacenResponse">
+    <part name="parameters" element="tns:eliminar_almacenResponse" />
+  </message>
+  <message name="listarAlmacenes">
+    <part name="parameters" element="tns:listarAlmacenes" />
+  </message>
+  <message name="listarAlmacenesResponse">
+    <part name="parameters" element="tns:listarAlmacenesResponse" />
+  </message>
+  <message name="listarPorAlmacen">
+    <part name="parameters" element="tns:listarPorAlmacen" />
+  </message>
+  <message name="listarPorAlmacenResponse">
+    <part name="parameters" element="tns:listarPorAlmacenResponse" />
+  </message>
+  <message name="buscarPorNombre">
+    <part name="parameters" element="tns:buscarPorNombre" />
+  </message>
+  <message name="buscarPorNombreResponse">
+    <part name="parameters" element="tns:buscarPorNombreResponse" />
+  </message>
+  <message name="buscarProductoPorId">
+    <part name="parameters" element="tns:buscarProductoPorId" />
+  </message>
+  <message name="buscarProductoPorIdResponse">
+    <part name="parameters" element="tns:buscarProductoPorIdResponse" />
+  </message>
+  <message name="modificar_producto">
+    <part name="parameters" element="tns:modificar_producto" />
+  </message>
+  <message name="modificar_productoResponse">
+    <part name="parameters" element="tns:modificar_productoResponse" />
+  </message>
+  <message name="modificar_almacen">
+    <part name="parameters" element="tns:modificar_almacen" />
+  </message>
+  <message name="modificar_almacenResponse">
+    <part name="parameters" element="tns:modificar_almacenResponse" />
+  </message>
+  <message name="insertar_almacen">
+    <part name="parameters" element="tns:insertar_almacen" />
+  </message>
+  <message name="insertar_almacenResponse">
+    <part name="parameters" element="tns:insertar_almacenResponse" />
+  </message>
+  <message name="eliminar_producto">
+    <part name="parameters" element="tns:eliminar_producto" />
+  </message>
+  <message name="eliminar_productoResponse">
+    <part name="parameters" element="tns:eliminar_productoResponse" />
+  </message>
+  <message name="listarAlmacenesParaIndex">
+    <part name="parameters" element="tns:listarAlmacenesParaIndex" />
+  </message>
+  <message name="listarAlmacenesParaIndexResponse">
+    <part name="parameters" element="tns:listarAlmacenesParaIndexResponse" />
+  </message>
+  <message name="listarProductoParaIndex">
+    <part name="parameters" element="tns:listarProductoParaIndex" />
+  </message>
+  <message name="listarProductoParaIndexResponse">
+    <part name="parameters" element="tns:listarProductoParaIndexResponse" />
+  </message>
+  <portType name="AlmacenWS">
+    <operation name="insertarProductoAlmacenado">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoRequest" message="tns:insertarProductoAlmacenado" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoResponse" message="tns:insertarProductoAlmacenadoResponse" />
+    </operation>
+    <operation name="eliminarProductoAlmacenado">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminarProductoAlmacenadoRequest" message="tns:eliminarProductoAlmacenado" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminarProductoAlmacenadoResponse" message="tns:eliminarProductoAlmacenadoResponse" />
+    </operation>
+    <operation name="obtenerPorId">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/obtenerPorIdRequest" message="tns:obtenerPorId" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/obtenerPorIdResponse" message="tns:obtenerPorIdResponse" />
+    </operation>
+    <operation name="insertar_producto">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_productoRequest" message="tns:insertar_producto" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_productoResponse" message="tns:insertar_productoResponse" />
+    </operation>
+    <operation name="eliminar_almacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_almacenRequest" message="tns:eliminar_almacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_almacenResponse" message="tns:eliminar_almacenResponse" />
+    </operation>
+    <operation name="listarAlmacenes">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesRequest" message="tns:listarAlmacenes" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesResponse" message="tns:listarAlmacenesResponse" />
+    </operation>
+    <operation name="listarPorAlmacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenRequest" message="tns:listarPorAlmacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenResponse" message="tns:listarPorAlmacenResponse" />
+    </operation>
+    <operation name="buscarPorNombre">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreRequest" message="tns:buscarPorNombre" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreResponse" message="tns:buscarPorNombreResponse" />
+    </operation>
+    <operation name="buscarProductoPorId">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdRequest" message="tns:buscarProductoPorId" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdResponse" message="tns:buscarProductoPorIdResponse" />
+    </operation>
+    <operation name="modificar_producto">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_productoRequest" message="tns:modificar_producto" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_productoResponse" message="tns:modificar_productoResponse" />
+    </operation>
+    <operation name="modificar_almacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenRequest" message="tns:modificar_almacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenResponse" message="tns:modificar_almacenResponse" />
+    </operation>
+    <operation name="insertar_almacen">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenRequest" message="tns:insertar_almacen" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenResponse" message="tns:insertar_almacenResponse" />
+    </operation>
+    <operation name="eliminar_producto">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_productoRequest" message="tns:eliminar_producto" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_productoResponse" message="tns:eliminar_productoResponse" />
+    </operation>
+    <operation name="listarAlmacenesParaIndex">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesParaIndexRequest" message="tns:listarAlmacenesParaIndex" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesParaIndexResponse" message="tns:listarAlmacenesParaIndexResponse" />
+    </operation>
+    <operation name="listarProductoParaIndex">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarProductoParaIndexRequest" message="tns:listarProductoParaIndex" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarProductoParaIndexResponse" message="tns:listarProductoParaIndexResponse" />
+    </operation>
+  </portType>
+  <binding name="AlmacenWSPortBinding" type="tns:AlmacenWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="insertarProductoAlmacenado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarProductoAlmacenado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertar_producto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminar_almacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarAlmacenes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarPorAlmacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarPorNombre">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarProductoPorId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificar_producto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificar_almacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertar_almacen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminar_producto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarAlmacenesParaIndex">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductoParaIndex">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="AlmacenWS">
+    <port name="AlmacenWSPort" binding="tns:AlmacenWSPortBinding">
+      <soap:address location="http://localhost:8080/WebService/AlmacenWS" />
+    </port>
+  </service>
+</definitions>

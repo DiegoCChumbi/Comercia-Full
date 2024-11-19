@@ -17,7 +17,7 @@ import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Representante;
 
 @WebService(
   serviceName = "RelacionesComercialesWS",
-  targetNamespace = "http://services.comerziasoft.pucp.edu.pe"
+  targetNamespace = "http://services.comerzia.pucp.edu.pe"
 )
 public class RelacionesComercialesWS {
 

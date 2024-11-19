@@ -9,7 +9,7 @@ import pe.edu.pucp.comerzia.modules.gestion_almacen.model.Producto;
 public class ProductoBOTest {
 
   private static ProductoBO productoBO;
-  private static ArrayList<Producto> listaProductoes;
+  private static ArrayList<Producto> listaProductos;
 
   public static void testProductoBO() throws SQLException {
     System.out.println("\ntestProductoBO");
@@ -22,7 +22,7 @@ public class ProductoBOTest {
 
   private static void testProductoBOEliminar() throws SQLException {
     System.out.println("\ntestProductoBOEliminar");
-    for (Producto producto : listaProductoes) {
+    for (Producto producto : listaProductos) {
       productoBO.eliminar(producto.getId());
     }
   }
@@ -49,8 +49,8 @@ public class ProductoBOTest {
 
   private static void testProductoBOListarTodos() throws SQLException {
     System.out.println("\ntestProductoBOListarTodos");
-    listaProductoes = productoBO.listarTodos();
-    for (Producto producto : listaProductoes) {
+    listaProductos = productoBO.listarTodos();
+    for (Producto producto : listaProductos) {
       System.out.print(producto.getId().toString());
       System.out.print(", ");
       System.out.print(producto.getNombre());
@@ -90,8 +90,8 @@ public class ProductoBOTest {
   private static void testProductoBOBuscarPorNombre(String nombre)
     throws SQLException {
     System.out.println("\ntestProductoBOBuscarPorNombre");
-    listaProductoes = productoBO.buscarProductos(nombre);
-    for (Producto producto : listaProductoes) {
+    listaProductos = productoBO.buscarProductosPorNombre(nombre);
+    for (Producto producto : listaProductos) {
       System.out.print(producto.getId().toString());
       System.out.print(", ");
       System.out.print(producto.getNombre());

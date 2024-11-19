@@ -1,9 +1,8 @@
 package pe.edu.pucp.comerzia.core.db;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,71 +12,103 @@ import java.util.logging.Logger;
 
 public class DBManager {
 
-  private static final String ARCHIVO_CONFIGURACION = "jdbc.properties";
+  private static final String CONFIG_FILE = "/jdbc.properties";
 
-  private Connection conexion;
+  private Connection connection;
   private String driver;
-  private String tipo_de_driver;
-  private String base_de_datos;
-  private String nombre_de_host;
-  private String puerto;
-  private String usuario;
-  private String contraseña;
+  private String dbType;
+  private String dbName;
+  private String host;
+  private String port;
+  private String username;
+  private String password;
   private static DBManager dbManager = null;
 
-  private DBManager() {}
-
-  //constructor privado para que no se pueda instanciar
-  public static DBManager getInstance() {
-    if (DBManager.dbManager == null) createInstance();
-    return DBManager.dbManager;
+  private DBManager() {
+    try {
+      loadProperties();
+      Class.forName(driver);
+    } catch (ClassNotFoundException ex) {
+      System.out.println("Error registrando el driver: " + ex.getMessage());
+    }
   }
 
-  private static void createInstance() {
-    if (DBManager.dbManager == null) DBManager.dbManager = new DBManager();
+  public static DBManager getInstance() {
+    if (dbManager == null) {
+      synchronized (DBManager.class) {
+        if (dbManager == null) {
+          dbManager = new DBManager();
+        }
+      }
+    }
+    return dbManager;
   }
 
   public Connection getConnection() {
-    leer_archivo_propiedades();
     try {
-      Class.forName(this.driver);
-      this.conexion = DriverManager.getConnection(
-        getURL(),
-        this.usuario,
-        this.contraseña
-      );
+      Class.forName(driver);
+      connection = DriverManager.getConnection(getURL(), username, password);
     } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(DBManager.class.getName()).log(
+        Level.SEVERE,
+        "Error establishing database connection",
+        ex
+      );
     }
-    return this.conexion;
+    return connection;
   }
 
   private String getURL() {
-    String url = this.tipo_de_driver.concat("://");
-    url = url.concat(this.nombre_de_host);
-    url = url.concat(":");
-    url = url.concat(this.puerto);
-    url = url.concat("/");
-    url = url.concat(this.base_de_datos);
-    return url;
+    return (
+      dbType +
+      "://" +
+      host +
+      ":" +
+      port +
+      "/" +
+      dbName +
+      "?useSSL=false&allowPublicKeyRetrieval=true"
+    );
   }
 
-  private void leer_archivo_propiedades() {
+  private void loadProperties() {
     Properties properties = new Properties();
-    String nmArchivoConf = "resources/" + ARCHIVO_CONFIGURACION;
-    try {
-      properties.load(new FileInputStream(new File(nmArchivoConf)));
-      this.driver = properties.getProperty("driver");
-      this.tipo_de_driver = properties.getProperty("tipo_de_driver");
-      this.base_de_datos = properties.getProperty("base_de_datos");
-      this.nombre_de_host = properties.getProperty("nombre_de_host");
-      this.puerto = properties.getProperty("puerto");
-      this.usuario = properties.getProperty("usuario");
-      this.contraseña = properties.getProperty("contrasenha");
-    } catch (FileNotFoundException ex) {
-      Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+    try (InputStream input = getClass().getResourceAsStream(CONFIG_FILE)) {
+      if (input == null) {
+        throw new FileNotFoundException(
+          "Property file not found: " + CONFIG_FILE
+        );
+      }
+      properties.load(input);
+
+      // Load each property
+      driver = properties.getProperty("driver");
+      dbType = properties.getProperty("db_type");
+      dbName = properties.getProperty("database_name");
+      host = properties.getProperty("host");
+      port = properties.getProperty("port");
+      username = properties.getProperty("username");
+      password = properties.getProperty("password");
     } catch (IOException ex) {
-      Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(DBManager.class.getName()).log(
+        Level.SEVERE,
+        "Error loading properties file",
+        ex
+      );
+    }
+  }
+
+  public void closeConnection() {
+    if (connection != null) {
+      try {
+        connection.close();
+      } catch (SQLException ex) {
+        Logger.getLogger(DBManager.class.getName()).log(
+          Level.SEVERE,
+          "Error closing database connection",
+          ex
+        );
+      }
     }
   }
 }

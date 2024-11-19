@@ -91,4 +91,8 @@ public class AdministradorBO {
   public Optional<Administrador> obtenerPorId(Integer id) throws SQLException {
     return administradorDAO.findById(id);
   }
+
+  public ArrayList<Administrador> listarParaIndex() throws SQLException {
+    return new ArrayList<>(administradorDAO.query().limit(3).list());
+  }
 }

@@ -52,4 +52,8 @@ public class AlmacenBO {
   public Optional<Almacen> obtenerPorId(Integer id) throws SQLException {
     return this.almacenDAO.findById(id);
   }
+
+  public ArrayList<Almacen> listarParaIndex() throws SQLException {
+    return new ArrayList<>(almacenDAO.query().limit(3).list());
+  }
 }
