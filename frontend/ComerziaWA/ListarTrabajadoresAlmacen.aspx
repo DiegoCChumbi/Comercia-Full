@@ -26,7 +26,7 @@ Inherits="ComerziaWA.ListarTrabajadoresAlmacen" %>
                         Text="Editar"
                         CssClass="btn btn-warning btn-sm"
                         CommandName="Editar"
-                        CommandArgument='<%# Eval("idEmpleado") %>'
+                        CommandArgument='<%# Eval("id") %>'
                     />
                     <asp:Button
                         ID="btnEliminar"
@@ -34,7 +34,7 @@ Inherits="ComerziaWA.ListarTrabajadoresAlmacen" %>
                         Text="Eliminar"
                         CssClass="btn btn-danger btn-sm"
                         CommandName="Eliminar"
-                        CommandArgument='<%# Eval("idEmpleado") + "," + Eval("idPersona") %>'
+                        CommandArgument='<%# Eval("id") + "," + Eval("id") %>'
                     />
                 </ItemTemplate>
             </asp:TemplateField>

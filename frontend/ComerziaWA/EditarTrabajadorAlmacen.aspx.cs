@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using System.Web.UI.WebControls;
-using ComerziaBO.ComerziaWS;
+﻿using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
 using ComerziaRecursosHumanosBO;
+using System;
+using System.ComponentModel;
+using System.Web.UI.WebControls;
 
 namespace ComerziaWA
 {
@@ -31,7 +31,7 @@ namespace ComerziaWA
                 ddlElegirAlmacenTrabajador.DataSource = almacenes;
 
                 // Mostramos solo el nombre del almacen
-                ddlElegirAlmacenTrabajador.DataValueField = "idAlmacen"; // Opcionalmente, puedes usar el ID como valor
+                ddlElegirAlmacenTrabajador.DataValueField = "id"; // Opcionalmente, puedes usar el ID como valor
                 ddlElegirAlmacenTrabajador.DataTextField = "nombre"; // Nombre es la propiedad que contiene el nombre del administrador
 
                 // Enlazamos los datos

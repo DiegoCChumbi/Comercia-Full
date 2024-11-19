@@ -61,7 +61,7 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-eye'></i>" OnClick="BtnVerProducto_Click" CommandArgument='<%# Eval("idProducto") %>' />
-                                        <asp:LinkButton ID="btnEliminar" runat="server" Text="<i class='fa-solid fa-trash'></i>" Visible="False" OnClick="BtnEliminarProducto_Click" CommandArgument='<%# Eval("idProductoAlmacenado") %>' />
+                                        <asp:LinkButton ID="btnEliminar" runat="server" Text="<i class='fa-solid fa-trash'></i>" Visible="False" OnClick="BtnEliminarProducto_Click" CommandArgument='<%# Eval("id") %>' />
 
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -123,7 +123,7 @@
                                                         <asp:TextBox CssClass="form-control" ID="ModalProducto_txtStockProducto" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="col-auto">
-                                                        <asp:LinkButton ID="ModalProducto_lbSeleccionar" class="btn btn-success" runat="server" Text="<i class='fa-solid fa-check ps-2'></i> Seleccionar" OnClick="ModalProducto_lbSeleccionar_Click" CommandArgument='<%# Eval("idProducto") %>' />
+                                                        <asp:LinkButton ID="ModalProducto_lbSeleccionar" class="btn btn-success" runat="server" Text="<i class='fa-solid fa-check ps-2'></i> Seleccionar" OnClick="ModalProducto_lbSeleccionar_Click" CommandArgument='<%# Eval("id") %>' />
                                                     </div>
                                                 </div>
                                             </ItemTemplate>
