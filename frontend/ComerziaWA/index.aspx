@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Comerzia.Master"
-AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
-
+AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ComerziaWA.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContenido" runat="server">
@@ -79,7 +78,8 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
                                 border: none;
                                 color: #0b5ed7;
                             "
-                            >Ver Todos
+                        >
+                            Ver Todos
                             <i
                                 class="fa-solid fa-arrow-right"
                                 style="color: #0b5ed7"
@@ -156,7 +156,8 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
                                 border: none;
                                 color: #0b5ed7;
                             "
-                            >Ver Todos
+                        >
+                            Ver Todos
                             <i
                                 class="fa-solid fa-arrow-right"
                                 style="color: #0b5ed7"
@@ -225,7 +226,8 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
                                 border: none;
                                 color: #0b5ed7;
                             "
-                            >Ver Todos
+                        >
+                            Ver Todos
                             <i
                                 class="fa-solid fa-arrow-right"
                                 style="color: #0b5ed7"
@@ -296,7 +298,8 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
                                 border: none;
                                 color: #0b5ed7;
                             "
-                            >Ver Todos
+                        >
+                            Ver Todos
                             <i
                                 class="fa-solid fa-arrow-right"
                                 style="color: #0b5ed7"
@@ -372,7 +375,8 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
                                 border: none;
                                 color: #0b5ed7;
                             "
-                            >Ver Todos
+                        >
+                            Ver Todos
                             <i
                                 class="fa-solid fa-arrow-right"
                                 style="color: #0b5ed7"
@@ -397,6 +401,7 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
             <div class="col">
                 <div
                     class="card"
+                    style="width: 25rem"
                     style="
                         width: 25rem;
                         display: flex;
@@ -447,7 +452,8 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
                                 border: none;
                                 color: #0b5ed7;
                             "
-                            >Ver Todos
+                        >
+                            Ver Todos
                             <i
                                 class="fa-solid fa-arrow-right"
                                 style="color: #0b5ed7"
@@ -472,6 +478,7 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
             <div class="col">
                 <div
                     class="card"
+                    style="width: 25rem"
                     style="
                         width: 25rem;
                         display: flex;
@@ -522,7 +529,8 @@ AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="ComerziaWA.index" %>
                                 border: none;
                                 color: #0b5ed7;
                             "
-                            >Ver Todos
+                        >
+                            Ver Todos
                             <i
                                 class="fa-solid fa-arrow-right"
                                 style="color: #0b5ed7"

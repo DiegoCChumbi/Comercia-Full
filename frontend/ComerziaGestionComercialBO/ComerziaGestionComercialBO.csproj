@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocumentoBO.cs" />
+    <Compile Include="EmpresaBO.cs" />
     <Compile Include="LineaDocumentoBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\ComerziaBO\ComerziaBO.csproj">
       <Project>{a7cbd3b5-e3ac-4090-acf2-f54756fdd81e}</Project>
       <Name>ComerziaBO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComerziaRelacionesComercialesBO\ComerziaRelacionesComercialesBO.csproj">
+      <Project>{ebfe62ff-00fd-43e1-a577-fd9d34c852a6}</Project>
+      <Name>ComerziaRelacionesComercialesBO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

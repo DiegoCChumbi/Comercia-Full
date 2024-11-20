@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using ComerziaBO.ComerziaWS;
+using ComerziaGestionAlmacenBO;
 using ComerziaNotificacionBO;
 using ComerziaRecursosHumanosBO;
 

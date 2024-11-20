@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.TrabajadorDeAlmacenDAO;
+import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.mapper.TrabajadorDeAlmacenMapper;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.EstadoEmpleadoEnum;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.TrabajadorDeAlmacen;
 
@@ -101,5 +102,20 @@ public class TrabajadorDeAlmacenBO {
 
   public ArrayList<TrabajadorDeAlmacen> listarParaIndex() throws SQLException {
     return new ArrayList<>(trabajadorDeAlmacenDAO.query().limit(3).list());
+  }
+
+  public ArrayList<TrabajadorDeAlmacen> buscarTrabajadoresDeAlmacen(
+    String nombreTrabajadorDeAlmacen
+  ) throws SQLException {
+    return new ArrayList<>(
+      trabajadorDeAlmacenDAO
+        .query()
+        .where(
+          TrabajadorDeAlmacenMapper.Columns.nombre.like(
+            "%" + nombreTrabajadorDeAlmacen + "%"
+          )
+        )
+        .list()
+    );
   }
 }

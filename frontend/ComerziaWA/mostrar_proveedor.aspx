@@ -1,13 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Comerzia.Master"
 AutoEventWireup="true" CodeBehind="mostrar_proveedor.aspx.cs"
 Inherits="ComerziaWA.mostrar_proveedor" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
-    <script
-        src="Public/Scripts/ComerziaScripts/gestionar-producto.js"
-    ></script>
+    <script src="Public/Scripts/ComerziaScripts/gestionar-producto.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
@@ -119,7 +116,7 @@ Inherits="ComerziaWA.mostrar_proveedor" %>
                                     />
                                     <asp:BoundField
                                         HeaderText="Nombre"
-                                        DataField="Nombre"
+                                        DataField="nombre"
                                     />
                                     <asp:BoundField
                                         HeaderText="Correo"
@@ -268,7 +265,7 @@ Inherits="ComerziaWA.mostrar_proveedor" %>
                                     <Columns>
                                         <asp:BoundField
                                             HeaderText="Nombre completo:"
-                                            DataField="Nombre"
+                                            DataField="nombre"
                                         />
                                         <asp:BoundField
                                             HeaderText="Telefono:"

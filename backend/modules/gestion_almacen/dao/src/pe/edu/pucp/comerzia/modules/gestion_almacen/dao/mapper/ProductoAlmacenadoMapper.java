@@ -6,28 +6,29 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.core.dao.BaseDAO.EntityMapper;
+import pe.edu.pucp.comerzia.core.dao.BaseEntityMapper;
 import pe.edu.pucp.comerzia.core.dao.utils.Column;
 import pe.edu.pucp.comerzia.modules.gestion_almacen.model.ProductoAlmacenado;
 
 public class ProductoAlmacenadoMapper
   implements EntityMapper<ProductoAlmacenado> {
 
-  public static class Columns {
+  public static class Columns extends BaseEntityMapper.Columns {
 
-    public static final Column<Integer> id = new Column<>("id", Integer.class);
-    public static final Column<Integer> idAlmacen = new Column<>(
+    public static final Column<Integer> id = Column.of("id", Integer.class);
+    public static final Column<Integer> idAlmacen = Column.of(
       "id_almacen",
       Integer.class
     );
-    public static final Column<Integer> idProducto = new Column<>(
+    public static final Column<Integer> idProducto = Column.of(
       "id_producto",
       Integer.class
     );
-    public static final Column<Date> fechaAlmacenado = new Column<>(
+    public static final Column<Date> fechaAlmacenado = Column.of(
       "fecha_almacenado",
       Date.class
     );
-    public static final Column<Integer> stockActual = new Column<>(
+    public static final Column<Integer> stockActual = Column.of(
       "stock_actual",
       Integer.class
     );
@@ -43,11 +44,11 @@ public class ProductoAlmacenadoMapper
     throws SQLException {
     ProductoAlmacenado almacen = createEntity();
 
-    almacen.setId(rs.getInt("id"));
-    almacen.setIdAlmacen(rs.getInt("id_almacen"));
-    almacen.setIdProducto(rs.getInt("id_producto"));
-    almacen.setFechaAlmacenado(rs.getDate("fecha_almacenado"));
-    almacen.setStockActual(rs.getInt("stock_actual"));
+    almacen.setId(rs.getInt(Columns.id.getName()));
+    almacen.setIdAlmacen(rs.getInt(Columns.idAlmacen.getName()));
+    almacen.setIdProducto(rs.getInt(Columns.idProducto.getName()));
+    almacen.setFechaAlmacenado(rs.getDate(Columns.fechaAlmacenado.getName()));
+    almacen.setStockActual(rs.getInt(Columns.stockActual.getName()));
 
     return almacen;
   }

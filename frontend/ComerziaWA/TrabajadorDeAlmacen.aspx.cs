@@ -1,10 +1,19 @@
-﻿using ComerziaBO.ComerziaWS;
-using ComerziaGestionAlmacenBO;
-using ComerziaRecursosHumanosBO;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Xml.Linq;
+using ComerziaBO.ComerziaWS;
+using ComerziaGestionAlmacenBO;
+using ComerziaRecursosHumanosBO;
+using OtrosValidation;
+using ServiciosEmail;
+using VendedorValidation;
 
 namespace ComerziaWA
 {
@@ -23,15 +32,15 @@ namespace ComerziaWA
         {
             if (!IsPostBack)
             {
-                // Llamamos al método listarTodos para obtener la lista de administradores
+                // método listarTodos para obtener la lista de administradores
                 BindingList<almacen> almacenes = this.boAlmacen.listarTodos();
 
                 // Configuramos la fuente de datos del DropDownList
                 ddlElegirAlmacenTrabajador.DataSource = almacenes;
 
                 // Mostramos solo el nombre del administrador
-                ddlElegirAlmacenTrabajador.DataValueField = "id"; // Opcionalmente, puedes usar el ID como valor
-                ddlElegirAlmacenTrabajador.DataTextField = "nombre"; // Nombre es la propiedad que contiene el nombre del administrador
+                ddlElegirAlmacenTrabajador.DataValueField = "id"; //
+                ddlElegirAlmacenTrabajador.DataTextField = "nombre"; // Nombre es la propiedad que contiene el nombre del trabajador
 
                 // Enlazamos los datos
                 ddlElegirAlmacenTrabajador.DataBind();
@@ -41,41 +50,56 @@ namespace ComerziaWA
         // Método para guardar un Trabajador
         protected void btnGuardarAdministrador_Click(object sender, EventArgs e)
         {
-            // Obtener los valores de los controles de administrador
-            string dni = txtDniTrabajador.Text.Trim();
-            string nombreCompleto = txtNombreCompletoTrabajador.Text.Trim();
-            string telefono = txtTelefonoTrabajador.Text.Trim();
-            string correo = txtCorreoTrabajador.Text.Trim();
-            string direccion = txtDireccionTrabajador.Text.Trim();
+            // Parsear Salario  como double
+            double salarioL = 0;
+            DateTime fechaContratacionL;
 
-            string nombreUsuario = txtNombreUsuarioTrabajador.Text.Trim();
-            string contrasenha = txtContrasenhaTrabajador.Text.Trim();
-
-            double salario;
-            DateTime fechaContratacion;
-
-            try
+            // Si todas las validaciones son correctas,  crear el vendedor
+            var nuevoTrabajador = new OtrosVali
             {
-                salario = double.Parse(txtSalarioTrabajador.Text.Trim());
-            }
-            catch (FormatException)
+                Dni = txtDniTrabajador.Text.Trim(),
+                NombreCompleto = txtNombreCompletoTrabajador.Text.Trim(),
+                Telefono = txtTelefonoTrabajador.Text.Trim(),
+                Correo = txtCorreoTrabajador.Text.Trim(),
+                Direccion = txtDireccionTrabajador.Text.Trim(),
+                NombreUsuario = txtNombreUsuarioTrabajador.Text.Trim(),
+                Contrasenha = txtContrasenhaTrabajador.Text.Trim(),
+                Salario = txtSalarioTrabajador.Text.Trim(),
+                FechaContratacion = txtFechaContratacionTrabajador.Text.Trim(),
+            };
+
+            // Aquí seguiría el proceso de validación con el `OtrosValidator`
+            var validator = new OtrosValidator();
+            var result = validator.Validate(nuevoTrabajador);
+
+            if (!result.IsValid)
             {
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    this.GetType(),
-                    "showErrorPopup",
-                    "showPopup('Formato de salario incorrecto.');",
-                    true
-                );
-                return;
+                StringBuilder errores = new StringBuilder();
+                foreach (var error in result.Errors)
+                {
+                    errores.AppendLine(error.ErrorMessage);
+                }
+
+                if (errores.Length > 0)
+                {
+                    string mensajeErrores = errores
+                        .ToString()
+                        .Replace("\n", "\\n")
+                        .Replace("\r", "")
+                        .Replace("'", "\\'");
+
+                    ScriptManager.RegisterStartupScript(
+                        this,
+                        this.GetType(),
+                        "showErrorPopup",
+                        $"showPopup('{mensajeErrores}');",
+                        true
+                    );
+                }
+
+                return; // Detener el proceso
             }
 
-            string fechaTexto = txtFechaContratacionTrabajador.Text.Trim();
-            fechaContratacion = DateTime.ParseExact(
-                fechaTexto,
-                "yyyy-MM-dd",
-                CultureInfo.InvariantCulture
-            );
             bool permisoTrabajador = bool.Parse(ddlPermisoTrabajador.SelectedValue);
             estadoEmpleadoEnum estado;
             if (ddlEstadoTrabajador.SelectedValue == "Activo")
@@ -87,27 +111,45 @@ namespace ComerziaWA
                 estado = estadoEmpleadoEnum.INACTIVO;
             }
 
+            double.TryParse(txtSalarioTrabajador.Text.Trim(), out salarioL);
+            DateTime.TryParse(txtFechaContratacionTrabajador.Text.Trim(), out fechaContratacionL);
+
             int idAlmacenSeleccionado = Int32.Parse(ddlElegirAlmacenTrabajador.SelectedValue);
 
-            // Llamar al método insertar y obtener el resultado
-            int resultadoAdministrador = this.boTrabajadorDeAlmacen.insertar(
-                dni,
-                nombreCompleto,
-                telefono,
-                correo,
-                direccion,
+            int resultadoTrabajador = this.boTrabajadorDeAlmacen.insertar(
+                nuevoTrabajador.Dni,
+                nuevoTrabajador.NombreCompleto,
+                nuevoTrabajador.Telefono,
+                nuevoTrabajador.Correo,
+                nuevoTrabajador.Direccion,
                 estado,
-                nombreUsuario,
-                contrasenha,
-                salario,
-                fechaContratacion,
+                nuevoTrabajador.NombreUsuario,
+                nuevoTrabajador.Contrasenha,
+                salarioL,
+                fechaContratacionL,
                 idAlmacenSeleccionado,
                 permisoTrabajador
             );
 
-            // Verificar el resultado para mostrar un mensaje al usuario
-            if (resultadoAdministrador > 0)
+            // Verificar el resultado
+            if (resultadoTrabajador > 0)
             {
+                var cuerpoCorreo = new Cuerpo();
+                // Llamar al método ObtenerCuerpoCorreo para obtener el cuerpo del mensaje
+                string usuario = txtNombreUsuarioTrabajador.Text.Trim();
+                string contrasenha = txtContrasenhaTrabajador.Text.Trim();
+                string cuerpoCorreoGenerado = cuerpoCorreo.ObtenerCuerpoCorreo(
+                    usuario,
+                    contrasenha
+                );
+
+                var servicioCorreo = new ServicioCorreo();
+                servicioCorreo.EnviarCorreoConMailKit(
+                    txtCorreoTrabajador.Text.Trim(),
+                    "Credenciales para el acceso a Comerzia",
+                    cuerpoCorreoGenerado
+                );
+
                 // Registro exitoso
                 txtDniTrabajador.Text = string.Empty;
                 txtNombreCompletoTrabajador.Text = string.Empty;

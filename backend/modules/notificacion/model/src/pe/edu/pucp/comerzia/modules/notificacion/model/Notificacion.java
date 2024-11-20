@@ -1,6 +1,8 @@
 package pe.edu.pucp.comerzia.modules.notificacion.model;
 
-public class Notificacion {
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
+
+public class Notificacion extends BaseEntity {
 
   private Integer id;
   private Integer id_producto;

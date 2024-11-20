@@ -1,6 +1,8 @@
 package pe.edu.pucp.comerzia.modules.gestion_comercial.model;
 
-public class LineaDocumento {
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
+
+public class LineaDocumento extends BaseEntity {
 
   private Integer id;
   private Integer idDocumento;

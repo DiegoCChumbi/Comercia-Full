@@ -1,6 +1,8 @@
 package pe.edu.pucp.comerzia.modules.gestion_almacen.model;
 
-public class Producto {
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
+
+public class Producto extends BaseEntity {
 
   private Integer id;
   private String nombre;

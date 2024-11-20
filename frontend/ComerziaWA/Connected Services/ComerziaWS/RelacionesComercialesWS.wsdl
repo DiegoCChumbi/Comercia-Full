@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/WebService/RelacionesComercialesWS?xsd=1" namespace="http://services.comerzia.pucp.edu.pe" />
     </xsd:schema>
   </types>
-  <message name="listarDocumentosPorEmpresa">
-    <part name="parameters" element="tns:listarDocumentosPorEmpresa" />
-  </message>
-  <message name="listarDocumentosPorEmpresaResponse">
-    <part name="parameters" element="tns:listarDocumentosPorEmpresaResponse" />
-  </message>
-  <message name="modificarCliente">
-    <part name="parameters" element="tns:modificarCliente" />
-  </message>
-  <message name="modificarClienteResponse">
-    <part name="parameters" element="tns:modificarClienteResponse" />
-  </message>
   <message name="modificarProveedor">
     <part name="parameters" element="tns:modificarProveedor" />
   </message>
   <message name="modificarProveedorResponse">
     <part name="parameters" element="tns:modificarProveedorResponse" />
+  </message>
+  <message name="listarDocumentosPorEmpresa">
+    <part name="parameters" element="tns:listarDocumentosPorEmpresa" />
+  </message>
+  <message name="listarDocumentosPorEmpresaResponse">
+    <part name="parameters" element="tns:listarDocumentosPorEmpresaResponse" />
   </message>
   <message name="listarProveedores">
     <part name="parameters" element="tns:listarProveedores" />
@@ -29,47 +23,23 @@
   <message name="listarProveedoresResponse">
     <part name="parameters" element="tns:listarProveedoresResponse" />
   </message>
+  <message name="buscarPorNombre_empresa">
+    <part name="parameters" element="tns:buscarPorNombre_empresa" />
+  </message>
+  <message name="buscarPorNombre_empresaResponse">
+    <part name="parameters" element="tns:buscarPorNombre_empresaResponse" />
+  </message>
+  <message name="modificarCliente">
+    <part name="parameters" element="tns:modificarCliente" />
+  </message>
+  <message name="modificarClienteResponse">
+    <part name="parameters" element="tns:modificarClienteResponse" />
+  </message>
   <message name="listarClientes">
     <part name="parameters" element="tns:listarClientes" />
   </message>
   <message name="listarClientesResponse">
     <part name="parameters" element="tns:listarClientesResponse" />
-  </message>
-  <message name="listarClientesParaIndex">
-    <part name="parameters" element="tns:listarClientesParaIndex" />
-  </message>
-  <message name="listarClientesParaIndexResponse">
-    <part name="parameters" element="tns:listarClientesParaIndexResponse" />
-  </message>
-  <message name="listarProveedoresParaIndex">
-    <part name="parameters" element="tns:listarProveedoresParaIndex" />
-  </message>
-  <message name="listarProveedoresParaIndexResponse">
-    <part name="parameters" element="tns:listarProveedoresParaIndexResponse" />
-  </message>
-  <message name="obtenerPorIdCliente">
-    <part name="parameters" element="tns:obtenerPorIdCliente" />
-  </message>
-  <message name="obtenerPorIdClienteResponse">
-    <part name="parameters" element="tns:obtenerPorIdClienteResponse" />
-  </message>
-  <message name="eliminarRepresentante">
-    <part name="parameters" element="tns:eliminarRepresentante" />
-  </message>
-  <message name="eliminarRepresentanteResponse">
-    <part name="parameters" element="tns:eliminarRepresentanteResponse" />
-  </message>
-  <message name="obtenerPorIdRepresentante">
-    <part name="parameters" element="tns:obtenerPorIdRepresentante" />
-  </message>
-  <message name="obtenerPorIdRepresentanteResponse">
-    <part name="parameters" element="tns:obtenerPorIdRepresentanteResponse" />
-  </message>
-  <message name="listarRepresentantesPorEmpresa">
-    <part name="parameters" element="tns:listarRepresentantesPorEmpresa" />
-  </message>
-  <message name="listarRepresentantesPorEmpresaResponse">
-    <part name="parameters" element="tns:listarRepresentantesPorEmpresaResponse" />
   </message>
   <message name="modificarRepresentante">
     <part name="parameters" element="tns:modificarRepresentante" />
@@ -77,11 +47,17 @@
   <message name="modificarRepresentanteResponse">
     <part name="parameters" element="tns:modificarRepresentanteResponse" />
   </message>
-  <message name="listarRepresentantesPorNombre">
-    <part name="parameters" element="tns:listarRepresentantesPorNombre" />
+  <message name="obtenerPorIdCliente">
+    <part name="parameters" element="tns:obtenerPorIdCliente" />
   </message>
-  <message name="listarRepresentantesPorNombreResponse">
-    <part name="parameters" element="tns:listarRepresentantesPorNombreResponse" />
+  <message name="obtenerPorIdClienteResponse">
+    <part name="parameters" element="tns:obtenerPorIdClienteResponse" />
+  </message>
+  <message name="obtenerEmpresaPorId">
+    <part name="parameters" element="tns:obtenerEmpresaPorId" />
+  </message>
+  <message name="obtenerEmpresaPorIdResponse">
+    <part name="parameters" element="tns:obtenerEmpresaPorIdResponse" />
   </message>
   <message name="obtenerPorIdProveedor">
     <part name="parameters" element="tns:obtenerPorIdProveedor" />
@@ -89,85 +65,120 @@
   <message name="obtenerPorIdProveedorResponse">
     <part name="parameters" element="tns:obtenerPorIdProveedorResponse" />
   </message>
+  <message name="listarClientesParaIndex">
+    <part name="parameters" element="tns:listarClientesParaIndex" />
+  </message>
+  <message name="listarClientesParaIndexResponse">
+    <part name="parameters" element="tns:listarClientesParaIndexResponse" />
+  </message>
+  <message name="listarRepresentantesPorEmpresa">
+    <part name="parameters" element="tns:listarRepresentantesPorEmpresa" />
+  </message>
+  <message name="listarRepresentantesPorEmpresaResponse">
+    <part name="parameters" element="tns:listarRepresentantesPorEmpresaResponse" />
+  </message>
+  <message name="listarRepresentantesPorNombre">
+    <part name="parameters" element="tns:listarRepresentantesPorNombre" />
+  </message>
+  <message name="listarRepresentantesPorNombreResponse">
+    <part name="parameters" element="tns:listarRepresentantesPorNombreResponse" />
+  </message>
+  <message name="listarProveedoresParaIndex">
+    <part name="parameters" element="tns:listarProveedoresParaIndex" />
+  </message>
+  <message name="listarProveedoresParaIndexResponse">
+    <part name="parameters" element="tns:listarProveedoresParaIndexResponse" />
+  </message>
+  <message name="obtenerPorIdRepresentante">
+    <part name="parameters" element="tns:obtenerPorIdRepresentante" />
+  </message>
+  <message name="obtenerPorIdRepresentanteResponse">
+    <part name="parameters" element="tns:obtenerPorIdRepresentanteResponse" />
+  </message>
+  <message name="eliminarRepresentante">
+    <part name="parameters" element="tns:eliminarRepresentante" />
+  </message>
+  <message name="eliminarRepresentanteResponse">
+    <part name="parameters" element="tns:eliminarRepresentanteResponse" />
+  </message>
   <portType name="RelacionesComercialesWS">
-    <operation name="listarDocumentosPorEmpresa">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorEmpresaRequest" message="tns:listarDocumentosPorEmpresa" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorEmpresaResponse" message="tns:listarDocumentosPorEmpresaResponse" />
-    </operation>
-    <operation name="modificarCliente">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteRequest" message="tns:modificarCliente" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteResponse" message="tns:modificarClienteResponse" />
-    </operation>
     <operation name="modificarProveedor">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarProveedorRequest" message="tns:modificarProveedor" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarProveedorResponse" message="tns:modificarProveedorResponse" />
+    </operation>
+    <operation name="listarDocumentosPorEmpresa">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorEmpresaRequest" message="tns:listarDocumentosPorEmpresa" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorEmpresaResponse" message="tns:listarDocumentosPorEmpresaResponse" />
     </operation>
     <operation name="listarProveedores">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresRequest" message="tns:listarProveedores" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresResponse" message="tns:listarProveedoresResponse" />
     </operation>
+    <operation name="buscarPorNombre_empresa">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/buscarPorNombre_empresaRequest" message="tns:buscarPorNombre_empresa" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/buscarPorNombre_empresaResponse" message="tns:buscarPorNombre_empresaResponse" />
+    </operation>
+    <operation name="modificarCliente">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteRequest" message="tns:modificarCliente" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteResponse" message="tns:modificarClienteResponse" />
+    </operation>
     <operation name="listarClientes">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesRequest" message="tns:listarClientes" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesResponse" message="tns:listarClientesResponse" />
-    </operation>
-    <operation name="listarClientesParaIndex">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIndexRequest" message="tns:listarClientesParaIndex" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIndexResponse" message="tns:listarClientesParaIndexResponse" />
-    </operation>
-    <operation name="listarProveedoresParaIndex">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresParaIndexRequest" message="tns:listarProveedoresParaIndex" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresParaIndexResponse" message="tns:listarProveedoresParaIndexResponse" />
-    </operation>
-    <operation name="obtenerPorIdCliente">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteRequest" message="tns:obtenerPorIdCliente" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteResponse" message="tns:obtenerPorIdClienteResponse" />
-    </operation>
-    <operation name="eliminarRepresentante">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentanteRequest" message="tns:eliminarRepresentante" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentanteResponse" message="tns:eliminarRepresentanteResponse" />
-    </operation>
-    <operation name="obtenerPorIdRepresentante">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresentanteRequest" message="tns:obtenerPorIdRepresentante" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresentanteResponse" message="tns:obtenerPorIdRepresentanteResponse" />
-    </operation>
-    <operation name="listarRepresentantesPorEmpresa">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorEmpresaRequest" message="tns:listarRepresentantesPorEmpresa" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorEmpresaResponse" message="tns:listarRepresentantesPorEmpresaResponse" />
     </operation>
     <operation name="modificarRepresentante">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarRepresentanteRequest" message="tns:modificarRepresentante" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarRepresentanteResponse" message="tns:modificarRepresentanteResponse" />
     </operation>
-    <operation name="listarRepresentantesPorNombre">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorNombreRequest" message="tns:listarRepresentantesPorNombre" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorNombreResponse" message="tns:listarRepresentantesPorNombreResponse" />
+    <operation name="obtenerPorIdCliente">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteRequest" message="tns:obtenerPorIdCliente" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteResponse" message="tns:obtenerPorIdClienteResponse" />
+    </operation>
+    <operation name="obtenerEmpresaPorId">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerEmpresaPorIdRequest" message="tns:obtenerEmpresaPorId" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerEmpresaPorIdResponse" message="tns:obtenerEmpresaPorIdResponse" />
     </operation>
     <operation name="obtenerPorIdProveedor">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedorRequest" message="tns:obtenerPorIdProveedor" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedorResponse" message="tns:obtenerPorIdProveedorResponse" />
     </operation>
+    <operation name="listarClientesParaIndex">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIndexRequest" message="tns:listarClientesParaIndex" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIndexResponse" message="tns:listarClientesParaIndexResponse" />
+    </operation>
+    <operation name="listarRepresentantesPorEmpresa">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorEmpresaRequest" message="tns:listarRepresentantesPorEmpresa" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorEmpresaResponse" message="tns:listarRepresentantesPorEmpresaResponse" />
+    </operation>
+    <operation name="listarRepresentantesPorNombre">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorNombreRequest" message="tns:listarRepresentantesPorNombre" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantesPorNombreResponse" message="tns:listarRepresentantesPorNombreResponse" />
+    </operation>
+    <operation name="listarProveedoresParaIndex">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresParaIndexRequest" message="tns:listarProveedoresParaIndex" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresParaIndexResponse" message="tns:listarProveedoresParaIndexResponse" />
+    </operation>
+    <operation name="obtenerPorIdRepresentante">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresentanteRequest" message="tns:obtenerPorIdRepresentante" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresentanteResponse" message="tns:obtenerPorIdRepresentanteResponse" />
+    </operation>
+    <operation name="eliminarRepresentante">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentanteRequest" message="tns:eliminarRepresentante" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentanteResponse" message="tns:eliminarRepresentanteResponse" />
+    </operation>
   </portType>
   <binding name="RelacionesComercialesWSPortBinding" type="tns:RelacionesComercialesWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarDocumentosPorEmpresa">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="modificarCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="modificarProveedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarDocumentosPorEmpresa">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -185,61 +196,25 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="buscarPorNombre_empresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarClientes">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarClientesParaIndex">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarProveedoresParaIndex">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerPorIdCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarRepresentante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerPorIdRepresentante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarRepresentantesPorEmpresa">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -257,7 +232,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarRepresentantesPorNombre">
+    <operation name="obtenerPorIdCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerEmpresaPorId">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -267,6 +251,60 @@
       </output>
     </operation>
     <operation name="obtenerPorIdProveedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarClientesParaIndex">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarRepresentantesPorEmpresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarRepresentantesPorNombre">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProveedoresParaIndex">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdRepresentante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarRepresentante">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="6cfbd5c4-ee59-443a-adfc-07405d8dc0d0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="1cc6859c-68e5-49c7-846e-e206c2475788" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,17 +22,17 @@
     <MetadataSource Address="http://localhost:8080/WebService/archivo.disco" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NotificacionesWS.xsd" MetadataType="Schema" ID="a042a6fb-a7a6-4497-b440-2dffcf1731c5" SourceId="1" SourceUrl="http://localhost:8080/WebService/NotificacionesWS?xsd=1" />
-    <MetadataFile FileName="AlmacenWS.wsdl" MetadataType="Wsdl" ID="ae30cd32-c734-4f5b-b6b0-4906e4b13ffd" SourceId="1" SourceUrl="http://localhost:8080/WebService/AlmacenWS?WSDL" />
-    <MetadataFile FileName="RelacionesComercialesWS.xsd" MetadataType="Schema" ID="a4c70d31-f212-48d7-b5ab-031e29afe775" SourceId="1" SourceUrl="http://localhost:8080/WebService/RelacionesComercialesWS?xsd=1" />
-    <MetadataFile FileName="GestionComercialWS.xsd" MetadataType="Schema" ID="44a61c99-476a-4312-ac7e-d0dddeb9f788" SourceId="1" SourceUrl="http://localhost:8080/WebService/GestionComercialWS?xsd=1" />
-    <MetadataFile FileName="RecursosHumanosWS.wsdl" MetadataType="Wsdl" ID="726be97c-63f3-4193-aaaf-8bd9e30f25d7" SourceId="1" SourceUrl="http://localhost:8080/WebService/RecursosHumanosWS?WSDL" />
-    <MetadataFile FileName="NotificacionesWS.wsdl" MetadataType="Wsdl" ID="c1b3674f-f08e-4b49-81b5-98b171a2a1f8" SourceId="1" SourceUrl="http://localhost:8080/WebService/NotificacionesWS?WSDL" />
-    <MetadataFile FileName="AlmacenWS.xsd" MetadataType="Schema" ID="1fa58da0-c254-4d17-8394-79b3201c7ee7" SourceId="1" SourceUrl="http://localhost:8080/WebService/AlmacenWS?xsd=1" />
-    <MetadataFile FileName="GestionComercialWS.wsdl" MetadataType="Wsdl" ID="53a33cd1-e32f-4482-b43c-262f4cd18bb3" SourceId="1" SourceUrl="http://localhost:8080/WebService/GestionComercialWS?WSDL" />
-    <MetadataFile FileName="RecursosHumanosWS.xsd" MetadataType="Schema" ID="3ae2598e-a44f-444d-abc3-4c955723b72b" SourceId="1" SourceUrl="http://localhost:8080/WebService/RecursosHumanosWS?xsd=1" />
-    <MetadataFile FileName="RelacionesComercialesWS.wsdl" MetadataType="Wsdl" ID="90148b5a-7707-4ff2-a38f-f97781c0a9ec" SourceId="1" SourceUrl="http://localhost:8080/WebService/RelacionesComercialesWS?WSDL" />
-    <MetadataFile FileName="archivo.disco" MetadataType="Disco" ID="a4870c0f-82f0-4449-9dc6-458c3611d11d" SourceId="1" SourceUrl="http://localhost:8080/WebService/archivo.disco" />
+    <MetadataFile FileName="NotificacionesWS.xsd" MetadataType="Schema" ID="5732f02d-df08-4ddf-9c83-ce688b4205d3" SourceId="1" SourceUrl="http://localhost:8080/WebService/NotificacionesWS?xsd=1" />
+    <MetadataFile FileName="AlmacenWS.wsdl" MetadataType="Wsdl" ID="e3181cac-33d4-4c5f-818f-a2ae2403c9da" SourceId="1" SourceUrl="http://localhost:8080/WebService/AlmacenWS?WSDL" />
+    <MetadataFile FileName="RelacionesComercialesWS.xsd" MetadataType="Schema" ID="4812728a-36ca-4373-aa5e-58a4fb9e397e" SourceId="1" SourceUrl="http://localhost:8080/WebService/RelacionesComercialesWS?xsd=1" />
+    <MetadataFile FileName="GestionComercialWS.xsd" MetadataType="Schema" ID="db3c1523-4e96-4e66-ab96-9a0b700234d7" SourceId="1" SourceUrl="http://localhost:8080/WebService/GestionComercialWS?xsd=1" />
+    <MetadataFile FileName="RecursosHumanosWS.wsdl" MetadataType="Wsdl" ID="5ca48e8c-0a7a-4554-b242-b34d299709bb" SourceId="1" SourceUrl="http://localhost:8080/WebService/RecursosHumanosWS?WSDL" />
+    <MetadataFile FileName="NotificacionesWS.wsdl" MetadataType="Wsdl" ID="503efe31-5ec9-4c5a-991c-6c58f7bf523c" SourceId="1" SourceUrl="http://localhost:8080/WebService/NotificacionesWS?WSDL" />
+    <MetadataFile FileName="AlmacenWS.xsd" MetadataType="Schema" ID="0559921b-d0ab-4e1b-9a87-099b5358525d" SourceId="1" SourceUrl="http://localhost:8080/WebService/AlmacenWS?xsd=1" />
+    <MetadataFile FileName="GestionComercialWS.wsdl" MetadataType="Wsdl" ID="d4321170-1823-4be2-89f5-5a0a3af18f4e" SourceId="1" SourceUrl="http://localhost:8080/WebService/GestionComercialWS?WSDL" />
+    <MetadataFile FileName="RecursosHumanosWS.xsd" MetadataType="Schema" ID="b7b6a592-2b76-4c8a-88bf-20ddb12986a8" SourceId="1" SourceUrl="http://localhost:8080/WebService/RecursosHumanosWS?xsd=1" />
+    <MetadataFile FileName="RelacionesComercialesWS.wsdl" MetadataType="Wsdl" ID="cdbf002e-34f7-4229-b9ba-ea6ca8227763" SourceId="1" SourceUrl="http://localhost:8080/WebService/RelacionesComercialesWS?WSDL" />
+    <MetadataFile FileName="archivo.disco" MetadataType="Disco" ID="e0c24a7f-b387-41ba-b9d8-92ca9c766a3f" SourceId="1" SourceUrl="http://localhost:8080/WebService/archivo.disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -8,6 +8,7 @@ import pe.edu.pucp.comerzia.core.dao.utils.Column;
 import pe.edu.pucp.comerzia.core.dao.utils.Expression;
 import pe.edu.pucp.comerzia.core.dao.utils.Order;
 import pe.edu.pucp.comerzia.core.db.DBManager;
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
 
 /**
  * BaseDAO is a generic Data Access Object that provides basic CRUD operations,
@@ -16,7 +17,7 @@ import pe.edu.pucp.comerzia.core.db.DBManager;
  * @param <T> The type of the entity.
  * @param <K> The type of the primary key.
  */
-public abstract class BaseDAO<T, K> {
+public abstract class BaseDAO<T extends BaseEntity, K> {
 
   protected Class<T> entityClass;
 
@@ -183,6 +184,11 @@ public abstract class BaseDAO<T, K> {
 
     params.add(id);
 
+    sql
+      .append(" AND ")
+      .append(BaseEntityMapper.Columns.deletedAt.getName())
+      .append(" IS NULL");
+
     try (
       Connection conn = DBManager.getInstance().getConnection();
       PreparedStatement ps = conn.prepareStatement(sql.toString())
@@ -199,17 +205,42 @@ public abstract class BaseDAO<T, K> {
    * @throws SQLException If a database access error occurs.
    */
   public Integer delete(K id) throws SQLException {
-    String sql =
-      "DELETE FROM " +
-      getTableName() +
-      " WHERE " +
-      getPrimaryKeyColumnName() +
-      " = ?";
+    return delete(id, true);
+  }
+
+  /**
+   * Deletes an entity by its primary key.
+   *
+   * @param id        The primary key of the entity to delete.
+   * @param softDelete Whether to perform a soft delete.
+   * @throws SQLException If a database access error occurs.
+   */
+  public Integer delete(K id, Boolean softDelete) throws SQLException {
+    StringBuilder sql = new StringBuilder();
+
+    if (softDelete) {
+      sql
+        .append("UPDATE ")
+        .append(getTableName())
+        .append(" SET ")
+        .append(BaseEntityMapper.Columns.deletedAt.getName())
+        .append(" = CURRENT_TIMESTAMP WHERE ")
+        .append(getPrimaryKeyColumnName())
+        .append(" = ?");
+    } else {
+      sql
+        .append("DELETE FROM ")
+        .append(getTableName())
+        .append(" WHERE ")
+        .append(getPrimaryKeyColumnName())
+        .append(" = ?");
+    }
+
     List<Object> params = Collections.singletonList(id);
 
     try (
       Connection conn = DBManager.getInstance().getConnection();
-      PreparedStatement ps = conn.prepareStatement(sql)
+      PreparedStatement ps = conn.prepareStatement(sql.toString())
     ) {
       setParameters(ps, params);
       return ps.executeUpdate();
@@ -222,7 +253,26 @@ public abstract class BaseDAO<T, K> {
    * @return A QueryBuilder instance.
    */
   public QueryBuilder<T> query() {
-    return new QueryBuilder<>(this);
+    return query(true);
+  }
+
+  /**
+   * Begins building a query with a soft delete filter.
+   *
+   * @param softDelete Whether to include soft delete filter.
+   * @return A QueryBuilder instance.
+   */
+  public QueryBuilder<T> query(Boolean softDelete) {
+    QueryBuilder<T> queryBuilder = new QueryBuilder<>(this);
+    if (softDelete) {
+      queryBuilder.where(
+        Column.of(
+          BaseEntityMapper.Columns.deletedAt.getName(),
+          Timestamp.class
+        ).isNull()
+      );
+    }
+    return queryBuilder;
   }
 
   /**
@@ -414,7 +464,7 @@ public abstract class BaseDAO<T, K> {
    *
    * @param <T> The type of the entity.
    */
-  public static class QueryBuilder<T> {
+  public static class QueryBuilder<T extends BaseEntity> {
 
     private final BaseDAO<T, ?> dao;
     private final List<Object> parameters;

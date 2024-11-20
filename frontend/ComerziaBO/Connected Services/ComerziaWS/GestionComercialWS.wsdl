@@ -5,6 +5,24 @@
       <xsd:import schemaLocation="http://localhost:8080/WebService/GestionComercialWS?xsd=1" namespace="http://services.comerzia.pucp.edu.pe" />
     </xsd:schema>
   </types>
+  <message name="listarPorEmpresa">
+    <part name="parameters" element="tns:listarPorEmpresa" />
+  </message>
+  <message name="listarPorEmpresaResponse">
+    <part name="parameters" element="tns:listarPorEmpresaResponse" />
+  </message>
+  <message name="existeDocumento">
+    <part name="parameters" element="tns:existeDocumento" />
+  </message>
+  <message name="existeDocumentoResponse">
+    <part name="parameters" element="tns:existeDocumentoResponse" />
+  </message>
+  <message name="existeLinea">
+    <part name="parameters" element="tns:existeLinea" />
+  </message>
+  <message name="existeLineaResponse">
+    <part name="parameters" element="tns:existeLineaResponse" />
+  </message>
   <message name="insertar_documento">
     <part name="parameters" element="tns:insertar_documento" />
   </message>
@@ -17,59 +35,11 @@
   <message name="eliminar_documentoResponse">
     <part name="parameters" element="tns:eliminar_documentoResponse" />
   </message>
-  <message name="existeDocumento">
-    <part name="parameters" element="tns:existeDocumento" />
-  </message>
-  <message name="existeDocumentoResponse">
-    <part name="parameters" element="tns:existeDocumentoResponse" />
-  </message>
-  <message name="listarPorEmpresa">
-    <part name="parameters" element="tns:listarPorEmpresa" />
-  </message>
-  <message name="listarPorEmpresaResponse">
-    <part name="parameters" element="tns:listarPorEmpresaResponse" />
-  </message>
-  <message name="obtenerDocumentoPorId">
-    <part name="parameters" element="tns:obtenerDocumentoPorId" />
-  </message>
-  <message name="obtenerDocumentoPorIdResponse">
-    <part name="parameters" element="tns:obtenerDocumentoPorIdResponse" />
-  </message>
-  <message name="insertar_lineaDocumento">
-    <part name="parameters" element="tns:insertar_lineaDocumento" />
-  </message>
-  <message name="insertar_lineaDocumentoResponse">
-    <part name="parameters" element="tns:insertar_lineaDocumentoResponse" />
-  </message>
   <message name="modificar_documento">
     <part name="parameters" element="tns:modificar_documento" />
   </message>
   <message name="modificar_documentoResponse">
     <part name="parameters" element="tns:modificar_documentoResponse" />
-  </message>
-  <message name="modificar_lineaDocumento">
-    <part name="parameters" element="tns:modificar_lineaDocumento" />
-  </message>
-  <message name="modificar_lineaDocumentoResponse">
-    <part name="parameters" element="tns:modificar_lineaDocumentoResponse" />
-  </message>
-  <message name="eliminar_lineaDocumento">
-    <part name="parameters" element="tns:eliminar_lineaDocumento" />
-  </message>
-  <message name="eliminar_lineaDocumentoResponse">
-    <part name="parameters" element="tns:eliminar_lineaDocumentoResponse" />
-  </message>
-  <message name="obtenerLineaDocumentoPorId">
-    <part name="parameters" element="tns:obtenerLineaDocumentoPorId" />
-  </message>
-  <message name="obtenerLineaDocumentoPorIdResponse">
-    <part name="parameters" element="tns:obtenerLineaDocumentoPorIdResponse" />
-  </message>
-  <message name="listarLineasPorDocumento">
-    <part name="parameters" element="tns:listarLineasPorDocumento" />
-  </message>
-  <message name="listarLineasPorDocumentoResponse">
-    <part name="parameters" element="tns:listarLineasPorDocumentoResponse" />
   </message>
   <message name="listarDocumentos">
     <part name="parameters" element="tns:listarDocumentos" />
@@ -77,7 +47,55 @@
   <message name="listarDocumentosResponse">
     <part name="parameters" element="tns:listarDocumentosResponse" />
   </message>
+  <message name="obtenerLineaDocumentoPorId">
+    <part name="parameters" element="tns:obtenerLineaDocumentoPorId" />
+  </message>
+  <message name="obtenerLineaDocumentoPorIdResponse">
+    <part name="parameters" element="tns:obtenerLineaDocumentoPorIdResponse" />
+  </message>
+  <message name="eliminar_lineaDocumento">
+    <part name="parameters" element="tns:eliminar_lineaDocumento" />
+  </message>
+  <message name="eliminar_lineaDocumentoResponse">
+    <part name="parameters" element="tns:eliminar_lineaDocumentoResponse" />
+  </message>
+  <message name="insertar_lineaDocumento">
+    <part name="parameters" element="tns:insertar_lineaDocumento" />
+  </message>
+  <message name="insertar_lineaDocumentoResponse">
+    <part name="parameters" element="tns:insertar_lineaDocumentoResponse" />
+  </message>
+  <message name="listarLineasPorDocumento">
+    <part name="parameters" element="tns:listarLineasPorDocumento" />
+  </message>
+  <message name="listarLineasPorDocumentoResponse">
+    <part name="parameters" element="tns:listarLineasPorDocumentoResponse" />
+  </message>
+  <message name="modificar_lineaDocumento">
+    <part name="parameters" element="tns:modificar_lineaDocumento" />
+  </message>
+  <message name="modificar_lineaDocumentoResponse">
+    <part name="parameters" element="tns:modificar_lineaDocumentoResponse" />
+  </message>
+  <message name="obtenerDocumentoPorId">
+    <part name="parameters" element="tns:obtenerDocumentoPorId" />
+  </message>
+  <message name="obtenerDocumentoPorIdResponse">
+    <part name="parameters" element="tns:obtenerDocumentoPorIdResponse" />
+  </message>
   <portType name="GestionComercialWS">
+    <operation name="listarPorEmpresa">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaRequest" message="tns:listarPorEmpresa" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaResponse" message="tns:listarPorEmpresaResponse" />
+    </operation>
+    <operation name="existeDocumento">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoRequest" message="tns:existeDocumento" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoResponse" message="tns:existeDocumentoResponse" />
+    </operation>
+    <operation name="existeLinea">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeLineaRequest" message="tns:existeLinea" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeLineaResponse" message="tns:existeLineaResponse" />
+    </operation>
     <operation name="insertar_documento">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_documentoRequest" message="tns:insertar_documento" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_documentoResponse" message="tns:insertar_documentoResponse" />
@@ -86,49 +104,68 @@
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_documentoRequest" message="tns:eliminar_documento" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_documentoResponse" message="tns:eliminar_documentoResponse" />
     </operation>
-    <operation name="existeDocumento">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoRequest" message="tns:existeDocumento" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoResponse" message="tns:existeDocumentoResponse" />
-    </operation>
-    <operation name="listarPorEmpresa">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaRequest" message="tns:listarPorEmpresa" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaResponse" message="tns:listarPorEmpresaResponse" />
-    </operation>
-    <operation name="obtenerDocumentoPorId">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdRequest" message="tns:obtenerDocumentoPorId" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdResponse" message="tns:obtenerDocumentoPorIdResponse" />
-    </operation>
-    <operation name="insertar_lineaDocumento">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRequest" message="tns:insertar_lineaDocumento" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoResponse" message="tns:insertar_lineaDocumentoResponse" />
-    </operation>
     <operation name="modificar_documento">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_documentoRequest" message="tns:modificar_documento" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_documentoResponse" message="tns:modificar_documentoResponse" />
-    </operation>
-    <operation name="modificar_lineaDocumento">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoRequest" message="tns:modificar_lineaDocumento" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoResponse" message="tns:modificar_lineaDocumentoResponse" />
-    </operation>
-    <operation name="eliminar_lineaDocumento">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRequest" message="tns:eliminar_lineaDocumento" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoResponse" message="tns:eliminar_lineaDocumentoResponse" />
-    </operation>
-    <operation name="obtenerLineaDocumentoPorId">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerLineaDocumentoPorIdRequest" message="tns:obtenerLineaDocumentoPorId" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerLineaDocumentoPorIdResponse" message="tns:obtenerLineaDocumentoPorIdResponse" />
-    </operation>
-    <operation name="listarLineasPorDocumento">
-      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarLineasPorDocumentoRequest" message="tns:listarLineasPorDocumento" />
-      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarLineasPorDocumentoResponse" message="tns:listarLineasPorDocumentoResponse" />
     </operation>
     <operation name="listarDocumentos">
       <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosRequest" message="tns:listarDocumentos" />
       <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosResponse" message="tns:listarDocumentosResponse" />
     </operation>
+    <operation name="obtenerLineaDocumentoPorId">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerLineaDocumentoPorIdRequest" message="tns:obtenerLineaDocumentoPorId" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerLineaDocumentoPorIdResponse" message="tns:obtenerLineaDocumentoPorIdResponse" />
+    </operation>
+    <operation name="eliminar_lineaDocumento">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRequest" message="tns:eliminar_lineaDocumento" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoResponse" message="tns:eliminar_lineaDocumentoResponse" />
+    </operation>
+    <operation name="insertar_lineaDocumento">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRequest" message="tns:insertar_lineaDocumento" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoResponse" message="tns:insertar_lineaDocumentoResponse" />
+    </operation>
+    <operation name="listarLineasPorDocumento">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarLineasPorDocumentoRequest" message="tns:listarLineasPorDocumento" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarLineasPorDocumentoResponse" message="tns:listarLineasPorDocumentoResponse" />
+    </operation>
+    <operation name="modificar_lineaDocumento">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoRequest" message="tns:modificar_lineaDocumento" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoResponse" message="tns:modificar_lineaDocumentoResponse" />
+    </operation>
+    <operation name="obtenerDocumentoPorId">
+      <input wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdRequest" message="tns:obtenerDocumentoPorId" />
+      <output wsam:Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdResponse" message="tns:obtenerDocumentoPorIdResponse" />
+    </operation>
   </portType>
   <binding name="GestionComercialWSPortBinding" type="tns:GestionComercialWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarPorEmpresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="existeDocumento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="existeLinea">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertar_documento">
       <soap:operation soapAction="" />
       <input>
@@ -147,42 +184,6 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="existeDocumento">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarPorEmpresa">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerDocumentoPorId">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertar_lineaDocumento">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="modificar_documento">
       <soap:operation soapAction="" />
       <input>
@@ -192,16 +193,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificar_lineaDocumento">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminar_lineaDocumento">
+    <operation name="listarDocumentos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -219,6 +211,24 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="eliminar_lineaDocumento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertar_lineaDocumento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarLineasPorDocumento">
       <soap:operation soapAction="" />
       <input>
@@ -228,7 +238,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarDocumentos">
+    <operation name="modificar_lineaDocumento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerDocumentoPorId">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

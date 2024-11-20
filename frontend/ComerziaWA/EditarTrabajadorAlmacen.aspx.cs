@@ -1,8 +1,11 @@
 ﻿using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
 using ComerziaRecursosHumanosBO;
+using OtrosValidation;
 using System;
 using System.ComponentModel;
+using System.Text;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ComerziaWA
@@ -24,14 +27,14 @@ namespace ComerziaWA
         {
             if (!IsPostBack)
             {
-                // Llamamos al método listarTodos para obtener la lista de almacenes
+                // método listarTodos para obtener la lista de almacenes
                 BindingList<almacen> almacenes = this.boAlmacen.listarTodos();
 
                 // Configuramos la fuente de datos del DropDownList
                 ddlElegirAlmacenTrabajador.DataSource = almacenes;
 
                 // Mostramos solo el nombre del almacen
-                ddlElegirAlmacenTrabajador.DataValueField = "id"; // Opcionalmente, puedes usar el ID como valor
+                ddlElegirAlmacenTrabajador.DataValueField = "id";
                 ddlElegirAlmacenTrabajador.DataTextField = "nombre"; // Nombre es la propiedad que contiene el nombre del administrador
 
                 // Enlazamos los datos
@@ -104,14 +107,54 @@ namespace ComerziaWA
 
         protected void btnGuardarVendedor_Click(object sender, EventArgs e)
         {
-            // Convertir los valores
-            string dni = txtDniTrabajador.Text.Trim();
-            string nombreCompleto = txtNombreCompletoTrabajador.Text.Trim();
-            string telefono = txtTelefonoTrabajador.Text.Trim();
-            string correo = txtCorreoTrabajador.Text.Trim();
-            string direccion = txtDireccionTrabajador.Text.Trim();
-            double salario = double.Parse(txtSalarioTrabajador.Text.Trim());
+            // Parsear Salario y IngresosVentas como double
+            double salarioL = 0;
 
+            // Si todas las validaciones son correctas,  crear el administrador
+            var nuevoTrabajador = new OtrosVali
+            {
+                Dni = txtDniTrabajador.Text.Trim(),
+                NombreCompleto = txtNombreCompletoTrabajador.Text.Trim(),
+                Telefono = txtTelefonoTrabajador.Text.Trim(),
+                Correo = txtCorreoTrabajador.Text.Trim(),
+                Direccion = txtDireccionTrabajador.Text.Trim(),
+                NombreUsuario = trabajadorEditable.nombreUsuario,
+                Contrasenha = trabajadorEditable.contrasenha,
+                Salario = txtSalarioTrabajador.Text.Trim(),
+                FechaContratacion = DateTime.MinValue.ToString("yyyy-MM-dd"),
+            };
+
+            // Aquí seguiría el proceso de validación con el `OtrosValidator`
+            var validator = new OtrosValidator();
+            var result = validator.Validate(nuevoTrabajador);
+
+            if (!result.IsValid)
+            {
+                StringBuilder errores = new StringBuilder();
+                foreach (var error in result.Errors)
+                {
+                    errores.AppendLine(error.ErrorMessage);
+                }
+
+                if (errores.Length > 0)
+                {
+                    string mensajeErrores = errores
+                        .ToString()
+                        .Replace("\n", "\\n")
+                        .Replace("\r", "")
+                        .Replace("'", "\\'");
+
+                    ScriptManager.RegisterStartupScript(
+                        this,
+                        this.GetType(),
+                        "showErrorPopup",
+                        $"showPopup('{mensajeErrores}');",
+                        true
+                    );
+                }
+
+                return; // Detener el proceso
+            }
             // Estado
             estadoEmpleadoEnum estado;
             if (ddlEstadoTrabajador.SelectedValue == "Activo")
@@ -130,15 +173,15 @@ namespace ComerziaWA
 
             this.boTrabajador.modificar(
                 trabajadorEditable.id,
-                dni,
-                nombreCompleto,
-                telefono,
-                correo,
-                direccion,
+                nuevoTrabajador.Dni,
+                nuevoTrabajador.NombreCompleto,
+                nuevoTrabajador.Telefono,
+                nuevoTrabajador.Correo,
+                nuevoTrabajador.Direccion,
                 estado,
                 trabajadorEditable.nombreUsuario,
                 trabajadorEditable.contrasenha,
-                salario,
+                salarioL,
                 trabajadorEditable.fechaContratacion,
                 idAlmacenSeleccionado,
                 tieneLicenciaMontacarga

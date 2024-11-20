@@ -1,7 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using ComerziaBO;
+﻿using ComerziaBO;
 using ComerziaBO.ComerziaWS;
+using System;
+using System.ComponentModel;
 
 namespace ComerziaRecursosHumanosBO
 {
@@ -98,6 +98,18 @@ namespace ComerziaRecursosHumanosBO
         {
             trabajadorDeAlmacen[] arreglo =
                 this.WsRecursosHumanos.listarParaIndex_trabajadorDeAlmacen();
+
+            if (arreglo == null)
+            {
+                return new BindingList<trabajadorDeAlmacen>();
+            }
+
+            return new BindingList<trabajadorDeAlmacen>(arreglo);
+        }
+
+        public BindingList<trabajadorDeAlmacen> listarPorNombre(String nombre)
+        {
+            trabajadorDeAlmacen[] arreglo = this.WsRecursosHumanos.buscarPorNombre_trabajadorDeAlmacen(nombre);
 
             if (arreglo == null)
             {

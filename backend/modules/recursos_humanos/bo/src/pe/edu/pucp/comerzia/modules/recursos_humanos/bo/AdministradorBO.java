@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.AdministradorDAO;
+import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.mapper.AdministradorMapper;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Administrador;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.EstadoEmpleadoEnum;
 
@@ -94,5 +95,20 @@ public class AdministradorBO {
 
   public ArrayList<Administrador> listarParaIndex() throws SQLException {
     return new ArrayList<>(administradorDAO.query().limit(3).list());
+  }
+
+  public ArrayList<Administrador> buscarAdministradores(
+    String nombreAdministrador
+  ) throws SQLException {
+    return new ArrayList<>(
+      administradorDAO
+        .query()
+        .where(
+          AdministradorMapper.Columns.nombre.like(
+            "%" + nombreAdministrador + "%"
+          )
+        )
+        .list()
+    );
   }
 }

@@ -16,17 +16,6 @@ namespace ComerziaWA.ComerziaWS {
     public interface AlmacenWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoResponse" +
-            "")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse insertarProductoAlmacenado(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoResponse" +
-            "")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse> insertarProductoAlmacenadoAsync(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminarProductoAlmacenadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminarProductoAlmacenadoResponse" +
             "")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -40,7 +29,7 @@ namespace ComerziaWA.ComerziaWS {
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/obtenerPorIdRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/obtenerPorIdResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.obtenerPorIdResponse obtenerPorId(ComerziaWA.ComerziaWS.obtenerPorIdRequest request);
         
@@ -48,9 +37,29 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdResponse> obtenerPorIdAsync(ComerziaWA.ComerziaWS.obtenerPorIdRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.insertar_almacenResponse insertar_almacen(ComerziaWA.ComerziaWS.insertar_almacenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_almacenResponse> insertar_almacenAsync(ComerziaWA.ComerziaWS.insertar_almacenRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.modificar_almacenResponse modificar_almacen(ComerziaWA.ComerziaWS.modificar_almacenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_almacenResponse> modificar_almacenAsync(ComerziaWA.ComerziaWS.modificar_almacenRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_productoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_productoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.insertar_productoResponse insertar_producto(ComerziaWA.ComerziaWS.insertar_productoRequest request);
         
@@ -60,7 +69,7 @@ namespace ComerziaWA.ComerziaWS {
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_almacenResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.eliminar_almacenResponse eliminar_almacen(ComerziaWA.ComerziaWS.eliminar_almacenRequest request);
         
@@ -68,49 +77,9 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_almacenResponse> eliminar_almacenAsync(ComerziaWA.ComerziaWS.eliminar_almacenRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarAlmacenesResponse listarAlmacenes(ComerziaWA.ComerziaWS.listarAlmacenesRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesResponse> listarAlmacenesAsync(ComerziaWA.ComerziaWS.listarAlmacenesRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarPorAlmacenResponse listarPorAlmacen(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorAlmacenResponse> listarPorAlmacenAsync(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.buscarPorNombreResponse buscarPorNombre(ComerziaWA.ComerziaWS.buscarPorNombreRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombreResponse> buscarPorNombreAsync(ComerziaWA.ComerziaWS.buscarPorNombreRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.buscarProductoPorIdResponse buscarProductoPorId(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarProductoPorIdResponse> buscarProductoPorIdAsync(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_productoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_productoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.modificar_productoResponse modificar_producto(ComerziaWA.ComerziaWS.modificar_productoRequest request);
         
@@ -118,29 +87,9 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_productoResponse> modificar_productoAsync(ComerziaWA.ComerziaWS.modificar_productoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.modificar_almacenResponse modificar_almacen(ComerziaWA.ComerziaWS.modificar_almacenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/modificar_almacenResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_almacenResponse> modificar_almacenAsync(ComerziaWA.ComerziaWS.modificar_almacenRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.insertar_almacenResponse insertar_almacen(ComerziaWA.ComerziaWS.insertar_almacenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertar_almacenResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_almacenResponse> insertar_almacenAsync(ComerziaWA.ComerziaWS.insertar_almacenRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_productoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/eliminar_productoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.eliminar_productoResponse eliminar_producto(ComerziaWA.ComerziaWS.eliminar_productoRequest request);
         
@@ -148,9 +97,51 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_productoResponse> eliminar_productoAsync(ComerziaWA.ComerziaWS.eliminar_productoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarAlmacenesResponse listarAlmacenes(ComerziaWA.ComerziaWS.listarAlmacenesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesResponse> listarAlmacenesAsync(ComerziaWA.ComerziaWS.listarAlmacenesRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.buscarProductoPorIdResponse buscarProductoPorId(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarProductoPorIdResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarProductoPorIdResponse> buscarProductoPorIdAsync(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarPorAlmacenResponse listarPorAlmacen(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarPorAlmacenResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorAlmacenResponse> listarPorAlmacenAsync(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoResponse" +
+            "")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse insertarProductoAlmacenado(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/insertarProductoAlmacenadoResponse" +
+            "")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse> insertarProductoAlmacenadoAsync(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesParaIndexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarAlmacenesParaIndexResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarAlmacenesParaIndexResponse listarAlmacenesParaIndex(ComerziaWA.ComerziaWS.listarAlmacenesParaIndexRequest request);
         
@@ -158,65 +149,24 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesParaIndexResponse> listarAlmacenesParaIndexAsync(ComerziaWA.ComerziaWS.listarAlmacenesParaIndexRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.buscarPorNombreResponse buscarPorNombre(ComerziaWA.ComerziaWS.buscarPorNombreRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/buscarPorNombreResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombreResponse> buscarPorNombreAsync(ComerziaWA.ComerziaWS.buscarPorNombreRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarProductoParaIndexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarProductoParaIndexResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarProductoParaIndexResponse listarProductoParaIndex(ComerziaWA.ComerziaWS.listarProductoParaIndexRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarProductoParaIndexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/AlmacenWS/listarProductoParaIndexResponse")]
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProductoParaIndexResponse> listarProductoParaIndexAsync(ComerziaWA.ComerziaWS.listarProductoParaIndexRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProductoAlmacenado", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertarProductoAlmacenadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idAlmacen;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public System.DateTime fechaAlmacenado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int stock;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idProd;
-        
-        public insertarProductoAlmacenadoRequest() {
-        }
-        
-        public insertarProductoAlmacenadoRequest(int idAlmacen, System.DateTime fechaAlmacenado, int stock, int idProd) {
-            this.idAlmacen = idAlmacen;
-            this.fechaAlmacenado = fechaAlmacenado;
-            this.stock = stock;
-            this.idProd = idProd;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProductoAlmacenadoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertarProductoAlmacenadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarProductoAlmacenadoResponse() {
-        }
-        
-        public insertarProductoAlmacenadoResponse(int @return) {
-            this.@return = @return;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -261,7 +211,7 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class almacen : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class almacen : baseEntity {
         
         private string descripcionField;
         
@@ -332,6 +282,72 @@ namespace ComerziaWA.ComerziaWS {
                 this.RaisePropertyChanged("nombre");
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(persona))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(representante))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(administrador))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(vendedor))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(trabajadorDeAlmacen))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(documento))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empresa))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(proveedor))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(lineaDocumento))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(notificacion))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(almacen))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(productoAlmacenado))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(producto))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public abstract partial class baseEntity : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private timestamp createdAtField;
+        
+        private timestamp deletedAtField;
+        
+        private timestamp updatedAtField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public timestamp createdAt {
+            get {
+                return this.createdAtField;
+            }
+            set {
+                this.createdAtField = value;
+                this.RaisePropertyChanged("createdAt");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public timestamp deletedAt {
+            get {
+                return this.deletedAtField;
+            }
+            set {
+                this.deletedAtField = value;
+                this.RaisePropertyChanged("deletedAt");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public timestamp updatedAt {
+            get {
+                return this.updatedAtField;
+            }
+            set {
+                this.updatedAtField = value;
+                this.RaisePropertyChanged("updatedAt");
+            }
+        }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -344,18 +360,55 @@ namespace ComerziaWA.ComerziaWS {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(proveedor))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class empresa : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class timestamp : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int nanosField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int nanos {
+            get {
+                return this.nanosField;
+            }
+            set {
+                this.nanosField = value;
+                this.RaisePropertyChanged("nanos");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(representante))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(administrador))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(vendedor))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(trabajadorDeAlmacen))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class persona : baseEntity {
+        
+        private string correoField;
         
         private string direccionField;
         
-        private string emailField;
+        private string dniField;
         
         private int idField;
         
@@ -365,10 +418,20 @@ namespace ComerziaWA.ComerziaWS {
         
         private string telefonoField;
         
-        private string tipoIndustriaField;
-        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string correo {
+            get {
+                return this.correoField;
+            }
+            set {
+                this.correoField = value;
+                this.RaisePropertyChanged("correo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         public string direccion {
             get {
                 return this.direccionField;
@@ -380,19 +443,19 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string email {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string dni {
             get {
-                return this.emailField;
+                return this.dniField;
             }
             set {
-                this.emailField = value;
-                this.RaisePropertyChanged("email");
+                this.dniField = value;
+                this.RaisePropertyChanged("dni");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public int id {
             get {
                 return this.idField;
@@ -416,7 +479,7 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string nombre {
             get {
                 return this.nombreField;
@@ -428,7 +491,7 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public string telefono {
             get {
                 return this.telefonoField;
@@ -438,27 +501,6 @@ namespace ComerziaWA.ComerziaWS {
                 this.RaisePropertyChanged("telefono");
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string tipoIndustria {
-            get {
-                return this.tipoIndustriaField;
-            }
-            set {
-                this.tipoIndustriaField = value;
-                this.RaisePropertyChanged("tipoIndustria");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     /// <remarks/>
@@ -467,168 +509,207 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class cliente : empresa {
+    public partial class representante : persona {
         
-        private System.DateTime fechaRegistroField;
+        private int idEmpresaField;
         
-        private bool fechaRegistroFieldSpecified;
-        
-        private System.DateTime fechaUltimaCompraField;
-        
-        private bool fechaUltimaCompraFieldSpecified;
+        private bool idEmpresaFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public System.DateTime fechaRegistro {
+        public int idEmpresa {
             get {
-                return this.fechaRegistroField;
+                return this.idEmpresaField;
             }
             set {
-                this.fechaRegistroField = value;
-                this.RaisePropertyChanged("fechaRegistro");
+                this.idEmpresaField = value;
+                this.RaisePropertyChanged("idEmpresa");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaRegistroSpecified {
+        public bool idEmpresaSpecified {
             get {
-                return this.fechaRegistroFieldSpecified;
+                return this.idEmpresaFieldSpecified;
             }
             set {
-                this.fechaRegistroFieldSpecified = value;
-                this.RaisePropertyChanged("fechaRegistroSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public System.DateTime fechaUltimaCompra {
-            get {
-                return this.fechaUltimaCompraField;
-            }
-            set {
-                this.fechaUltimaCompraField = value;
-                this.RaisePropertyChanged("fechaUltimaCompra");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaUltimaCompraSpecified {
-            get {
-                return this.fechaUltimaCompraFieldSpecified;
-            }
-            set {
-                this.fechaUltimaCompraFieldSpecified = value;
-                this.RaisePropertyChanged("fechaUltimaCompraSpecified");
+                this.idEmpresaFieldSpecified = value;
+                this.RaisePropertyChanged("idEmpresaSpecified");
             }
         }
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(administrador))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(vendedor))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(trabajadorDeAlmacen))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class proveedor : empresa {
+    public partial class empleado : persona {
         
-        private double calificacionField;
+        private string contrasenhaField;
         
-        private bool calificacionFieldSpecified;
+        private estadoEmpleadoEnum estadoField;
         
-        private System.DateTime fecha_afiliacionField;
+        private bool estadoFieldSpecified;
         
-        private bool fecha_afiliacionFieldSpecified;
+        private System.DateTime fechaContratacionField;
         
-        private string paisField;
+        private bool fechaContratacionFieldSpecified;
         
-        private string rUCField;
+        private string nombreUsuarioField;
         
-        private string razonSocialField;
+        private double salarioField;
+        
+        private bool salarioFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public double calificacion {
+        public string contrasenha {
             get {
-                return this.calificacionField;
+                return this.contrasenhaField;
             }
             set {
-                this.calificacionField = value;
-                this.RaisePropertyChanged("calificacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool calificacionSpecified {
-            get {
-                return this.calificacionFieldSpecified;
-            }
-            set {
-                this.calificacionFieldSpecified = value;
-                this.RaisePropertyChanged("calificacionSpecified");
+                this.contrasenhaField = value;
+                this.RaisePropertyChanged("contrasenha");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public System.DateTime fecha_afiliacion {
+        public estadoEmpleadoEnum estado {
             get {
-                return this.fecha_afiliacionField;
+                return this.estadoField;
             }
             set {
-                this.fecha_afiliacionField = value;
-                this.RaisePropertyChanged("fecha_afiliacion");
+                this.estadoField = value;
+                this.RaisePropertyChanged("estado");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fecha_afiliacionSpecified {
+        public bool estadoSpecified {
             get {
-                return this.fecha_afiliacionFieldSpecified;
+                return this.estadoFieldSpecified;
             }
             set {
-                this.fecha_afiliacionFieldSpecified = value;
-                this.RaisePropertyChanged("fecha_afiliacionSpecified");
+                this.estadoFieldSpecified = value;
+                this.RaisePropertyChanged("estadoSpecified");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string pais {
+        public System.DateTime fechaContratacion {
             get {
-                return this.paisField;
+                return this.fechaContratacionField;
             }
             set {
-                this.paisField = value;
-                this.RaisePropertyChanged("pais");
+                this.fechaContratacionField = value;
+                this.RaisePropertyChanged("fechaContratacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaContratacionSpecified {
+            get {
+                return this.fechaContratacionFieldSpecified;
+            }
+            set {
+                this.fechaContratacionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaContratacionSpecified");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string RUC {
+        public string nombreUsuario {
             get {
-                return this.rUCField;
+                return this.nombreUsuarioField;
             }
             set {
-                this.rUCField = value;
-                this.RaisePropertyChanged("RUC");
+                this.nombreUsuarioField = value;
+                this.RaisePropertyChanged("nombreUsuario");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string razonSocial {
+        public double salario {
             get {
-                return this.razonSocialField;
+                return this.salarioField;
             }
             set {
-                this.razonSocialField = value;
-                this.RaisePropertyChanged("razonSocial");
+                this.salarioField = value;
+                this.RaisePropertyChanged("salario");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool salarioSpecified {
+            get {
+                return this.salarioFieldSpecified;
+            }
+            set {
+                this.salarioFieldSpecified = value;
+                this.RaisePropertyChanged("salarioSpecified");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public enum estadoEmpleadoEnum {
+        
+        /// <remarks/>
+        ACTIVO,
+        
+        /// <remarks/>
+        INACTIVO,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class administrador : empleado {
+        
+        private int idAlmacenField;
+        
+        private bool idAlmacenFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int idAlmacen {
+            get {
+                return this.idAlmacenField;
+            }
+            set {
+                this.idAlmacenField = value;
+                this.RaisePropertyChanged("idAlmacen");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idAlmacenSpecified {
+            get {
+                return this.idAlmacenFieldSpecified;
+            }
+            set {
+                this.idAlmacenFieldSpecified = value;
+                this.RaisePropertyChanged("idAlmacenSpecified");
             }
         }
     }
@@ -639,154 +720,61 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class lineaDocumento : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class vendedor : empleado {
         
-        private int cantidadField;
+        private double ingresosVentasField;
         
-        private bool cantidadFieldSpecified;
+        private bool ingresosVentasFieldSpecified;
         
-        private int idField;
+        private double porcentajeComisionField;
         
-        private bool idFieldSpecified;
-        
-        private int idDocumentoField;
-        
-        private bool idDocumentoFieldSpecified;
-        
-        private int idProductoField;
-        
-        private bool idProductoFieldSpecified;
-        
-        private double precioUnitarioField;
-        
-        private bool precioUnitarioFieldSpecified;
+        private bool porcentajeComisionFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int cantidad {
+        public double ingresosVentas {
             get {
-                return this.cantidadField;
+                return this.ingresosVentasField;
             }
             set {
-                this.cantidadField = value;
-                this.RaisePropertyChanged("cantidad");
+                this.ingresosVentasField = value;
+                this.RaisePropertyChanged("ingresosVentas");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool cantidadSpecified {
+        public bool ingresosVentasSpecified {
             get {
-                return this.cantidadFieldSpecified;
+                return this.ingresosVentasFieldSpecified;
             }
             set {
-                this.cantidadFieldSpecified = value;
-                this.RaisePropertyChanged("cantidadSpecified");
+                this.ingresosVentasFieldSpecified = value;
+                this.RaisePropertyChanged("ingresosVentasSpecified");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int id {
+        public double porcentajeComision {
             get {
-                return this.idField;
+                return this.porcentajeComisionField;
             }
             set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
+                this.porcentajeComisionField = value;
+                this.RaisePropertyChanged("porcentajeComision");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idSpecified {
+        public bool porcentajeComisionSpecified {
             get {
-                return this.idFieldSpecified;
+                return this.porcentajeComisionFieldSpecified;
             }
             set {
-                this.idFieldSpecified = value;
-                this.RaisePropertyChanged("idSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idDocumento {
-            get {
-                return this.idDocumentoField;
-            }
-            set {
-                this.idDocumentoField = value;
-                this.RaisePropertyChanged("idDocumento");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idDocumentoSpecified {
-            get {
-                return this.idDocumentoFieldSpecified;
-            }
-            set {
-                this.idDocumentoFieldSpecified = value;
-                this.RaisePropertyChanged("idDocumentoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int idProducto {
-            get {
-                return this.idProductoField;
-            }
-            set {
-                this.idProductoField = value;
-                this.RaisePropertyChanged("idProducto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idProductoSpecified {
-            get {
-                return this.idProductoFieldSpecified;
-            }
-            set {
-                this.idProductoFieldSpecified = value;
-                this.RaisePropertyChanged("idProductoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public double precioUnitario {
-            get {
-                return this.precioUnitarioField;
-            }
-            set {
-                this.precioUnitarioField = value;
-                this.RaisePropertyChanged("precioUnitario");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool precioUnitarioSpecified {
-            get {
-                return this.precioUnitarioFieldSpecified;
-            }
-            set {
-                this.precioUnitarioFieldSpecified = value;
-                this.RaisePropertyChanged("precioUnitarioSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                this.porcentajeComisionFieldSpecified = value;
+                this.RaisePropertyChanged("porcentajeComisionSpecified");
             }
         }
     }
@@ -797,7 +785,58 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class documento : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class trabajadorDeAlmacen : empleado {
+        
+        private int idAlmacenField;
+        
+        private bool idAlmacenFieldSpecified;
+        
+        private bool licenciaMontacargaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int idAlmacen {
+            get {
+                return this.idAlmacenField;
+            }
+            set {
+                this.idAlmacenField = value;
+                this.RaisePropertyChanged("idAlmacen");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idAlmacenSpecified {
+            get {
+                return this.idAlmacenFieldSpecified;
+            }
+            set {
+                this.idAlmacenFieldSpecified = value;
+                this.RaisePropertyChanged("idAlmacenSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public bool licenciaMontacarga {
+            get {
+                return this.licenciaMontacargaField;
+            }
+            set {
+                this.licenciaMontacargaField = value;
+                this.RaisePropertyChanged("licenciaMontacarga");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class documento : baseEntity {
         
         private estadoDocumentoEnum estadoField;
         
@@ -994,15 +1033,6 @@ namespace ComerziaWA.ComerziaWS {
                 this.RaisePropertyChanged("tipoSpecified");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     /// <remarks/>
@@ -1041,12 +1071,442 @@ namespace ComerziaWA.ComerziaWS {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(proveedor))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class notificacion : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class empresa : baseEntity {
+        
+        private string direccionField;
+        
+        private string emailField;
+        
+        private int idField;
+        
+        private bool idFieldSpecified;
+        
+        private string nombreField;
+        
+        private string telefonoField;
+        
+        private string tipoIndustriaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+                this.RaisePropertyChanged("email");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idSpecified {
+            get {
+                return this.idFieldSpecified;
+            }
+            set {
+                this.idFieldSpecified = value;
+                this.RaisePropertyChanged("idSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string telefono {
+            get {
+                return this.telefonoField;
+            }
+            set {
+                this.telefonoField = value;
+                this.RaisePropertyChanged("telefono");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string tipoIndustria {
+            get {
+                return this.tipoIndustriaField;
+            }
+            set {
+                this.tipoIndustriaField = value;
+                this.RaisePropertyChanged("tipoIndustria");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class cliente : empresa {
+        
+        private System.DateTime fechaRegistroField;
+        
+        private bool fechaRegistroFieldSpecified;
+        
+        private System.DateTime fechaUltimaCompraField;
+        
+        private bool fechaUltimaCompraFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public System.DateTime fechaRegistro {
+            get {
+                return this.fechaRegistroField;
+            }
+            set {
+                this.fechaRegistroField = value;
+                this.RaisePropertyChanged("fechaRegistro");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaRegistroSpecified {
+            get {
+                return this.fechaRegistroFieldSpecified;
+            }
+            set {
+                this.fechaRegistroFieldSpecified = value;
+                this.RaisePropertyChanged("fechaRegistroSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public System.DateTime fechaUltimaCompra {
+            get {
+                return this.fechaUltimaCompraField;
+            }
+            set {
+                this.fechaUltimaCompraField = value;
+                this.RaisePropertyChanged("fechaUltimaCompra");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaUltimaCompraSpecified {
+            get {
+                return this.fechaUltimaCompraFieldSpecified;
+            }
+            set {
+                this.fechaUltimaCompraFieldSpecified = value;
+                this.RaisePropertyChanged("fechaUltimaCompraSpecified");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class proveedor : empresa {
+        
+        private double calificacionField;
+        
+        private bool calificacionFieldSpecified;
+        
+        private System.DateTime fecha_afiliacionField;
+        
+        private bool fecha_afiliacionFieldSpecified;
+        
+        private string paisField;
+        
+        private string rUCField;
+        
+        private string razonSocialField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public double calificacion {
+            get {
+                return this.calificacionField;
+            }
+            set {
+                this.calificacionField = value;
+                this.RaisePropertyChanged("calificacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool calificacionSpecified {
+            get {
+                return this.calificacionFieldSpecified;
+            }
+            set {
+                this.calificacionFieldSpecified = value;
+                this.RaisePropertyChanged("calificacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public System.DateTime fecha_afiliacion {
+            get {
+                return this.fecha_afiliacionField;
+            }
+            set {
+                this.fecha_afiliacionField = value;
+                this.RaisePropertyChanged("fecha_afiliacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fecha_afiliacionSpecified {
+            get {
+                return this.fecha_afiliacionFieldSpecified;
+            }
+            set {
+                this.fecha_afiliacionFieldSpecified = value;
+                this.RaisePropertyChanged("fecha_afiliacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string pais {
+            get {
+                return this.paisField;
+            }
+            set {
+                this.paisField = value;
+                this.RaisePropertyChanged("pais");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string RUC {
+            get {
+                return this.rUCField;
+            }
+            set {
+                this.rUCField = value;
+                this.RaisePropertyChanged("RUC");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string razonSocial {
+            get {
+                return this.razonSocialField;
+            }
+            set {
+                this.razonSocialField = value;
+                this.RaisePropertyChanged("razonSocial");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class lineaDocumento : baseEntity {
+        
+        private int cantidadField;
+        
+        private bool cantidadFieldSpecified;
+        
+        private int idField;
+        
+        private bool idFieldSpecified;
+        
+        private int idDocumentoField;
+        
+        private bool idDocumentoFieldSpecified;
+        
+        private int idProductoField;
+        
+        private bool idProductoFieldSpecified;
+        
+        private double precioUnitarioField;
+        
+        private bool precioUnitarioFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                this.cantidadField = value;
+                this.RaisePropertyChanged("cantidad");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool cantidadSpecified {
+            get {
+                return this.cantidadFieldSpecified;
+            }
+            set {
+                this.cantidadFieldSpecified = value;
+                this.RaisePropertyChanged("cantidadSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idSpecified {
+            get {
+                return this.idFieldSpecified;
+            }
+            set {
+                this.idFieldSpecified = value;
+                this.RaisePropertyChanged("idSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idDocumento {
+            get {
+                return this.idDocumentoField;
+            }
+            set {
+                this.idDocumentoField = value;
+                this.RaisePropertyChanged("idDocumento");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idDocumentoSpecified {
+            get {
+                return this.idDocumentoFieldSpecified;
+            }
+            set {
+                this.idDocumentoFieldSpecified = value;
+                this.RaisePropertyChanged("idDocumentoSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int idProducto {
+            get {
+                return this.idProductoField;
+            }
+            set {
+                this.idProductoField = value;
+                this.RaisePropertyChanged("idProducto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idProductoSpecified {
+            get {
+                return this.idProductoFieldSpecified;
+            }
+            set {
+                this.idProductoFieldSpecified = value;
+                this.RaisePropertyChanged("idProductoSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double precioUnitario {
+            get {
+                return this.precioUnitarioField;
+            }
+            set {
+                this.precioUnitarioField = value;
+                this.RaisePropertyChanged("precioUnitario");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool precioUnitarioSpecified {
+            get {
+                return this.precioUnitarioFieldSpecified;
+            }
+            set {
+                this.precioUnitarioFieldSpecified = value;
+                this.RaisePropertyChanged("precioUnitarioSpecified");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class notificacion : baseEntity {
         
         private int idField;
         
@@ -1145,164 +1605,6 @@ namespace ComerziaWA.ComerziaWS {
                 this.RaisePropertyChanged("mensaje");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(representante))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(trabajadorDeAlmacen))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(vendedor))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(administrador))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class persona : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string correoField;
-        
-        private string direccionField;
-        
-        private string dniField;
-        
-        private bool eliminadoField;
-        
-        private bool eliminadoFieldSpecified;
-        
-        private int idField;
-        
-        private bool idFieldSpecified;
-        
-        private string nombreField;
-        
-        private string telefonoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string correo {
-            get {
-                return this.correoField;
-            }
-            set {
-                this.correoField = value;
-                this.RaisePropertyChanged("correo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string direccion {
-            get {
-                return this.direccionField;
-            }
-            set {
-                this.direccionField = value;
-                this.RaisePropertyChanged("direccion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string dni {
-            get {
-                return this.dniField;
-            }
-            set {
-                this.dniField = value;
-                this.RaisePropertyChanged("dni");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public bool eliminado {
-            get {
-                return this.eliminadoField;
-            }
-            set {
-                this.eliminadoField = value;
-                this.RaisePropertyChanged("eliminado");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eliminadoSpecified {
-            get {
-                return this.eliminadoFieldSpecified;
-            }
-            set {
-                this.eliminadoFieldSpecified = value;
-                this.RaisePropertyChanged("eliminadoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idSpecified {
-            get {
-                return this.idFieldSpecified;
-            }
-            set {
-                this.idFieldSpecified = value;
-                this.RaisePropertyChanged("idSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string telefono {
-            get {
-                return this.telefonoField;
-            }
-            set {
-                this.telefonoField = value;
-                this.RaisePropertyChanged("telefono");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     /// <remarks/>
@@ -1311,450 +1613,7 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class representante : persona {
-        
-        private int idEmpresaField;
-        
-        private bool idEmpresaFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int idEmpresa {
-            get {
-                return this.idEmpresaField;
-            }
-            set {
-                this.idEmpresaField = value;
-                this.RaisePropertyChanged("idEmpresa");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idEmpresaSpecified {
-            get {
-                return this.idEmpresaFieldSpecified;
-            }
-            set {
-                this.idEmpresaFieldSpecified = value;
-                this.RaisePropertyChanged("idEmpresaSpecified");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(trabajadorDeAlmacen))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(vendedor))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(administrador))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class empleado : persona {
-        
-        private string contrasenhaField;
-        
-        private estadoEmpleadoEnum estadoField;
-        
-        private bool estadoFieldSpecified;
-        
-        private System.DateTime fechaContratacionField;
-        
-        private bool fechaContratacionFieldSpecified;
-        
-        private string nombreUsuarioField;
-        
-        private double salarioField;
-        
-        private bool salarioFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string contrasenha {
-            get {
-                return this.contrasenhaField;
-            }
-            set {
-                this.contrasenhaField = value;
-                this.RaisePropertyChanged("contrasenha");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public estadoEmpleadoEnum estado {
-            get {
-                return this.estadoField;
-            }
-            set {
-                this.estadoField = value;
-                this.RaisePropertyChanged("estado");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool estadoSpecified {
-            get {
-                return this.estadoFieldSpecified;
-            }
-            set {
-                this.estadoFieldSpecified = value;
-                this.RaisePropertyChanged("estadoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public System.DateTime fechaContratacion {
-            get {
-                return this.fechaContratacionField;
-            }
-            set {
-                this.fechaContratacionField = value;
-                this.RaisePropertyChanged("fechaContratacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaContratacionSpecified {
-            get {
-                return this.fechaContratacionFieldSpecified;
-            }
-            set {
-                this.fechaContratacionFieldSpecified = value;
-                this.RaisePropertyChanged("fechaContratacionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string nombreUsuario {
-            get {
-                return this.nombreUsuarioField;
-            }
-            set {
-                this.nombreUsuarioField = value;
-                this.RaisePropertyChanged("nombreUsuario");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public double salario {
-            get {
-                return this.salarioField;
-            }
-            set {
-                this.salarioField = value;
-                this.RaisePropertyChanged("salario");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool salarioSpecified {
-            get {
-                return this.salarioFieldSpecified;
-            }
-            set {
-                this.salarioFieldSpecified = value;
-                this.RaisePropertyChanged("salarioSpecified");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public enum estadoEmpleadoEnum {
-        
-        /// <remarks/>
-        ACTIVO,
-        
-        /// <remarks/>
-        INACTIVO,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class trabajadorDeAlmacen : empleado {
-        
-        private int idAlmacenField;
-        
-        private bool idAlmacenFieldSpecified;
-        
-        private bool licenciaMontacargaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int idAlmacen {
-            get {
-                return this.idAlmacenField;
-            }
-            set {
-                this.idAlmacenField = value;
-                this.RaisePropertyChanged("idAlmacen");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idAlmacenSpecified {
-            get {
-                return this.idAlmacenFieldSpecified;
-            }
-            set {
-                this.idAlmacenFieldSpecified = value;
-                this.RaisePropertyChanged("idAlmacenSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public bool licenciaMontacarga {
-            get {
-                return this.licenciaMontacargaField;
-            }
-            set {
-                this.licenciaMontacargaField = value;
-                this.RaisePropertyChanged("licenciaMontacarga");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class vendedor : empleado {
-        
-        private double ingresosVentasField;
-        
-        private bool ingresosVentasFieldSpecified;
-        
-        private double porcentajeComisionField;
-        
-        private bool porcentajeComisionFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public double ingresosVentas {
-            get {
-                return this.ingresosVentasField;
-            }
-            set {
-                this.ingresosVentasField = value;
-                this.RaisePropertyChanged("ingresosVentas");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ingresosVentasSpecified {
-            get {
-                return this.ingresosVentasFieldSpecified;
-            }
-            set {
-                this.ingresosVentasFieldSpecified = value;
-                this.RaisePropertyChanged("ingresosVentasSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public double porcentajeComision {
-            get {
-                return this.porcentajeComisionField;
-            }
-            set {
-                this.porcentajeComisionField = value;
-                this.RaisePropertyChanged("porcentajeComision");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool porcentajeComisionSpecified {
-            get {
-                return this.porcentajeComisionFieldSpecified;
-            }
-            set {
-                this.porcentajeComisionFieldSpecified = value;
-                this.RaisePropertyChanged("porcentajeComisionSpecified");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class administrador : empleado {
-        
-        private int idAlmacenField;
-        
-        private bool idAlmacenFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int idAlmacen {
-            get {
-                return this.idAlmacenField;
-            }
-            set {
-                this.idAlmacenField = value;
-                this.RaisePropertyChanged("idAlmacen");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idAlmacenSpecified {
-            get {
-                return this.idAlmacenFieldSpecified;
-            }
-            set {
-                this.idAlmacenFieldSpecified = value;
-                this.RaisePropertyChanged("idAlmacenSpecified");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class producto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int idField;
-        
-        private bool idFieldSpecified;
-        
-        private string nombreField;
-        
-        private double precioField;
-        
-        private bool precioFieldSpecified;
-        
-        private int stockMinimoField;
-        
-        private bool stockMinimoFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idSpecified {
-            get {
-                return this.idFieldSpecified;
-            }
-            set {
-                this.idFieldSpecified = value;
-                this.RaisePropertyChanged("idSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public double precio {
-            get {
-                return this.precioField;
-            }
-            set {
-                this.precioField = value;
-                this.RaisePropertyChanged("precio");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool precioSpecified {
-            get {
-                return this.precioFieldSpecified;
-            }
-            set {
-                this.precioFieldSpecified = value;
-                this.RaisePropertyChanged("precioSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int stockMinimo {
-            get {
-                return this.stockMinimoField;
-            }
-            set {
-                this.stockMinimoField = value;
-                this.RaisePropertyChanged("stockMinimo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool stockMinimoSpecified {
-            get {
-                return this.stockMinimoFieldSpecified;
-            }
-            set {
-                this.stockMinimoFieldSpecified = value;
-                this.RaisePropertyChanged("stockMinimoSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
-    public partial class productoAlmacenado : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class productoAlmacenado : baseEntity {
         
         private System.DateTime fechaAlmacenadoField;
         
@@ -1895,13 +1754,111 @@ namespace ComerziaWA.ComerziaWS {
                 this.RaisePropertyChanged("stockActualSpecified");
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.comerzia.pucp.edu.pe")]
+    public partial class producto : baseEntity {
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        private int idField;
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        private bool idFieldSpecified;
+        
+        private string nombreField;
+        
+        private double precioField;
+        
+        private bool precioFieldSpecified;
+        
+        private int stockMinimoField;
+        
+        private bool stockMinimoFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idSpecified {
+            get {
+                return this.idFieldSpecified;
+            }
+            set {
+                this.idFieldSpecified = value;
+                this.RaisePropertyChanged("idSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public double precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                this.precioField = value;
+                this.RaisePropertyChanged("precio");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool precioSpecified {
+            get {
+                return this.precioFieldSpecified;
+            }
+            set {
+                this.precioFieldSpecified = value;
+                this.RaisePropertyChanged("precioSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int stockMinimo {
+            get {
+                return this.stockMinimoField;
+            }
+            set {
+                this.stockMinimoField = value;
+                this.RaisePropertyChanged("stockMinimo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool stockMinimoSpecified {
+            get {
+                return this.stockMinimoFieldSpecified;
+            }
+            set {
+                this.stockMinimoFieldSpecified = value;
+                this.RaisePropertyChanged("stockMinimoSpecified");
             }
         }
     }
@@ -1938,6 +1895,103 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         public obtenerPorIdResponse(ComerziaWA.ComerziaWS.almacen @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_almacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_almacenRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string descripcion;
+        
+        public insertar_almacenRequest() {
+        }
+        
+        public insertar_almacenRequest(string nombre, string estado, string descripcion) {
+            this.nombre = nombre;
+            this.estado = estado;
+            this.descripcion = descripcion;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_almacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_almacenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertar_almacenResponse() {
+        }
+        
+        public insertar_almacenResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificar_almacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificar_almacenRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idAlmacen;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string descripcion;
+        
+        public modificar_almacenRequest() {
+        }
+        
+        public modificar_almacenRequest(int idAlmacen, string nombre, string estado, string descripcion) {
+            this.idAlmacen = idAlmacen;
+            this.nombre = nombre;
+            this.estado = estado;
+            this.descripcion = descripcion;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificar_almacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificar_almacenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificar_almacenResponse() {
+        }
+        
+        public modificar_almacenResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -2027,142 +2081,6 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAlmacenes", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarAlmacenesRequest {
-        
-        public listarAlmacenesRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAlmacenesResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarAlmacenesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.almacen[] @return;
-        
-        public listarAlmacenesResponse() {
-        }
-        
-        public listarAlmacenesResponse(ComerziaWA.ComerziaWS.almacen[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarPorAlmacenRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string idAlmacen;
-        
-        public listarPorAlmacenRequest() {
-        }
-        
-        public listarPorAlmacenRequest(string idAlmacen) {
-            this.idAlmacen = idAlmacen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarPorAlmacenResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.productoAlmacenado[] @return;
-        
-        public listarPorAlmacenResponse() {
-        }
-        
-        public listarPorAlmacenResponse(ComerziaWA.ComerziaWS.productoAlmacenado[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class buscarPorNombreRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombreProd;
-        
-        public buscarPorNombreRequest() {
-        }
-        
-        public buscarPorNombreRequest(string nombreProd) {
-            this.nombreProd = nombreProd;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombreResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class buscarPorNombreResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.producto[] @return;
-        
-        public buscarPorNombreResponse() {
-        }
-        
-        public buscarPorNombreResponse(ComerziaWA.ComerziaWS.producto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarProductoPorId", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class buscarProductoPorIdRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idProd;
-        
-        public buscarProductoPorIdRequest() {
-        }
-        
-        public buscarProductoPorIdRequest(int idProd) {
-            this.idProd = idProd;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarProductoPorIdResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class buscarProductoPorIdResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.producto @return;
-        
-        public buscarProductoPorIdResponse() {
-        }
-        
-        public buscarProductoPorIdResponse(ComerziaWA.ComerziaWS.producto @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="modificar_producto", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class modificar_productoRequest {
         
@@ -2214,103 +2132,6 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificar_almacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class modificar_almacenRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idAlmacen;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string descripcion;
-        
-        public modificar_almacenRequest() {
-        }
-        
-        public modificar_almacenRequest(int idAlmacen, string nombre, string estado, string descripcion) {
-            this.idAlmacen = idAlmacen;
-            this.nombre = nombre;
-            this.estado = estado;
-            this.descripcion = descripcion;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificar_almacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class modificar_almacenResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public modificar_almacenResponse() {
-        }
-        
-        public modificar_almacenResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_almacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_almacenRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string descripcion;
-        
-        public insertar_almacenRequest() {
-        }
-        
-        public insertar_almacenRequest(string nombre, string estado, string descripcion) {
-            this.nombre = nombre;
-            this.estado = estado;
-            this.descripcion = descripcion;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_almacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_almacenResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertar_almacenResponse() {
-        }
-        
-        public insertar_almacenResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_producto", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class eliminar_productoRequest {
         
@@ -2347,6 +2168,157 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAlmacenes", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarAlmacenesRequest {
+        
+        public listarAlmacenesRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAlmacenesResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarAlmacenesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.almacen[] @return;
+        
+        public listarAlmacenesResponse() {
+        }
+        
+        public listarAlmacenesResponse(ComerziaWA.ComerziaWS.almacen[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarProductoPorId", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarProductoPorIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idProd;
+        
+        public buscarProductoPorIdRequest() {
+        }
+        
+        public buscarProductoPorIdRequest(int idProd) {
+            this.idProd = idProd;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarProductoPorIdResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarProductoPorIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.producto @return;
+        
+        public buscarProductoPorIdResponse() {
+        }
+        
+        public buscarProductoPorIdResponse(ComerziaWA.ComerziaWS.producto @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarPorAlmacenRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string idAlmacen;
+        
+        public listarPorAlmacenRequest() {
+        }
+        
+        public listarPorAlmacenRequest(string idAlmacen) {
+            this.idAlmacen = idAlmacen;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarPorAlmacenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.productoAlmacenado[] @return;
+        
+        public listarPorAlmacenResponse() {
+        }
+        
+        public listarPorAlmacenResponse(ComerziaWA.ComerziaWS.productoAlmacenado[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProductoAlmacenado", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertarProductoAlmacenadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idAlmacen;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime fechaAlmacenado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int stock;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idProd;
+        
+        public insertarProductoAlmacenadoRequest() {
+        }
+        
+        public insertarProductoAlmacenadoRequest(int idAlmacen, System.DateTime fechaAlmacenado, int stock, int idProd) {
+            this.idAlmacen = idAlmacen;
+            this.fechaAlmacenado = fechaAlmacenado;
+            this.stock = stock;
+            this.idProd = idProd;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProductoAlmacenadoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertarProductoAlmacenadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarProductoAlmacenadoResponse() {
+        }
+        
+        public insertarProductoAlmacenadoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarAlmacenesParaIndex", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class listarAlmacenesParaIndexRequest {
         
@@ -2368,6 +2340,42 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         public listarAlmacenesParaIndexResponse(ComerziaWA.ComerziaWS.almacen[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombreRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreProd;
+        
+        public buscarPorNombreRequest() {
+        }
+        
+        public buscarPorNombreRequest(string nombreProd) {
+            this.nombreProd = nombreProd;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombreResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombreResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.producto[] @return;
+        
+        public buscarPorNombreResponse() {
+        }
+        
+        public buscarPorNombreResponse(ComerziaWA.ComerziaWS.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -2428,35 +2436,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse ComerziaWA.ComerziaWS.AlmacenWS.insertarProductoAlmacenado(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request) {
-            return base.Channel.insertarProductoAlmacenado(request);
-        }
-        
-        public int insertarProductoAlmacenado(int idAlmacen, System.DateTime fechaAlmacenado, int stock, int idProd) {
-            ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest inValue = new ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest();
-            inValue.idAlmacen = idAlmacen;
-            inValue.fechaAlmacenado = fechaAlmacenado;
-            inValue.stock = stock;
-            inValue.idProd = idProd;
-            ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertarProductoAlmacenado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse> ComerziaWA.ComerziaWS.AlmacenWS.insertarProductoAlmacenadoAsync(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request) {
-            return base.Channel.insertarProductoAlmacenadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse> insertarProductoAlmacenadoAsync(int idAlmacen, System.DateTime fechaAlmacenado, int stock, int idProd) {
-            ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest inValue = new ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest();
-            inValue.idAlmacen = idAlmacen;
-            inValue.fechaAlmacenado = fechaAlmacenado;
-            inValue.stock = stock;
-            inValue.idProd = idProd;
-            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertarProductoAlmacenadoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.eliminarProductoAlmacenadoResponse ComerziaWA.ComerziaWS.AlmacenWS.eliminarProductoAlmacenado(ComerziaWA.ComerziaWS.eliminarProductoAlmacenadoRequest request) {
             return base.Channel.eliminarProductoAlmacenado(request);
         }
@@ -2500,6 +2479,62 @@ namespace ComerziaWA.ComerziaWS {
             ComerziaWA.ComerziaWS.obtenerPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdRequest();
             inValue.id = id;
             return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).obtenerPorIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.insertar_almacenResponse ComerziaWA.ComerziaWS.AlmacenWS.insertar_almacen(ComerziaWA.ComerziaWS.insertar_almacenRequest request) {
+            return base.Channel.insertar_almacen(request);
+        }
+        
+        public int insertar_almacen(string nombre, string estado, string descripcion) {
+            ComerziaWA.ComerziaWS.insertar_almacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_almacenRequest();
+            inValue.nombre = nombre;
+            inValue.estado = estado;
+            inValue.descripcion = descripcion;
+            ComerziaWA.ComerziaWS.insertar_almacenResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertar_almacen(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_almacenResponse> ComerziaWA.ComerziaWS.AlmacenWS.insertar_almacenAsync(ComerziaWA.ComerziaWS.insertar_almacenRequest request) {
+            return base.Channel.insertar_almacenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_almacenResponse> insertar_almacenAsync(string nombre, string estado, string descripcion) {
+            ComerziaWA.ComerziaWS.insertar_almacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_almacenRequest();
+            inValue.nombre = nombre;
+            inValue.estado = estado;
+            inValue.descripcion = descripcion;
+            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertar_almacenAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.modificar_almacenResponse ComerziaWA.ComerziaWS.AlmacenWS.modificar_almacen(ComerziaWA.ComerziaWS.modificar_almacenRequest request) {
+            return base.Channel.modificar_almacen(request);
+        }
+        
+        public int modificar_almacen(int idAlmacen, string nombre, string estado, string descripcion) {
+            ComerziaWA.ComerziaWS.modificar_almacenRequest inValue = new ComerziaWA.ComerziaWS.modificar_almacenRequest();
+            inValue.idAlmacen = idAlmacen;
+            inValue.nombre = nombre;
+            inValue.estado = estado;
+            inValue.descripcion = descripcion;
+            ComerziaWA.ComerziaWS.modificar_almacenResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).modificar_almacen(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_almacenResponse> ComerziaWA.ComerziaWS.AlmacenWS.modificar_almacenAsync(ComerziaWA.ComerziaWS.modificar_almacenRequest request) {
+            return base.Channel.modificar_almacenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_almacenResponse> modificar_almacenAsync(int idAlmacen, string nombre, string estado, string descripcion) {
+            ComerziaWA.ComerziaWS.modificar_almacenRequest inValue = new ComerziaWA.ComerziaWS.modificar_almacenRequest();
+            inValue.idAlmacen = idAlmacen;
+            inValue.nombre = nombre;
+            inValue.estado = estado;
+            inValue.descripcion = descripcion;
+            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).modificar_almacenAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2553,96 +2588,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarAlmacenesResponse ComerziaWA.ComerziaWS.AlmacenWS.listarAlmacenes(ComerziaWA.ComerziaWS.listarAlmacenesRequest request) {
-            return base.Channel.listarAlmacenes(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.almacen[] listarAlmacenes() {
-            ComerziaWA.ComerziaWS.listarAlmacenesRequest inValue = new ComerziaWA.ComerziaWS.listarAlmacenesRequest();
-            ComerziaWA.ComerziaWS.listarAlmacenesResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarAlmacenes(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesResponse> ComerziaWA.ComerziaWS.AlmacenWS.listarAlmacenesAsync(ComerziaWA.ComerziaWS.listarAlmacenesRequest request) {
-            return base.Channel.listarAlmacenesAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesResponse> listarAlmacenesAsync() {
-            ComerziaWA.ComerziaWS.listarAlmacenesRequest inValue = new ComerziaWA.ComerziaWS.listarAlmacenesRequest();
-            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarAlmacenesAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarPorAlmacenResponse ComerziaWA.ComerziaWS.AlmacenWS.listarPorAlmacen(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request) {
-            return base.Channel.listarPorAlmacen(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.productoAlmacenado[] listarPorAlmacen(string idAlmacen) {
-            ComerziaWA.ComerziaWS.listarPorAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarPorAlmacenRequest();
-            inValue.idAlmacen = idAlmacen;
-            ComerziaWA.ComerziaWS.listarPorAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarPorAlmacen(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorAlmacenResponse> ComerziaWA.ComerziaWS.AlmacenWS.listarPorAlmacenAsync(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request) {
-            return base.Channel.listarPorAlmacenAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorAlmacenResponse> listarPorAlmacenAsync(string idAlmacen) {
-            ComerziaWA.ComerziaWS.listarPorAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarPorAlmacenRequest();
-            inValue.idAlmacen = idAlmacen;
-            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarPorAlmacenAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.buscarPorNombreResponse ComerziaWA.ComerziaWS.AlmacenWS.buscarPorNombre(ComerziaWA.ComerziaWS.buscarPorNombreRequest request) {
-            return base.Channel.buscarPorNombre(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.producto[] buscarPorNombre(string nombreProd) {
-            ComerziaWA.ComerziaWS.buscarPorNombreRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombreRequest();
-            inValue.nombreProd = nombreProd;
-            ComerziaWA.ComerziaWS.buscarPorNombreResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarPorNombre(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombreResponse> ComerziaWA.ComerziaWS.AlmacenWS.buscarPorNombreAsync(ComerziaWA.ComerziaWS.buscarPorNombreRequest request) {
-            return base.Channel.buscarPorNombreAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombreResponse> buscarPorNombreAsync(string nombreProd) {
-            ComerziaWA.ComerziaWS.buscarPorNombreRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombreRequest();
-            inValue.nombreProd = nombreProd;
-            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarPorNombreAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.buscarProductoPorIdResponse ComerziaWA.ComerziaWS.AlmacenWS.buscarProductoPorId(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request) {
-            return base.Channel.buscarProductoPorId(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.producto buscarProductoPorId(int idProd) {
-            ComerziaWA.ComerziaWS.buscarProductoPorIdRequest inValue = new ComerziaWA.ComerziaWS.buscarProductoPorIdRequest();
-            inValue.idProd = idProd;
-            ComerziaWA.ComerziaWS.buscarProductoPorIdResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarProductoPorId(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarProductoPorIdResponse> ComerziaWA.ComerziaWS.AlmacenWS.buscarProductoPorIdAsync(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request) {
-            return base.Channel.buscarProductoPorIdAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarProductoPorIdResponse> buscarProductoPorIdAsync(int idProd) {
-            ComerziaWA.ComerziaWS.buscarProductoPorIdRequest inValue = new ComerziaWA.ComerziaWS.buscarProductoPorIdRequest();
-            inValue.idProd = idProd;
-            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarProductoPorIdAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.modificar_productoResponse ComerziaWA.ComerziaWS.AlmacenWS.modificar_producto(ComerziaWA.ComerziaWS.modificar_productoRequest request) {
             return base.Channel.modificar_producto(request);
         }
@@ -2672,62 +2617,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.modificar_almacenResponse ComerziaWA.ComerziaWS.AlmacenWS.modificar_almacen(ComerziaWA.ComerziaWS.modificar_almacenRequest request) {
-            return base.Channel.modificar_almacen(request);
-        }
-        
-        public int modificar_almacen(int idAlmacen, string nombre, string estado, string descripcion) {
-            ComerziaWA.ComerziaWS.modificar_almacenRequest inValue = new ComerziaWA.ComerziaWS.modificar_almacenRequest();
-            inValue.idAlmacen = idAlmacen;
-            inValue.nombre = nombre;
-            inValue.estado = estado;
-            inValue.descripcion = descripcion;
-            ComerziaWA.ComerziaWS.modificar_almacenResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).modificar_almacen(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_almacenResponse> ComerziaWA.ComerziaWS.AlmacenWS.modificar_almacenAsync(ComerziaWA.ComerziaWS.modificar_almacenRequest request) {
-            return base.Channel.modificar_almacenAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_almacenResponse> modificar_almacenAsync(int idAlmacen, string nombre, string estado, string descripcion) {
-            ComerziaWA.ComerziaWS.modificar_almacenRequest inValue = new ComerziaWA.ComerziaWS.modificar_almacenRequest();
-            inValue.idAlmacen = idAlmacen;
-            inValue.nombre = nombre;
-            inValue.estado = estado;
-            inValue.descripcion = descripcion;
-            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).modificar_almacenAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.insertar_almacenResponse ComerziaWA.ComerziaWS.AlmacenWS.insertar_almacen(ComerziaWA.ComerziaWS.insertar_almacenRequest request) {
-            return base.Channel.insertar_almacen(request);
-        }
-        
-        public int insertar_almacen(string nombre, string estado, string descripcion) {
-            ComerziaWA.ComerziaWS.insertar_almacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_almacenRequest();
-            inValue.nombre = nombre;
-            inValue.estado = estado;
-            inValue.descripcion = descripcion;
-            ComerziaWA.ComerziaWS.insertar_almacenResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertar_almacen(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_almacenResponse> ComerziaWA.ComerziaWS.AlmacenWS.insertar_almacenAsync(ComerziaWA.ComerziaWS.insertar_almacenRequest request) {
-            return base.Channel.insertar_almacenAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_almacenResponse> insertar_almacenAsync(string nombre, string estado, string descripcion) {
-            ComerziaWA.ComerziaWS.insertar_almacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_almacenRequest();
-            inValue.nombre = nombre;
-            inValue.estado = estado;
-            inValue.descripcion = descripcion;
-            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertar_almacenAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.eliminar_productoResponse ComerziaWA.ComerziaWS.AlmacenWS.eliminar_producto(ComerziaWA.ComerziaWS.eliminar_productoRequest request) {
             return base.Channel.eliminar_producto(request);
         }
@@ -2751,6 +2640,102 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarAlmacenesResponse ComerziaWA.ComerziaWS.AlmacenWS.listarAlmacenes(ComerziaWA.ComerziaWS.listarAlmacenesRequest request) {
+            return base.Channel.listarAlmacenes(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.almacen[] listarAlmacenes() {
+            ComerziaWA.ComerziaWS.listarAlmacenesRequest inValue = new ComerziaWA.ComerziaWS.listarAlmacenesRequest();
+            ComerziaWA.ComerziaWS.listarAlmacenesResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarAlmacenes(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesResponse> ComerziaWA.ComerziaWS.AlmacenWS.listarAlmacenesAsync(ComerziaWA.ComerziaWS.listarAlmacenesRequest request) {
+            return base.Channel.listarAlmacenesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesResponse> listarAlmacenesAsync() {
+            ComerziaWA.ComerziaWS.listarAlmacenesRequest inValue = new ComerziaWA.ComerziaWS.listarAlmacenesRequest();
+            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarAlmacenesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.buscarProductoPorIdResponse ComerziaWA.ComerziaWS.AlmacenWS.buscarProductoPorId(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request) {
+            return base.Channel.buscarProductoPorId(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.producto buscarProductoPorId(int idProd) {
+            ComerziaWA.ComerziaWS.buscarProductoPorIdRequest inValue = new ComerziaWA.ComerziaWS.buscarProductoPorIdRequest();
+            inValue.idProd = idProd;
+            ComerziaWA.ComerziaWS.buscarProductoPorIdResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarProductoPorId(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarProductoPorIdResponse> ComerziaWA.ComerziaWS.AlmacenWS.buscarProductoPorIdAsync(ComerziaWA.ComerziaWS.buscarProductoPorIdRequest request) {
+            return base.Channel.buscarProductoPorIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarProductoPorIdResponse> buscarProductoPorIdAsync(int idProd) {
+            ComerziaWA.ComerziaWS.buscarProductoPorIdRequest inValue = new ComerziaWA.ComerziaWS.buscarProductoPorIdRequest();
+            inValue.idProd = idProd;
+            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarProductoPorIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarPorAlmacenResponse ComerziaWA.ComerziaWS.AlmacenWS.listarPorAlmacen(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request) {
+            return base.Channel.listarPorAlmacen(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.productoAlmacenado[] listarPorAlmacen(string idAlmacen) {
+            ComerziaWA.ComerziaWS.listarPorAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarPorAlmacenRequest();
+            inValue.idAlmacen = idAlmacen;
+            ComerziaWA.ComerziaWS.listarPorAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarPorAlmacen(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorAlmacenResponse> ComerziaWA.ComerziaWS.AlmacenWS.listarPorAlmacenAsync(ComerziaWA.ComerziaWS.listarPorAlmacenRequest request) {
+            return base.Channel.listarPorAlmacenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorAlmacenResponse> listarPorAlmacenAsync(string idAlmacen) {
+            ComerziaWA.ComerziaWS.listarPorAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarPorAlmacenRequest();
+            inValue.idAlmacen = idAlmacen;
+            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarPorAlmacenAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse ComerziaWA.ComerziaWS.AlmacenWS.insertarProductoAlmacenado(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request) {
+            return base.Channel.insertarProductoAlmacenado(request);
+        }
+        
+        public int insertarProductoAlmacenado(int idAlmacen, System.DateTime fechaAlmacenado, int stock, int idProd) {
+            ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest inValue = new ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest();
+            inValue.idAlmacen = idAlmacen;
+            inValue.fechaAlmacenado = fechaAlmacenado;
+            inValue.stock = stock;
+            inValue.idProd = idProd;
+            ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertarProductoAlmacenado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse> ComerziaWA.ComerziaWS.AlmacenWS.insertarProductoAlmacenadoAsync(ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest request) {
+            return base.Channel.insertarProductoAlmacenadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertarProductoAlmacenadoResponse> insertarProductoAlmacenadoAsync(int idAlmacen, System.DateTime fechaAlmacenado, int stock, int idProd) {
+            ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest inValue = new ComerziaWA.ComerziaWS.insertarProductoAlmacenadoRequest();
+            inValue.idAlmacen = idAlmacen;
+            inValue.fechaAlmacenado = fechaAlmacenado;
+            inValue.stock = stock;
+            inValue.idProd = idProd;
+            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).insertarProductoAlmacenadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.listarAlmacenesParaIndexResponse ComerziaWA.ComerziaWS.AlmacenWS.listarAlmacenesParaIndex(ComerziaWA.ComerziaWS.listarAlmacenesParaIndexRequest request) {
             return base.Channel.listarAlmacenesParaIndex(request);
         }
@@ -2769,6 +2754,29 @@ namespace ComerziaWA.ComerziaWS {
         public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarAlmacenesParaIndexResponse> listarAlmacenesParaIndexAsync() {
             ComerziaWA.ComerziaWS.listarAlmacenesParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarAlmacenesParaIndexRequest();
             return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).listarAlmacenesParaIndexAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.buscarPorNombreResponse ComerziaWA.ComerziaWS.AlmacenWS.buscarPorNombre(ComerziaWA.ComerziaWS.buscarPorNombreRequest request) {
+            return base.Channel.buscarPorNombre(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.producto[] buscarPorNombre(string nombreProd) {
+            ComerziaWA.ComerziaWS.buscarPorNombreRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombreRequest();
+            inValue.nombreProd = nombreProd;
+            ComerziaWA.ComerziaWS.buscarPorNombreResponse retVal = ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarPorNombre(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombreResponse> ComerziaWA.ComerziaWS.AlmacenWS.buscarPorNombreAsync(ComerziaWA.ComerziaWS.buscarPorNombreRequest request) {
+            return base.Channel.buscarPorNombreAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombreResponse> buscarPorNombreAsync(string nombreProd) {
+            ComerziaWA.ComerziaWS.buscarPorNombreRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombreRequest();
+            inValue.nombreProd = nombreProd;
+            return ((ComerziaWA.ComerziaWS.AlmacenWS)(this)).buscarPorNombreAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2798,25 +2806,67 @@ namespace ComerziaWA.ComerziaWS {
     public interface RecursosHumanosWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
-            "DeAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_trabajador" +
+            "DeAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_trabajador" +
             "DeAlmacenResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse listarParaIndex_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request);
+        ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenResponse buscarPorNombre_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
-            "DeAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_trabajador" +
+            "DeAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_trabajador" +
             "DeAlmacenResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse> listarParaIndex_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenResponse> buscarPorNombre_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
+            "enRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
+            "enResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse insertar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
+            "enRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
+            "enResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse> insertar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
+            "lmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
+            "lmacenResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenResponse obtenerPorId_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
+            "lmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
+            "lmacenResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenResponse> obtenerPorId_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
+            "cenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
+            "cenResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenResponse modificar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
+            "cenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
+            "cenResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenResponse> modificar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_trabajadorDeAlmac" +
             "enRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_trabajadorDeAlmac" +
             "enResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse eliminar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest request);
         
@@ -2830,7 +2880,7 @@ namespace ComerziaWA.ComerziaWS {
             "macenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_trabajadorDeAl" +
             "macenResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse listarTodos_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest request);
         
@@ -2840,25 +2890,11 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse> listarTodos_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
-            "lmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
-            "lmacenResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenResponse obtenerPorId_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
-            "lmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_trabajadorDeA" +
-            "lmacenResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenResponse> obtenerPorId_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_administra" +
             "dorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_administra" +
             "dorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse listarParaIndex_administrador(ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest request);
         
@@ -2868,37 +2904,47 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse> listarParaIndex_administradorAsync(ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
-            "cenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
-            "cenResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
+            "DeAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
+            "DeAlmacenResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenResponse modificar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenRequest request);
+        ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse listarParaIndex_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
-            "cenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_trabajadorDeAlma" +
-            "cenResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenResponse> modificar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.modificar_trabajadorDeAlmacenRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
+            "DeAlmacenRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_trabajador" +
+            "DeAlmacenResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse> listarParaIndex_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
-            "enRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
-            "enResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_vendedorRe" +
+            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_vendedorRe" +
+            "sponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse insertar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request);
+        ComerziaWA.ComerziaWS.buscarPorNombre_vendedorResponse buscarPorNombre_vendedor(ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
-            "enRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_trabajadorDeAlmac" +
-            "enResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse> insertar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_vendedorRe" +
+            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_vendedorRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_vendedorResponse> buscarPorNombre_vendedorAsync(ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.eliminar_vendedorResponse eliminar_vendedor(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_vendedorResponse> eliminar_vendedorAsync(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_vendedorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_vendedorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.insertar_vendedorResponse insertar_vendedor(ComerziaWA.ComerziaWS.insertar_vendedorRequest request);
         
@@ -2906,20 +2952,10 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_vendedorResponse> insertar_vendedorAsync(ComerziaWA.ComerziaWS.insertar_vendedorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.verEmpleadoResponse verEmpleado(ComerziaWA.ComerziaWS.verEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.verEmpleadoResponse> verEmpleadoAsync(ComerziaWA.ComerziaWS.verEmpleadoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_vendedorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_vendedorResponse" +
             "")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.modificar_vendedorResponse modificar_vendedor(ComerziaWA.ComerziaWS.modificar_vendedorRequest request);
         
@@ -2928,19 +2964,9 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_vendedorResponse> modificar_vendedorAsync(ComerziaWA.ComerziaWS.modificar_vendedorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.eliminar_vendedorResponse eliminar_vendedor(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_vendedorResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_vendedorResponse> eliminar_vendedorAsync(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverRolRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverRolResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.devolverRolResponse devolverRol(ComerziaWA.ComerziaWS.devolverRolRequest request);
         
@@ -2948,53 +2974,21 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.devolverRolResponse> devolverRolAsync(ComerziaWA.ComerziaWS.devolverRolRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorReques" +
-            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorRespon" +
-            "se")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarTodos_vendedorResponse listarTodos_vendedor(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request);
+        ComerziaWA.ComerziaWS.verEmpleadoResponse verEmpleado(ComerziaWA.ComerziaWS.verEmpleadoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorReques" +
-            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorRespon" +
-            "se")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_vendedorResponse> listarTodos_vendedorAsync(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorReque" +
-            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorRespo" +
-            "nse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse obtenerPorId_vendedor(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorReque" +
-            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse> obtenerPorId_vendedorAsync(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorResp" +
-            "onse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.insertar_administradorResponse insertar_administrador(ComerziaWA.ComerziaWS.insertar_administradorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorResp" +
-            "onse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_administradorResponse> insertar_administradorAsync(ComerziaWA.ComerziaWS.insertar_administradorRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/verEmpleadoResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.verEmpleadoResponse> verEmpleadoAsync(ComerziaWA.ComerziaWS.verEmpleadoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverNombreEmpleadoRequ" +
             "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/devolverNombreEmpleadoResp" +
             "onse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.devolverNombreEmpleadoResponse devolverNombreEmpleado(ComerziaWA.ComerziaWS.devolverNombreEmpleadoRequest request);
         
@@ -3004,81 +2998,11 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.devolverNombreEmpleadoResponse> devolverNombreEmpleadoAsync(ComerziaWA.ComerziaWS.devolverNombreEmpleadoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoReque" +
-            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoRespo" +
-            "nse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse obtenerPorId_Empleado(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoReque" +
-            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse> obtenerPorId_EmpleadoAsync(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorResp" +
-            "onse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.eliminar_administradorResponse eliminar_administrador(ComerziaWA.ComerziaWS.eliminar_administradorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorResp" +
-            "onse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_administradorResponse> eliminar_administradorAsync(ComerziaWA.ComerziaWS.eliminar_administradorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
-            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
-            "esponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarTodos_administradorResponse listarTodos_administrador(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
-            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
-            "esponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_administradorResponse> listarTodos_administradorAsync(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoReques" +
-            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoRespon" +
-            "se")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarTodos_empleadoResponse listarTodos_empleado(ComerziaWA.ComerziaWS.listarTodos_empleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoReques" +
-            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoRespon" +
-            "se")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_empleadoResponse> listarTodos_empleadoAsync(ComerziaWA.ComerziaWS.listarTodos_empleadoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorReq" +
-            "uest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorRes" +
-            "ponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.modificar_administradorResponse modificar_administrador(ComerziaWA.ComerziaWS.modificar_administradorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorReq" +
-            "uest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorRes" +
-            "ponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_administradorResponse> modificar_administradorAsync(ComerziaWA.ComerziaWS.modificar_administradorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_administrador" +
             "Request", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_administrador" +
             "Response")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse obtenerPorId_administrador(ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest request);
         
@@ -3088,11 +3012,137 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse> obtenerPorId_administradorAsync(ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorReque" +
+            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorRespo" +
+            "nse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse obtenerPorId_vendedor(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorReque" +
+            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_vendedorRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse> obtenerPorId_vendedorAsync(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_administra" +
+            "dorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_administra" +
+            "dorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.buscarPorNombre_administradorResponse buscarPorNombre_administrador(ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_administra" +
+            "dorRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/buscarPorNombre_administra" +
+            "dorResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_administradorResponse> buscarPorNombre_administradorAsync(ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorResp" +
+            "onse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.eliminar_administradorResponse eliminar_administrador(ComerziaWA.ComerziaWS.eliminar_administradorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/eliminar_administradorResp" +
+            "onse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_administradorResponse> eliminar_administradorAsync(ComerziaWA.ComerziaWS.eliminar_administradorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoReques" +
+            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoRespon" +
+            "se")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarTodos_empleadoResponse listarTodos_empleado(ComerziaWA.ComerziaWS.listarTodos_empleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoReques" +
+            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_empleadoRespon" +
+            "se")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_empleadoResponse> listarTodos_empleadoAsync(ComerziaWA.ComerziaWS.listarTodos_empleadoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
+            "esponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarTodos_administradorResponse listarTodos_administrador(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_administradorR" +
+            "esponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_administradorResponse> listarTodos_administradorAsync(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorReq" +
+            "uest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorRes" +
+            "ponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.modificar_administradorResponse modificar_administrador(ComerziaWA.ComerziaWS.modificar_administradorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorReq" +
+            "uest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/modificar_administradorRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_administradorResponse> modificar_administradorAsync(ComerziaWA.ComerziaWS.modificar_administradorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoReque" +
+            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoRespo" +
+            "nse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse obtenerPorId_Empleado(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoReque" +
+            "st", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/obtenerPorId_EmpleadoRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse> obtenerPorId_EmpleadoAsync(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorResp" +
+            "onse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.insertar_administradorResponse insertar_administrador(ComerziaWA.ComerziaWS.insertar_administradorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/insertar_administradorResp" +
+            "onse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_administradorResponse> insertar_administradorAsync(ComerziaWA.ComerziaWS.insertar_administradorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorReques" +
+            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorRespon" +
+            "se")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarTodos_vendedorResponse listarTodos_vendedor(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorReques" +
+            "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarTodos_vendedorRespon" +
+            "se")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_vendedorResponse> listarTodos_vendedorAsync(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_vendedorRe" +
             "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/RecursosHumanosWS/listarParaIndex_vendedorRe" +
             "sponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarParaIndex_vendedorResponse listarParaIndex_vendedor(ComerziaWA.ComerziaWS.listarParaIndex_vendedorRequest request);
         
@@ -3105,27 +3155,35 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarParaIndex_trabajadorDeAlmacenRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_trabajadorDeAlmacenRequest {
         
-        public listarParaIndex_trabajadorDeAlmacenRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreTrabajadorDeAlmacen;
+        
+        public buscarPorNombre_trabajadorDeAlmacenRequest() {
+        }
+        
+        public buscarPorNombre_trabajadorDeAlmacenRequest(string nombreTrabajadorDeAlmacen) {
+            this.nombreTrabajadorDeAlmacen = nombreTrabajadorDeAlmacen;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarParaIndex_trabajadorDeAlmacenResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_trabajadorDeAlmacenResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return;
         
-        public listarParaIndex_trabajadorDeAlmacenResponse() {
+        public buscarPorNombre_trabajadorDeAlmacenResponse() {
         }
         
-        public listarParaIndex_trabajadorDeAlmacenResponse(ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return) {
+        public buscarPorNombre_trabajadorDeAlmacenResponse(ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return) {
             this.@return = @return;
         }
     }
@@ -3133,63 +3191,90 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminar_trabajadorDeAlmacenRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_trabajadorDeAlmacenRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idPersona;
+        public string dni;
         
-        public eliminar_trabajadorDeAlmacenRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreCompleto;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string telefono;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string correo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string direccion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreUsuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string contrasenha;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public double salario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime fechaContratacion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idAlmacen;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool licenciaMontacarga;
+        
+        public insertar_trabajadorDeAlmacenRequest() {
         }
         
-        public eliminar_trabajadorDeAlmacenRequest(int idPersona) {
-            this.idPersona = idPersona;
+        public insertar_trabajadorDeAlmacenRequest(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen, bool licenciaMontacarga) {
+            this.dni = dni;
+            this.nombreCompleto = nombreCompleto;
+            this.telefono = telefono;
+            this.correo = correo;
+            this.direccion = direccion;
+            this.estado = estado;
+            this.nombreUsuario = nombreUsuario;
+            this.contrasenha = contrasenha;
+            this.salario = salario;
+            this.fechaContratacion = fechaContratacion;
+            this.idAlmacen = idAlmacen;
+            this.licenciaMontacarga = licenciaMontacarga;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminar_trabajadorDeAlmacenResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_trabajadorDeAlmacenResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public eliminar_trabajadorDeAlmacenResponse() {
+        public insertar_trabajadorDeAlmacenResponse() {
         }
         
-        public eliminar_trabajadorDeAlmacenResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodos_trabajadorDeAlmacenRequest {
-        
-        public listarTodos_trabajadorDeAlmacenRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodos_trabajadorDeAlmacenResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return;
-        
-        public listarTodos_trabajadorDeAlmacenResponse() {
-        }
-        
-        public listarTodos_trabajadorDeAlmacenResponse(ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return) {
+        public insertar_trabajadorDeAlmacenResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -3226,34 +3311,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         public obtenerPorId_trabajadorDeAlmacenResponse(ComerziaWA.ComerziaWS.trabajadorDeAlmacen @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarParaIndex_administradorRequest {
-        
-        public listarParaIndex_administradorRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarParaIndex_administradorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.administrador[] @return;
-        
-        public listarParaIndex_administradorResponse() {
-        }
-        
-        public listarParaIndex_administradorResponse(ComerziaWA.ComerziaWS.administrador[] @return) {
             this.@return = @return;
         }
     }
@@ -3357,90 +3414,196 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_trabajadorDeAlmacenRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminar_trabajadorDeAlmacenRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string dni;
+        public int idPersona;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombreCompleto;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string telefono;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string correo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string direccion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombreUsuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=7)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string contrasenha;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=8)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double salario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=9)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public System.DateTime fechaContratacion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=10)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idAlmacen;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=11)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool licenciaMontacarga;
-        
-        public insertar_trabajadorDeAlmacenRequest() {
+        public eliminar_trabajadorDeAlmacenRequest() {
         }
         
-        public insertar_trabajadorDeAlmacenRequest(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen, bool licenciaMontacarga) {
-            this.dni = dni;
-            this.nombreCompleto = nombreCompleto;
-            this.telefono = telefono;
-            this.correo = correo;
-            this.direccion = direccion;
-            this.estado = estado;
-            this.nombreUsuario = nombreUsuario;
-            this.contrasenha = contrasenha;
-            this.salario = salario;
-            this.fechaContratacion = fechaContratacion;
-            this.idAlmacen = idAlmacen;
-            this.licenciaMontacarga = licenciaMontacarga;
+        public eliminar_trabajadorDeAlmacenRequest(int idPersona) {
+            this.idPersona = idPersona;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_trabajadorDeAlmacenResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminar_trabajadorDeAlmacenResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public insertar_trabajadorDeAlmacenResponse() {
+        public eliminar_trabajadorDeAlmacenResponse() {
         }
         
-        public insertar_trabajadorDeAlmacenResponse(int @return) {
+        public eliminar_trabajadorDeAlmacenResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodos_trabajadorDeAlmacenRequest {
+        
+        public listarTodos_trabajadorDeAlmacenRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodos_trabajadorDeAlmacenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return;
+        
+        public listarTodos_trabajadorDeAlmacenResponse() {
+        }
+        
+        public listarTodos_trabajadorDeAlmacenResponse(ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarParaIndex_administradorRequest {
+        
+        public listarParaIndex_administradorRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarParaIndex_administradorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.administrador[] @return;
+        
+        public listarParaIndex_administradorResponse() {
+        }
+        
+        public listarParaIndex_administradorResponse(ComerziaWA.ComerziaWS.administrador[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_trabajadorDeAlmacen", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarParaIndex_trabajadorDeAlmacenRequest {
+        
+        public listarParaIndex_trabajadorDeAlmacenRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarParaIndex_trabajadorDeAlmacenResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarParaIndex_trabajadorDeAlmacenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return;
+        
+        public listarParaIndex_trabajadorDeAlmacenResponse() {
+        }
+        
+        public listarParaIndex_trabajadorDeAlmacenResponse(ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_vendedor", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_vendedorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreVendedor;
+        
+        public buscarPorNombre_vendedorRequest() {
+        }
+        
+        public buscarPorNombre_vendedorRequest(string nombreVendedor) {
+            this.nombreVendedor = nombreVendedor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_vendedorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_vendedorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.vendedor[] @return;
+        
+        public buscarPorNombre_vendedorResponse() {
+        }
+        
+        public buscarPorNombre_vendedorResponse(ComerziaWA.ComerziaWS.vendedor[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_vendedor", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminar_vendedorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idVendedor;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idPersona;
+        
+        public eliminar_vendedorRequest() {
+        }
+        
+        public eliminar_vendedorRequest(int idVendedor, int idPersona) {
+            this.idVendedor = idVendedor;
+            this.idPersona = idPersona;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_vendedorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminar_vendedorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminar_vendedorResponse() {
+        }
+        
+        public eliminar_vendedorResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -3532,47 +3695,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         public insertar_vendedorResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="verEmpleado", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class verEmpleadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string cuenta;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string contrasenha;
-        
-        public verEmpleadoRequest() {
-        }
-        
-        public verEmpleadoRequest(string cuenta, string contrasenha) {
-            this.cuenta = cuenta;
-            this.contrasenha = contrasenha;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="verEmpleadoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class verEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public verEmpleadoResponse() {
-        }
-        
-        public verEmpleadoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -3676,47 +3798,6 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_vendedor", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminar_vendedorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idVendedor;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idPersona;
-        
-        public eliminar_vendedorRequest() {
-        }
-        
-        public eliminar_vendedorRequest(int idVendedor, int idPersona) {
-            this.idVendedor = idVendedor;
-            this.idPersona = idPersona;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_vendedorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminar_vendedorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminar_vendedorResponse() {
-        }
-        
-        public eliminar_vendedorResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="devolverRol", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class devolverRolRequest {
         
@@ -3753,149 +3834,40 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_vendedor", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodos_vendedorRequest {
-        
-        public listarTodos_vendedorRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_vendedorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodos_vendedorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.vendedor[] @return;
-        
-        public listarTodos_vendedorResponse() {
-        }
-        
-        public listarTodos_vendedorResponse(ComerziaWA.ComerziaWS.vendedor[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_vendedor", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorId_vendedorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verEmpleado", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class verEmpleadoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerPorId_vendedorRequest() {
-        }
-        
-        public obtenerPorId_vendedorRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_vendedorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorId_vendedorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.vendedor @return;
-        
-        public obtenerPorId_vendedorResponse() {
-        }
-        
-        public obtenerPorId_vendedorResponse(ComerziaWA.ComerziaWS.vendedor @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_administradorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string dni;
+        public string cuenta;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombreCompleto;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string telefono;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string correo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string direccion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombreUsuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=7)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string contrasenha;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=8)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double salario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=9)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public System.DateTime fechaContratacion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=10)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idAlmacen;
-        
-        public insertar_administradorRequest() {
+        public verEmpleadoRequest() {
         }
         
-        public insertar_administradorRequest(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen) {
-            this.dni = dni;
-            this.nombreCompleto = nombreCompleto;
-            this.telefono = telefono;
-            this.correo = correo;
-            this.direccion = direccion;
-            this.estado = estado;
-            this.nombreUsuario = nombreUsuario;
+        public verEmpleadoRequest(string cuenta, string contrasenha) {
+            this.cuenta = cuenta;
             this.contrasenha = contrasenha;
-            this.salario = salario;
-            this.fechaContratacion = fechaContratacion;
-            this.idAlmacen = idAlmacen;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_administradorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verEmpleadoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class verEmpleadoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public insertar_administradorResponse() {
+        public verEmpleadoResponse() {
         }
         
-        public insertar_administradorResponse(int @return) {
+        public verEmpleadoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -3939,17 +3911,17 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_Empleado", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorId_EmpleadoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorId_administradorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id;
         
-        public obtenerPorId_EmpleadoRequest() {
+        public obtenerPorId_administradorRequest() {
         }
         
-        public obtenerPorId_EmpleadoRequest(int id) {
+        public obtenerPorId_administradorRequest(int id) {
             this.id = id;
         }
     }
@@ -3957,17 +3929,89 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_EmpleadoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorId_EmpleadoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorId_administradorResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.persona @return;
+        public ComerziaWA.ComerziaWS.administrador @return;
         
-        public obtenerPorId_EmpleadoResponse() {
+        public obtenerPorId_administradorResponse() {
         }
         
-        public obtenerPorId_EmpleadoResponse(ComerziaWA.ComerziaWS.persona @return) {
+        public obtenerPorId_administradorResponse(ComerziaWA.ComerziaWS.administrador @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_vendedor", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorId_vendedorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public obtenerPorId_vendedorRequest() {
+        }
+        
+        public obtenerPorId_vendedorRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_vendedorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorId_vendedorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.vendedor @return;
+        
+        public obtenerPorId_vendedorResponse() {
+        }
+        
+        public obtenerPorId_vendedorResponse(ComerziaWA.ComerziaWS.vendedor @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_administradorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreAdministrador;
+        
+        public buscarPorNombre_administradorRequest() {
+        }
+        
+        public buscarPorNombre_administradorRequest(string nombreAdministrador) {
+            this.nombreAdministrador = nombreAdministrador;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_administradorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.administrador[] @return;
+        
+        public buscarPorNombre_administradorResponse() {
+        }
+        
+        public buscarPorNombre_administradorResponse(ComerziaWA.ComerziaWS.administrador[] @return) {
             this.@return = @return;
         }
     }
@@ -4011,34 +4055,6 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodos_administradorRequest {
-        
-        public listarTodos_administradorRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodos_administradorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.administrador[] @return;
-        
-        public listarTodos_administradorResponse() {
-        }
-        
-        public listarTodos_administradorResponse(ComerziaWA.ComerziaWS.administrador[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_empleado", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class listarTodos_empleadoRequest {
         
@@ -4060,6 +4076,34 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         public listarTodos_empleadoResponse(ComerziaWA.ComerziaWS.empleado[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodos_administradorRequest {
+        
+        public listarTodos_administradorRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodos_administradorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.administrador[] @return;
+        
+        public listarTodos_administradorResponse() {
+        }
+        
+        public listarTodos_administradorResponse(ComerziaWA.ComerziaWS.administrador[] @return) {
             this.@return = @return;
         }
     }
@@ -4158,17 +4202,17 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorId_administradorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_Empleado", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorId_EmpleadoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id;
         
-        public obtenerPorId_administradorRequest() {
+        public obtenerPorId_EmpleadoRequest() {
         }
         
-        public obtenerPorId_administradorRequest(int id) {
+        public obtenerPorId_EmpleadoRequest(int id) {
             this.id = id;
         }
     }
@@ -4176,17 +4220,131 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorId_administradorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId_EmpleadoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorId_EmpleadoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.administrador @return;
+        public ComerziaWA.ComerziaWS.persona @return;
         
-        public obtenerPorId_administradorResponse() {
+        public obtenerPorId_EmpleadoResponse() {
         }
         
-        public obtenerPorId_administradorResponse(ComerziaWA.ComerziaWS.administrador @return) {
+        public obtenerPorId_EmpleadoResponse(ComerziaWA.ComerziaWS.persona @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_administrador", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_administradorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string dni;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreCompleto;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string telefono;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string correo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string direccion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreUsuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string contrasenha;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public double salario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime fechaContratacion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idAlmacen;
+        
+        public insertar_administradorRequest() {
+        }
+        
+        public insertar_administradorRequest(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen) {
+            this.dni = dni;
+            this.nombreCompleto = nombreCompleto;
+            this.telefono = telefono;
+            this.correo = correo;
+            this.direccion = direccion;
+            this.estado = estado;
+            this.nombreUsuario = nombreUsuario;
+            this.contrasenha = contrasenha;
+            this.salario = salario;
+            this.fechaContratacion = fechaContratacion;
+            this.idAlmacen = idAlmacen;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_administradorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_administradorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertar_administradorResponse() {
+        }
+        
+        public insertar_administradorResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_vendedor", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodos_vendedorRequest {
+        
+        public listarTodos_vendedorRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos_vendedorResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodos_vendedorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.vendedor[] @return;
+        
+        public listarTodos_vendedorResponse() {
+        }
+        
+        public listarTodos_vendedorResponse(ComerziaWA.ComerziaWS.vendedor[] @return) {
             this.@return = @return;
         }
     }
@@ -4247,68 +4405,71 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request) {
-            return base.Channel.listarParaIndex_trabajadorDeAlmacen(request);
+        ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.buscarPorNombre_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest request) {
+            return base.Channel.buscarPorNombre_trabajadorDeAlmacen(request);
         }
         
-        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] listarParaIndex_trabajadorDeAlmacen() {
-            ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest();
-            ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_trabajadorDeAlmacen(inValue);
+        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] buscarPorNombre_trabajadorDeAlmacen(string nombreTrabajadorDeAlmacen) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest();
+            inValue.nombreTrabajadorDeAlmacen = nombreTrabajadorDeAlmacen;
+            ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).buscarPorNombre_trabajadorDeAlmacen(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request) {
-            return base.Channel.listarParaIndex_trabajadorDeAlmacenAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.buscarPorNombre_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest request) {
+            return base.Channel.buscarPorNombre_trabajadorDeAlmacenAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse> listarParaIndex_trabajadorDeAlmacenAsync() {
-            ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest();
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_trabajadorDeAlmacenAsync(inValue);
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenResponse> buscarPorNombre_trabajadorDeAlmacenAsync(string nombreTrabajadorDeAlmacen) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenRequest();
+            inValue.nombreTrabajadorDeAlmacen = nombreTrabajadorDeAlmacen;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).buscarPorNombre_trabajadorDeAlmacenAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest request) {
-            return base.Channel.eliminar_trabajadorDeAlmacen(request);
+        ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request) {
+            return base.Channel.insertar_trabajadorDeAlmacen(request);
         }
         
-        public int eliminar_trabajadorDeAlmacen(int idPersona) {
-            ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest();
-            inValue.idPersona = idPersona;
-            ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_trabajadorDeAlmacen(inValue);
+        public int insertar_trabajadorDeAlmacen(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen, bool licenciaMontacarga) {
+            ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest();
+            inValue.dni = dni;
+            inValue.nombreCompleto = nombreCompleto;
+            inValue.telefono = telefono;
+            inValue.correo = correo;
+            inValue.direccion = direccion;
+            inValue.estado = estado;
+            inValue.nombreUsuario = nombreUsuario;
+            inValue.contrasenha = contrasenha;
+            inValue.salario = salario;
+            inValue.fechaContratacion = fechaContratacion;
+            inValue.idAlmacen = idAlmacen;
+            inValue.licenciaMontacarga = licenciaMontacarga;
+            ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_trabajadorDeAlmacen(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest request) {
-            return base.Channel.eliminar_trabajadorDeAlmacenAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request) {
+            return base.Channel.insertar_trabajadorDeAlmacenAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse> eliminar_trabajadorDeAlmacenAsync(int idPersona) {
-            ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest();
-            inValue.idPersona = idPersona;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_trabajadorDeAlmacenAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest request) {
-            return base.Channel.listarTodos_trabajadorDeAlmacen(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] listarTodos_trabajadorDeAlmacen() {
-            ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest();
-            ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_trabajadorDeAlmacen(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest request) {
-            return base.Channel.listarTodos_trabajadorDeAlmacenAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse> listarTodos_trabajadorDeAlmacenAsync() {
-            ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest();
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_trabajadorDeAlmacenAsync(inValue);
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse> insertar_trabajadorDeAlmacenAsync(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen, bool licenciaMontacarga) {
+            ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest();
+            inValue.dni = dni;
+            inValue.nombreCompleto = nombreCompleto;
+            inValue.telefono = telefono;
+            inValue.correo = correo;
+            inValue.direccion = direccion;
+            inValue.estado = estado;
+            inValue.nombreUsuario = nombreUsuario;
+            inValue.contrasenha = contrasenha;
+            inValue.salario = salario;
+            inValue.fechaContratacion = fechaContratacion;
+            inValue.idAlmacen = idAlmacen;
+            inValue.licenciaMontacarga = licenciaMontacarga;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_trabajadorDeAlmacenAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4332,27 +4493,6 @@ namespace ComerziaWA.ComerziaWS {
             ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_trabajadorDeAlmacenRequest();
             inValue.id = id;
             return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_trabajadorDeAlmacenAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_administrador(ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest request) {
-            return base.Channel.listarParaIndex_administrador(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.administrador[] listarParaIndex_administrador() {
-            ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest();
-            ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_administrador(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_administradorAsync(ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest request) {
-            return base.Channel.listarParaIndex_administradorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse> listarParaIndex_administradorAsync() {
-            ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest();
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_administradorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4403,48 +4543,137 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request) {
-            return base.Channel.insertar_trabajadorDeAlmacen(request);
+        ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest request) {
+            return base.Channel.eliminar_trabajadorDeAlmacen(request);
         }
         
-        public int insertar_trabajadorDeAlmacen(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen, bool licenciaMontacarga) {
-            ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest();
-            inValue.dni = dni;
-            inValue.nombreCompleto = nombreCompleto;
-            inValue.telefono = telefono;
-            inValue.correo = correo;
-            inValue.direccion = direccion;
-            inValue.estado = estado;
-            inValue.nombreUsuario = nombreUsuario;
-            inValue.contrasenha = contrasenha;
-            inValue.salario = salario;
-            inValue.fechaContratacion = fechaContratacion;
-            inValue.idAlmacen = idAlmacen;
-            inValue.licenciaMontacarga = licenciaMontacarga;
-            ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_trabajadorDeAlmacen(inValue);
+        public int eliminar_trabajadorDeAlmacen(int idPersona) {
+            ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest();
+            inValue.idPersona = idPersona;
+            ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_trabajadorDeAlmacen(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest request) {
-            return base.Channel.insertar_trabajadorDeAlmacenAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest request) {
+            return base.Channel.eliminar_trabajadorDeAlmacenAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenResponse> insertar_trabajadorDeAlmacenAsync(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen, bool licenciaMontacarga) {
-            ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.insertar_trabajadorDeAlmacenRequest();
-            inValue.dni = dni;
-            inValue.nombreCompleto = nombreCompleto;
-            inValue.telefono = telefono;
-            inValue.correo = correo;
-            inValue.direccion = direccion;
-            inValue.estado = estado;
-            inValue.nombreUsuario = nombreUsuario;
-            inValue.contrasenha = contrasenha;
-            inValue.salario = salario;
-            inValue.fechaContratacion = fechaContratacion;
-            inValue.idAlmacen = idAlmacen;
-            inValue.licenciaMontacarga = licenciaMontacarga;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_trabajadorDeAlmacenAsync(inValue);
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenResponse> eliminar_trabajadorDeAlmacenAsync(int idPersona) {
+            ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.eliminar_trabajadorDeAlmacenRequest();
+            inValue.idPersona = idPersona;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_trabajadorDeAlmacenAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest request) {
+            return base.Channel.listarTodos_trabajadorDeAlmacen(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] listarTodos_trabajadorDeAlmacen() {
+            ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest();
+            ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_trabajadorDeAlmacen(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest request) {
+            return base.Channel.listarTodos_trabajadorDeAlmacenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenResponse> listarTodos_trabajadorDeAlmacenAsync() {
+            ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_trabajadorDeAlmacenRequest();
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_trabajadorDeAlmacenAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_administrador(ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest request) {
+            return base.Channel.listarParaIndex_administrador(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.administrador[] listarParaIndex_administrador() {
+            ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest();
+            ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_administrador(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_administradorAsync(ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest request) {
+            return base.Channel.listarParaIndex_administradorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_administradorResponse> listarParaIndex_administradorAsync() {
+            ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_administradorRequest();
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_administradorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_trabajadorDeAlmacen(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request) {
+            return base.Channel.listarParaIndex_trabajadorDeAlmacen(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.trabajadorDeAlmacen[] listarParaIndex_trabajadorDeAlmacen() {
+            ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest();
+            ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_trabajadorDeAlmacen(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarParaIndex_trabajadorDeAlmacenAsync(ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest request) {
+            return base.Channel.listarParaIndex_trabajadorDeAlmacenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenResponse> listarParaIndex_trabajadorDeAlmacenAsync() {
+            ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest inValue = new ComerziaWA.ComerziaWS.listarParaIndex_trabajadorDeAlmacenRequest();
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarParaIndex_trabajadorDeAlmacenAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.buscarPorNombre_vendedorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.buscarPorNombre_vendedor(ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest request) {
+            return base.Channel.buscarPorNombre_vendedor(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.vendedor[] buscarPorNombre_vendedor(string nombreVendedor) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest();
+            inValue.nombreVendedor = nombreVendedor;
+            ComerziaWA.ComerziaWS.buscarPorNombre_vendedorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).buscarPorNombre_vendedor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_vendedorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.buscarPorNombre_vendedorAsync(ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest request) {
+            return base.Channel.buscarPorNombre_vendedorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_vendedorResponse> buscarPorNombre_vendedorAsync(string nombreVendedor) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_vendedorRequest();
+            inValue.nombreVendedor = nombreVendedor;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).buscarPorNombre_vendedorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.eliminar_vendedorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_vendedor(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request) {
+            return base.Channel.eliminar_vendedor(request);
+        }
+        
+        public int eliminar_vendedor(int idVendedor, int idPersona) {
+            ComerziaWA.ComerziaWS.eliminar_vendedorRequest inValue = new ComerziaWA.ComerziaWS.eliminar_vendedorRequest();
+            inValue.idVendedor = idVendedor;
+            inValue.idPersona = idPersona;
+            ComerziaWA.ComerziaWS.eliminar_vendedorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_vendedor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_vendedorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_vendedorAsync(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request) {
+            return base.Channel.eliminar_vendedorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_vendedorResponse> eliminar_vendedorAsync(int idVendedor, int idPersona) {
+            ComerziaWA.ComerziaWS.eliminar_vendedorRequest inValue = new ComerziaWA.ComerziaWS.eliminar_vendedorRequest();
+            inValue.idVendedor = idVendedor;
+            inValue.idPersona = idPersona;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_vendedorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4490,31 +4719,6 @@ namespace ComerziaWA.ComerziaWS {
             inValue.ingresosVentas = ingresosVentas;
             inValue.porcentajeComision = porcentajeComision;
             return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_vendedorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.verEmpleadoResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.verEmpleado(ComerziaWA.ComerziaWS.verEmpleadoRequest request) {
-            return base.Channel.verEmpleado(request);
-        }
-        
-        public int verEmpleado(string cuenta, string contrasenha) {
-            ComerziaWA.ComerziaWS.verEmpleadoRequest inValue = new ComerziaWA.ComerziaWS.verEmpleadoRequest();
-            inValue.cuenta = cuenta;
-            inValue.contrasenha = contrasenha;
-            ComerziaWA.ComerziaWS.verEmpleadoResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).verEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.verEmpleadoResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.verEmpleadoAsync(ComerziaWA.ComerziaWS.verEmpleadoRequest request) {
-            return base.Channel.verEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.verEmpleadoResponse> verEmpleadoAsync(string cuenta, string contrasenha) {
-            ComerziaWA.ComerziaWS.verEmpleadoRequest inValue = new ComerziaWA.ComerziaWS.verEmpleadoRequest();
-            inValue.cuenta = cuenta;
-            inValue.contrasenha = contrasenha;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).verEmpleadoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4565,31 +4769,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.eliminar_vendedorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_vendedor(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request) {
-            return base.Channel.eliminar_vendedor(request);
-        }
-        
-        public int eliminar_vendedor(int idVendedor, int idPersona) {
-            ComerziaWA.ComerziaWS.eliminar_vendedorRequest inValue = new ComerziaWA.ComerziaWS.eliminar_vendedorRequest();
-            inValue.idVendedor = idVendedor;
-            inValue.idPersona = idPersona;
-            ComerziaWA.ComerziaWS.eliminar_vendedorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_vendedor(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_vendedorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.eliminar_vendedorAsync(ComerziaWA.ComerziaWS.eliminar_vendedorRequest request) {
-            return base.Channel.eliminar_vendedorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_vendedorResponse> eliminar_vendedorAsync(int idVendedor, int idPersona) {
-            ComerziaWA.ComerziaWS.eliminar_vendedorRequest inValue = new ComerziaWA.ComerziaWS.eliminar_vendedorRequest();
-            inValue.idVendedor = idVendedor;
-            inValue.idPersona = idPersona;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).eliminar_vendedorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.devolverRolResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.devolverRol(ComerziaWA.ComerziaWS.devolverRolRequest request) {
             return base.Channel.devolverRol(request);
         }
@@ -4613,90 +4792,28 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarTodos_vendedorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_vendedor(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request) {
-            return base.Channel.listarTodos_vendedor(request);
+        ComerziaWA.ComerziaWS.verEmpleadoResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.verEmpleado(ComerziaWA.ComerziaWS.verEmpleadoRequest request) {
+            return base.Channel.verEmpleado(request);
         }
         
-        public ComerziaWA.ComerziaWS.vendedor[] listarTodos_vendedor() {
-            ComerziaWA.ComerziaWS.listarTodos_vendedorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_vendedorRequest();
-            ComerziaWA.ComerziaWS.listarTodos_vendedorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_vendedor(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_vendedorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_vendedorAsync(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request) {
-            return base.Channel.listarTodos_vendedorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_vendedorResponse> listarTodos_vendedorAsync() {
-            ComerziaWA.ComerziaWS.listarTodos_vendedorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_vendedorRequest();
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_vendedorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_vendedor(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request) {
-            return base.Channel.obtenerPorId_vendedor(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.vendedor obtenerPorId_vendedor(int id) {
-            ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest();
-            inValue.id = id;
-            ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_vendedor(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_vendedorAsync(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request) {
-            return base.Channel.obtenerPorId_vendedorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse> obtenerPorId_vendedorAsync(int id) {
-            ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest();
-            inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_vendedorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.insertar_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_administrador(ComerziaWA.ComerziaWS.insertar_administradorRequest request) {
-            return base.Channel.insertar_administrador(request);
-        }
-        
-        public int insertar_administrador(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen) {
-            ComerziaWA.ComerziaWS.insertar_administradorRequest inValue = new ComerziaWA.ComerziaWS.insertar_administradorRequest();
-            inValue.dni = dni;
-            inValue.nombreCompleto = nombreCompleto;
-            inValue.telefono = telefono;
-            inValue.correo = correo;
-            inValue.direccion = direccion;
-            inValue.estado = estado;
-            inValue.nombreUsuario = nombreUsuario;
+        public int verEmpleado(string cuenta, string contrasenha) {
+            ComerziaWA.ComerziaWS.verEmpleadoRequest inValue = new ComerziaWA.ComerziaWS.verEmpleadoRequest();
+            inValue.cuenta = cuenta;
             inValue.contrasenha = contrasenha;
-            inValue.salario = salario;
-            inValue.fechaContratacion = fechaContratacion;
-            inValue.idAlmacen = idAlmacen;
-            ComerziaWA.ComerziaWS.insertar_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_administrador(inValue);
+            ComerziaWA.ComerziaWS.verEmpleadoResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).verEmpleado(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_administradorAsync(ComerziaWA.ComerziaWS.insertar_administradorRequest request) {
-            return base.Channel.insertar_administradorAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.verEmpleadoResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.verEmpleadoAsync(ComerziaWA.ComerziaWS.verEmpleadoRequest request) {
+            return base.Channel.verEmpleadoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_administradorResponse> insertar_administradorAsync(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen) {
-            ComerziaWA.ComerziaWS.insertar_administradorRequest inValue = new ComerziaWA.ComerziaWS.insertar_administradorRequest();
-            inValue.dni = dni;
-            inValue.nombreCompleto = nombreCompleto;
-            inValue.telefono = telefono;
-            inValue.correo = correo;
-            inValue.direccion = direccion;
-            inValue.estado = estado;
-            inValue.nombreUsuario = nombreUsuario;
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.verEmpleadoResponse> verEmpleadoAsync(string cuenta, string contrasenha) {
+            ComerziaWA.ComerziaWS.verEmpleadoRequest inValue = new ComerziaWA.ComerziaWS.verEmpleadoRequest();
+            inValue.cuenta = cuenta;
             inValue.contrasenha = contrasenha;
-            inValue.salario = salario;
-            inValue.fechaContratacion = fechaContratacion;
-            inValue.idAlmacen = idAlmacen;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_administradorAsync(inValue);
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).verEmpleadoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4723,26 +4840,72 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_Empleado(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request) {
-            return base.Channel.obtenerPorId_Empleado(request);
+        ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_administrador(ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest request) {
+            return base.Channel.obtenerPorId_administrador(request);
         }
         
-        public ComerziaWA.ComerziaWS.persona obtenerPorId_Empleado(int id) {
-            ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest();
+        public ComerziaWA.ComerziaWS.administrador obtenerPorId_administrador(int id) {
+            ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest();
             inValue.id = id;
-            ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_Empleado(inValue);
+            ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_administrador(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_EmpleadoAsync(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request) {
-            return base.Channel.obtenerPorId_EmpleadoAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_administradorAsync(ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest request) {
+            return base.Channel.obtenerPorId_administradorAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse> obtenerPorId_EmpleadoAsync(int id) {
-            ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest();
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse> obtenerPorId_administradorAsync(int id) {
+            ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest();
             inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_EmpleadoAsync(inValue);
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_administradorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_vendedor(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request) {
+            return base.Channel.obtenerPorId_vendedor(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.vendedor obtenerPorId_vendedor(int id) {
+            ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_vendedor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_vendedorAsync(ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest request) {
+            return base.Channel.obtenerPorId_vendedorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_vendedorResponse> obtenerPorId_vendedorAsync(int id) {
+            ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_vendedorRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_vendedorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.buscarPorNombre_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.buscarPorNombre_administrador(ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest request) {
+            return base.Channel.buscarPorNombre_administrador(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.administrador[] buscarPorNombre_administrador(string nombreAdministrador) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest();
+            inValue.nombreAdministrador = nombreAdministrador;
+            ComerziaWA.ComerziaWS.buscarPorNombre_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).buscarPorNombre_administrador(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.buscarPorNombre_administradorAsync(ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest request) {
+            return base.Channel.buscarPorNombre_administradorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_administradorResponse> buscarPorNombre_administradorAsync(string nombreAdministrador) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_administradorRequest();
+            inValue.nombreAdministrador = nombreAdministrador;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).buscarPorNombre_administradorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4769,27 +4932,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarTodos_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_administrador(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request) {
-            return base.Channel.listarTodos_administrador(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.administrador[] listarTodos_administrador() {
-            ComerziaWA.ComerziaWS.listarTodos_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_administradorRequest();
-            ComerziaWA.ComerziaWS.listarTodos_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_administrador(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_administradorAsync(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request) {
-            return base.Channel.listarTodos_administradorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_administradorResponse> listarTodos_administradorAsync() {
-            ComerziaWA.ComerziaWS.listarTodos_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_administradorRequest();
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_administradorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.listarTodos_empleadoResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_empleado(ComerziaWA.ComerziaWS.listarTodos_empleadoRequest request) {
             return base.Channel.listarTodos_empleado(request);
         }
@@ -4808,6 +4950,27 @@ namespace ComerziaWA.ComerziaWS {
         public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_empleadoResponse> listarTodos_empleadoAsync() {
             ComerziaWA.ComerziaWS.listarTodos_empleadoRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_empleadoRequest();
             return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_empleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarTodos_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_administrador(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request) {
+            return base.Channel.listarTodos_administrador(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.administrador[] listarTodos_administrador() {
+            ComerziaWA.ComerziaWS.listarTodos_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_administradorRequest();
+            ComerziaWA.ComerziaWS.listarTodos_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_administrador(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_administradorAsync(ComerziaWA.ComerziaWS.listarTodos_administradorRequest request) {
+            return base.Channel.listarTodos_administradorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_administradorResponse> listarTodos_administradorAsync() {
+            ComerziaWA.ComerziaWS.listarTodos_administradorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_administradorRequest();
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_administradorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4856,26 +5019,90 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_administrador(ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest request) {
-            return base.Channel.obtenerPorId_administrador(request);
+        ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_Empleado(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request) {
+            return base.Channel.obtenerPorId_Empleado(request);
         }
         
-        public ComerziaWA.ComerziaWS.administrador obtenerPorId_administrador(int id) {
-            ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest();
+        public ComerziaWA.ComerziaWS.persona obtenerPorId_Empleado(int id) {
+            ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest();
             inValue.id = id;
-            ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_administrador(inValue);
+            ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_Empleado(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_administradorAsync(ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest request) {
-            return base.Channel.obtenerPorId_administradorAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.obtenerPorId_EmpleadoAsync(ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest request) {
+            return base.Channel.obtenerPorId_EmpleadoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_administradorResponse> obtenerPorId_administradorAsync(int id) {
-            ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_administradorRequest();
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoResponse> obtenerPorId_EmpleadoAsync(int id) {
+            ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorId_EmpleadoRequest();
             inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_administradorAsync(inValue);
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).obtenerPorId_EmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.insertar_administradorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_administrador(ComerziaWA.ComerziaWS.insertar_administradorRequest request) {
+            return base.Channel.insertar_administrador(request);
+        }
+        
+        public int insertar_administrador(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen) {
+            ComerziaWA.ComerziaWS.insertar_administradorRequest inValue = new ComerziaWA.ComerziaWS.insertar_administradorRequest();
+            inValue.dni = dni;
+            inValue.nombreCompleto = nombreCompleto;
+            inValue.telefono = telefono;
+            inValue.correo = correo;
+            inValue.direccion = direccion;
+            inValue.estado = estado;
+            inValue.nombreUsuario = nombreUsuario;
+            inValue.contrasenha = contrasenha;
+            inValue.salario = salario;
+            inValue.fechaContratacion = fechaContratacion;
+            inValue.idAlmacen = idAlmacen;
+            ComerziaWA.ComerziaWS.insertar_administradorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_administrador(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_administradorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.insertar_administradorAsync(ComerziaWA.ComerziaWS.insertar_administradorRequest request) {
+            return base.Channel.insertar_administradorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_administradorResponse> insertar_administradorAsync(string dni, string nombreCompleto, string telefono, string correo, string direccion, ComerziaWA.ComerziaWS.estadoEmpleadoEnum estado, string nombreUsuario, string contrasenha, double salario, System.DateTime fechaContratacion, int idAlmacen) {
+            ComerziaWA.ComerziaWS.insertar_administradorRequest inValue = new ComerziaWA.ComerziaWS.insertar_administradorRequest();
+            inValue.dni = dni;
+            inValue.nombreCompleto = nombreCompleto;
+            inValue.telefono = telefono;
+            inValue.correo = correo;
+            inValue.direccion = direccion;
+            inValue.estado = estado;
+            inValue.nombreUsuario = nombreUsuario;
+            inValue.contrasenha = contrasenha;
+            inValue.salario = salario;
+            inValue.fechaContratacion = fechaContratacion;
+            inValue.idAlmacen = idAlmacen;
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).insertar_administradorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarTodos_vendedorResponse ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_vendedor(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request) {
+            return base.Channel.listarTodos_vendedor(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.vendedor[] listarTodos_vendedor() {
+            ComerziaWA.ComerziaWS.listarTodos_vendedorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_vendedorRequest();
+            ComerziaWA.ComerziaWS.listarTodos_vendedorResponse retVal = ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_vendedor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_vendedorResponse> ComerziaWA.ComerziaWS.RecursosHumanosWS.listarTodos_vendedorAsync(ComerziaWA.ComerziaWS.listarTodos_vendedorRequest request) {
+            return base.Channel.listarTodos_vendedorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarTodos_vendedorResponse> listarTodos_vendedorAsync() {
+            ComerziaWA.ComerziaWS.listarTodos_vendedorRequest inValue = new ComerziaWA.ComerziaWS.listarTodos_vendedorRequest();
+            return ((ComerziaWA.ComerziaWS.RecursosHumanosWS)(this)).listarTodos_vendedorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4909,7 +5136,7 @@ namespace ComerziaWA.ComerziaWS {
             "", ReplyAction="http://services.comerzia.pucp.edu.pe/NotificacionesWS/listarNotificacionesRespons" +
             "e")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarNotificacionesResponse listarNotificaciones(ComerziaWA.ComerziaWS.listarNotificacionesRequest request);
         
@@ -5001,11 +5228,41 @@ namespace ComerziaWA.ComerziaWS {
     public interface GestionComercialWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarPorEmpresaResponse listarPorEmpresa(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorEmpresaResponse> listarPorEmpresaAsync(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.existeDocumentoResponse existeDocumento(ComerziaWA.ComerziaWS.existeDocumentoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeDocumentoResponse> existeDocumentoAsync(ComerziaWA.ComerziaWS.existeDocumentoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeLineaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeLineaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.existeLineaResponse existeLinea(ComerziaWA.ComerziaWS.existeLineaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeLineaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeLineaResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeLineaResponse> existeLineaAsync(ComerziaWA.ComerziaWS.existeLineaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_documentoRequest" +
             "", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_documentoRespons" +
             "e")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.insertar_documentoResponse insertar_documento(ComerziaWA.ComerziaWS.insertar_documentoRequest request);
         
@@ -5019,7 +5276,7 @@ namespace ComerziaWA.ComerziaWS {
             "", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_documentoRespons" +
             "e")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.eliminar_documentoResponse eliminar_documento(ComerziaWA.ComerziaWS.eliminar_documentoRequest request);
         
@@ -5029,59 +5286,11 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_documentoResponse> eliminar_documentoAsync(ComerziaWA.ComerziaWS.eliminar_documentoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.existeDocumentoResponse existeDocumento(ComerziaWA.ComerziaWS.existeDocumentoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/existeDocumentoResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeDocumentoResponse> existeDocumentoAsync(ComerziaWA.ComerziaWS.existeDocumentoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarPorEmpresaResponse listarPorEmpresa(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarPorEmpresaResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorEmpresaResponse> listarPorEmpresaAsync(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdResp" +
-            "onse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse obtenerDocumentoPorId(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdResp" +
-            "onse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse> obtenerDocumentoPorIdAsync(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
-            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
-            "sponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse insertar_lineaDocumento(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
-            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse> insertar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_documentoReques" +
             "t", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_documentoRespon" +
             "se")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.modificar_documentoResponse modificar_documento(ComerziaWA.ComerziaWS.modificar_documentoRequest request);
         
@@ -5091,39 +5300,21 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_documentoResponse> modificar_documentoAsync(ComerziaWA.ComerziaWS.modificar_documentoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
-            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
-            "esponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.modificar_lineaDocumentoResponse modificar_lineaDocumento(ComerziaWA.ComerziaWS.modificar_lineaDocumentoRequest request);
+        ComerziaWA.ComerziaWS.listarDocumentosResponse listarDocumentos(ComerziaWA.ComerziaWS.listarDocumentosRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
-            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
-            "esponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_lineaDocumentoResponse> modificar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.modificar_lineaDocumentoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
-            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
-            "sponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse eliminar_lineaDocumento(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
-            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse> eliminar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosResponse> listarDocumentosAsync(ComerziaWA.ComerziaWS.listarDocumentosRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerLineaDocumentoPorI" +
             "dRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerLineaDocumentoPorI" +
             "dResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse obtenerLineaDocumentoPorId(ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest request);
         
@@ -5133,11 +5324,39 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse> obtenerLineaDocumentoPorIdAsync(ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
+            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
+            "sponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse eliminar_lineaDocumento(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
+            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/eliminar_lineaDocumentoRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse> eliminar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
+            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
+            "sponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse insertar_lineaDocumento(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
+            "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/insertar_lineaDocumentoRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse> insertar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarLineasPorDocumentoR" +
             "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarLineasPorDocumentoR" +
             "esponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse listarLineasPorDocumento(ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest request);
         
@@ -5147,14 +5366,180 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse> listarLineasPorDocumentoAsync(ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
+            "esponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarDocumentosResponse listarDocumentos(ComerziaWA.ComerziaWS.listarDocumentosRequest request);
+        ComerziaWA.ComerziaWS.modificar_lineaDocumentoResponse modificar_lineaDocumento(ComerziaWA.ComerziaWS.modificar_lineaDocumentoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/listarDocumentosResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosResponse> listarDocumentosAsync(ComerziaWA.ComerziaWS.listarDocumentosRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/modificar_lineaDocumentoR" +
+            "esponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificar_lineaDocumentoResponse> modificar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.modificar_lineaDocumentoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdResp" +
+            "onse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse obtenerDocumentoPorId(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/GestionComercialWS/obtenerDocumentoPorIdResp" +
+            "onse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse> obtenerDocumentoPorIdAsync(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEmpresa", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarPorEmpresaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string idEmpresa;
+        
+        public listarPorEmpresaRequest() {
+        }
+        
+        public listarPorEmpresaRequest(string idEmpresa) {
+            this.idEmpresa = idEmpresa;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEmpresaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarPorEmpresaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.documento[] @return;
+        
+        public listarPorEmpresaResponse() {
+        }
+        
+        public listarPorEmpresaResponse(ComerziaWA.ComerziaWS.documento[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="existeDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class existeDocumentoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idEmpresa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.estadoDocumentoEnum estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idVendedor;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idAdministrador;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idTrabajadorDeAlmacen;
+        
+        public existeDocumentoRequest() {
+        }
+        
+        public existeDocumentoRequest(int idEmpresa, ComerziaWA.ComerziaWS.estadoDocumentoEnum estado, ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo, int idVendedor, int idAdministrador, int idTrabajadorDeAlmacen) {
+            this.idEmpresa = idEmpresa;
+            this.estado = estado;
+            this.tipo = tipo;
+            this.idVendedor = idVendedor;
+            this.idAdministrador = idAdministrador;
+            this.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="existeDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class existeDocumentoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public existeDocumentoResponse() {
+        }
+        
+        public existeDocumentoResponse(bool @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="existeLinea", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class existeLineaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idDocumento;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idProducto;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int cantidad;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public double precioUnitario;
+        
+        public existeLineaRequest() {
+        }
+        
+        public existeLineaRequest(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
+            this.idDocumento = idDocumento;
+            this.idProducto = idProducto;
+            this.cantidad = cantidad;
+            this.precioUnitario = precioUnitario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="existeLineaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class existeLineaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public existeLineaResponse() {
+        }
+        
+        public existeLineaResponse(bool @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5257,190 +5642,6 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="existeDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class existeDocumentoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idEmpresa;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.estadoDocumentoEnum estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idVendedor;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idAdministrador;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idTrabajadorDeAlmacen;
-        
-        public existeDocumentoRequest() {
-        }
-        
-        public existeDocumentoRequest(int idEmpresa, ComerziaWA.ComerziaWS.estadoDocumentoEnum estado, ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo, int idVendedor, int idAdministrador, int idTrabajadorDeAlmacen) {
-            this.idEmpresa = idEmpresa;
-            this.estado = estado;
-            this.tipo = tipo;
-            this.idVendedor = idVendedor;
-            this.idAdministrador = idAdministrador;
-            this.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="existeDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class existeDocumentoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool @return;
-        
-        public existeDocumentoResponse() {
-        }
-        
-        public existeDocumentoResponse(bool @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEmpresa", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarPorEmpresaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string idEmpresa;
-        
-        public listarPorEmpresaRequest() {
-        }
-        
-        public listarPorEmpresaRequest(string idEmpresa) {
-            this.idEmpresa = idEmpresa;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEmpresaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarPorEmpresaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.documento[] @return;
-        
-        public listarPorEmpresaResponse() {
-        }
-        
-        public listarPorEmpresaResponse(ComerziaWA.ComerziaWS.documento[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerDocumentoPorId", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerDocumentoPorIdRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id;
-        
-        public obtenerDocumentoPorIdRequest() {
-        }
-        
-        public obtenerDocumentoPorIdRequest(string id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerDocumentoPorIdResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerDocumentoPorIdResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.documento @return;
-        
-        public obtenerDocumentoPorIdResponse() {
-        }
-        
-        public obtenerDocumentoPorIdResponse(ComerziaWA.ComerziaWS.documento @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_lineaDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_lineaDocumentoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idDocumento;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idProducto;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int cantidad;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double precioUnitario;
-        
-        public insertar_lineaDocumentoRequest() {
-        }
-        
-        public insertar_lineaDocumentoRequest(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
-            this.idDocumento = idDocumento;
-            this.idProducto = idProducto;
-            this.cantidad = cantidad;
-            this.precioUnitario = precioUnitario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_lineaDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class insertar_lineaDocumentoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertar_lineaDocumentoResponse() {
-        }
-        
-        public insertar_lineaDocumentoResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="modificar_documento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class modificar_documentoRequest {
         
@@ -5507,6 +5708,193 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentos", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarDocumentosRequest {
+        
+        public listarDocumentosRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentosResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarDocumentosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.documento[] @return;
+        
+        public listarDocumentosResponse() {
+        }
+        
+        public listarDocumentosResponse(ComerziaWA.ComerziaWS.documento[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerLineaDocumentoPorId", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerLineaDocumentoPorIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idLineaDocumento;
+        
+        public obtenerLineaDocumentoPorIdRequest() {
+        }
+        
+        public obtenerLineaDocumentoPorIdRequest(int idLineaDocumento) {
+            this.idLineaDocumento = idLineaDocumento;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerLineaDocumentoPorIdResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerLineaDocumentoPorIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.lineaDocumento @return;
+        
+        public obtenerLineaDocumentoPorIdResponse() {
+        }
+        
+        public obtenerLineaDocumentoPorIdResponse(ComerziaWA.ComerziaWS.lineaDocumento @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_lineaDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminar_lineaDocumentoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idLineaDocumento;
+        
+        public eliminar_lineaDocumentoRequest() {
+        }
+        
+        public eliminar_lineaDocumentoRequest(int idLineaDocumento) {
+            this.idLineaDocumento = idLineaDocumento;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_lineaDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminar_lineaDocumentoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminar_lineaDocumentoResponse() {
+        }
+        
+        public eliminar_lineaDocumentoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_lineaDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_lineaDocumentoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idDocumento;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idProducto;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int cantidad;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public double precioUnitario;
+        
+        public insertar_lineaDocumentoRequest() {
+        }
+        
+        public insertar_lineaDocumentoRequest(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
+            this.idDocumento = idDocumento;
+            this.idProducto = idProducto;
+            this.cantidad = cantidad;
+            this.precioUnitario = precioUnitario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertar_lineaDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class insertar_lineaDocumentoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertar_lineaDocumentoResponse() {
+        }
+        
+        public insertar_lineaDocumentoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasPorDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarLineasPorDocumentoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idDocumento;
+        
+        public listarLineasPorDocumentoRequest() {
+        }
+        
+        public listarLineasPorDocumentoRequest(int idDocumento) {
+            this.idDocumento = idDocumento;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasPorDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarLineasPorDocumentoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.lineaDocumento[] @return;
+        
+        public listarLineasPorDocumentoResponse() {
+        }
+        
+        public listarLineasPorDocumentoResponse(ComerziaWA.ComerziaWS.lineaDocumento[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="modificar_lineaDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class modificar_lineaDocumentoRequest {
         
@@ -5563,135 +5951,35 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_lineaDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminar_lineaDocumentoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerDocumentoPorId", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerDocumentoPorIdRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idLineaDocumento;
+        public string id;
         
-        public eliminar_lineaDocumentoRequest() {
+        public obtenerDocumentoPorIdRequest() {
         }
         
-        public eliminar_lineaDocumentoRequest(int idLineaDocumento) {
-            this.idLineaDocumento = idLineaDocumento;
+        public obtenerDocumentoPorIdRequest(string id) {
+            this.id = id;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar_lineaDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminar_lineaDocumentoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerDocumentoPorIdResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerDocumentoPorIdResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        public ComerziaWA.ComerziaWS.documento @return;
         
-        public eliminar_lineaDocumentoResponse() {
+        public obtenerDocumentoPorIdResponse() {
         }
         
-        public eliminar_lineaDocumentoResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerLineaDocumentoPorId", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerLineaDocumentoPorIdRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idLineaDocumento;
-        
-        public obtenerLineaDocumentoPorIdRequest() {
-        }
-        
-        public obtenerLineaDocumentoPorIdRequest(int idLineaDocumento) {
-            this.idLineaDocumento = idLineaDocumento;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerLineaDocumentoPorIdResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerLineaDocumentoPorIdResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.lineaDocumento @return;
-        
-        public obtenerLineaDocumentoPorIdResponse() {
-        }
-        
-        public obtenerLineaDocumentoPorIdResponse(ComerziaWA.ComerziaWS.lineaDocumento @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasPorDocumento", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarLineasPorDocumentoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idDocumento;
-        
-        public listarLineasPorDocumentoRequest() {
-        }
-        
-        public listarLineasPorDocumentoRequest(int idDocumento) {
-            this.idDocumento = idDocumento;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasPorDocumentoResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarLineasPorDocumentoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.lineaDocumento[] @return;
-        
-        public listarLineasPorDocumentoResponse() {
-        }
-        
-        public listarLineasPorDocumentoResponse(ComerziaWA.ComerziaWS.lineaDocumento[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentos", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarDocumentosRequest {
-        
-        public listarDocumentosRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentosResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarDocumentosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.documento[] @return;
-        
-        public listarDocumentosResponse() {
-        }
-        
-        public listarDocumentosResponse(ComerziaWA.ComerziaWS.documento[] @return) {
+        public obtenerDocumentoPorIdResponse(ComerziaWA.ComerziaWS.documento @return) {
             this.@return = @return;
         }
     }
@@ -5721,6 +6009,91 @@ namespace ComerziaWA.ComerziaWS {
         
         public GestionComercialWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarPorEmpresaResponse ComerziaWA.ComerziaWS.GestionComercialWS.listarPorEmpresa(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request) {
+            return base.Channel.listarPorEmpresa(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.documento[] listarPorEmpresa(string idEmpresa) {
+            ComerziaWA.ComerziaWS.listarPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarPorEmpresaRequest();
+            inValue.idEmpresa = idEmpresa;
+            ComerziaWA.ComerziaWS.listarPorEmpresaResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarPorEmpresa(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorEmpresaResponse> ComerziaWA.ComerziaWS.GestionComercialWS.listarPorEmpresaAsync(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request) {
+            return base.Channel.listarPorEmpresaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorEmpresaResponse> listarPorEmpresaAsync(string idEmpresa) {
+            ComerziaWA.ComerziaWS.listarPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarPorEmpresaRequest();
+            inValue.idEmpresa = idEmpresa;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarPorEmpresaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.existeDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.existeDocumento(ComerziaWA.ComerziaWS.existeDocumentoRequest request) {
+            return base.Channel.existeDocumento(request);
+        }
+        
+        public bool existeDocumento(int idEmpresa, ComerziaWA.ComerziaWS.estadoDocumentoEnum estado, ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo, int idVendedor, int idAdministrador, int idTrabajadorDeAlmacen) {
+            ComerziaWA.ComerziaWS.existeDocumentoRequest inValue = new ComerziaWA.ComerziaWS.existeDocumentoRequest();
+            inValue.idEmpresa = idEmpresa;
+            inValue.estado = estado;
+            inValue.tipo = tipo;
+            inValue.idVendedor = idVendedor;
+            inValue.idAdministrador = idAdministrador;
+            inValue.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
+            ComerziaWA.ComerziaWS.existeDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).existeDocumento(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.existeDocumentoAsync(ComerziaWA.ComerziaWS.existeDocumentoRequest request) {
+            return base.Channel.existeDocumentoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeDocumentoResponse> existeDocumentoAsync(int idEmpresa, ComerziaWA.ComerziaWS.estadoDocumentoEnum estado, ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo, int idVendedor, int idAdministrador, int idTrabajadorDeAlmacen) {
+            ComerziaWA.ComerziaWS.existeDocumentoRequest inValue = new ComerziaWA.ComerziaWS.existeDocumentoRequest();
+            inValue.idEmpresa = idEmpresa;
+            inValue.estado = estado;
+            inValue.tipo = tipo;
+            inValue.idVendedor = idVendedor;
+            inValue.idAdministrador = idAdministrador;
+            inValue.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).existeDocumentoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.existeLineaResponse ComerziaWA.ComerziaWS.GestionComercialWS.existeLinea(ComerziaWA.ComerziaWS.existeLineaRequest request) {
+            return base.Channel.existeLinea(request);
+        }
+        
+        public bool existeLinea(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
+            ComerziaWA.ComerziaWS.existeLineaRequest inValue = new ComerziaWA.ComerziaWS.existeLineaRequest();
+            inValue.idDocumento = idDocumento;
+            inValue.idProducto = idProducto;
+            inValue.cantidad = cantidad;
+            inValue.precioUnitario = precioUnitario;
+            ComerziaWA.ComerziaWS.existeLineaResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).existeLinea(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeLineaResponse> ComerziaWA.ComerziaWS.GestionComercialWS.existeLineaAsync(ComerziaWA.ComerziaWS.existeLineaRequest request) {
+            return base.Channel.existeLineaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeLineaResponse> existeLineaAsync(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
+            ComerziaWA.ComerziaWS.existeLineaRequest inValue = new ComerziaWA.ComerziaWS.existeLineaRequest();
+            inValue.idDocumento = idDocumento;
+            inValue.idProducto = idProducto;
+            inValue.cantidad = cantidad;
+            inValue.precioUnitario = precioUnitario;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).existeLineaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -5780,114 +6153,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.existeDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.existeDocumento(ComerziaWA.ComerziaWS.existeDocumentoRequest request) {
-            return base.Channel.existeDocumento(request);
-        }
-        
-        public bool existeDocumento(int idEmpresa, ComerziaWA.ComerziaWS.estadoDocumentoEnum estado, ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo, int idVendedor, int idAdministrador, int idTrabajadorDeAlmacen) {
-            ComerziaWA.ComerziaWS.existeDocumentoRequest inValue = new ComerziaWA.ComerziaWS.existeDocumentoRequest();
-            inValue.idEmpresa = idEmpresa;
-            inValue.estado = estado;
-            inValue.tipo = tipo;
-            inValue.idVendedor = idVendedor;
-            inValue.idAdministrador = idAdministrador;
-            inValue.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
-            ComerziaWA.ComerziaWS.existeDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).existeDocumento(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.existeDocumentoAsync(ComerziaWA.ComerziaWS.existeDocumentoRequest request) {
-            return base.Channel.existeDocumentoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.existeDocumentoResponse> existeDocumentoAsync(int idEmpresa, ComerziaWA.ComerziaWS.estadoDocumentoEnum estado, ComerziaWA.ComerziaWS.tipoDocumentoEnum tipo, int idVendedor, int idAdministrador, int idTrabajadorDeAlmacen) {
-            ComerziaWA.ComerziaWS.existeDocumentoRequest inValue = new ComerziaWA.ComerziaWS.existeDocumentoRequest();
-            inValue.idEmpresa = idEmpresa;
-            inValue.estado = estado;
-            inValue.tipo = tipo;
-            inValue.idVendedor = idVendedor;
-            inValue.idAdministrador = idAdministrador;
-            inValue.idTrabajadorDeAlmacen = idTrabajadorDeAlmacen;
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).existeDocumentoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarPorEmpresaResponse ComerziaWA.ComerziaWS.GestionComercialWS.listarPorEmpresa(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request) {
-            return base.Channel.listarPorEmpresa(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.documento[] listarPorEmpresa(string idEmpresa) {
-            ComerziaWA.ComerziaWS.listarPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarPorEmpresaRequest();
-            inValue.idEmpresa = idEmpresa;
-            ComerziaWA.ComerziaWS.listarPorEmpresaResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarPorEmpresa(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorEmpresaResponse> ComerziaWA.ComerziaWS.GestionComercialWS.listarPorEmpresaAsync(ComerziaWA.ComerziaWS.listarPorEmpresaRequest request) {
-            return base.Channel.listarPorEmpresaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarPorEmpresaResponse> listarPorEmpresaAsync(string idEmpresa) {
-            ComerziaWA.ComerziaWS.listarPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarPorEmpresaRequest();
-            inValue.idEmpresa = idEmpresa;
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarPorEmpresaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse ComerziaWA.ComerziaWS.GestionComercialWS.obtenerDocumentoPorId(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request) {
-            return base.Channel.obtenerDocumentoPorId(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.documento obtenerDocumentoPorId(string id) {
-            ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest();
-            inValue.id = id;
-            ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerDocumentoPorId(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse> ComerziaWA.ComerziaWS.GestionComercialWS.obtenerDocumentoPorIdAsync(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request) {
-            return base.Channel.obtenerDocumentoPorIdAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse> obtenerDocumentoPorIdAsync(string id) {
-            ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest();
-            inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerDocumentoPorIdAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.insertar_lineaDocumento(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request) {
-            return base.Channel.insertar_lineaDocumento(request);
-        }
-        
-        public int insertar_lineaDocumento(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
-            ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest();
-            inValue.idDocumento = idDocumento;
-            inValue.idProducto = idProducto;
-            inValue.cantidad = cantidad;
-            inValue.precioUnitario = precioUnitario;
-            ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).insertar_lineaDocumento(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.insertar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request) {
-            return base.Channel.insertar_lineaDocumentoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse> insertar_lineaDocumentoAsync(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
-            ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest();
-            inValue.idDocumento = idDocumento;
-            inValue.idProducto = idProducto;
-            inValue.cantidad = cantidad;
-            inValue.precioUnitario = precioUnitario;
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).insertar_lineaDocumentoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.modificar_documentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.modificar_documento(ComerziaWA.ComerziaWS.modificar_documentoRequest request) {
             return base.Channel.modificar_documento(request);
         }
@@ -5923,6 +6188,125 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarDocumentosResponse ComerziaWA.ComerziaWS.GestionComercialWS.listarDocumentos(ComerziaWA.ComerziaWS.listarDocumentosRequest request) {
+            return base.Channel.listarDocumentos(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.documento[] listarDocumentos() {
+            ComerziaWA.ComerziaWS.listarDocumentosRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosRequest();
+            ComerziaWA.ComerziaWS.listarDocumentosResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarDocumentos(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosResponse> ComerziaWA.ComerziaWS.GestionComercialWS.listarDocumentosAsync(ComerziaWA.ComerziaWS.listarDocumentosRequest request) {
+            return base.Channel.listarDocumentosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosResponse> listarDocumentosAsync() {
+            ComerziaWA.ComerziaWS.listarDocumentosRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosRequest();
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarDocumentosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse ComerziaWA.ComerziaWS.GestionComercialWS.obtenerLineaDocumentoPorId(ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest request) {
+            return base.Channel.obtenerLineaDocumentoPorId(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.lineaDocumento obtenerLineaDocumentoPorId(int idLineaDocumento) {
+            ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest();
+            inValue.idLineaDocumento = idLineaDocumento;
+            ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerLineaDocumentoPorId(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse> ComerziaWA.ComerziaWS.GestionComercialWS.obtenerLineaDocumentoPorIdAsync(ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest request) {
+            return base.Channel.obtenerLineaDocumentoPorIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse> obtenerLineaDocumentoPorIdAsync(int idLineaDocumento) {
+            ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest();
+            inValue.idLineaDocumento = idLineaDocumento;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerLineaDocumentoPorIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.eliminar_lineaDocumento(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request) {
+            return base.Channel.eliminar_lineaDocumento(request);
+        }
+        
+        public int eliminar_lineaDocumento(int idLineaDocumento) {
+            ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest();
+            inValue.idLineaDocumento = idLineaDocumento;
+            ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).eliminar_lineaDocumento(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.eliminar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request) {
+            return base.Channel.eliminar_lineaDocumentoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse> eliminar_lineaDocumentoAsync(int idLineaDocumento) {
+            ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest();
+            inValue.idLineaDocumento = idLineaDocumento;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).eliminar_lineaDocumentoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.insertar_lineaDocumento(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request) {
+            return base.Channel.insertar_lineaDocumento(request);
+        }
+        
+        public int insertar_lineaDocumento(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
+            ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest();
+            inValue.idDocumento = idDocumento;
+            inValue.idProducto = idProducto;
+            inValue.cantidad = cantidad;
+            inValue.precioUnitario = precioUnitario;
+            ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).insertar_lineaDocumento(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.insertar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest request) {
+            return base.Channel.insertar_lineaDocumentoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.insertar_lineaDocumentoResponse> insertar_lineaDocumentoAsync(int idDocumento, int idProducto, int cantidad, double precioUnitario) {
+            ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.insertar_lineaDocumentoRequest();
+            inValue.idDocumento = idDocumento;
+            inValue.idProducto = idProducto;
+            inValue.cantidad = cantidad;
+            inValue.precioUnitario = precioUnitario;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).insertar_lineaDocumentoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.listarLineasPorDocumento(ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest request) {
+            return base.Channel.listarLineasPorDocumento(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.lineaDocumento[] listarLineasPorDocumento(int idDocumento) {
+            ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest inValue = new ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest();
+            inValue.idDocumento = idDocumento;
+            ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarLineasPorDocumento(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.listarLineasPorDocumentoAsync(ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest request) {
+            return base.Channel.listarLineasPorDocumentoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse> listarLineasPorDocumentoAsync(int idDocumento) {
+            ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest inValue = new ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest();
+            inValue.idDocumento = idDocumento;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarLineasPorDocumentoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.modificar_lineaDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.modificar_lineaDocumento(ComerziaWA.ComerziaWS.modificar_lineaDocumentoRequest request) {
             return base.Channel.modificar_lineaDocumento(request);
         }
@@ -5954,93 +6338,26 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.eliminar_lineaDocumento(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request) {
-            return base.Channel.eliminar_lineaDocumento(request);
+        ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse ComerziaWA.ComerziaWS.GestionComercialWS.obtenerDocumentoPorId(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request) {
+            return base.Channel.obtenerDocumentoPorId(request);
         }
         
-        public int eliminar_lineaDocumento(int idLineaDocumento) {
-            ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest();
-            inValue.idLineaDocumento = idLineaDocumento;
-            ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).eliminar_lineaDocumento(inValue);
+        public ComerziaWA.ComerziaWS.documento obtenerDocumentoPorId(string id) {
+            ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerDocumentoPorId(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.eliminar_lineaDocumentoAsync(ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest request) {
-            return base.Channel.eliminar_lineaDocumentoAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse> ComerziaWA.ComerziaWS.GestionComercialWS.obtenerDocumentoPorIdAsync(ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest request) {
+            return base.Channel.obtenerDocumentoPorIdAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminar_lineaDocumentoResponse> eliminar_lineaDocumentoAsync(int idLineaDocumento) {
-            ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest inValue = new ComerziaWA.ComerziaWS.eliminar_lineaDocumentoRequest();
-            inValue.idLineaDocumento = idLineaDocumento;
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).eliminar_lineaDocumentoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse ComerziaWA.ComerziaWS.GestionComercialWS.obtenerLineaDocumentoPorId(ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest request) {
-            return base.Channel.obtenerLineaDocumentoPorId(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.lineaDocumento obtenerLineaDocumentoPorId(int idLineaDocumento) {
-            ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest();
-            inValue.idLineaDocumento = idLineaDocumento;
-            ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerLineaDocumentoPorId(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse> ComerziaWA.ComerziaWS.GestionComercialWS.obtenerLineaDocumentoPorIdAsync(ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest request) {
-            return base.Channel.obtenerLineaDocumentoPorIdAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdResponse> obtenerLineaDocumentoPorIdAsync(int idLineaDocumento) {
-            ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerLineaDocumentoPorIdRequest();
-            inValue.idLineaDocumento = idLineaDocumento;
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerLineaDocumentoPorIdAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse ComerziaWA.ComerziaWS.GestionComercialWS.listarLineasPorDocumento(ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest request) {
-            return base.Channel.listarLineasPorDocumento(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.lineaDocumento[] listarLineasPorDocumento(int idDocumento) {
-            ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest inValue = new ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest();
-            inValue.idDocumento = idDocumento;
-            ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarLineasPorDocumento(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse> ComerziaWA.ComerziaWS.GestionComercialWS.listarLineasPorDocumentoAsync(ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest request) {
-            return base.Channel.listarLineasPorDocumentoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarLineasPorDocumentoResponse> listarLineasPorDocumentoAsync(int idDocumento) {
-            ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest inValue = new ComerziaWA.ComerziaWS.listarLineasPorDocumentoRequest();
-            inValue.idDocumento = idDocumento;
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarLineasPorDocumentoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarDocumentosResponse ComerziaWA.ComerziaWS.GestionComercialWS.listarDocumentos(ComerziaWA.ComerziaWS.listarDocumentosRequest request) {
-            return base.Channel.listarDocumentos(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.documento[] listarDocumentos() {
-            ComerziaWA.ComerziaWS.listarDocumentosRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosRequest();
-            ComerziaWA.ComerziaWS.listarDocumentosResponse retVal = ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarDocumentos(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosResponse> ComerziaWA.ComerziaWS.GestionComercialWS.listarDocumentosAsync(ComerziaWA.ComerziaWS.listarDocumentosRequest request) {
-            return base.Channel.listarDocumentosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosResponse> listarDocumentosAsync() {
-            ComerziaWA.ComerziaWS.listarDocumentosRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosRequest();
-            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).listarDocumentosAsync(inValue);
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerDocumentoPorIdResponse> obtenerDocumentoPorIdAsync(string id) {
+            ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerDocumentoPorIdRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.GestionComercialWS)(this)).obtenerDocumentoPorIdAsync(inValue);
         }
     }
     
@@ -6049,39 +6366,11 @@ namespace ComerziaWA.ComerziaWS {
     public interface RelacionesComercialesWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
-            "mpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
-            "mpresaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse listarDocumentosPorEmpresa(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
-            "mpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
-            "mpresaResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse> listarDocumentosPorEmpresaAsync(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteResp" +
-            "onse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.modificarClienteResponse modificarCliente(ComerziaWA.ComerziaWS.modificarClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteRequ" +
-            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteResp" +
-            "onse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarClienteResponse> modificarClienteAsync(ComerziaWA.ComerziaWS.modificarClienteRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarProveedorRe" +
             "quest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarProveedorRe" +
             "sponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.modificarProveedorResponse modificarProveedor(ComerziaWA.ComerziaWS.modificarProveedorRequest request);
         
@@ -6091,11 +6380,25 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarProveedorResponse> modificarProveedorAsync(ComerziaWA.ComerziaWS.modificarProveedorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
+            "mpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
+            "mpresaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse listarDocumentosPorEmpresa(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
+            "mpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarDocumentosPorE" +
+            "mpresaResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse> listarDocumentosPorEmpresaAsync(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresReq" +
             "uest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresRes" +
             "ponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarProveedoresResponse listarProveedores(ComerziaWA.ComerziaWS.listarProveedoresRequest request);
         
@@ -6105,11 +6408,39 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProveedoresResponse> listarProveedoresAsync(ComerziaWA.ComerziaWS.listarProveedoresRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/buscarPorNombre_empr" +
+            "esaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/buscarPorNombre_empr" +
+            "esaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.buscarPorNombre_empresaResponse buscarPorNombre_empresa(ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/buscarPorNombre_empr" +
+            "esaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/buscarPorNombre_empr" +
+            "esaResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_empresaResponse> buscarPorNombre_empresaAsync(ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteResp" +
+            "onse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.modificarClienteResponse modificarCliente(ComerziaWA.ComerziaWS.modificarClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteRequ" +
+            "est", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarClienteResp" +
+            "onse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarClienteResponse> modificarClienteAsync(ComerziaWA.ComerziaWS.modificarClienteRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesReques" +
             "t", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesRespon" +
             "se")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarClientesResponse listarClientes(ComerziaWA.ComerziaWS.listarClientesRequest request);
         
@@ -6119,95 +6450,11 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesResponse> listarClientesAsync(ComerziaWA.ComerziaWS.listarClientesRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
-            "dexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
-            "dexResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarClientesParaIndexResponse listarClientesParaIndex(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
-            "dexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
-            "dexResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesParaIndexResponse> listarClientesParaIndexAsync(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
-            "aIndexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
-            "aIndexResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse listarProveedoresParaIndex(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
-            "aIndexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
-            "aIndexResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse> listarProveedoresParaIndexAsync(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
-            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
-            "esponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse obtenerPorIdCliente(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
-            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
-            "esponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse> obtenerPorIdClienteAsync(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
-            "eRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
-            "eResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.eliminarRepresentanteResponse eliminarRepresentante(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
-            "eRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
-            "eResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminarRepresentanteResponse> eliminarRepresentanteAsync(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
-            "tanteRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
-            "tanteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse obtenerPorIdRepresentante(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
-            "tanteRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
-            "tanteResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse> obtenerPorIdRepresentanteAsync(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
-            "PorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
-            "PorEmpresaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse listarRepresentantesPorEmpresa(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
-            "PorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
-            "PorEmpresaResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse> listarRepresentantesPorEmpresaAsync(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarRepresentan" +
             "teRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/modificarRepresentan" +
             "teResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.modificarRepresentanteResponse modificarRepresentante(ComerziaWA.ComerziaWS.modificarRepresentanteRequest request);
         
@@ -6217,11 +6464,81 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarRepresentanteResponse> modificarRepresentanteAsync(ComerziaWA.ComerziaWS.modificarRepresentanteRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
+            "esponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse obtenerPorIdCliente(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdClienteR" +
+            "esponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse> obtenerPorIdClienteAsync(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerEmpresaPorIdR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerEmpresaPorIdR" +
+            "esponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerEmpresaPorIdResponse obtenerEmpresaPorId(ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerEmpresaPorIdR" +
+            "equest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerEmpresaPorIdR" +
+            "esponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerEmpresaPorIdResponse> obtenerEmpresaPorIdAsync(ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
+            "rRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
+            "rResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerPorIdProveedorResponse obtenerPorIdProveedor(ComerziaWA.ComerziaWS.obtenerPorIdProveedorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
+            "rRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
+            "rResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdProveedorResponse> obtenerPorIdProveedorAsync(ComerziaWA.ComerziaWS.obtenerPorIdProveedorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
+            "dexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
+            "dexResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarClientesParaIndexResponse listarClientesParaIndex(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
+            "dexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarClientesParaIn" +
+            "dexResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesParaIndexResponse> listarClientesParaIndexAsync(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
+            "PorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
+            "PorEmpresaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse listarRepresentantesPorEmpresa(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
+            "PorEmpresaRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
+            "PorEmpresaResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse> listarRepresentantesPorEmpresaAsync(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
             "PorNombreRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarRepresentantes" +
             "PorNombreResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse listarRepresentantesPorNombre(ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest request);
         
@@ -6231,125 +6548,46 @@ namespace ComerziaWA.ComerziaWS {
         System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse> listarRepresentantesPorNombreAsync(ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
-            "rRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
-            "rResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
+            "aIndexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
+            "aIndexResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(empresa))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ComerziaWA.ComerziaWS.obtenerPorIdProveedorResponse obtenerPorIdProveedor(ComerziaWA.ComerziaWS.obtenerPorIdProveedorRequest request);
+        ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse listarProveedoresParaIndex(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
-            "rRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdProveedo" +
-            "rResponse")]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdProveedorResponse> obtenerPorIdProveedorAsync(ComerziaWA.ComerziaWS.obtenerPorIdProveedorRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentosPorEmpresa", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarDocumentosPorEmpresaRequest {
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
+            "aIndexRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/listarProveedoresPar" +
+            "aIndexResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse> listarProveedoresParaIndexAsync(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id;
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
+            "tanteRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
+            "tanteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse obtenerPorIdRepresentante(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request);
         
-        public listarDocumentosPorEmpresaRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
+            "tanteRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/obtenerPorIdRepresen" +
+            "tanteResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse> obtenerPorIdRepresentanteAsync(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request);
         
-        public listarDocumentosPorEmpresaRequest(string id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentosPorEmpresaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarDocumentosPorEmpresaResponse {
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
+            "eRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
+            "eResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(baseEntity))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ComerziaWA.ComerziaWS.eliminarRepresentanteResponse eliminarRepresentante(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.documento[] @return;
-        
-        public listarDocumentosPorEmpresaResponse() {
-        }
-        
-        public listarDocumentosPorEmpresaResponse(ComerziaWA.ComerziaWS.documento[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarCliente", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class modificarClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idEmpresa;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string direccion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string telefono;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string email;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string tipoIndustria;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public System.DateTime fechaRegistro;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=7)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public System.DateTime fechaUltimaCompra;
-        
-        public modificarClienteRequest() {
-        }
-        
-        public modificarClienteRequest(int idEmpresa, string nombre, string direccion, string telefono, string email, string tipoIndustria, System.DateTime fechaRegistro, System.DateTime fechaUltimaCompra) {
-            this.idEmpresa = idEmpresa;
-            this.nombre = nombre;
-            this.direccion = direccion;
-            this.telefono = telefono;
-            this.email = email;
-            this.tipoIndustria = tipoIndustria;
-            this.fechaRegistro = fechaRegistro;
-            this.fechaUltimaCompra = fechaUltimaCompra;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarClienteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class modificarClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public modificarClienteResponse() {
-        }
-        
-        public modificarClienteResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
+            "eRequest", ReplyAction="http://services.comerzia.pucp.edu.pe/RelacionesComercialesWS/eliminarRepresentant" +
+            "eResponse")]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminarRepresentanteResponse> eliminarRepresentanteAsync(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6441,6 +6679,42 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentosPorEmpresa", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarDocumentosPorEmpresaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string id;
+        
+        public listarDocumentosPorEmpresaRequest() {
+        }
+        
+        public listarDocumentosPorEmpresaRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDocumentosPorEmpresaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarDocumentosPorEmpresaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.documento[] @return;
+        
+        public listarDocumentosPorEmpresaResponse() {
+        }
+        
+        public listarDocumentosPorEmpresaResponse(ComerziaWA.ComerziaWS.documento[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedores", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class listarProveedoresRequest {
         
@@ -6469,6 +6743,113 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_empresa", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_empresaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreEmpresa;
+        
+        public buscarPorNombre_empresaRequest() {
+        }
+        
+        public buscarPorNombre_empresaRequest(string nombreEmpresa) {
+            this.nombreEmpresa = nombreEmpresa;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarPorNombre_empresaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class buscarPorNombre_empresaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.empresa[] @return;
+        
+        public buscarPorNombre_empresaResponse() {
+        }
+        
+        public buscarPorNombre_empresaResponse(ComerziaWA.ComerziaWS.empresa[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarCliente", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificarClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idEmpresa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string direccion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string telefono;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string email;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string tipoIndustria;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime fechaRegistro;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime fechaUltimaCompra;
+        
+        public modificarClienteRequest() {
+        }
+        
+        public modificarClienteRequest(int idEmpresa, string nombre, string direccion, string telefono, string email, string tipoIndustria, System.DateTime fechaRegistro, System.DateTime fechaUltimaCompra) {
+            this.idEmpresa = idEmpresa;
+            this.nombre = nombre;
+            this.direccion = direccion;
+            this.telefono = telefono;
+            this.email = email;
+            this.tipoIndustria = tipoIndustria;
+            this.fechaRegistro = fechaRegistro;
+            this.fechaUltimaCompra = fechaUltimaCompra;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarClienteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificarClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificarClienteResponse() {
+        }
+        
+        public modificarClienteResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarClientes", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
     public partial class listarClientesRequest {
         
@@ -6490,206 +6871,6 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         public listarClientesResponse(ComerziaWA.ComerziaWS.cliente[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarClientesParaIndex", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarClientesParaIndexRequest {
-        
-        public listarClientesParaIndexRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarClientesParaIndexResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarClientesParaIndexResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.cliente[] @return;
-        
-        public listarClientesParaIndexResponse() {
-        }
-        
-        public listarClientesParaIndexResponse(ComerziaWA.ComerziaWS.cliente[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresParaIndex", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarProveedoresParaIndexRequest {
-        
-        public listarProveedoresParaIndexRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresParaIndexResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarProveedoresParaIndexResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.proveedor[] @return;
-        
-        public listarProveedoresParaIndexResponse() {
-        }
-        
-        public listarProveedoresParaIndexResponse(ComerziaWA.ComerziaWS.proveedor[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdCliente", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorIdClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id;
-        
-        public obtenerPorIdClienteRequest() {
-        }
-        
-        public obtenerPorIdClienteRequest(string id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdClienteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorIdClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.cliente @return;
-        
-        public obtenerPorIdClienteResponse() {
-        }
-        
-        public obtenerPorIdClienteResponse(ComerziaWA.ComerziaWS.cliente @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarRepresentante", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminarRepresentanteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id;
-        
-        public eliminarRepresentanteRequest() {
-        }
-        
-        public eliminarRepresentanteRequest(string id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarRepresentanteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminarRepresentanteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarRepresentanteResponse() {
-        }
-        
-        public eliminarRepresentanteResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdRepresentante", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorIdRepresentanteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id;
-        
-        public obtenerPorIdRepresentanteRequest() {
-        }
-        
-        public obtenerPorIdRepresentanteRequest(string id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdRepresentanteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class obtenerPorIdRepresentanteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.representante @return;
-        
-        public obtenerPorIdRepresentanteResponse() {
-        }
-        
-        public obtenerPorIdRepresentanteResponse(ComerziaWA.ComerziaWS.representante @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorEmpresa", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarRepresentantesPorEmpresaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id;
-        
-        public listarRepresentantesPorEmpresaRequest() {
-        }
-        
-        public listarRepresentantesPorEmpresaRequest(string id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorEmpresaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarRepresentantesPorEmpresaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.representante[] @return;
-        
-        public listarRepresentantesPorEmpresaResponse() {
-        }
-        
-        public listarRepresentantesPorEmpresaResponse(ComerziaWA.ComerziaWS.representante[] @return) {
             this.@return = @return;
         }
     }
@@ -6763,35 +6944,71 @@ namespace ComerziaWA.ComerziaWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorNombre", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarRepresentantesPorNombreRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdCliente", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorIdClienteRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
+        public string id;
         
-        public listarRepresentantesPorNombreRequest() {
+        public obtenerPorIdClienteRequest() {
         }
         
-        public listarRepresentantesPorNombreRequest(string nombre) {
-            this.nombre = nombre;
+        public obtenerPorIdClienteRequest(string id) {
+            this.id = id;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorNombreResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarRepresentantesPorNombreResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdClienteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorIdClienteResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ComerziaWA.ComerziaWS.representante[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.cliente @return;
         
-        public listarRepresentantesPorNombreResponse() {
+        public obtenerPorIdClienteResponse() {
         }
         
-        public listarRepresentantesPorNombreResponse(ComerziaWA.ComerziaWS.representante[] @return) {
+        public obtenerPorIdClienteResponse(ComerziaWA.ComerziaWS.cliente @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEmpresaPorId", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerEmpresaPorIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string id;
+        
+        public obtenerEmpresaPorIdRequest() {
+        }
+        
+        public obtenerEmpresaPorIdRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEmpresaPorIdResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerEmpresaPorIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.empresa @return;
+        
+        public obtenerEmpresaPorIdResponse() {
+        }
+        
+        public obtenerEmpresaPorIdResponse(ComerziaWA.ComerziaWS.empresa @return) {
             this.@return = @return;
         }
     }
@@ -6832,6 +7049,206 @@ namespace ComerziaWA.ComerziaWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarClientesParaIndex", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarClientesParaIndexRequest {
+        
+        public listarClientesParaIndexRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarClientesParaIndexResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarClientesParaIndexResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.cliente[] @return;
+        
+        public listarClientesParaIndexResponse() {
+        }
+        
+        public listarClientesParaIndexResponse(ComerziaWA.ComerziaWS.cliente[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorEmpresa", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarRepresentantesPorEmpresaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string id;
+        
+        public listarRepresentantesPorEmpresaRequest() {
+        }
+        
+        public listarRepresentantesPorEmpresaRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorEmpresaResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarRepresentantesPorEmpresaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.representante[] @return;
+        
+        public listarRepresentantesPorEmpresaResponse() {
+        }
+        
+        public listarRepresentantesPorEmpresaResponse(ComerziaWA.ComerziaWS.representante[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorNombre", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarRepresentantesPorNombreRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        public listarRepresentantesPorNombreRequest() {
+        }
+        
+        public listarRepresentantesPorNombreRequest(string nombre) {
+            this.nombre = nombre;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarRepresentantesPorNombreResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarRepresentantesPorNombreResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.representante[] @return;
+        
+        public listarRepresentantesPorNombreResponse() {
+        }
+        
+        public listarRepresentantesPorNombreResponse(ComerziaWA.ComerziaWS.representante[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresParaIndex", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarProveedoresParaIndexRequest {
+        
+        public listarProveedoresParaIndexRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresParaIndexResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarProveedoresParaIndexResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.proveedor[] @return;
+        
+        public listarProveedoresParaIndexResponse() {
+        }
+        
+        public listarProveedoresParaIndexResponse(ComerziaWA.ComerziaWS.proveedor[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdRepresentante", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorIdRepresentanteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string id;
+        
+        public obtenerPorIdRepresentanteRequest() {
+        }
+        
+        public obtenerPorIdRepresentanteRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdRepresentanteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorIdRepresentanteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ComerziaWA.ComerziaWS.representante @return;
+        
+        public obtenerPorIdRepresentanteResponse() {
+        }
+        
+        public obtenerPorIdRepresentanteResponse(ComerziaWA.ComerziaWS.representante @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarRepresentante", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminarRepresentanteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string id;
+        
+        public eliminarRepresentanteRequest() {
+        }
+        
+        public eliminarRepresentanteRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarRepresentanteResponse", WrapperNamespace="http://services.comerzia.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminarRepresentanteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.comerzia.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarRepresentanteResponse() {
+        }
+        
+        public eliminarRepresentanteResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface RelacionesComercialesWSChannel : ComerziaWA.ComerziaWS.RelacionesComercialesWS, System.ServiceModel.IClientChannel {
     }
@@ -6857,66 +7274,6 @@ namespace ComerziaWA.ComerziaWS {
         
         public RelacionesComercialesWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarDocumentosPorEmpresa(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request) {
-            return base.Channel.listarDocumentosPorEmpresa(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.documento[] listarDocumentosPorEmpresa(string id) {
-            ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest();
-            inValue.id = id;
-            ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarDocumentosPorEmpresa(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarDocumentosPorEmpresaAsync(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request) {
-            return base.Channel.listarDocumentosPorEmpresaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse> listarDocumentosPorEmpresaAsync(string id) {
-            ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest();
-            inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarDocumentosPorEmpresaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.modificarClienteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.modificarCliente(ComerziaWA.ComerziaWS.modificarClienteRequest request) {
-            return base.Channel.modificarCliente(request);
-        }
-        
-        public int modificarCliente(int idEmpresa, string nombre, string direccion, string telefono, string email, string tipoIndustria, System.DateTime fechaRegistro, System.DateTime fechaUltimaCompra) {
-            ComerziaWA.ComerziaWS.modificarClienteRequest inValue = new ComerziaWA.ComerziaWS.modificarClienteRequest();
-            inValue.idEmpresa = idEmpresa;
-            inValue.nombre = nombre;
-            inValue.direccion = direccion;
-            inValue.telefono = telefono;
-            inValue.email = email;
-            inValue.tipoIndustria = tipoIndustria;
-            inValue.fechaRegistro = fechaRegistro;
-            inValue.fechaUltimaCompra = fechaUltimaCompra;
-            ComerziaWA.ComerziaWS.modificarClienteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).modificarCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarClienteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.modificarClienteAsync(ComerziaWA.ComerziaWS.modificarClienteRequest request) {
-            return base.Channel.modificarClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarClienteResponse> modificarClienteAsync(int idEmpresa, string nombre, string direccion, string telefono, string email, string tipoIndustria, System.DateTime fechaRegistro, System.DateTime fechaUltimaCompra) {
-            ComerziaWA.ComerziaWS.modificarClienteRequest inValue = new ComerziaWA.ComerziaWS.modificarClienteRequest();
-            inValue.idEmpresa = idEmpresa;
-            inValue.nombre = nombre;
-            inValue.direccion = direccion;
-            inValue.telefono = telefono;
-            inValue.email = email;
-            inValue.tipoIndustria = tipoIndustria;
-            inValue.fechaRegistro = fechaRegistro;
-            inValue.fechaUltimaCompra = fechaUltimaCompra;
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).modificarClienteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6963,6 +7320,29 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarDocumentosPorEmpresa(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request) {
+            return base.Channel.listarDocumentosPorEmpresa(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.documento[] listarDocumentosPorEmpresa(string id) {
+            ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarDocumentosPorEmpresa(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarDocumentosPorEmpresaAsync(ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest request) {
+            return base.Channel.listarDocumentosPorEmpresaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaResponse> listarDocumentosPorEmpresaAsync(string id) {
+            ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarDocumentosPorEmpresaRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarDocumentosPorEmpresaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.listarProveedoresResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarProveedores(ComerziaWA.ComerziaWS.listarProveedoresRequest request) {
             return base.Channel.listarProveedores(request);
         }
@@ -6984,6 +7364,66 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.buscarPorNombre_empresaResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.buscarPorNombre_empresa(ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest request) {
+            return base.Channel.buscarPorNombre_empresa(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.empresa[] buscarPorNombre_empresa(string nombreEmpresa) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest();
+            inValue.nombreEmpresa = nombreEmpresa;
+            ComerziaWA.ComerziaWS.buscarPorNombre_empresaResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).buscarPorNombre_empresa(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_empresaResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.buscarPorNombre_empresaAsync(ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest request) {
+            return base.Channel.buscarPorNombre_empresaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.buscarPorNombre_empresaResponse> buscarPorNombre_empresaAsync(string nombreEmpresa) {
+            ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest inValue = new ComerziaWA.ComerziaWS.buscarPorNombre_empresaRequest();
+            inValue.nombreEmpresa = nombreEmpresa;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).buscarPorNombre_empresaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.modificarClienteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.modificarCliente(ComerziaWA.ComerziaWS.modificarClienteRequest request) {
+            return base.Channel.modificarCliente(request);
+        }
+        
+        public int modificarCliente(int idEmpresa, string nombre, string direccion, string telefono, string email, string tipoIndustria, System.DateTime fechaRegistro, System.DateTime fechaUltimaCompra) {
+            ComerziaWA.ComerziaWS.modificarClienteRequest inValue = new ComerziaWA.ComerziaWS.modificarClienteRequest();
+            inValue.idEmpresa = idEmpresa;
+            inValue.nombre = nombre;
+            inValue.direccion = direccion;
+            inValue.telefono = telefono;
+            inValue.email = email;
+            inValue.tipoIndustria = tipoIndustria;
+            inValue.fechaRegistro = fechaRegistro;
+            inValue.fechaUltimaCompra = fechaUltimaCompra;
+            ComerziaWA.ComerziaWS.modificarClienteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).modificarCliente(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarClienteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.modificarClienteAsync(ComerziaWA.ComerziaWS.modificarClienteRequest request) {
+            return base.Channel.modificarClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.modificarClienteResponse> modificarClienteAsync(int idEmpresa, string nombre, string direccion, string telefono, string email, string tipoIndustria, System.DateTime fechaRegistro, System.DateTime fechaUltimaCompra) {
+            ComerziaWA.ComerziaWS.modificarClienteRequest inValue = new ComerziaWA.ComerziaWS.modificarClienteRequest();
+            inValue.idEmpresa = idEmpresa;
+            inValue.nombre = nombre;
+            inValue.direccion = direccion;
+            inValue.telefono = telefono;
+            inValue.email = email;
+            inValue.tipoIndustria = tipoIndustria;
+            inValue.fechaRegistro = fechaRegistro;
+            inValue.fechaUltimaCompra = fechaUltimaCompra;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).modificarClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ComerziaWA.ComerziaWS.listarClientesResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarClientes(ComerziaWA.ComerziaWS.listarClientesRequest request) {
             return base.Channel.listarClientes(request);
         }
@@ -7002,140 +7442,6 @@ namespace ComerziaWA.ComerziaWS {
         public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesResponse> listarClientesAsync() {
             ComerziaWA.ComerziaWS.listarClientesRequest inValue = new ComerziaWA.ComerziaWS.listarClientesRequest();
             return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarClientesAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarClientesParaIndexResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarClientesParaIndex(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request) {
-            return base.Channel.listarClientesParaIndex(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.cliente[] listarClientesParaIndex() {
-            ComerziaWA.ComerziaWS.listarClientesParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarClientesParaIndexRequest();
-            ComerziaWA.ComerziaWS.listarClientesParaIndexResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarClientesParaIndex(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesParaIndexResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarClientesParaIndexAsync(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request) {
-            return base.Channel.listarClientesParaIndexAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesParaIndexResponse> listarClientesParaIndexAsync() {
-            ComerziaWA.ComerziaWS.listarClientesParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarClientesParaIndexRequest();
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarClientesParaIndexAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarProveedoresParaIndex(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request) {
-            return base.Channel.listarProveedoresParaIndex(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.proveedor[] listarProveedoresParaIndex() {
-            ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest();
-            ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarProveedoresParaIndex(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarProveedoresParaIndexAsync(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request) {
-            return base.Channel.listarProveedoresParaIndexAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse> listarProveedoresParaIndexAsync() {
-            ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest();
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarProveedoresParaIndexAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdCliente(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request) {
-            return base.Channel.obtenerPorIdCliente(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.cliente obtenerPorIdCliente(string id) {
-            ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest();
-            inValue.id = id;
-            ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdClienteAsync(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request) {
-            return base.Channel.obtenerPorIdClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse> obtenerPorIdClienteAsync(string id) {
-            ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest();
-            inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.eliminarRepresentanteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.eliminarRepresentante(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request) {
-            return base.Channel.eliminarRepresentante(request);
-        }
-        
-        public int eliminarRepresentante(string id) {
-            ComerziaWA.ComerziaWS.eliminarRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.eliminarRepresentanteRequest();
-            inValue.id = id;
-            ComerziaWA.ComerziaWS.eliminarRepresentanteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).eliminarRepresentante(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminarRepresentanteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.eliminarRepresentanteAsync(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request) {
-            return base.Channel.eliminarRepresentanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminarRepresentanteResponse> eliminarRepresentanteAsync(string id) {
-            ComerziaWA.ComerziaWS.eliminarRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.eliminarRepresentanteRequest();
-            inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).eliminarRepresentanteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdRepresentante(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request) {
-            return base.Channel.obtenerPorIdRepresentante(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.representante obtenerPorIdRepresentante(string id) {
-            ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest();
-            inValue.id = id;
-            ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdRepresentante(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdRepresentanteAsync(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request) {
-            return base.Channel.obtenerPorIdRepresentanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse> obtenerPorIdRepresentanteAsync(string id) {
-            ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest();
-            inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdRepresentanteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorEmpresa(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request) {
-            return base.Channel.listarRepresentantesPorEmpresa(request);
-        }
-        
-        public ComerziaWA.ComerziaWS.representante[] listarRepresentantesPorEmpresa(string id) {
-            ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest();
-            inValue.id = id;
-            ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorEmpresa(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorEmpresaAsync(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request) {
-            return base.Channel.listarRepresentantesPorEmpresaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse> listarRepresentantesPorEmpresaAsync(string id) {
-            ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest();
-            inValue.id = id;
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorEmpresaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7174,26 +7480,49 @@ namespace ComerziaWA.ComerziaWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorNombre(ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest request) {
-            return base.Channel.listarRepresentantesPorNombre(request);
+        ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdCliente(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request) {
+            return base.Channel.obtenerPorIdCliente(request);
         }
         
-        public ComerziaWA.ComerziaWS.representante[] listarRepresentantesPorNombre(string nombre) {
-            ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest();
-            inValue.nombre = nombre;
-            ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorNombre(inValue);
+        public ComerziaWA.ComerziaWS.cliente obtenerPorIdCliente(string id) {
+            ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdCliente(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorNombreAsync(ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest request) {
-            return base.Channel.listarRepresentantesPorNombreAsync(request);
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdClienteAsync(ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest request) {
+            return base.Channel.obtenerPorIdClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse> listarRepresentantesPorNombreAsync(string nombre) {
-            ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest();
-            inValue.nombre = nombre;
-            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorNombreAsync(inValue);
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdClienteResponse> obtenerPorIdClienteAsync(string id) {
+            ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdClienteRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.obtenerEmpresaPorIdResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerEmpresaPorId(ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest request) {
+            return base.Channel.obtenerEmpresaPorId(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.empresa obtenerEmpresaPorId(string id) {
+            ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.obtenerEmpresaPorIdResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerEmpresaPorId(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerEmpresaPorIdResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerEmpresaPorIdAsync(ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest request) {
+            return base.Channel.obtenerEmpresaPorIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerEmpresaPorIdResponse> obtenerEmpresaPorIdAsync(string id) {
+            ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest inValue = new ComerziaWA.ComerziaWS.obtenerEmpresaPorIdRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerEmpresaPorIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7217,6 +7546,140 @@ namespace ComerziaWA.ComerziaWS {
             ComerziaWA.ComerziaWS.obtenerPorIdProveedorRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdProveedorRequest();
             inValue.id = id;
             return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdProveedorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarClientesParaIndexResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarClientesParaIndex(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request) {
+            return base.Channel.listarClientesParaIndex(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.cliente[] listarClientesParaIndex() {
+            ComerziaWA.ComerziaWS.listarClientesParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarClientesParaIndexRequest();
+            ComerziaWA.ComerziaWS.listarClientesParaIndexResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarClientesParaIndex(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesParaIndexResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarClientesParaIndexAsync(ComerziaWA.ComerziaWS.listarClientesParaIndexRequest request) {
+            return base.Channel.listarClientesParaIndexAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarClientesParaIndexResponse> listarClientesParaIndexAsync() {
+            ComerziaWA.ComerziaWS.listarClientesParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarClientesParaIndexRequest();
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarClientesParaIndexAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorEmpresa(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request) {
+            return base.Channel.listarRepresentantesPorEmpresa(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.representante[] listarRepresentantesPorEmpresa(string id) {
+            ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorEmpresa(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorEmpresaAsync(ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest request) {
+            return base.Channel.listarRepresentantesPorEmpresaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaResponse> listarRepresentantesPorEmpresaAsync(string id) {
+            ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorEmpresaRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorEmpresaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorNombre(ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest request) {
+            return base.Channel.listarRepresentantesPorNombre(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.representante[] listarRepresentantesPorNombre(string nombre) {
+            ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest();
+            inValue.nombre = nombre;
+            ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorNombre(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarRepresentantesPorNombreAsync(ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest request) {
+            return base.Channel.listarRepresentantesPorNombreAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarRepresentantesPorNombreResponse> listarRepresentantesPorNombreAsync(string nombre) {
+            ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest inValue = new ComerziaWA.ComerziaWS.listarRepresentantesPorNombreRequest();
+            inValue.nombre = nombre;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarRepresentantesPorNombreAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarProveedoresParaIndex(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request) {
+            return base.Channel.listarProveedoresParaIndex(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.proveedor[] listarProveedoresParaIndex() {
+            ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest();
+            ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarProveedoresParaIndex(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.listarProveedoresParaIndexAsync(ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest request) {
+            return base.Channel.listarProveedoresParaIndexAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.listarProveedoresParaIndexResponse> listarProveedoresParaIndexAsync() {
+            ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest inValue = new ComerziaWA.ComerziaWS.listarProveedoresParaIndexRequest();
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).listarProveedoresParaIndexAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdRepresentante(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request) {
+            return base.Channel.obtenerPorIdRepresentante(request);
+        }
+        
+        public ComerziaWA.ComerziaWS.representante obtenerPorIdRepresentante(string id) {
+            ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdRepresentante(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.obtenerPorIdRepresentanteAsync(ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest request) {
+            return base.Channel.obtenerPorIdRepresentanteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteResponse> obtenerPorIdRepresentanteAsync(string id) {
+            ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.obtenerPorIdRepresentanteRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).obtenerPorIdRepresentanteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ComerziaWA.ComerziaWS.eliminarRepresentanteResponse ComerziaWA.ComerziaWS.RelacionesComercialesWS.eliminarRepresentante(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request) {
+            return base.Channel.eliminarRepresentante(request);
+        }
+        
+        public int eliminarRepresentante(string id) {
+            ComerziaWA.ComerziaWS.eliminarRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.eliminarRepresentanteRequest();
+            inValue.id = id;
+            ComerziaWA.ComerziaWS.eliminarRepresentanteResponse retVal = ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).eliminarRepresentante(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminarRepresentanteResponse> ComerziaWA.ComerziaWS.RelacionesComercialesWS.eliminarRepresentanteAsync(ComerziaWA.ComerziaWS.eliminarRepresentanteRequest request) {
+            return base.Channel.eliminarRepresentanteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ComerziaWA.ComerziaWS.eliminarRepresentanteResponse> eliminarRepresentanteAsync(string id) {
+            ComerziaWA.ComerziaWS.eliminarRepresentanteRequest inValue = new ComerziaWA.ComerziaWS.eliminarRepresentanteRequest();
+            inValue.id = id;
+            return ((ComerziaWA.ComerziaWS.RelacionesComercialesWS)(this)).eliminarRepresentanteAsync(inValue);
         }
     }
 }

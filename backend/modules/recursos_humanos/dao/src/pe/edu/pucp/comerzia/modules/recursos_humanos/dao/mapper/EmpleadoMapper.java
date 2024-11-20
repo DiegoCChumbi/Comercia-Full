@@ -1,10 +1,12 @@
 package pe.edu.pucp.comerzia.modules.recursos_humanos.dao.mapper;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.core.dao.utils.Column;
+import pe.edu.pucp.comerzia.core.dao.utils.PasswordUtils;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Empleado;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.EstadoEmpleadoEnum;
 
@@ -12,23 +14,23 @@ public class EmpleadoMapper<T extends Empleado> extends PersonaMapper<T> {
 
   public static class Columns extends PersonaMapper.Columns {
 
-    public static final Column<EstadoEmpleadoEnum> estado = new Column<>(
+    public static final Column<EstadoEmpleadoEnum> estado = Column.of(
       "estado",
       EstadoEmpleadoEnum.class
     );
-    public static final Column<String> nombreUsuario = new Column<>(
+    public static final Column<String> nombreUsuario = Column.of(
       "nombre_usuario",
       String.class
     );
-    public static final Column<String> contrasenha = new Column<>(
+    public static final Column<String> contrasenha = Column.of(
       "contrasenha",
       String.class
     );
-    public static final Column<Double> salario = new Column<>(
+    public static final Column<Double> salario = Column.of(
       "salario",
       Double.class
     );
-    public static final Column<String> fechaContratacion = new Column<>(
+    public static final Column<String> fechaContratacion = Column.of(
       "fecha_contratacion",
       String.class
     );
@@ -54,11 +56,15 @@ public class EmpleadoMapper<T extends Empleado> extends PersonaMapper<T> {
   public T mapResultSetToEntity(ResultSet rs) throws SQLException {
     T empleado = super.mapResultSetToEntity(rs);
 
-    empleado.setEstado(EstadoEmpleadoEnum.valueOf(rs.getString("estado")));
-    empleado.setNombreUsuario(rs.getString("nombre_usuario"));
-    empleado.setContrasenha(rs.getString("contrasenha"));
-    empleado.setSalario(rs.getDouble("salario"));
-    empleado.setFechaContratacion(rs.getDate("fecha_contratacion"));
+    empleado.setEstado(
+      EstadoEmpleadoEnum.valueOf(rs.getString(Columns.estado.getName()))
+    );
+    empleado.setNombreUsuario(rs.getString(Columns.nombreUsuario.getName()));
+    empleado.setContrasenha(rs.getString(Columns.contrasenha.getName()));
+    empleado.setSalario(rs.getDouble(Columns.salario.getName()));
+    empleado.setFechaContratacion(
+      rs.getDate(Columns.fechaContratacion.getName())
+    );
     return empleado;
   }
 
@@ -68,7 +74,14 @@ public class EmpleadoMapper<T extends Empleado> extends PersonaMapper<T> {
 
     columns.put(Columns.estado, entity.getEstado());
     columns.put(Columns.nombreUsuario, entity.getNombreUsuario());
-    columns.put(Columns.contrasenha, entity.getContrasenha());
+    try {
+      columns.put(
+        Columns.contrasenha,
+        PasswordUtils.hashPassword(entity.getContrasenha())
+      );
+    } catch (NoSuchAlgorithmException e) {
+      e.printStackTrace();
+    }
     columns.put(Columns.salario, entity.getSalario());
     columns.put(Columns.fechaContratacion, entity.getFechaContratacion());
 

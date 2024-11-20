@@ -1,5 +1,8 @@
 USE comerzia_db;
 
+-- Eliminar tabla Notificacion
+DROP TABLE IF EXISTS notificacion;
+
 -- Eliminar tabla LineaDocumento
 DROP TABLE IF EXISTS linea_documento;
 
@@ -30,7 +33,10 @@ CREATE TABLE IF NOT EXISTS almacen (
     nombre VARCHAR(100) NOT NULL,
     estado VARCHAR(50) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 -- Merged Empresa table using Single Table Inheritance
@@ -55,7 +61,9 @@ CREATE TABLE IF NOT EXISTS empresa (
     fecha_registro DATE,
     fecha_ultima_compra DATE,
 
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 -- Merged Persona table using Single Table Inheritance
@@ -93,7 +101,10 @@ CREATE TABLE IF NOT EXISTS persona (
 
     FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE SET NULL,
     FOREIGN KEY (id_empresa) REFERENCES empresa(id) ON DELETE SET NULL,
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 -- Visita table updated to reference Persona and Empresa tables directly
@@ -106,7 +117,9 @@ CREATE TABLE IF NOT EXISTS visita (
     FOREIGN KEY (id_vendedor) REFERENCES persona(id) ON DELETE CASCADE,
     FOREIGN KEY (id_cliente) REFERENCES empresa(id) ON DELETE SET NULL,
 
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 -- Producto table remains the same
@@ -116,7 +129,9 @@ CREATE TABLE IF NOT EXISTS producto (
     precio DOUBLE NOT NULL,
     stock_minimo INT NOT NULL,
 
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 -- ProductoAlmacenado table remains the same
@@ -129,7 +144,9 @@ CREATE TABLE IF NOT EXISTS producto_almacenado (
     FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
     FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE CASCADE,
 
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 -- Documento table updated to reference Persona table directly
@@ -146,7 +163,9 @@ CREATE TABLE IF NOT EXISTS documento (
     FOREIGN KEY (id_administrador) REFERENCES persona(id) ON DELETE SET NULL,
     FOREIGN KEY (id_trabajador_de_almacen) REFERENCES persona(id) ON DELETE SET NULL,
 
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 -- LineaDocumento table remains the same
@@ -159,7 +178,9 @@ CREATE TABLE IF NOT EXISTS linea_documento (
     FOREIGN KEY (id_documento) REFERENCES documento(id) ON DELETE CASCADE,
     FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
 
-    eliminado BOOLEAN DEFAULT FALSE  -- Columna para eliminación lógica
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );
 
 CREATE TABLE IF NOT EXISTS notificacion (
@@ -168,5 +189,9 @@ CREATE TABLE IF NOT EXISTS notificacion (
     id_almacen INT,
     mensaje VARCHAR(255) NOT NULL,
     FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE CASCADE
+    FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE CASCADE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL
 );

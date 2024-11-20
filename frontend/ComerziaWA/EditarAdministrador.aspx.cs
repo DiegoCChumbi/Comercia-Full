@@ -1,9 +1,12 @@
-﻿using System;
-using System.ComponentModel;
-using System.Web.UI.WebControls;
-using ComerziaBO.ComerziaWS;
+﻿using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
 using ComerziaRecursosHumanosBO;
+using OtrosValidation;
+using System;
+using System.ComponentModel;
+using System.Text;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace ComerziaWA
 {
@@ -24,20 +27,20 @@ namespace ComerziaWA
         {
             if (!IsPostBack)
             {
-                // Llamamos al método listarTodos para obtener la lista de almacenes
+                // método listarTodos para obtener la lista de almacenes
                 BindingList<almacen> almacenes = this.boAlmacen.listarTodos();
 
                 // Configuramos la fuente de datos del DropDownList
                 ddlElegirAlmacenAdministrador.DataSource = almacenes;
 
                 // Mostramos solo el nombre del almacen
-                ddlElegirAlmacenAdministrador.DataValueField = "id"; // Opcionalmente, puedes usar el ID como valor
+                ddlElegirAlmacenAdministrador.DataValueField = "id";
                 ddlElegirAlmacenAdministrador.DataTextField = "nombre"; // Nombre es la propiedad que contiene el nombre del administrador
 
                 // Enlazamos los datos
                 ddlElegirAlmacenAdministrador.DataBind();
 
-                // Obtener el idVendedor de la sesión
+                // Obtener el idAdministrador de la sesión
                 if (
                     Session["idAdministradorEditable"] != null
                     && int.TryParse(
@@ -58,7 +61,7 @@ namespace ComerziaWA
                         System.Diagnostics.Debug.WriteLine("No hay idAdministrador en la sesión.");
                     }
 
-                    // Asignar los valores del vendedor a los controles del formulario
+                    // Asignar los valores del administrador a los controles del formulario
 
 
                     txtDniAdministrador.Text = administradorEditable.dni;
@@ -90,20 +93,61 @@ namespace ComerziaWA
             }
             else
             {
-                // Recuperar trabajadorEditable desde ViewState en un postback
+                // Recuperar administradorEditable desde ViewState en un postback
                 administradorEditable = (administrador)ViewState["administradorEditable"];
             }
         }
 
         protected void btnGuardarVendedor_Click(object sender, EventArgs e)
         {
-            // Convertir los valores
-            string dni = txtDniAdministrador.Text.Trim();
-            string nombreCompleto = txtNombreCompletoAdministrador.Text.Trim();
-            string telefono = txtTelefonoAdministrador.Text.Trim();
-            string correo = txtCorreoAdministrador.Text.Trim();
-            string direccion = txtDireccionAdministrador.Text.Trim();
-            double salario = double.Parse(txtSalarioAdministrador.Text.Trim());
+            // Parsear Salario y IngresosVentas como double
+            double salarioL = 0;
+
+            // Si todas las validaciones son correctas,  crear el administrador
+            var nuevoAdministrador = new OtrosVali
+            {
+                Dni = txtDniAdministrador.Text.Trim(),
+                NombreCompleto = txtNombreCompletoAdministrador.Text.Trim(),
+                Telefono = txtTelefonoAdministrador.Text.Trim(),
+                Correo = txtCorreoAdministrador.Text.Trim(),
+                Direccion = txtDireccionAdministrador.Text.Trim(),
+                NombreUsuario = administradorEditable.nombreUsuario,
+                Contrasenha = administradorEditable.contrasenha,
+                Salario = txtSalarioAdministrador.Text.Trim(),
+                FechaContratacion = DateTime.MinValue.ToString("yyyy-MM-dd"),
+            };
+
+            // Aquí seguiría el proceso de validación con el `OtrosValidator`
+            var validator = new OtrosValidator();
+            var result = validator.Validate(nuevoAdministrador);
+
+            if (!result.IsValid)
+            {
+                StringBuilder errores = new StringBuilder();
+                foreach (var error in result.Errors)
+                {
+                    errores.AppendLine(error.ErrorMessage);
+                }
+
+                if (errores.Length > 0)
+                {
+                    string mensajeErrores = errores
+                        .ToString()
+                        .Replace("\n", "\\n")
+                        .Replace("\r", "")
+                        .Replace("'", "\\'");
+
+                    ScriptManager.RegisterStartupScript(
+                        this,
+                        this.GetType(),
+                        "showErrorPopup",
+                        $"showPopup('{mensajeErrores}');",
+                        true
+                    );
+                }
+
+                return; // Detener el proceso
+            }
 
             // Estado
             estadoEmpleadoEnum estado;
@@ -121,15 +165,15 @@ namespace ComerziaWA
 
             this.boAdministrador.modificar(
                 administradorEditable.id,
-                dni,
-                nombreCompleto,
-                telefono,
-                correo,
-                direccion,
+                nuevoAdministrador.Dni,
+                nuevoAdministrador.NombreCompleto,
+                nuevoAdministrador.Telefono,
+                nuevoAdministrador.Correo,
+                nuevoAdministrador.Direccion,
                 estado,
                 administradorEditable.nombreUsuario,
                 administradorEditable.contrasenha,
-                salario,
+                salarioL,
                 administradorEditable.fechaContratacion,
                 idAlmacenSeleccionado
             );

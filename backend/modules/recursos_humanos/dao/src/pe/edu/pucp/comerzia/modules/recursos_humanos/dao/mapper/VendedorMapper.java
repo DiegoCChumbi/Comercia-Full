@@ -11,11 +11,11 @@ public class VendedorMapper extends EmpleadoMapper<Vendedor> {
 
   public static class Columns extends EmpleadoMapper.Columns {
 
-    public static final Column<Double> ingresosVentas = new Column<>(
+    public static final Column<Double> ingresosVentas = Column.of(
       "ingresos_ventas",
       Double.class
     );
-    public static final Column<Double> porcentajeComision = new Column<>(
+    public static final Column<Double> porcentajeComision = Column.of(
       "porcentaje_comision",
       Double.class
     );
@@ -30,8 +30,10 @@ public class VendedorMapper extends EmpleadoMapper<Vendedor> {
   public Vendedor mapResultSetToEntity(ResultSet rs) throws SQLException {
     Vendedor vendedor = super.mapResultSetToEntity(rs);
 
-    vendedor.setIngresosVentas(rs.getDouble("ingresos_ventas"));
-    vendedor.setPorcentajeComision(rs.getDouble("porcentaje_comision"));
+    vendedor.setIngresosVentas(rs.getDouble(Columns.ingresosVentas.getName()));
+    vendedor.setPorcentajeComision(
+      rs.getDouble(Columns.porcentajeComision.getName())
+    );
 
     return vendedor;
   }

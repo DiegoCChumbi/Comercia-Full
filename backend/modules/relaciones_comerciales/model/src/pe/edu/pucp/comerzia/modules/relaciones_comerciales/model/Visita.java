@@ -1,8 +1,9 @@
 package pe.edu.pucp.comerzia.modules.relaciones_comerciales.model;
 
 import java.util.Date;
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
 
-public class Visita {
+public class Visita extends BaseEntity {
 
   private Integer id;
   private Date fecha;

@@ -130,6 +130,18 @@ public class RecursosHumanosWS {
     }
   }
 
+  @WebMethod(operationName = "buscarPorNombre_administrador")
+  public ArrayList<Administrador> buscarAdministradores(
+    @WebParam(name = "nombreAdministrador") String nombre
+  ) {
+    try {
+      return boAdministrador.buscarAdministradores(nombre);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
   @WebMethod(operationName = "obtenerPorId_administrador")
   public Administrador obtenerPorId_administrador(
     @WebParam(name = "id") Integer id
@@ -233,6 +245,18 @@ public class RecursosHumanosWS {
   public ArrayList<TrabajadorDeAlmacen> listarTodos_trabajadorDeAlmacen() {
     try {
       return boTrabajadorDeAlmacen.listarTodos();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  @WebMethod(operationName = "buscarPorNombre_trabajadorDeAlmacen")
+  public ArrayList<TrabajadorDeAlmacen> buscarTrabajadoresDeAlmacen(
+    @WebParam(name = "nombreTrabajadorDeAlmacen") String nombre
+  ) {
+    try {
+      return boTrabajadorDeAlmacen.buscarTrabajadoresDeAlmacen(nombre);
     } catch (Exception e) {
       e.printStackTrace();
       return new ArrayList<>();
@@ -344,6 +368,18 @@ public class RecursosHumanosWS {
   public ArrayList<Vendedor> listarTodos_vendedor() {
     try {
       return boVendedor.listarTodos();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  @WebMethod(operationName = "buscarPorNombre_vendedor")
+  public ArrayList<Vendedor> buscarVendedores(
+    @WebParam(name = "nombreVendedor") String nombre
+  ) {
+    try {
+      return boVendedor.buscarVendedores(nombre);
     } catch (Exception e) {
       e.printStackTrace();
       return new ArrayList<>();

@@ -1,13 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Comerzia.Master"
 AutoEventWireup="true" CodeBehind="mostrar_cliente.aspx.cs"
 Inherits="ComerziaWA.mostrar_cliente" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
-    <script
-        src="Public/Scripts/ComerziaScripts/gestionar-producto.js"
-    ></script>
+    <script src="Public/Scripts/ComerziaScripts/gestionar-producto.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
@@ -175,14 +172,14 @@ Inherits="ComerziaWA.mostrar_cliente" %>
                                 <Columns>
                                     <asp:BoundField
                                         HeaderText="ID"
-                                        DataField="idDocumento"
+                                        DataField="id"
                                     />
                                     <asp:BoundField
                                         HeaderText="tipo"
                                         DataField="tipo"
                                     />
                                     <asp:TemplateField>
-                                        <ItemTemplate></ItemTemplate>
+                                        <ItemTemplate> </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>

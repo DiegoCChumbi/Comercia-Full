@@ -227,4 +227,24 @@ public class GestionComercialWS {
       return new ArrayList<>();
     }
   }
+
+  @WebMethod(operationName = "existeLinea")
+  public boolean existeLinea(
+    @WebParam(name = "idDocumento") Integer idDocumento,
+    @WebParam(name = "idProducto") Integer idProducto,
+    @WebParam(name = "cantidad") Integer cantidad,
+    @WebParam(name = "precioUnitario") Double precioUnitario
+  ) {
+    try {
+      return boLineaDocumento.existeLinea(
+        idDocumento,
+        idProducto,
+        cantidad,
+        precioUnitario
+      );
+    } catch (Exception e) {
+      e.printStackTrace();
+      return false;
+    }
+  }
 }

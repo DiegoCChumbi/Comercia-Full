@@ -1,11 +1,12 @@
-﻿using System;
-using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
-using System.Web.UI;
-using ComerziaBO.ComerziaWS;
+﻿using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
 using ComerziaRecursosHumanosBO;
+using OtrosValidation;
+using ServiciosEmail;
+using System;
+using System.ComponentModel;
+using System.Text;
+using System.Web.UI;
 
 namespace ComerziaWA
 {
@@ -42,166 +43,136 @@ namespace ComerziaWA
         // Método para guardar un Administrador
         protected void btnGuardarAdministrador_Click(object sender, EventArgs e)
         {
-            try
+            double salarioL = 0;
+            DateTime fechaContratacionL;
+
+            // Si todas las validaciones son correctas, puedes proceder a crear el vendedor
+            var nuevoAdministrador = new OtrosVali
             {
-                // Obtener los valores de los controles de administrador
-                string dni = txtDniAdministrador.Text.Trim();
-                string nombreCompleto = txtNombreCompletoAdministrador.Text.Trim();
-                string telefono = txtTelefonoAdministrador.Text.Trim();
-                string correo = txtCorreoAdministrador.Text.Trim();
-                string direccion = txtDireccionAdministrador.Text.Trim();
-                string nombreUsuario = txtNombreUsuarioAdministrador.Text.Trim();
-                string contrasenha = txtContrasenhaAdministrador.Text.Trim();
-                string salario = txtSalarioAdministrador.Text.Trim();
-                DateTime fechaContratacion;
-                // Validar que el DNI sea de 8 dígitos numéricos
-                if (dni.Length != 8 || !dni.All(char.IsDigit))
+                Dni = txtDniAdministrador.Text.Trim(),
+                NombreCompleto = txtNombreCompletoAdministrador.Text.Trim(),
+                Telefono = txtTelefonoAdministrador.Text.Trim(),
+                Correo = txtCorreoAdministrador.Text.Trim(),
+                Direccion = txtDireccionAdministrador.Text.Trim(),
+                NombreUsuario = txtNombreUsuarioAdministrador.Text.Trim(),
+                Contrasenha = txtContrasenhaAdministrador.Text.Trim(),
+                Salario = txtSalarioAdministrador.Text.Trim(),
+                FechaContratacion = txtFechaContratacionAdministrador.Text.Trim(),
+            };
+
+            // Aquí seguiría el proceso de validación con el `VendedorValidator`
+            var validator = new OtrosValidator();
+            var result = validator.Validate(nuevoAdministrador);
+
+            if (!result.IsValid)
+            {
+                StringBuilder errores = new StringBuilder();
+                foreach (var error in result.Errors)
                 {
-                    throw new FormatException("DNI debe contener exactamente 8 dígitos numéricos.");
+                    errores.AppendLine(error.ErrorMessage);
                 }
 
-                // Validar que el nombre completo no esté vacío
-                if (string.IsNullOrEmpty(nombreCompleto))
+                if (errores.Length > 0)
                 {
-                    throw new FormatException("El nombre completo no puede estar vacío.");
-                }
+                    string mensajeErrores = errores
+                        .ToString()
+                        .Replace("\n", "\\n")
+                        .Replace("\r", "")
+                        .Replace("'", "\\'");
 
-                // Validar que el teléfono solo contenga números
-                if (string.IsNullOrEmpty(telefono) || telefono.Length != 9)
-                {
-                    throw new FormatException(
-                        "El teléfono debe contener solo números con 9 dígitos."
-                    );
-                }
-
-                // Validar formato básico del correo electrónico
-                if (string.IsNullOrEmpty(correo) || !correo.Contains("@") || !correo.Contains("."))
-                {
-                    throw new FormatException("Formato de correo electrónico incorrecto.");
-                }
-
-                if (string.IsNullOrEmpty(direccion))
-                {
-                    throw new FormatException("La dirección no debe estar vacía.");
-                }
-
-                if (
-                    !double.TryParse(
-                        txtSalarioAdministrador.Text.Trim(),
-                        out double salarioConvertido
-                    )
-                    || salarioConvertido <= 0
-                )
-                {
-                    throw new FormatException(
-                        "El salario debe ser un número válido mayor que cero."
-                    );
-                }
-
-                // Validar que el nombre de usuario no esté vacío
-                if (string.IsNullOrEmpty(nombreUsuario))
-                {
-                    throw new FormatException("El nombre de usuario no puede estar vacío.");
-                }
-
-                // Validar que la contraseña no esté vacía y tenga al menos 8 caracteres
-                if (string.IsNullOrEmpty(contrasenha) || contrasenha.Length < 6)
-                {
-                    throw new FormatException("La contraseña debe tener al menos 6 caracteres.");
-                }
-
-                string fechaTexto = txtFechaContratacionAdministrador.Text.Trim();
-                fechaContratacion = DateTime.ParseExact(
-                    fechaTexto,
-                    "yyyy-MM-dd",
-                    CultureInfo.InvariantCulture
-                );
-
-                estadoEmpleadoEnum estado;
-                if (ddlEstadoAdministrador.SelectedValue == "Activo")
-                {
-                    estado = estadoEmpleadoEnum.ACTIVO;
-                }
-                else
-                {
-                    estado = estadoEmpleadoEnum.INACTIVO;
-                }
-
-                int idAlmacenSeleccionado = Int32.Parse(
-                    ddlElegirAlmacenAdministrador.SelectedValue
-                );
-
-                // Llamar al método insertar y obtener el resultado
-                int resultadoAdministrador = this.boAdministrador.insertar(
-                    dni,
-                    nombreCompleto,
-                    telefono,
-                    correo,
-                    direccion,
-                    estado,
-                    nombreUsuario,
-                    contrasenha,
-                    salarioConvertido,
-                    fechaContratacion,
-                    idAlmacenSeleccionado
-                );
-
-                // Verificar el resultado para mostrar un mensaje al usuario
-                if (resultadoAdministrador > 0)
-                {
-                    // Registro exitoso
-                    txtDniAdministrador.Text = string.Empty;
-                    txtNombreCompletoAdministrador.Text = string.Empty;
-                    txtTelefonoAdministrador.Text = string.Empty;
-                    txtCorreoAdministrador.Text = string.Empty;
-                    txtDireccionAdministrador.Text = string.Empty;
-                    txtNombreUsuarioAdministrador.Text = string.Empty;
-                    txtContrasenhaAdministrador.Text = string.Empty;
-                    txtSalarioAdministrador.Text = string.Empty;
-                    txtFechaContratacionAdministrador.Text = string.Empty;
-                    ddlElegirAlmacenAdministrador.SelectedIndex = 0;
-                    ddlEstadoAdministrador.SelectedIndex = 0;
-
-                    // Mostrar mensaje de éxito
                     ScriptManager.RegisterStartupScript(
                         this,
                         this.GetType(),
-                        "showSuccessPopup",
-                        "showPopup('Administrador guardado exitosamente.');",
+                        "showErrorPopup",
+                        $"showPopup('{mensajeErrores}');",
                         true
                     );
                 }
-                else
-                {
-                    // Error en el registro
-                    ScriptManager.RegisterStartupScript(
-                        this,
-                        this.GetType(),
-                        "showSuccessPopup",
-                        "showPopup('Error al registrar el administrador.');",
-                        true
-                    );
-                }
+
+                return; // Detener el proceso
             }
-            catch (FormatException ex)
+
+            estadoEmpleadoEnum estado;
+            if (ddlEstadoAdministrador.SelectedValue == "Activo")
             {
-                // Mostrar un mensaje de error específico basado en la excepción capturada
+                estado = estadoEmpleadoEnum.ACTIVO;
+            }
+            else
+            {
+                estado = estadoEmpleadoEnum.INACTIVO;
+            }
+            double.TryParse(txtSalarioAdministrador.Text.Trim(), out salarioL);
+            DateTime.TryParse(
+                txtFechaContratacionAdministrador.Text.Trim(),
+                out fechaContratacionL
+            );
+            int idAlmacenSeleccionado = Int32.Parse(ddlElegirAlmacenAdministrador.SelectedValue);
+
+            // Llamar al método insertar y obtener el resultado
+            int resultadoAdministrador = this.boAdministrador.insertar(
+                nuevoAdministrador.Dni,
+                nuevoAdministrador.NombreCompleto,
+                nuevoAdministrador.Telefono,
+                nuevoAdministrador.Correo,
+                nuevoAdministrador.Direccion,
+                estado,
+                nuevoAdministrador.NombreUsuario,
+                nuevoAdministrador.Contrasenha,
+                salarioL,
+                fechaContratacionL,
+                idAlmacenSeleccionado
+            );
+
+            // Verificar el resultado para mostrar un mensaje al usuario
+            if (resultadoAdministrador > 0)
+            {
+                var cuerpoCorreo = new Cuerpo();
+
+                // Llamar al método ObtenerCuerpoCorreo para obtener el cuerpo del mensaje
+                string usuario = txtNombreUsuarioAdministrador.Text.Trim();
+                string contrasenha = txtContrasenhaAdministrador.Text.Trim();
+                string cuerpoCorreoGenerado = cuerpoCorreo.ObtenerCuerpoCorreo(
+                    usuario,
+                    contrasenha
+                );
+
+                var servicioCorreo = new ServicioCorreo();
+                servicioCorreo.EnviarCorreoConMailKit(
+                    txtCorreoAdministrador.Text.Trim(),
+                    "Credenciales para el acceso a Comerzia",
+                    cuerpoCorreoGenerado
+                );
+
+                // Registro exitoso
+                txtDniAdministrador.Text = string.Empty;
+                txtNombreCompletoAdministrador.Text = string.Empty;
+                txtTelefonoAdministrador.Text = string.Empty;
+                txtCorreoAdministrador.Text = string.Empty;
+                txtDireccionAdministrador.Text = string.Empty;
+                txtNombreUsuarioAdministrador.Text = string.Empty;
+                txtContrasenhaAdministrador.Text = string.Empty;
+                txtSalarioAdministrador.Text = string.Empty;
+                txtFechaContratacionAdministrador.Text = string.Empty;
+                ddlElegirAlmacenAdministrador.SelectedIndex = 0;
+                ddlEstadoAdministrador.SelectedIndex = 0;
+
+                // Mostrar mensaje de éxito
                 ScriptManager.RegisterStartupScript(
                     this,
                     this.GetType(),
-                    "showErrorPopup",
-                    $"showPopup('{ex.Message}');",
+                    "showSuccessPopup",
+                    "showPopup('Administrador guardado exitosamente.');",
                     true
                 );
             }
-            catch (Exception ex)
+            else
             {
-                // Captura cualquier otra excepción no específica
+                // Error en el registro
                 ScriptManager.RegisterStartupScript(
                     this,
                     this.GetType(),
-                    "showGenericErrorPopup",
-                    $"showPopup('Ocurrió un error inesperado: {ex.Message}');",
+                    "showSuccessPopup",
+                    "showPopup('Error al registrar el administrador.');",
                     true
                 );
             }

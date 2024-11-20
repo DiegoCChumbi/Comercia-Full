@@ -1,5 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Linq;
+using System.ServiceModel;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
@@ -64,6 +70,17 @@ namespace ComerziaWA
                     Response.Redirect("ListarVendedores.aspx");
                 }
             }
+        }
+
+        protected void gvVendedores_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            // Establecer el índice de la página
+            gvVendedores.PageIndex = e.NewPageIndex;
+
+            // Obtener nuevamente la lista de vendedores y vincularla al GridView
+            BindingList<vendedor> vendedores = this.boVendedor.listarTodos();
+            gvVendedores.DataSource = vendedores;
+            gvVendedores.DataBind(); // Actualiza el GridView
         }
     }
 }

@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.ServiceModel;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
@@ -50,6 +55,7 @@ namespace ComerziaWA
                     string[] argumentos = e.CommandArgument.ToString().Split(',');
 
                     // Convertir los parámetros según su tipo
+                    int idAdministrador = int.Parse(argumentos[0]);
                     int idPersona = int.Parse(argumentos[1]);
 
                     this.boAdministrador.eliminar(idPersona);
@@ -59,6 +65,17 @@ namespace ComerziaWA
                     Response.Redirect("ListarAdministradores.aspx");
                 }
             }
+        }
+
+        protected void gvVendedores_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            // Establecer el índice de la página
+            gvVendedores.PageIndex = e.NewPageIndex;
+
+            // Obtener nuevamente la lista de administradores y vincularla al GridView
+            BindingList<administrador> administradores = this.boAdministrador.listarTodos();
+            gvVendedores.DataSource = administradores;
+            gvVendedores.DataBind(); // Actualiza el GridView
         }
     }
 }

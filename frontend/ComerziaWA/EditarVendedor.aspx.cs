@@ -1,6 +1,9 @@
-﻿using System;
-using ComerziaBO.ComerziaWS;
+﻿using ComerziaBO.ComerziaWS;
 using ComerziaRecursosHumanosBO;
+using System;
+using System.Text;
+using System.Web.UI;
+using VendedorValidation;
 
 namespace ComerziaWA
 {
@@ -68,16 +71,64 @@ namespace ComerziaWA
 
         protected void btnGuardarVendedor_Click(object sender, EventArgs e)
         {
-            string dni = txtDniVendedor.Text.Trim();
-            string nombreCompleto = txtNombreCompletoVendedor.Text.Trim();
-            string telefono = txtTelefonoVendedor.Text.Trim();
-            string correo = txtCorreoVendedor.Text.Trim();
-            string direccion = txtDireccionVendedor.Text.Trim();
+            // Parsear Salario y IngresosVentas como double
+            double salarioL = 0;
+            double ingresosVentasL = 0;
+            double porcentajeComisionL = 0;
+
+            // Si todas las validaciones son correctas,  crear el vendedor
+            var nuevoVendedor = new VendedorVali
+            {
+                Dni = txtDniVendedor.Text.Trim(),
+                NombreCompleto = txtNombreCompletoVendedor.Text.Trim(),
+                Telefono = txtTelefonoVendedor.Text.Trim(),
+                Correo = txtCorreoVendedor.Text.Trim(),
+                Direccion = txtDireccionVendedor.Text.Trim(),
+                NombreUsuario = vendedorEditable.nombreUsuario,
+                Contrasenha = vendedorEditable.contrasenha,
+                Salario = txtSalarioVendedor.Text.Trim(),
+                FechaContratacion = DateTime.MinValue.ToString("yyyy-MM-dd"),
+                IngresosVentas = txtIngresosVentas.Text.Trim(),
+                PorcentajeComision = txtPorcentajeComision.Text.Trim()
+            };
+
+            // Aquí seguiría el proceso de validación con el `VendedorValidator`
+            var validator = new VendedorValidator();
+            var result = validator.Validate(nuevoVendedor);
+
+            if (!result.IsValid)
+            {
+                StringBuilder errores = new StringBuilder();
+                foreach (var error in result.Errors)
+                {
+                    errores.AppendLine(error.ErrorMessage);
+                }
+
+                if (errores.Length > 0)
+                {
+                    string mensajeErrores = errores
+                        .ToString()
+                        .Replace("\n", "\\n")
+                        .Replace("\r", "")
+                        .Replace("'", "\\'");
+
+                    ScriptManager.RegisterStartupScript(
+                        this,
+                        this.GetType(),
+                        "showErrorPopup",
+                        $"showPopup('{mensajeErrores}');",
+                        true
+                    );
+                }
+
+                return; // Detener el proceso
+            }
 
             // Convertir los valores
-            double salario = double.Parse(txtSalarioVendedor.Text.Trim());
-            double ingresosVentas = double.Parse(txtIngresosVentas.Text.Trim());
-            double porcentajeComision = double.Parse(txtPorcentajeComision.Text.Trim());
+            // Convertir los valores
+            double.TryParse(txtSalarioVendedor.Text.Trim(), out salarioL);
+            double.TryParse(txtIngresosVentas.Text.Trim(), out ingresosVentasL);
+            double.TryParse(txtPorcentajeComision.Text.Trim(), out porcentajeComisionL);
 
             // Estado
             estadoEmpleadoEnum estado;
@@ -92,18 +143,18 @@ namespace ComerziaWA
 
             this.boVendedor.modificar(
                 vendedorEditable.id,
-                dni,
-                nombreCompleto,
-                telefono,
-                correo,
-                direccion,
+                nuevoVendedor.Dni,
+                nuevoVendedor.NombreCompleto,
+                nuevoVendedor.Telefono,
+                nuevoVendedor.Correo,
+                nuevoVendedor.Direccion,
                 estado,
                 vendedorEditable.nombreUsuario,
                 vendedorEditable.contrasenha,
-                salario,
+                salarioL,
                 vendedorEditable.fechaContratacion,
-                ingresosVentas,
-                porcentajeComision
+                ingresosVentasL,
+                porcentajeComisionL
             );
 
             Session.Remove("idVendedorEditable");

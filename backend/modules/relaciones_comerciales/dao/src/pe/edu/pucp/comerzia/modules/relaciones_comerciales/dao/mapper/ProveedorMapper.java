@@ -12,20 +12,20 @@ public class ProveedorMapper extends EmpresaMapper<Proveedor> {
 
   public static class Columns extends EmpresaMapper.Columns {
 
-    public static final Column<Date> fecha_afiliacion = new Column<>(
+    public static final Column<Date> fecha_afiliacion = Column.of(
       "fecha_afiliacion",
       Date.class
     );
-    public static final Column<String> ruc = new Column<>("RUC", String.class);
-    public static final Column<String> razonSocial = new Column<>(
+    public static final Column<String> ruc = Column.of("RUC", String.class);
+    public static final Column<String> razonSocial = Column.of(
       "razon_social",
       String.class
     );
-    public static final Column<Double> calificacion = new Column<>(
+    public static final Column<Double> calificacion = Column.of(
       "calificacion",
       Double.class
     );
-    public static final Column<String> pais = new Column<>(
+    public static final Column<String> pais = Column.of(
       "pais",
       String.class
     );
@@ -40,11 +40,13 @@ public class ProveedorMapper extends EmpresaMapper<Proveedor> {
   public Proveedor mapResultSetToEntity(ResultSet rs) throws SQLException {
     Proveedor proveedor = super.mapResultSetToEntity(rs);
 
-    proveedor.setFecha_afiliacion(rs.getDate("fecha_afiliacion"));
-    proveedor.setRUC(rs.getString("RUC"));
-    proveedor.setRazonSocial(rs.getString("razon_social"));
-    proveedor.setCalificacion(rs.getDouble("calificacion"));
-    proveedor.setPais(rs.getString("pais"));
+    proveedor.setFecha_afiliacion(
+      rs.getDate(Columns.fecha_afiliacion.getName())
+    );
+    proveedor.setRUC(rs.getString(Columns.ruc.getName()));
+    proveedor.setRazonSocial(rs.getString(Columns.razonSocial.getName()));
+    proveedor.setCalificacion(rs.getDouble(Columns.calificacion.getName()));
+    proveedor.setPais(rs.getString(Columns.pais.getName()));
 
     return proveedor;
   }

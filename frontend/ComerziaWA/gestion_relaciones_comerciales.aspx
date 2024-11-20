@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Comerzia.Master"
-    AutoEventWireup="true" CodeBehind="gestion_relaciones_comerciales.aspx.cs"
-    Inherits="ComerziaWA.gestion_relaciones_comerciales" %>
-
+AutoEventWireup="true" CodeBehind="gestion_relaciones_comerciales.aspx.cs"
+Inherits="ComerziaWA.gestion_relaciones_comerciales" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
@@ -20,7 +19,8 @@
                             ID="btnAgregarCliente"
                             CssClass="float-end btn btn-primary"
                             runat="server"
-                            Text="Agregar Cliente" />
+                            Text="Agregar Cliente"
+                        />
                     </div>
                 </div>
 
@@ -32,30 +32,37 @@
                         PageSize="15"
                         OnPageIndexChanging="dgvClientes_PageIndexChanging"
                         AutoGenerateColumns="false"
-                        CssClass="table table-hover table-responsive table-striped">
+                        CssClass="table table-hover table-responsive table-striped"
+                    >
                         <Columns>
                             <asp:BoundField
                                 HeaderText="ID"
-                                DataField="id" />
+                                DataField="id"
+                            />
                             <asp:BoundField
                                 HeaderText="Nombre"
-                                DataField="nombre" />
+                                DataField="nombre"
+                            />
                             <asp:BoundField
                                 HeaderText="Correo"
-                                DataField="email" />
+                                DataField="email"
+                            />
                             <asp:BoundField
                                 HeaderText="Teléfono"
-                                DataField="telefono" />
+                                DataField="telefono"
+                            />
                             <asp:BoundField
                                 HeaderText="Dirección"
-                                DataField="direccion" />
+                                DataField="direccion"
+                            />
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:LinkButton
                                         runat="server"
                                         Text="<i class='fa-solid fa-eye'></i>"
                                         OnClick="btnVerCliente_Click"
-                                        CommandArgument='<%# Eval("id") %>' />
+                                        CommandArgument='<%# Eval("id") %>'
+                                    />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -74,7 +81,8 @@
                             ID="btnAgregarProveedor"
                             CssClass="float-end btn btn-primary"
                             runat="server"
-                            Text="Agregar Proveedor" />
+                            Text="Agregar Proveedor"
+                        />
                     </div>
                 </div>
 
@@ -86,30 +94,37 @@
                         PageSize="15"
                         OnPageIndexChanging="dgvProveedores_PageIndexChanging"
                         AutoGenerateColumns="false"
-                        CssClass="table table-hover table-responsive table-striped">
+                        CssClass="table table-hover table-responsive table-striped"
+                    >
                         <Columns>
                             <asp:BoundField
                                 HeaderText="ID"
-                                DataField="id" />
+                                DataField="id"
+                            />
                             <asp:BoundField
                                 HeaderText="Nombre"
-                                DataField="nombre" />
+                                DataField="nombre"
+                            />
                             <asp:BoundField
                                 HeaderText="Correo"
-                                DataField="email" />
+                                DataField="email"
+                            />
                             <asp:BoundField
                                 HeaderText="Teléfono"
-                                DataField="telefono" />
+                                DataField="telefono"
+                            />
                             <asp:BoundField
                                 HeaderText="Dirección"
-                                DataField="direccion" />
+                                DataField="direccion"
+                            />
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:LinkButton
                                         runat="server"
                                         Text="<i class='fa-solid fa-eye'></i>"
                                         OnClick="btnVerProveedor_Click"
-                                        CommandArgument='<%# Eval("id") %>' />
+                                        CommandArgument='<%# Eval("id") %>'
+                                    />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

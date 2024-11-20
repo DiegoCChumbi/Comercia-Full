@@ -1,6 +1,8 @@
 package pe.edu.pucp.comerzia.modules.recursos_humanos.model;
 
-public class Persona {
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
+
+public class Persona extends BaseEntity {
 
   private Integer id;
   private String dni;
@@ -8,7 +10,6 @@ public class Persona {
   private String telefono;
   private String correo;
   private String direccion;
-  private Boolean eliminado;
 
   public Persona() {}
 
@@ -58,13 +59,5 @@ public class Persona {
 
   public void setDireccion(String direccion) {
     this.direccion = direccion;
-  }
-
-  public Boolean getEliminado() {
-    return eliminado;
-  }
-
-  public void setEliminado(Boolean eliminado) {
-    this.eliminado = eliminado;
   }
 }

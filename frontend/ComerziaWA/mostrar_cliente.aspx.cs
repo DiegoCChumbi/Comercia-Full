@@ -1,9 +1,11 @@
-﻿using System;
+﻿//using ComerziaWA.ServicioWeb;
+using ComerziaBO.ComerziaWS;
+using ComerziaGestionComercialBO;
+using ComerziaRelacionesComercialesBO;
+using System;
 using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ComerziaBO.ComerziaWS;
-using ComerziaRelacionesComercialesBO;
 
 namespace ComerziaWA
 {
@@ -192,13 +194,6 @@ namespace ComerziaWA
             this.representantesCandidatos = this.daoRepresentante.listarPorNombre(nombre);
             ModalRepresentante_gvRepresentante.DataSource = this.representantesCandidatos;
             ModalRepresentante_gvRepresentante.DataBind();
-            ScriptManager.RegisterStartupScript(
-                this,
-                GetType(),
-                "OpenModalScript",
-                "showModalFormRepresentanteInsertar();",
-                true
-            ); // Para que se mantenga abierto
         }
 
         protected void ModalRepresentante_gvRepresentante_PageIndexChanging(

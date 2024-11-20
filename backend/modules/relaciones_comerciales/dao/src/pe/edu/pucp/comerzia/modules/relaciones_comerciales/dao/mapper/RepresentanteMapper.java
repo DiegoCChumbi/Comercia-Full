@@ -12,7 +12,7 @@ public class RepresentanteMapper extends PersonaMapper<Representante> {
 
   public static class Columns extends PersonaMapper.Columns {
 
-    public static final Column<Integer> idEmpresa = new Column<>(
+    public static final Column<Integer> idEmpresa = Column.of(
       "id_empresa",
       Integer.class
     );
@@ -27,7 +27,7 @@ public class RepresentanteMapper extends PersonaMapper<Representante> {
   public Representante mapResultSetToEntity(ResultSet rs) throws SQLException {
     Representante representante = super.mapResultSetToEntity(rs);
 
-    representante.setIdEmpresa(rs.getInt("id_empresa"));
+    representante.setIdEmpresa(rs.getInt(Columns.idEmpresa.getName()));
 
     return representante;
   }

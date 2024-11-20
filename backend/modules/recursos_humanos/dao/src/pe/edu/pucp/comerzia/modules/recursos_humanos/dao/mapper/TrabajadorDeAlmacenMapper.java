@@ -12,11 +12,11 @@ public class TrabajadorDeAlmacenMapper
 
   public static class Columns extends EmpleadoMapper.Columns {
 
-    public static final Column<Integer> idAlmacen = new Column<>(
+    public static final Column<Integer> idAlmacen = Column.of(
       "id_almacen",
       Integer.class
     );
-    public static final Column<Boolean> licenciaMontacarga = new Column<>(
+    public static final Column<Boolean> licenciaMontacarga = Column.of(
       "licencia_montacarga",
       Boolean.class
     );
@@ -32,9 +32,9 @@ public class TrabajadorDeAlmacenMapper
     throws SQLException {
     TrabajadorDeAlmacen trabajadorDeAlmacen = super.mapResultSetToEntity(rs);
 
-    trabajadorDeAlmacen.setIdAlmacen(rs.getInt("id_almacen"));
+    trabajadorDeAlmacen.setIdAlmacen(rs.getInt(Columns.idAlmacen.getName()));
     trabajadorDeAlmacen.setLicenciaMontacarga(
-      rs.getBoolean("licencia_montacarga")
+      rs.getBoolean(Columns.licenciaMontacarga.getName())
     );
 
     return trabajadorDeAlmacen;

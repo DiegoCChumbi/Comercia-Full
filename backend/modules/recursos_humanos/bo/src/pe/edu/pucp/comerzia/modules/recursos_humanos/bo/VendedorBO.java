@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.VendedorDAO;
+import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.mapper.VendedorMapper;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.EstadoEmpleadoEnum;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Vendedor;
 
@@ -106,5 +107,15 @@ public class VendedorBO {
 
   public ArrayList<Vendedor> listarParaIndex() throws SQLException {
     return new ArrayList<>(vendedorDAO.query().limit(3).list());
+  }
+
+  public ArrayList<Vendedor> buscarVendedores(String nombreVendedor)
+    throws SQLException {
+    return new ArrayList<>(
+      vendedorDAO
+        .query()
+        .where(VendedorMapper.Columns.nombre.like(nombreVendedor))
+        .list()
+    );
   }
 }

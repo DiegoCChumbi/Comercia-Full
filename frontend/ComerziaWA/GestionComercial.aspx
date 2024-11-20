@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Comerzia.Master"
-    AutoEventWireup="true" CodeBehind="GestionComercial.aspx.cs"
-    Inherits="ComerziaWA.GestionComercial" %>
-
+AutoEventWireup="true" CodeBehind="GestionComercial.aspx.cs"
+Inherits="ComerziaWA.GestionComercial" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
     Gestión Comercial
 </asp:Content>
@@ -16,14 +15,17 @@
                 PageSize="5"
                 OnPageIndexChanging="dgvDocumento_PageIndexChanging"
                 AutoGenerateColumns="false"
-                CssClass="table table-hover table-responsive table-striped">
+                CssClass="table table-hover table-responsive table-striped"
+            >
                 <Columns>
                     <asp:BoundField
                         HeaderText="Id del documento"
-                        DataField="Id" />
+                        DataField="Id"
+                    />
                     <asp:BoundField
                         HeaderText="Empresa"
-                        DataField="IdEmpresa" />
+                        DataField="IdEmpresa"
+                    />
                     <asp:BoundField HeaderText="Tipo" DataField="Tipo" />
                     <asp:BoundField HeaderText="Estado" DataField="Estado" />
                     <asp:TemplateField>
@@ -32,12 +34,14 @@
                                 runat="server"
                                 Text="<i class='fa-solid fa-eye'></i>"
                                 CommandArgument='<%# Eval("Id") %>'
-                                OnClick="lbVer_Click" />
+                                OnClick="lbVer_Click"
+                            />
                             <asp:LinkButton
                                 runat="server"
                                 Text="<i class='fa-solid fa-trash ps-2'></i>"
                                 CommandArgument='<%# Eval("Id") %>'
-                                OnClick="lbEliminar_Click" />
+                                OnClick="lbEliminar_Click"
+                            />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -50,7 +54,8 @@
                     CssClass="float-start btn btn-primary"
                     runat="server"
                     Text="Insertar"
-                    OnClick="btnInsertar_Click" />
+                    OnClick="btnInsertar_Click"
+                />
             </div>
         </div>
     </div>

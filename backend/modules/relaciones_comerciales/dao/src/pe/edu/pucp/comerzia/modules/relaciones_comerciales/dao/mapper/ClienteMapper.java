@@ -1,5 +1,6 @@
 package pe.edu.pucp.comerzia.modules.relaciones_comerciales.dao.mapper;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -11,13 +12,13 @@ public class ClienteMapper extends EmpresaMapper<Cliente> {
 
   public static class Columns extends EmpresaMapper.Columns {
 
-    public static final Column<Integer> fechaRegistro = new Column<>(
+    public static final Column<Date> fechaRegistro = Column.of(
       "fecha_registro",
-      Integer.class
+      Date.class
     );
-    public static final Column<Integer> fechaUltimaCompra = new Column<>(
+    public static final Column<Date> fechaUltimaCompra = Column.of(
       "fecha_ultima_compra",
-      Integer.class
+      Date.class
     );
   }
 
@@ -30,8 +31,11 @@ public class ClienteMapper extends EmpresaMapper<Cliente> {
   public Cliente mapResultSetToEntity(ResultSet rs) throws SQLException {
     Cliente cliente = super.mapResultSetToEntity(rs);
 
-    cliente.setFechaRegistro(rs.getDate("fecha_registro"));
-    cliente.setFechaUltimaCompra(rs.getDate("fecha_ultima_compra"));
+    cliente.setFechaRegistro(rs.getDate(Columns.fechaRegistro.getName()));
+    cliente.setFechaUltimaCompra(
+      rs.getDate(Columns.fechaUltimaCompra.getName())
+    );
+
     return cliente;
   }
 

@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.ServiceModel;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
@@ -61,6 +66,18 @@ namespace ComerziaWA
                     Response.Redirect("ListarTrabajadoresAlmacen.aspx");
                 }
             }
+        }
+
+        protected void gvVendedores_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            // Establecer el índice de la página
+            gvVendedores.PageIndex = e.NewPageIndex;
+
+            // Obtener nuevamente la lista de trabajadores y vincularla al GridView
+            BindingList<trabajadorDeAlmacen> trabajadores =
+                this.boTrabajadorDeAlmacen.listarTodos();
+            gvVendedores.DataSource = trabajadores;
+            gvVendedores.DataBind(); // Actualiza el GridView
         }
     }
 }

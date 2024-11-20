@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Comerzia.Master"
-    AutoEventWireup="true" CodeBehind="gestion_almacen.aspx.cs"
-    Inherits="ComerziaWA.gestion_almacen" %>
-
+AutoEventWireup="true" CodeBehind="gestion_almacen.aspx.cs"
+Inherits="ComerziaWA.gestion_almacen" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
     Gestion de Almacen
 </asp:Content>
@@ -19,13 +18,15 @@
                 OnPageIndexChanging="dgvAlmacenes_PageIndexChanging"
                 AutoGenerateColumns="false"
                 CssClass="table table-hover table-responsive table-striped"
-                OnRowDataBound="dgvAlmacenes_RowEstado">
+                OnRowDataBound="dgvAlmacenes_RowEstado"
+            >
                 <Columns>
                     <asp:BoundField HeaderText="N°" DataField="id" />
                     <asp:BoundField HeaderText="Nombre" DataField="nombre" />
                     <asp:BoundField
                         HeaderText="Descripción"
-                        DataField="descripcion" />
+                        DataField="descripcion"
+                    />
                     <asp:BoundField HeaderText="Estado" DataField="estado" />
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -33,7 +34,8 @@
                                 runat="server"
                                 Text="<i class='fa-solid fa-eye'></i>"
                                 OnClick="btnVer_Click"
-                                CommandArgument='<%# Eval("Id") %>' />
+                                CommandArgument='<%# Eval("Id") %>'
+                            />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

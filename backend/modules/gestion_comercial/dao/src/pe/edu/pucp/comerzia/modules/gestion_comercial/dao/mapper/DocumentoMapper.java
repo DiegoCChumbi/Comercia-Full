@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.core.dao.BaseDAO.EntityMapper;
+import pe.edu.pucp.comerzia.core.dao.BaseEntityMapper;
 import pe.edu.pucp.comerzia.core.dao.utils.Column;
 import pe.edu.pucp.comerzia.modules.gestion_comercial.model.Documento;
 import pe.edu.pucp.comerzia.modules.gestion_comercial.model.EstadoDocumentoEnum;
@@ -12,30 +13,30 @@ import pe.edu.pucp.comerzia.modules.gestion_comercial.model.TipoDocumentoEnum;
 
 public class DocumentoMapper implements EntityMapper<Documento> {
 
-  public static class Columns {
+  public static class Columns extends BaseEntityMapper.Columns {
 
-    public static final Column<Integer> id = new Column<>("id", Integer.class);
-    public static final Column<Integer> idEmpresa = new Column<>(
+    public static final Column<Integer> id = Column.of("id", Integer.class);
+    public static final Column<Integer> idEmpresa = Column.of(
       "id_empresa",
       Integer.class
     );
-    public static final Column<EstadoDocumentoEnum> estado = new Column<>(
+    public static final Column<EstadoDocumentoEnum> estado = Column.of(
       "estado",
       EstadoDocumentoEnum.class
     );
-    public static final Column<TipoDocumentoEnum> tipo = new Column<>(
+    public static final Column<TipoDocumentoEnum> tipo = Column.of(
       "tipo",
       TipoDocumentoEnum.class
     );
-    public static final Column<Integer> idVendedor = new Column<>(
+    public static final Column<Integer> idVendedor = Column.of(
       "id_vendedor",
       Integer.class
     );
-    public static final Column<Integer> idAdministrador = new Column<>(
+    public static final Column<Integer> idAdministrador = Column.of(
       "id_administrador",
       Integer.class
     );
-    public static final Column<Integer> idTrabajadorDeAlmacen = new Column<>(
+    public static final Column<Integer> idTrabajadorDeAlmacen = Column.of(
       "id_trabajador_de_almacen",
       Integer.class
     );
@@ -50,13 +51,19 @@ public class DocumentoMapper implements EntityMapper<Documento> {
   public Documento mapResultSetToEntity(ResultSet rs) throws SQLException {
     Documento documento = createEntity();
 
-    documento.setId(rs.getInt("id"));
-    documento.setIdEmpresa(rs.getInt("id_empresa"));
-    documento.setEstado(EstadoDocumentoEnum.valueOf(rs.getString("estado")));
-    documento.setTipo(TipoDocumentoEnum.valueOf(rs.getString("tipo")));
-    documento.setIdVendedor(rs.getInt("id_vendedor"));
-    documento.setIdAdministrador(rs.getInt("id_administrador"));
-    documento.setIdTrabajadorDeAlmacen(rs.getInt("id_trabajador_de_almacen"));
+    documento.setId(rs.getInt(Columns.id.getName()));
+    documento.setIdEmpresa(rs.getInt(Columns.idEmpresa.getName()));
+    documento.setEstado(
+      EstadoDocumentoEnum.valueOf(rs.getString(Columns.estado.getName()))
+    );
+    documento.setTipo(
+      TipoDocumentoEnum.valueOf(rs.getString(Columns.tipo.getName()))
+    );
+    documento.setIdVendedor(rs.getInt(Columns.idVendedor.getName()));
+    documento.setIdAdministrador(rs.getInt(Columns.idAdministrador.getName()));
+    documento.setIdTrabajadorDeAlmacen(
+      rs.getInt(Columns.idTrabajadorDeAlmacen.getName())
+    );
 
     return documento;
   }

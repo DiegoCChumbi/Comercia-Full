@@ -9,9 +9,11 @@ import java.util.Optional;
 import pe.edu.pucp.comerzia.modules.gestion_comercial.bo.DocumentoBO;
 import pe.edu.pucp.comerzia.modules.gestion_comercial.model.Documento;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.bo.ClienteBO;
+import pe.edu.pucp.comerzia.modules.relaciones_comerciales.bo.EmpresaBO;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.bo.ProveedorBO;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.bo.RepresentanteBO;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Cliente;
+import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Empresa;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Proveedor;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Representante;
 
@@ -25,12 +27,14 @@ public class RelacionesComercialesWS {
   private final ClienteBO boCliente;
   private final DocumentoBO boDocumento;
   private final RepresentanteBO boRepresentante;
+  private final EmpresaBO boEmpresa;
 
   public RelacionesComercialesWS() {
     boProveedor = new ProveedorBO();
     boCliente = new ClienteBO();
     boDocumento = new DocumentoBO();
     boRepresentante = new RepresentanteBO();
+    boEmpresa = new EmpresaBO();
   }
 
   @WebMethod(operationName = "listarClientes")
@@ -243,6 +247,29 @@ public class RelacionesComercialesWS {
     } catch (Exception e) {
       e.printStackTrace();
       return -1;
+    }
+  }
+
+  @WebMethod(operationName = "buscarPorNombre_empresa")
+  public ArrayList<Empresa> buscarEmpresas(
+    @WebParam(name = "nombreEmpresa") String nombre
+  ) {
+    try {
+      return this.boEmpresa.buscarEmpresas(nombre);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  @WebMethod(operationName = "obtenerEmpresaPorId")
+  public Empresa obtenerEmpresaPorId(@WebParam(name = "id") String id) {
+    try {
+      Optional<Empresa> empresa = boEmpresa.obtenerPorId(Integer.valueOf(id));
+      return empresa.orElse(null);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
     }
   }
 }

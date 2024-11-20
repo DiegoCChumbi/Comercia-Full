@@ -5,27 +5,28 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.core.dao.BaseDAO.EntityMapper;
+import pe.edu.pucp.comerzia.core.dao.BaseEntityMapper;
 import pe.edu.pucp.comerzia.core.dao.utils.Column;
 import pe.edu.pucp.comerzia.modules.gestion_comercial.model.LineaDocumento;
 
 public class LineaDocumentoMapper implements EntityMapper<LineaDocumento> {
 
-  public static class Columns {
+  public static class Columns extends BaseEntityMapper.Columns {
 
-    public static final Column<Integer> id = new Column<>("id", Integer.class);
-    public static final Column<Integer> idDocumento = new Column<>(
+    public static final Column<Integer> id = Column.of("id", Integer.class);
+    public static final Column<Integer> idDocumento = Column.of(
       "id_documento",
       Integer.class
     );
-    public static final Column<Integer> idProducto = new Column<>(
+    public static final Column<Integer> idProducto = Column.of(
       "id_producto",
       Integer.class
     );
-    public static final Column<Integer> cantidad = new Column<>(
+    public static final Column<Integer> cantidad = Column.of(
       "cantidad",
       Integer.class
     );
-    public static final Column<Double> precioUnitario = new Column<>(
+    public static final Column<Double> precioUnitario = Column.of(
       "precio_unitario",
       Double.class
     );
@@ -40,11 +41,13 @@ public class LineaDocumentoMapper implements EntityMapper<LineaDocumento> {
   public LineaDocumento mapResultSetToEntity(ResultSet rs) throws SQLException {
     LineaDocumento lineaDocumento = createEntity();
 
-    lineaDocumento.setId(rs.getInt("id"));
-    lineaDocumento.setIdDocumento(rs.getInt("id_documento"));
-    lineaDocumento.setIdProducto(rs.getInt("id_producto"));
-    lineaDocumento.setCantidad(rs.getInt("cantidad"));
-    lineaDocumento.setPrecioUnitario(rs.getDouble("precio_unitario"));
+    lineaDocumento.setId(rs.getInt(Columns.id.getName()));
+    lineaDocumento.setIdDocumento(rs.getInt(Columns.idDocumento.getName()));
+    lineaDocumento.setIdProducto(rs.getInt(Columns.idProducto.getName()));
+    lineaDocumento.setCantidad(rs.getInt(Columns.cantidad.getName()));
+    lineaDocumento.setPrecioUnitario(
+      rs.getDouble(Columns.precioUnitario.getName())
+    );
 
     return lineaDocumento;
   }

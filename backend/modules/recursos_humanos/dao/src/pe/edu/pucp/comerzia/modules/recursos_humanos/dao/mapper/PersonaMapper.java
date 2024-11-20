@@ -5,34 +5,31 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.core.dao.BaseDAO.EntityMapper;
+import pe.edu.pucp.comerzia.core.dao.BaseEntityMapper;
 import pe.edu.pucp.comerzia.core.dao.utils.Column;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Persona;
 
 public class PersonaMapper<T extends Persona> implements EntityMapper<T> {
 
-  public static class Columns {
+  public static class Columns extends BaseEntityMapper.Columns {
 
-    public static final Column<Integer> id = new Column<>("id", Integer.class);
-    public static final Column<String> dni = new Column<>("dni", String.class);
-    public static final Column<String> nombre = new Column<>(
+    public static final Column<Integer> id = Column.of("id", Integer.class);
+    public static final Column<String> dni = Column.of("dni", String.class);
+    public static final Column<String> nombre = Column.of(
       "nombre",
       String.class
     );
-    public static final Column<String> telefono = new Column<>(
+    public static final Column<String> telefono = Column.of(
       "telefono",
       String.class
     );
-    public static final Column<String> correo = new Column<>(
+    public static final Column<String> correo = Column.of(
       "correo",
       String.class
     );
-    public static final Column<String> direccion = new Column<>(
+    public static final Column<String> direccion = Column.of(
       "direccion",
       String.class
-    );
-    public static final Column<Boolean> eliminado = new Column<>(
-      "eliminado",
-      Boolean.class
     );
   }
 
@@ -45,13 +42,12 @@ public class PersonaMapper<T extends Persona> implements EntityMapper<T> {
   public T mapResultSetToEntity(ResultSet rs) throws SQLException {
     T persona = createEntity();
 
-    persona.setId(rs.getInt("id"));
-    persona.setDni(rs.getString("dni"));
-    persona.setNombre(rs.getString("nombre"));
-    persona.setTelefono(rs.getString("telefono"));
-    persona.setCorreo(rs.getString("correo"));
-    persona.setDireccion(rs.getString("direccion"));
-    persona.setEliminado(rs.getBoolean("eliminado"));
+    persona.setId(rs.getInt(Columns.id.getName()));
+    persona.setDni(rs.getString(Columns.dni.getName()));
+    persona.setNombre(rs.getString(Columns.nombre.getName()));
+    persona.setTelefono(rs.getString(Columns.telefono.getName()));
+    persona.setCorreo(rs.getString(Columns.correo.getName()));
+    persona.setDireccion(rs.getString(Columns.direccion.getName()));
 
     return persona;
   }
@@ -65,7 +61,6 @@ public class PersonaMapper<T extends Persona> implements EntityMapper<T> {
     columns.put(Columns.telefono, entity.getTelefono());
     columns.put(Columns.correo, entity.getCorreo());
     columns.put(Columns.direccion, entity.getDireccion());
-    columns.put(Columns.eliminado, entity.getEliminado());
 
     return columns;
   }

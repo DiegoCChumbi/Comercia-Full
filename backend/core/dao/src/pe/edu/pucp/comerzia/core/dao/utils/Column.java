@@ -72,6 +72,14 @@ public class Column<T> {
     return new SimpleExpression<>(this, "LIKE", pattern);
   }
 
+  public SimpleExpression<T> isNull() {
+    return new SimpleExpression<>(this, "IS NULL", null, false);
+  }
+
+  public SimpleExpression<T> isNotNull() {
+    return new SimpleExpression<>(this, "IS NOT NULL", null, false);
+  }
+
   // Aggregate functions
   public AggregateColumn<Double> avg() {
     return new AggregateColumn<>("AVG", this, Double.class);

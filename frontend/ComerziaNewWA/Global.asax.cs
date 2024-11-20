@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ComerziaWA;
+using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using ComerziaWA;
 
 namespace ComerziaNewWA
 {
@@ -104,7 +104,33 @@ namespace ComerziaNewWA
             // AuthMiddleware.ApplyAuthLogic(_context);
         }
 
-        protected void Application_Error(object sender, EventArgs e) { }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            // Get the exception object.
+            Exception exception = Server.GetLastError();
+
+            // Handle HTTP errors
+            if (exception is HttpException httpException)
+            {
+                int httpCode = httpException.GetHttpCode();
+
+                if (httpCode == 404)
+                {
+                    Server.ClearError();
+                    Response.Redirect("~/App/_404.aspx");
+                    return;
+                }
+            }
+
+            // For all other errors, redirect to the 500 error page
+            Server.ClearError();
+
+            // Store the exception to display it on the error page
+            HttpContext.Current.Items["Exception"] = exception;
+
+            // Use Server.Transfer to preserve the error context
+            Server.Transfer("~/App/_500.aspx");
+        }
 
         protected void Session_End(object sender, EventArgs e) { }
 

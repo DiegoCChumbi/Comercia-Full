@@ -5,23 +5,24 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.core.dao.BaseDAO.EntityMapper;
+import pe.edu.pucp.comerzia.core.dao.BaseEntityMapper;
 import pe.edu.pucp.comerzia.core.dao.utils.Column;
 import pe.edu.pucp.comerzia.modules.notificacion.model.Notificacion;
 
 public class NotificacionMapper implements EntityMapper<Notificacion> {
 
-  public static class Columns {
+  public static class Columns extends BaseEntityMapper.Columns {
 
-    public static final Column<Integer> id = new Column<>("id", Integer.class);
-    public static final Column<Integer> idProducto = new Column<>(
+    public static final Column<Integer> id = Column.of("id", Integer.class);
+    public static final Column<Integer> idProducto = Column.of(
       "id_producto",
       Integer.class
     );
-    public static final Column<Integer> idAlmacen = new Column<>(
+    public static final Column<Integer> idAlmacen = Column.of(
       "id_almacen",
       Integer.class
     );
-    public static final Column<String> mensaje = new Column<>(
+    public static final Column<String> mensaje = Column.of(
       "mensaje",
       String.class
     );
@@ -36,10 +37,10 @@ public class NotificacionMapper implements EntityMapper<Notificacion> {
   public Notificacion mapResultSetToEntity(ResultSet rs) throws SQLException {
     Notificacion notificacion = createEntity();
 
-    notificacion.setId(rs.getInt("id"));
-    notificacion.setIdProducto(rs.getInt("id_producto"));
-    notificacion.setIdAlmacen(rs.getInt("id_almacen"));
-    notificacion.setMensaje(rs.getString("mensaje"));
+    notificacion.setId(rs.getInt(Columns.id.getName()));
+    notificacion.setIdProducto(rs.getInt(Columns.idProducto.getName()));
+    notificacion.setIdAlmacen(rs.getInt(Columns.idAlmacen.getName()));
+    notificacion.setMensaje(rs.getString(Columns.mensaje.getName()));
 
     return notificacion;
   }

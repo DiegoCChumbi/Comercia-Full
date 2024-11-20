@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Comerzia.Master"
-    AutoEventWireup="true" CodeBehind="mantenimiento_seccion.aspx.cs"
-    Inherits="ComerziaWA.mantenimiento_seccion" %>
-
+AutoEventWireup="true" CodeBehind="mantenimiento_seccion.aspx.cs"
+Inherits="ComerziaWA.mantenimiento_seccion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
     Mantenimiento de Sección
 </asp:Content>
@@ -16,29 +15,35 @@
                 PageSize="5"
                 OnPageIndexChanging="dgvSeccion_PageIndexChanging"
                 AutoGenerateColumns="false"
-                CssClass="table table-hover table-responsive table-striped">
+                CssClass="table table-hover table-responsive table-striped"
+            >
                 <Columns>
                     <asp:BoundField
                         HeaderText="Id de la Sección"
-                        DataField="IdSeccion" />
+                        DataField="IdSeccion"
+                    />
                     <asp:BoundField
                         HeaderText="Nombre de la Sección"
-                        DataField="Nombre_Seccion" />
+                        DataField="Nombre_Seccion"
+                    />
                     <asp:BoundField
                         HeaderText="Departamento"
-                        DataField="Departamento" />
+                        DataField="Departamento"
+                    />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton
                                 runat="server"
                                 Text="<i class='fa-solid fa-edit ps-2'></i>"
                                 CommandArgument='<%# Eval("IdSeccion") %>'
-                                OnClick="lbModificar_Click" />
+                                OnClick="lbModificar_Click"
+                            />
                             <asp:LinkButton
                                 runat="server"
                                 Text="<i class='fa-solid fa-trash ps-2'></i>"
                                 CommandArgument='<%# Eval("IdSeccion") %>'
-                                OnClick="lbEliminar_Click" />
+                                OnClick="lbEliminar_Click"
+                            />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -51,7 +56,8 @@
                     CssClass="float-start btn btn-primary"
                     runat="server"
                     Text="Insertar"
-                    OnClick="btnInsertar_Click" />
+                    OnClick="btnInsertar_Click"
+                />
             </div>
         </div>
     </div>

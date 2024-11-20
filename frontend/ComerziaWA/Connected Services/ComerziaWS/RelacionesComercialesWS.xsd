@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.comerzia.pucp.edu.pe" targetNamespace="http://services.comerzia.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="buscarPorNombre_empresa" type="tns:buscarPorNombre_empresa" />
+  <xs:element name="buscarPorNombre_empresaResponse" type="tns:buscarPorNombre_empresaResponse" />
   <xs:element name="eliminarRepresentante" type="tns:eliminarRepresentante" />
   <xs:element name="eliminarRepresentanteResponse" type="tns:eliminarRepresentanteResponse" />
   <xs:element name="listarClientes" type="tns:listarClientes" />
@@ -22,6 +24,8 @@
   <xs:element name="modificarProveedorResponse" type="tns:modificarProveedorResponse" />
   <xs:element name="modificarRepresentante" type="tns:modificarRepresentante" />
   <xs:element name="modificarRepresentanteResponse" type="tns:modificarRepresentanteResponse" />
+  <xs:element name="obtenerEmpresaPorId" type="tns:obtenerEmpresaPorId" />
+  <xs:element name="obtenerEmpresaPorIdResponse" type="tns:obtenerEmpresaPorIdResponse" />
   <xs:element name="obtenerPorIdCliente" type="tns:obtenerPorIdCliente" />
   <xs:element name="obtenerPorIdClienteResponse" type="tns:obtenerPorIdClienteResponse" />
   <xs:element name="obtenerPorIdProveedor" type="tns:obtenerPorIdProveedor" />
@@ -50,13 +54,29 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="empresa">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="direccion" type="xs:string" />
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+          <xs:element minOccurs="0" name="telefono" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoIndustria" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseEntity" abstract="true">
     <xs:sequence>
-      <xs:element minOccurs="0" name="direccion" type="xs:string" />
-      <xs:element minOccurs="0" name="email" type="xs:string" />
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="nombre" type="xs:string" />
-      <xs:element minOccurs="0" name="telefono" type="xs:string" />
-      <xs:element minOccurs="0" name="tipoIndustria" type="xs:string" />
+      <xs:element minOccurs="0" name="createdAt" type="tns:timestamp" />
+      <xs:element minOccurs="0" name="deletedAt" type="tns:timestamp" />
+      <xs:element minOccurs="0" name="updatedAt" type="tns:timestamp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timestamp">
+    <xs:sequence>
+      <xs:element name="nanos" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarDocumentosPorEmpresa">
@@ -70,15 +90,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="documento">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="estado" type="tns:estadoDocumentoEnum" />
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="idAdministrador" type="xs:int" />
-      <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
-      <xs:element minOccurs="0" name="idTrabajadorDeAlmacen" type="xs:int" />
-      <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
-      <xs:element minOccurs="0" name="tipo" type="tns:tipoDocumentoEnum" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="estado" type="tns:estadoDocumentoEnum" />
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+          <xs:element minOccurs="0" name="idAdministrador" type="xs:int" />
+          <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+          <xs:element minOccurs="0" name="idTrabajadorDeAlmacen" type="xs:int" />
+          <xs:element minOccurs="0" name="idVendedor" type="xs:int" />
+          <xs:element minOccurs="0" name="tipo" type="tns:tipoDocumentoEnum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="obtenerPorIdProveedor">
     <xs:sequence>
@@ -145,15 +169,18 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="persona">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="correo" type="xs:string" />
-      <xs:element minOccurs="0" name="direccion" type="xs:string" />
-      <xs:element minOccurs="0" name="dni" type="xs:string" />
-      <xs:element minOccurs="0" name="eliminado" type="xs:boolean" />
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="nombre" type="xs:string" />
-      <xs:element minOccurs="0" name="telefono" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="correo" type="xs:string" />
+          <xs:element minOccurs="0" name="direccion" type="xs:string" />
+          <xs:element minOccurs="0" name="dni" type="xs:string" />
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+          <xs:element minOccurs="0" name="telefono" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="obtenerPorIdCliente">
     <xs:sequence>
@@ -203,16 +230,6 @@
       <xs:element minOccurs="0" name="return" type="tns:representante" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminarRepresentante">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarRepresentanteResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarRepresentantesPorEmpresa">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:string" />
@@ -221,6 +238,16 @@
   <xs:complexType name="listarRepresentantesPorEmpresaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:representante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarRepresentante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarRepresentanteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarRepresentante">
@@ -237,6 +264,26 @@
   <xs:complexType name="modificarRepresentanteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPorNombre_empresa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreEmpresa" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPorNombre_empresaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEmpresaPorId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEmpresaPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:empresa" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarClientesParaIndex">

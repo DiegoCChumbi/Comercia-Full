@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using ComerziaBO.ComerziaWS;
+﻿using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
 using ComerziaRecursosHumanosBO;
 using ComerziaRelacionesComercialesBO;
+using System;
+using System.ComponentModel;
 
 namespace ComerziaWA
 {
@@ -36,7 +36,8 @@ namespace ComerziaWA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            userRole = (String)Session["rol"];
+            //userRole = (String)Session["rol"];
+            userRole = "admin";
 
             if (userRole == "admin" || userRole == "vendedor")
             {

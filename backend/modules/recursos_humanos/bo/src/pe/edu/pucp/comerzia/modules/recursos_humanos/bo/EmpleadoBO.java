@@ -1,9 +1,11 @@
 package pe.edu.pucp.comerzia.modules.recursos_humanos.bo;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
+import pe.edu.pucp.comerzia.core.dao.utils.PasswordUtils;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.EmpleadoDAO;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.dao.mapper.EmpleadoMapper;
 import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Empleado;
@@ -68,15 +70,24 @@ public class EmpleadoBO {
   }
 
   public Integer verificarEmpleado(String cuenta, String contrasenha)
-    throws SQLException {
+    throws SQLException, NoSuchAlgorithmException {
     Optional<Empleado> empleado = empleadoDAO
       .query()
-      .whereAll(
-        EmpleadoMapper.Columns.nombreUsuario.eq(cuenta),
-        EmpleadoMapper.Columns.contrasenha.eq(contrasenha)
-      )
+      .whereAll(EmpleadoMapper.Columns.nombreUsuario.eq(cuenta))
       .unique();
-    return empleado.get().getId(); // Throws NoSuchElementException if not found
+
+    if (!empleado.isPresent()) {
+      return -1;
+    }
+
+    if (
+      empleado.get().getNombreUsuario().equals(cuenta) &&
+      PasswordUtils.verifyPassword(contrasenha, empleado.get().getContrasenha())
+    ) {
+      return empleado.get().getId();
+    }
+
+    return -1;
   }
 
   public String devolverNombreEmpleado(Integer idEmpleado) throws SQLException {

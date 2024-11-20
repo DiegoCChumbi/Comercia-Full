@@ -1,8 +1,9 @@
 package pe.edu.pucp.comerzia.modules.gestion_almacen.model;
 
 import java.util.Date;
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
 
-public class ProductoAlmacenado {
+public class ProductoAlmacenado extends BaseEntity {
 
   private Integer id;
   private Integer idAlmacen;

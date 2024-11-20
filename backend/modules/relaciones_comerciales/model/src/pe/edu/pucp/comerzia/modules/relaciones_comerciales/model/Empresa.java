@@ -1,6 +1,8 @@
 package pe.edu.pucp.comerzia.modules.relaciones_comerciales.model;
 
-public class Empresa {
+import pe.edu.pucp.comerzia.core.model.BaseEntity;
+
+public class Empresa extends BaseEntity {
 
   private Integer id;
   private String nombre;

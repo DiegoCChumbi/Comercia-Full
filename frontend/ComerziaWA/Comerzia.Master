@@ -4,8 +4,8 @@
 
 <html>
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
     <link href="Public/Content/bootstrap.css" rel="stylesheet" />
     <link href="Public/Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Public/Content/site.css" rel="stylesheet" />
@@ -13,101 +13,101 @@
     <script src="Public/Scripts/bootstrap.js"></script>
     <script src="Public/Scripts/bootstrap.bundle.js"></script>
     <script src="Public/Scripts/jquery-3.7.1.js"></script>
-
+    
     <title>
         <asp:ContentPlaceHolder ID="cphTitulo" runat="server">
         </asp:ContentPlaceHolder>
-    </title>
+    </title> 
 
 </head>
-<body style="height: 100%">
+<body style="height:100%">
 
 
 
-    <form runat="server" style="height: 100%">
-        <asp:ContentPlaceHolder ID="cphScripts" runat="server">
-        </asp:ContentPlaceHolder>
-        <div class="container-fluid d-flex p-0 h-100">
-            <!--Menu Lateral-->
-            <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3  bg-success text-black offcanvas-md offcanvas-start">
-                <a class="navbar-brand d-flex align-items-center" href="index.aspx">
-                    <img src="Public/Images/Comerzia1.png" width="60" height="50" />
-                    <span class="brand-text ms-3 fw-bold">Comerzia</span>
-                </a>
-                <hr>
-                <ul class="mynav nav nav-pills flex-column mb-auto">
-                    <li class="nav-item mb-1">
-                        <a href="GestionComercial.aspx"><i class="fa-solid fa-file"></i>Gestión Comercial</a>
-                    </li>
-                    <li class="nav-item mb-1">
-                        <a href="gestion_relaciones_comerciales.aspx"><i class="fa-solid fa-truck-field"></i>Gestión de Relaciones Comerciales</a>
-                    </li>
-                    <li class="nav-item mb-1">
-                        <a href="gestion_almacen.aspx"><i class="fa-solid fa-warehouse"></i>Gestión de Almacén</a>
-                    </li>
-                    <li class="nav-item mb-1">
-                        <a href="GestionRecursosHumanos.aspx"><i class="fa-solid fa-address-card"></i>Gestión de Recursos Humanos</a>
-                    </li>
-
-                </ul>
-                <hr>
-                <div class="d-flex align-items-center">
-                    <i class="fa-solid fa-book me-2"></i>
-                    <h6 class="mt-1 mb-0">@Comerzia</h6>
-                </div>
-            </div>
-            <!-- Contenido Derecha -->
-            <div class="bg-light flex-fill overflow-auto">
-                <!-- Barra superior para dispositivos pequeños -->
-                <div class="p-2 d-md-none d-flex text-black bg-success">
-                    <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#">
-                        <i class="fa-solid fa-bars"></i>
-                    </a>
-                    <img src="Public/Images/pucp.png" class="ms-3" width="75">
-                </div>
-                <!-- Barra de Usuario -->
-                <nav class="navbar navbar-dark bg-success text-black">
-                    <div class="container-fluid">
-                        <a id="TituloCabecera" runat="server" class="navbar-brand  d-sm-none d-md-block d-none d-sm-block text-black"></a>
-                        <%--<form class="d-flex me-4 ms-auto">--%>
-                        <div class="d-flex ms-auto align-items-center me-3">
-                            <%--Notificaciones--%>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-regular fa-bell" style="color: #ffffff;"></i>
-                                    <span style="margin-left: 5px;">(<%= cantNotificaciones %>)</span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <asp:GridView ID="gvNotificaciones" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped" BorderColor="Transparent" Style="width: 450px">
-                                        <Columns>
-                                            <asp:BoundField DataField="mensaje" HeaderText="Avisos" />
-                                        </Columns>
-                                    </asp:GridView>
-                                </ul>
-                            </div>
-
-                            <%--Perfil--%>
-                            <div class="dropdown">
-                                <button class="btn btn-outline-light dropdown-toggle"
-                                    id="btnUsuario" data-bs-toggle="dropdown" type="button"
-                                    aria-expanded="false">
-                                    <i class="fas fa-user me-10 ms-auto" style="color: blue;"></i><span id="Persona" runat="server" style="color: black;"></span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnUsuario">
-                                    <li><a class="dropdown-item" href="Logout.aspx">Cerrar Sesión</a></li>
-                                </ul>
-                            </div>
-                            <%--</form>--%>
-                        </div>
-                    </div>
-                </nav>
-                <!-- Contenido de la Página Web -->
-                <div class="p-4">
-                    <asp:ContentPlaceHolder ID="cphContenido" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
+    <form runat="server" style="height:100%">
+    <asp:ContentPlaceHolder ID="cphScripts" runat="server">
+    </asp:ContentPlaceHolder>
+    <div class="container-fluid d-flex p-0 h-100">
+        <!--Menu Lateral-->
+        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3  bg-success text-black offcanvas-md offcanvas-start" >
+            <a class="navbar-brand d-flex align-items-center" href="index.aspx">
+                <img src="Public/Images/Comerzia1.png" width="60" height="50" />
+                <span class="brand-text ms-3 fw-bold">Comerzia</span>
+            </a>
+            <hr>
+            <ul class="mynav nav nav-pills flex-column mb-auto">
+                <li class="nav-item mb-1">
+                    <a href="GestionComercial.aspx"><i class="fa-solid fa-file"></i>Gestión Comercial</a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a href="gestion_relaciones_comerciales.aspx"><i class="fa-solid fa-truck-field"></i>Gestión de Relaciones Comerciales</a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a href="gestion_almacen.aspx"><i class="fa-solid fa-warehouse"></i>Gestión de Almacén</a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a href="GestionRecursosHumanos.aspx"><i class="fa-solid fa-address-card"></i>Gestión de Recursos Humanos</a>
+                </li>
+                
+            </ul>
+            <hr>
+            <div class="d-flex align-items-center">
+                <i class="fa-solid fa-book me-2"></i>
+                <h6 class="mt-1 mb-0">@Comerzia</h6>
             </div>
         </div>
+        <!-- Contenido Derecha -->
+        <div class="bg-light flex-fill overflow-auto">
+            <!-- Barra superior para dispositivos pequeños -->
+            <div class="p-2 d-md-none d-flex text-black bg-success">
+                <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <img src="Public/Images/pucp.png" class="ms-3" width="75">
+            </div>
+            <!-- Barra de Usuario -->
+            <nav  class="navbar navbar-dark bg-success text-black">
+                <div class="container-fluid">
+                    <a id ="TituloCabecera" runat = "server" class="navbar-brand  d-sm-none d-md-block d-none d-sm-block text-black"></a>
+                    <%--<form class="d-flex me-4 ms-auto">--%>
+                    <div class="d-flex ms-auto align-items-center me-3">
+                        <%--Notificaciones--%>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-regular fa-bell" style="color: #ffffff;"></i>
+                                <span style="margin-left: 5px;">(<%= cantNotificaciones %>)</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <asp:GridView ID="gvNotificaciones" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped" BorderColor="Transparent" style="width:450px">
+                                    <Columns>
+                                        <asp:BoundField DataField="mensaje" HeaderText="Avisos"/>
+                                    </Columns>
+                                </asp:GridView>
+                            </ul>
+                        </div>
+
+                        <%--Perfil--%>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle"
+                                id="btnUsuario" data-bs-toggle="dropdown" type="button"
+                                aria-expanded="false">
+                                <i  class ="fas fa-user me-10 ms-auto" style="color: blue;" ></i><span id = "Persona" runat = "server" style="color: black;"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnUsuario">
+                                <li><a class="dropdown-item" href="Logout.aspx">Cerrar Sesión</a></li>
+                            </ul>
+                        </div>
+                    <%--</form>--%>
+                        </div>
+                </div>
+            </nav>
+            <!-- Contenido de la Página Web -->
+            <div class="p-4">
+                    <asp:ContentPlaceHolder ID="cphContenido" runat="server">
+                    </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
     </form>
 </body>
 </html>

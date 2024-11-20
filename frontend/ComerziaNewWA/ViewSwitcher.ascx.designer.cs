@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ComerziaNewWA
-{
-
-
-    public partial class ViewSwitcher
-    {
+namespace ComerziaNewWA {
+    
+    
+    public partial class ViewSwitcher {
     }
 }

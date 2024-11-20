@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 using ComerziaBO.ComerziaWS;
 using ComerziaGestionAlmacenBO;
 
@@ -124,7 +129,12 @@ namespace ComerziaWA
                     producto prod = this.prodBO.obtenerPorId(idProductoSeleccionado);
 
                     // Ahora se inserta en la base de datos
-                    this.productoBO.insertar(Int32.Parse(idAlmacen), DateTime.Now, stock, prod.id);
+                    this.productoBO.insertar(
+                        Int32.Parse(idAlmacen),
+                        DateTime.Now,
+                        stock,
+                        prod.id
+                    );
 
                     // Limpia el TextBox y actualiza el GridView
                     txtStockProducto.Text = "";

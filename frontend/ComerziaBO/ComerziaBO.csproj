@@ -71,6 +71,18 @@
     <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarPorNombreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarPorNombre_administradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarPorNombre_empresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarPorNombre_trabajadorDeAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarPorNombre_vendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.buscarProductoPorIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -116,7 +128,13 @@
     <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.empleado.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.empresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.existeDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.existeLineaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.insertarProductoAlmacenadoResponse.datasource">
@@ -246,6 +264,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerDocumentoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerEmpresaPorIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ComerziaWS\ComerziaBO.ComerziaWS.obtenerLineaDocumentoPorIdResponse.datasource">

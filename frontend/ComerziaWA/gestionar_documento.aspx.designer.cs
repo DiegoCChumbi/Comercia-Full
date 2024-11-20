@@ -15,6 +15,33 @@ namespace ComerziaWA
     {
 
         /// <summary>
+        /// lblEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmpresa;
+
+        /// <summary>
+        /// txtEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmpresa;
+
+        /// <summary>
+        /// btnBuscarEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarEmpresa;
+
+        /// <summary>
         /// lblEstado control.
         /// </summary>
         /// <remarks>
@@ -150,6 +177,33 @@ namespace ComerziaWA
         protected global::System.Web.UI.WebControls.Button btnBuscarTrabajador;
 
         /// <summary>
+        /// lblAdministrador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdministrador;
+
+        /// <summary>
+        /// txtAdministrador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAdministrador;
+
+        /// <summary>
+        /// btnBuscarAdministrador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarAdministrador;
+
+        /// <summary>
         /// btnAgregarProducto control.
         /// </summary>
         /// <remarks>
@@ -283,5 +337,86 @@ namespace ComerziaWA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView ModalVendedor_gvVendedor;
+
+        /// <summary>
+        /// ModalTrabajador_txtTrabajadorNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ModalTrabajador_txtTrabajadorNombre;
+
+        /// <summary>
+        /// ModalTrabajador_lbBuscarTrabajador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ModalTrabajador_lbBuscarTrabajador;
+
+        /// <summary>
+        /// ModalTrabajador_gvTrabajador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ModalTrabajador_gvTrabajador;
+
+        /// <summary>
+        /// ModalEmpresa_txtEmpresaNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ModalEmpresa_txtEmpresaNombre;
+
+        /// <summary>
+        /// ModalEmpresa_lbBuscarEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ModalEmpresa_lbBuscarEmpresa;
+
+        /// <summary>
+        /// ModalEmpresa_gvEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ModalEmpresa_gvEmpresa;
+
+        /// <summary>
+        /// ModalAdministrador_txtAdministradorNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ModalAdministrador_txtAdministradorNombre;
+
+        /// <summary>
+        /// ModalAdministrador_lbBuscarAdministrador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ModalAdministrador_lbBuscarAdministrador;
+
+        /// <summary>
+        /// ModalAdministrador_gvAdministrador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ModalAdministrador_gvAdministrador;
     }
 }

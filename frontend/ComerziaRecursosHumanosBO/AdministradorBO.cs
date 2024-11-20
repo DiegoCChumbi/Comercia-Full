@@ -1,7 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using ComerziaBO;
+﻿using ComerziaBO;
 using ComerziaBO.ComerziaWS;
+using System;
+using System.ComponentModel;
 
 namespace ComerziaRecursosHumanosBO
 {
@@ -94,6 +94,18 @@ namespace ComerziaRecursosHumanosBO
             if (arreglo == null)
             {
                 return new BindingList<administrador>(); // Devuelve una lista vacía en caso de null
+            }
+
+            return new BindingList<administrador>(arreglo);
+        }
+
+        public BindingList<administrador> listarPorNombre(String nombre)
+        {
+            administrador[] arreglo = this.WsRecursosHumanos.buscarPorNombre_administrador(nombre);
+
+            if (arreglo == null)
+            {
+                return new BindingList<administrador>();
             }
 
             return new BindingList<administrador>(arreglo);

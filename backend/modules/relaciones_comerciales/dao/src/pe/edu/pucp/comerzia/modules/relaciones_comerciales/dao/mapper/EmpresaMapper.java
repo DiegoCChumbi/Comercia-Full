@@ -5,31 +5,32 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import pe.edu.pucp.comerzia.core.dao.BaseDAO.EntityMapper;
+import pe.edu.pucp.comerzia.core.dao.BaseEntityMapper;
 import pe.edu.pucp.comerzia.core.dao.utils.Column;
 import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Empresa;
 
 public class EmpresaMapper<T extends Empresa> implements EntityMapper<T> {
 
-  public static class Columns {
+  public static class Columns extends BaseEntityMapper.Columns {
 
-    public static final Column<Integer> id = new Column<>("id", Integer.class);
-    public static final Column<String> nombre = new Column<>(
+    public static final Column<Integer> id = Column.of("id", Integer.class);
+    public static final Column<String> nombre = Column.of(
       "nombre",
       String.class
     );
-    public static final Column<String> direccion = new Column<>(
+    public static final Column<String> direccion = Column.of(
       "direccion",
       String.class
     );
-    public static final Column<String> telefono = new Column<>(
+    public static final Column<String> telefono = Column.of(
       "telefono",
       String.class
     );
-    public static final Column<String> email = new Column<>(
+    public static final Column<String> email = Column.of(
       "email",
       String.class
     );
-    public static final Column<String> tipoIndustria = new Column<>(
+    public static final Column<String> tipoIndustria = Column.of(
       "tipo_industria",
       String.class
     );
@@ -44,12 +45,12 @@ public class EmpresaMapper<T extends Empresa> implements EntityMapper<T> {
   public T mapResultSetToEntity(ResultSet rs) throws SQLException {
     T empresa = createEntity();
 
-    empresa.setId(rs.getInt("id"));
-    empresa.setNombre(rs.getString("nombre"));
-    empresa.setDireccion(rs.getString("direccion"));
-    empresa.setTelefono(rs.getString("telefono"));
-    empresa.setEmail(rs.getString("email"));
-    empresa.setTipoIndustria(rs.getString("tipo_industria"));
+    empresa.setId(rs.getInt(Columns.id.getName()));
+    empresa.setNombre(rs.getString(Columns.nombre.getName()));
+    empresa.setDireccion(rs.getString(Columns.direccion.getName()));
+    empresa.setTelefono(rs.getString(Columns.telefono.getName()));
+    empresa.setEmail(rs.getString(Columns.email.getName()));
+    empresa.setTipoIndustria(rs.getString(Columns.tipoIndustria.getName()));
 
     return empresa;
   }

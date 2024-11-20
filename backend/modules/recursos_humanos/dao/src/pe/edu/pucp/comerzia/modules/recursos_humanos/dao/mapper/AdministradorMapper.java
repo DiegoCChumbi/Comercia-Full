@@ -11,7 +11,7 @@ public class AdministradorMapper extends EmpleadoMapper<Administrador> {
 
   public static class Columns extends EmpleadoMapper.Columns {
 
-    public static final Column<Integer> idAlmacen = new Column<>(
+    public static final Column<Integer> idAlmacen = Column.of(
       "id_almacen",
       Integer.class
     );
@@ -26,7 +26,7 @@ public class AdministradorMapper extends EmpleadoMapper<Administrador> {
   public Administrador mapResultSetToEntity(ResultSet rs) throws SQLException {
     Administrador administrador = super.mapResultSetToEntity(rs);
 
-    administrador.setIdAlmacen(rs.getInt("id_almacen"));
+    administrador.setIdAlmacen(rs.getInt(Columns.idAlmacen.getName()));
 
     return administrador;
   }
