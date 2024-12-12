@@ -6,8 +6,14 @@ import pe.edu.pucp.comerzia.modules.notificacion.model.Notificacion;
 
 public class NotificacionDAO extends BaseDAO<Notificacion, Integer> {
 
+  private static final NotificacionDAO instance = new NotificacionDAO();
+
+  public static NotificacionDAO getNotificacionInstance() {
+    return instance;
+  }
+
   // Default
-  public NotificacionDAO() {
+  protected NotificacionDAO() {
     super(Notificacion.class, new NotificacionMapper());
   }
 

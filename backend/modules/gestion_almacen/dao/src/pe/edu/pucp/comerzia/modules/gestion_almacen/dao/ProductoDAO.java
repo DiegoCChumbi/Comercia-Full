@@ -6,8 +6,14 @@ import pe.edu.pucp.comerzia.modules.gestion_almacen.model.Producto;
 
 public class ProductoDAO extends BaseDAO<Producto, Integer> {
 
+  private static final ProductoDAO instance = new ProductoDAO();
+
+  public static ProductoDAO getProductoInstance() {
+    return instance;
+  }
+
   // Default
-  public ProductoDAO() {
+  protected ProductoDAO() {
     super(Producto.class, new ProductoMapper());
   }
 

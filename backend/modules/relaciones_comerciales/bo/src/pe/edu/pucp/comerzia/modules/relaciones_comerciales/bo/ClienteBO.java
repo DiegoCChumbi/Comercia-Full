@@ -12,7 +12,7 @@ public class ClienteBO {
   private ClienteDAO clienteDAO;
 
   public ClienteBO() {
-    this.clienteDAO = new ClienteDAO();
+    this.clienteDAO = ClienteDAO.getClienteInstance();
   }
 
   public Integer insertar(

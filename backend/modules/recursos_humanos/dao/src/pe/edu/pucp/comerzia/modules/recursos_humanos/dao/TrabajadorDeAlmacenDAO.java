@@ -5,7 +5,14 @@ import pe.edu.pucp.comerzia.modules.recursos_humanos.model.TrabajadorDeAlmacen;
 
 public class TrabajadorDeAlmacenDAO extends EmpleadoDAO<TrabajadorDeAlmacen> {
 
-  public TrabajadorDeAlmacenDAO() {
+  private static final TrabajadorDeAlmacenDAO instance =
+    new TrabajadorDeAlmacenDAO();
+
+  public static TrabajadorDeAlmacenDAO getTrabajadorDeAlmacenInstance() {
+    return instance;
+  }
+
+  protected TrabajadorDeAlmacenDAO() {
     super(TrabajadorDeAlmacen.class, new TrabajadorDeAlmacenMapper());
   }
 }

@@ -6,8 +6,14 @@ import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Visita;
 
 public class VisitaDAO extends BaseDAO<Visita, Integer> {
 
+  private static final VisitaDAO instance = new VisitaDAO();
+
+  public static VisitaDAO getVisitaInstance() {
+    return instance;
+  }
+
   // Default
-  public VisitaDAO() {
+  protected VisitaDAO() {
     super(Visita.class, new VisitaMapper());
   }
 

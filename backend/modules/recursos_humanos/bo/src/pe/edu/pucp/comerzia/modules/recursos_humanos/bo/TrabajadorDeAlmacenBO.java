@@ -14,7 +14,8 @@ public class TrabajadorDeAlmacenBO {
   private TrabajadorDeAlmacenDAO trabajadorDeAlmacenDAO;
 
   public TrabajadorDeAlmacenBO() {
-    this.trabajadorDeAlmacenDAO = new TrabajadorDeAlmacenDAO();
+    this.trabajadorDeAlmacenDAO =
+      TrabajadorDeAlmacenDAO.getTrabajadorDeAlmacenInstance();
   }
 
   public Integer insertar(

@@ -11,7 +11,7 @@ public class AlmacenBO {
   private AlmacenDAO almacenDAO;
 
   public AlmacenBO() {
-    this.almacenDAO = new AlmacenDAO();
+    this.almacenDAO = AlmacenDAO.getAlmacenInstance();
   }
 
   public Integer insertar(String nombre, String estado, String descripcion)

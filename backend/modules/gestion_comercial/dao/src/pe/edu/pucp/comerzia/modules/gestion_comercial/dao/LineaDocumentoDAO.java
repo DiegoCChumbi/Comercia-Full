@@ -6,8 +6,14 @@ import pe.edu.pucp.comerzia.modules.gestion_comercial.model.LineaDocumento;
 
 public class LineaDocumentoDAO extends BaseDAO<LineaDocumento, Integer> {
 
+  private static final LineaDocumentoDAO instance = new LineaDocumentoDAO();
+
+  public static LineaDocumentoDAO getLineaDocumentoInstance() {
+    return instance;
+  }
+
   // Default
-  public LineaDocumentoDAO() {
+  protected LineaDocumentoDAO() {
     super(LineaDocumento.class, new LineaDocumentoMapper());
   }
 

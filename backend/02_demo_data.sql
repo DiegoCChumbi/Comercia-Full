@@ -1,3 +1,5 @@
+USE programacion3;
+
 -- Insertar datos en la tabla Almacen
 INSERT INTO almacen (nombre, estado, descripcion) VALUES
 ('Almacen Central', 'Activo', 'Almacen principal de la empresa'),

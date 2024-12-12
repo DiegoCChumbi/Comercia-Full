@@ -6,8 +6,14 @@ import pe.edu.pucp.comerzia.modules.gestion_comercial.model.Documento;
 
 public class DocumentoDAO extends BaseDAO<Documento, Integer> {
 
+  private static final DocumentoDAO instance = new DocumentoDAO();
+
+  public static DocumentoDAO getDocumentoInstance() {
+    return instance;
+  }
+
   // Default
-  public DocumentoDAO() {
+  protected DocumentoDAO() {
     super(Documento.class, new DocumentoMapper());
   }
 

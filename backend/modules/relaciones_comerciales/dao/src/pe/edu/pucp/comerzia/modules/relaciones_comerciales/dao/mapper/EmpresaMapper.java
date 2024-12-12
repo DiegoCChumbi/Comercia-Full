@@ -26,10 +26,7 @@ public class EmpresaMapper<T extends Empresa> implements EntityMapper<T> {
       "telefono",
       String.class
     );
-    public static final Column<String> email = Column.of(
-      "email",
-      String.class
-    );
+    public static final Column<String> email = Column.of("email", String.class);
     public static final Column<String> tipoIndustria = Column.of(
       "tipo_industria",
       String.class

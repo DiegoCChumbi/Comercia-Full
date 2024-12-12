@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Proveedor extends Empresa {
 
-  private Date fecha_afiliacion;
+  private Date fechaAfiliacion;
   // TODO: Mover lo de abajo a Clase Empresa
   private String RUC;
   private String razonSocial;
@@ -13,19 +13,19 @@ public class Proveedor extends Empresa {
 
   public Proveedor() {
     super();
-    this.fecha_afiliacion = null;
+    this.fechaAfiliacion = null;
     this.RUC = null;
     this.razonSocial = null;
     this.calificacion = null;
     this.pais = null;
   }
 
-  public Date getFecha_afiliacion() {
-    return fecha_afiliacion;
+  public Date getFechaAfiliacion() {
+    return fechaAfiliacion;
   }
 
-  public void setFecha_afiliacion(Date fecha_afiliacion) {
-    this.fecha_afiliacion = fecha_afiliacion;
+  public void setFechaAfiliacion(Date fechaAfiliacion) {
+    this.fechaAfiliacion = fechaAfiliacion;
   }
 
   public String getRUC() {

@@ -12,7 +12,7 @@ public class LineaDocumentoBO {
   private LineaDocumentoDAO lineaDocumentoDAO;
 
   public LineaDocumentoBO() {
-    this.lineaDocumentoDAO = new LineaDocumentoDAO();
+    this.lineaDocumentoDAO = LineaDocumentoDAO.getLineaDocumentoInstance();
   }
 
   public Integer insertar(

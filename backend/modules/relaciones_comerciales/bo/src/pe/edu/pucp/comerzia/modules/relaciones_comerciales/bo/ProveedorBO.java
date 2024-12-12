@@ -12,7 +12,7 @@ public class ProveedorBO {
   private ProveedorDAO proveedorDAO;
 
   public ProveedorBO() {
-    this.proveedorDAO = new ProveedorDAO();
+    this.proveedorDAO = ProveedorDAO.getProveedorInstance();
   }
 
   public Integer insertar(
@@ -21,7 +21,7 @@ public class ProveedorBO {
     String telefono,
     String email,
     String tipoIndustria,
-    Date fecha_afiliacion,
+    Date fechaAfiliacion,
     String RUC,
     String razonSocial,
     Double calificacion,
@@ -34,7 +34,7 @@ public class ProveedorBO {
     proveedor.setTelefono(telefono);
     proveedor.setEmail(email);
     proveedor.setTipoIndustria(tipoIndustria);
-    proveedor.setFecha_afiliacion(fecha_afiliacion);
+    proveedor.setFechaAfiliacion(fechaAfiliacion);
     proveedor.setRUC(RUC);
     proveedor.setRazonSocial(razonSocial);
     proveedor.setCalificacion(calificacion);
@@ -50,7 +50,7 @@ public class ProveedorBO {
     String telefono,
     String email,
     String tipoIndustria,
-    Date fecha_afiliacion,
+    Date fechaAfiliacion,
     String RUC,
     String razonSocial,
     Double calificacion,
@@ -64,7 +64,7 @@ public class ProveedorBO {
     proveedor.setTelefono(telefono);
     proveedor.setEmail(email);
     proveedor.setTipoIndustria(tipoIndustria);
-    proveedor.setFecha_afiliacion(fecha_afiliacion);
+    proveedor.setFechaAfiliacion(fechaAfiliacion);
     proveedor.setRUC(RUC);
     proveedor.setRazonSocial(razonSocial);
     proveedor.setCalificacion(calificacion);
@@ -85,8 +85,6 @@ public class ProveedorBO {
     return new ArrayList<>(this.proveedorDAO.findAll());
   }
 
-    // return this.daoProveedor.listarParaIndex();
-  // query limit 3 list
   public ArrayList<Proveedor> listarParaIndex() throws SQLException {
     return new ArrayList<>(this.proveedorDAO.query().limit(3).list());
   }

@@ -6,7 +6,13 @@ import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Representante;
 
 public class RepresentanteDAO extends PersonaDAO<Representante> {
 
-  public RepresentanteDAO() {
+  private static final RepresentanteDAO instance = new RepresentanteDAO();
+
+  public static RepresentanteDAO getRepresentanteInstance() {
+    return instance;
+  }
+
+  protected RepresentanteDAO() {
     super(Representante.class, new RepresentanteMapper());
   }
 }

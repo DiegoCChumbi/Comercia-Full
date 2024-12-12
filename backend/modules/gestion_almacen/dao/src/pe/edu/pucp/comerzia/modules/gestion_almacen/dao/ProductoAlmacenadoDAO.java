@@ -7,8 +7,15 @@ import pe.edu.pucp.comerzia.modules.gestion_almacen.model.ProductoAlmacenado;
 public class ProductoAlmacenadoDAO
   extends BaseDAO<ProductoAlmacenado, Integer> {
 
+  private static final ProductoAlmacenadoDAO instance =
+    new ProductoAlmacenadoDAO();
+
+  public static ProductoAlmacenadoDAO getProductoAlmacenadoInstance() {
+    return instance;
+  }
+
   // Default
-  public ProductoAlmacenadoDAO() {
+  protected ProductoAlmacenadoDAO() {
     super(ProductoAlmacenado.class, new ProductoAlmacenadoMapper());
   }
 

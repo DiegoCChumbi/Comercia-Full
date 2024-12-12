@@ -5,7 +5,13 @@ import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Administrador;
 
 public class AdministradorDAO extends EmpleadoDAO<Administrador> {
 
-  public AdministradorDAO() {
+  private static final AdministradorDAO instance = new AdministradorDAO();
+
+  public static AdministradorDAO getAdministradorInstance() {
+    return instance;
+  }
+
+  protected AdministradorDAO() {
     super(Administrador.class, new AdministradorMapper());
   }
 }

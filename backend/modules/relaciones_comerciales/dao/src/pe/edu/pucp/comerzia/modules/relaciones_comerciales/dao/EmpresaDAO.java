@@ -6,13 +6,19 @@ import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Empresa;
 
 public class EmpresaDAO<T extends Empresa> extends BaseDAO<T, Integer> {
 
-  public EmpresaDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
+  private static final EmpresaDAO<Empresa> instance = new EmpresaDAO<>();
+
+  public static EmpresaDAO<Empresa> getEmpresaInstance() {
+    return instance;
+  }
+
+  protected EmpresaDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
     super(entityClass, entityMapper);
   }
 
   // Default
   @SuppressWarnings("unchecked")
-  public EmpresaDAO() {
+  protected EmpresaDAO() {
     super(
       (Class<T>) Empresa.class,
       (EntityMapper<T>) new EmpresaMapper<Empresa>()

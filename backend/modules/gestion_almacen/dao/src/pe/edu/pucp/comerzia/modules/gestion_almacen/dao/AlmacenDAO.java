@@ -6,8 +6,14 @@ import pe.edu.pucp.comerzia.modules.gestion_almacen.model.Almacen;
 
 public class AlmacenDAO extends BaseDAO<Almacen, Integer> {
 
+  private static final AlmacenDAO instance = new AlmacenDAO();
+
+  public static AlmacenDAO getAlmacenInstance() {
+    return instance;
+  }
+
   // Default
-  public AlmacenDAO() {
+  protected AlmacenDAO() {
     super(Almacen.class, new AlmacenMapper());
   }
 

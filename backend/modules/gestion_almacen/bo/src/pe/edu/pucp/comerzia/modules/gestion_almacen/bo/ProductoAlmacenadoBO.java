@@ -13,7 +13,8 @@ public class ProductoAlmacenadoBO {
   private ProductoAlmacenadoDAO productoAlmacenadoDAO;
 
   public ProductoAlmacenadoBO() {
-    this.productoAlmacenadoDAO = new ProductoAlmacenadoDAO();
+    this.productoAlmacenadoDAO =
+      ProductoAlmacenadoDAO.getProductoAlmacenadoInstance();
   }
 
   public Integer insertar(

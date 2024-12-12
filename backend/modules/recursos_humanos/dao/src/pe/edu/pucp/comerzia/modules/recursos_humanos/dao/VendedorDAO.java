@@ -5,7 +5,13 @@ import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Vendedor;
 
 public class VendedorDAO extends EmpleadoDAO<Vendedor> {
 
-  public VendedorDAO() {
+  private static final VendedorDAO instance = new VendedorDAO();
+
+  public static VendedorDAO getVendedorInstance() {
+    return instance;
+  }
+
+  protected VendedorDAO() {
     super(Vendedor.class, new VendedorMapper());
   }
 }

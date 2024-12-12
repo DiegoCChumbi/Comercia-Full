@@ -16,7 +16,7 @@ public class EmpleadoBO {
   private EmpleadoDAO<Empleado> empleadoDAO;
 
   public EmpleadoBO() {
-    this.empleadoDAO = new EmpleadoDAO<>();
+    this.empleadoDAO = EmpleadoDAO.getEmpleadoInstance();
   }
 
   public Integer insertar(

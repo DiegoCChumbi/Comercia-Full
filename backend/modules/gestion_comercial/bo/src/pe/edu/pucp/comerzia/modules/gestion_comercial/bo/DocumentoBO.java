@@ -14,7 +14,7 @@ public class DocumentoBO {
   private DocumentoDAO documentoDAO;
 
   public DocumentoBO() {
-    this.documentoDAO = new DocumentoDAO();
+    this.documentoDAO = DocumentoDAO.getDocumentoInstance();
   }
 
   public Integer insertar(

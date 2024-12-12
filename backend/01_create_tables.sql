@@ -1,4 +1,4 @@
-USE comerzia_db;
+USE programacion3;
 
 -- Eliminar tabla Notificacion
 DROP TABLE IF EXISTS notificacion;
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS almacen (
     nombre VARCHAR(100) NOT NULL,
     estado VARCHAR(50) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -49,18 +49,16 @@ CREATE TABLE IF NOT EXISTS empresa (
     tipo_industria VARCHAR(50) NOT NULL,
     -- Common fields for all company types
     company_type ENUM('client_company', 'provider_company'), -- Discriminator column
-
     -- Fields for Proveedor
     fecha_afiliacion DATE,
     ruc VARCHAR(50) UNIQUE,
     razon_social VARCHAR(100),
     calificacion DOUBLE,
     pais VARCHAR(50),
-
     -- Fields for Cliente
     fecha_registro DATE,
     fecha_ultima_compra DATE,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -76,7 +74,6 @@ CREATE TABLE IF NOT EXISTS persona (
     direccion VARCHAR(255) NOT NULL,
     -- Common fields for all person types
     person_type ENUM('employee_person', 'representative_person'), -- Discriminator column
-
     -- Fields for Empleado
     estado ENUM('ACTIVO', 'INACTIVO'),
     nombre_usuario VARCHAR(50),
@@ -85,23 +82,18 @@ CREATE TABLE IF NOT EXISTS persona (
     fecha_contratacion DATE,
     -- Common fields for all employee types
     employee_type ENUM('admin_employee', 'warehouse_employee', 'sales_employee'), -- Discriminator column
-
     -- Empleado Fields For Administrador and TrabajadorDeAlmacen
     id_almacen INT,
-
     -- Empleado Fields For TrabajadorDeAlmacen
     licencia_montacarga BOOLEAN,
-
     -- Empleado Fields For Vendedor
     ingresos_ventas DOUBLE,
     porcentaje_comision DOUBLE,
-
     -- Fields for Representante
     id_empresa INT,
-
     FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE SET NULL,
     FOREIGN KEY (id_empresa) REFERENCES empresa(id) ON DELETE SET NULL,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -116,7 +108,7 @@ CREATE TABLE IF NOT EXISTS visita (
     id_cliente INT,
     FOREIGN KEY (id_vendedor) REFERENCES persona(id) ON DELETE CASCADE,
     FOREIGN KEY (id_cliente) REFERENCES empresa(id) ON DELETE SET NULL,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -128,7 +120,7 @@ CREATE TABLE IF NOT EXISTS producto (
     nombre VARCHAR(100) NOT NULL,
     precio DOUBLE NOT NULL,
     stock_minimo INT NOT NULL,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -143,7 +135,7 @@ CREATE TABLE IF NOT EXISTS producto_almacenado (
     stock_actual INT NOT NULL,
     FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
     FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE CASCADE,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -162,7 +154,7 @@ CREATE TABLE IF NOT EXISTS documento (
     FOREIGN KEY (id_vendedor) REFERENCES persona(id) ON DELETE SET NULL,
     FOREIGN KEY (id_administrador) REFERENCES persona(id) ON DELETE SET NULL,
     FOREIGN KEY (id_trabajador_de_almacen) REFERENCES persona(id) ON DELETE SET NULL,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -177,7 +169,7 @@ CREATE TABLE IF NOT EXISTS linea_documento (
     precio_unitario DOUBLE NOT NULL,
     FOREIGN KEY (id_documento) REFERENCES documento(id) ON DELETE CASCADE,
     FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL
@@ -190,7 +182,7 @@ CREATE TABLE IF NOT EXISTS notificacion (
     mensaje VARCHAR(255) NOT NULL,
     FOREIGN KEY (id_producto) REFERENCES producto(id) ON DELETE CASCADE,
     FOREIGN KEY (id_almacen) REFERENCES almacen(id) ON DELETE CASCADE,
-
+    -- Common timestamp fields
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP NULL

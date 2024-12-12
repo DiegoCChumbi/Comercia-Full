@@ -12,7 +12,7 @@ public class EmpresaBO {
   private EmpresaDAO<Empresa> empresaDAO;
 
   public EmpresaBO() {
-    this.empresaDAO = new EmpresaDAO<>();
+    this.empresaDAO = EmpresaDAO.getEmpresaInstance();
   }
 
   public Integer insertar(

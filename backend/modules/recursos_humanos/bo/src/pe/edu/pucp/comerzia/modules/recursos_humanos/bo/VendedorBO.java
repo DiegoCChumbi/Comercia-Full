@@ -14,7 +14,7 @@ public class VendedorBO {
   private VendedorDAO vendedorDAO;
 
   public VendedorBO() {
-    this.vendedorDAO = new VendedorDAO();
+    this.vendedorDAO = VendedorDAO.getVendedorInstance();
   }
 
   public Integer insertar(

@@ -5,13 +5,19 @@ import pe.edu.pucp.comerzia.modules.recursos_humanos.model.Empleado;
 
 public class EmpleadoDAO<T extends Empleado> extends PersonaDAO<T> {
 
-  public EmpleadoDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
+  private static final EmpleadoDAO<Empleado> instance = new EmpleadoDAO<>();
+
+  public static final EmpleadoDAO<Empleado> getEmpleadoInstance() {
+    return EmpleadoDAO.instance;
+  }
+
+  protected EmpleadoDAO(Class<T> entityClass, EntityMapper<T> entityMapper) {
     super(entityClass, entityMapper);
   }
 
   // Default
   @SuppressWarnings("unchecked")
-  public EmpleadoDAO() {
+  protected EmpleadoDAO() {
     super(
       (Class<T>) Empleado.class,
       (EntityMapper<T>) new EmpleadoMapper<Empleado>()

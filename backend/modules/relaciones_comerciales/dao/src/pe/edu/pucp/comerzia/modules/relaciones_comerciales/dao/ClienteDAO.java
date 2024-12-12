@@ -5,7 +5,13 @@ import pe.edu.pucp.comerzia.modules.relaciones_comerciales.model.Cliente;
 
 public class ClienteDAO extends EmpresaDAO<Cliente> {
 
-  public ClienteDAO() {
+  private static final ClienteDAO instance = new ClienteDAO();
+
+  public static ClienteDAO getClienteInstance() {
+    return instance;
+  }
+
+  protected ClienteDAO() {
     super(Cliente.class, new ClienteMapper());
   }
 }

@@ -12,7 +12,7 @@ public class ProveedorMapper extends EmpresaMapper<Proveedor> {
 
   public static class Columns extends EmpresaMapper.Columns {
 
-    public static final Column<Date> fecha_afiliacion = Column.of(
+    public static final Column<Date> fechaAfiliacion = Column.of(
       "fecha_afiliacion",
       Date.class
     );
@@ -25,10 +25,7 @@ public class ProveedorMapper extends EmpresaMapper<Proveedor> {
       "calificacion",
       Double.class
     );
-    public static final Column<String> pais = Column.of(
-      "pais",
-      String.class
-    );
+    public static final Column<String> pais = Column.of("pais", String.class);
   }
 
   @Override
@@ -40,9 +37,7 @@ public class ProveedorMapper extends EmpresaMapper<Proveedor> {
   public Proveedor mapResultSetToEntity(ResultSet rs) throws SQLException {
     Proveedor proveedor = super.mapResultSetToEntity(rs);
 
-    proveedor.setFecha_afiliacion(
-      rs.getDate(Columns.fecha_afiliacion.getName())
-    );
+    proveedor.setFechaAfiliacion(rs.getDate(Columns.fechaAfiliacion.getName()));
     proveedor.setRUC(rs.getString(Columns.ruc.getName()));
     proveedor.setRazonSocial(rs.getString(Columns.razonSocial.getName()));
     proveedor.setCalificacion(rs.getDouble(Columns.calificacion.getName()));
@@ -55,7 +50,7 @@ public class ProveedorMapper extends EmpresaMapper<Proveedor> {
   public Map<Column<?>, Object> mapEntityToColumns(Proveedor entity) {
     Map<Column<?>, Object> columns = super.mapEntityToColumns(entity);
 
-    columns.put(Columns.fecha_afiliacion, entity.getFecha_afiliacion());
+    columns.put(Columns.fechaAfiliacion, entity.getFechaAfiliacion());
     columns.put(Columns.ruc, entity.getRUC());
     columns.put(Columns.razonSocial, entity.getRazonSocial());
     columns.put(Columns.calificacion, entity.getCalificacion());

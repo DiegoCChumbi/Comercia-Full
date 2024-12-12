@@ -14,7 +14,7 @@ public class AdministradorBO {
   private AdministradorDAO administradorDAO;
 
   public AdministradorBO() {
-    this.administradorDAO = new AdministradorDAO();
+    this.administradorDAO = AdministradorDAO.getAdministradorInstance();
   }
 
   public Integer insertar(

@@ -11,7 +11,7 @@ public class PersonaBO {
   private PersonaDAO<Persona> personaDAO;
 
   public PersonaBO() {
-    this.personaDAO = new PersonaDAO<>();
+    this.personaDAO = PersonaDAO.getPersonaInstance();
   }
 
   public Integer insertar(

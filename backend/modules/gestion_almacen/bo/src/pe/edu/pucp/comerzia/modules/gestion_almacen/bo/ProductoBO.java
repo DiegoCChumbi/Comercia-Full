@@ -12,7 +12,7 @@ public class ProductoBO {
   private ProductoDAO productoDAO;
 
   public ProductoBO() {
-    this.productoDAO = new ProductoDAO();
+    this.productoDAO = ProductoDAO.getProductoInstance();
   }
 
   public Integer insertar(String nombre, Double precio, Integer stockMinimo)

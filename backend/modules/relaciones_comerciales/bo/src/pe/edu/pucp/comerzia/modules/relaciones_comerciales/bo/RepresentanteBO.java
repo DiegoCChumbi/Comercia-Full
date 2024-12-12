@@ -12,7 +12,7 @@ public class RepresentanteBO {
   private RepresentanteDAO representanteDAO;
 
   public RepresentanteBO() {
-    this.representanteDAO = new RepresentanteDAO();
+    this.representanteDAO = RepresentanteDAO.getRepresentanteInstance();
   }
 
   public Integer insertar(

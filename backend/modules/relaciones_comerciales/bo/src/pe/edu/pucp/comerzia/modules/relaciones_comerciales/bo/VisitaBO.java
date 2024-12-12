@@ -12,7 +12,7 @@ public class VisitaBO {
   private VisitaDAO visitaDAO;
 
   public VisitaBO() {
-    this.visitaDAO = new VisitaDAO();
+    this.visitaDAO = VisitaDAO.getVisitaInstance();
   }
 
   public Integer insertar(
