@@ -26,6 +26,10 @@ public class ProductoBO {
     return productoDAO.insert(producto);
   }
 
+  public Integer insertar(Producto producto) throws SQLException {
+    return productoDAO.insert(producto);
+  }
+
   public Integer modificar(
     Integer id,
     String nombre,

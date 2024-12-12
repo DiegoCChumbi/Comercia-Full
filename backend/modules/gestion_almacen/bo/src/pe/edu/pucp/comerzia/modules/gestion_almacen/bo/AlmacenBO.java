@@ -25,6 +25,10 @@ public class AlmacenBO {
     return almacenDAO.insert(almacen);
   }
 
+  public Integer insertar(Almacen almacen) throws SQLException {
+    return almacenDAO.insert(almacen);
+  }
+
   public Integer modificar(
     Integer id,
     String nombre,
